@@ -22,12 +22,24 @@ export default function GlobalError({ reset }: { error: Error & { digest?: strin
             >
               Try again
             </button>
-            <a href="/en" style={{ color: "#0b1320", border: "1px solid #c5d0da", borderRadius: 12, minHeight: 44, padding: "10px 16px", textDecoration: "none" }}>
+            <button
+              type="button"
+              onClick={() => {
+                window.location.href = "/en";
+              }}
+              style={{ color: "#0b1320", background: "transparent", border: "1px solid #c5d0da", borderRadius: 12, minHeight: 44, padding: "10px 16px", font: "inherit", cursor: "pointer" }}
+            >
               Home
-            </a>
-            <a href="/en/contact" style={{ color: "#255a78" }}>
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                window.location.href = "/en/contact";
+              }}
+              style={{ color: "#255a78", background: "transparent", border: 0, minHeight: 44, padding: "10px 16px", font: "inherit", cursor: "pointer" }}
+            >
               Contact
-            </a>
+            </button>
           </div>
         </main>
       </body>
