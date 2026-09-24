@@ -1,0 +1,151 @@
+import type { Locale } from "@/lib/i18n";
+import { services } from "@/lib/content/services";
+
+export const KNOWLEDGE_VERSION = "2026-09-16.1";
+
+type Entry = {
+  id: string;
+  terms: string[];
+  answer: Record<Locale, string>;
+};
+
+const entries: Entry[] = [
+  {
+    id: "company",
+    terms: ["who", "company", "şirkət", "компания", "公司", "شركة", "systems", "operator", "developer", "kimdir", "кто вы", "公司是"],
+    answer: {
+      en: "AzevsmAI Systems is the company that develops and operates the AzevsmAI platform. The company is not itself the platform or a product.",
+      az: "AzevsmAI Systems AzevsmAI platformasını hazırlayan və idarə edən şirkətdir. Şirkət özü platforma və ya məhsul deyil.",
+      ar: "AzevsmAI Systems هي الشركة التي تطوّر منصة AzevsmAI وتديرها. الشركة ليست المنصة ولا منتجًا.",
+      zh: "AzevsmAI Systems 是开发并运营 AzevsmAI 平台的公司。公司本身不是平台，也不是产品。",
+      ru: "AzevsmAI Systems — компания, которая разрабатывает и управляет платформой AzevsmAI. Сама компания не является платформой или продуктом.",
+    },
+  },
+  {
+    id: "platform",
+    terms: ["platform", "platforma", "платформ", "平台", "منصة", "what is azevsmai", "nədir", "что такое"],
+    answer: {
+      en: "AzevsmAI is the platform through which clients receive products and services. It is not a generic AI tool. Enter it only through the entry point published by the operator.",
+      az: "AzevsmAI müştərinin məhsul və servisləri aldığı platformadır. Ümumi AI aləti deyil. Ona yalnız operatorun dərc etdiyi giriş nöqtəsindən daxil olunur.",
+      ar: "AzevsmAI هي المنصة التي يتلقى عبرها العميل المنتجات والخدمات. ليست أداة ذكاء عامة. يُدخل إليها فقط من نقطة الدخول التي ينشرها المشغّل.",
+      zh: "AzevsmAI 是客户获得产品与服务的平台。它不是通用人工智能工具。只能通过运营方公布的入口进入。",
+      ru: "AzevsmAI — платформа, через которую клиент получает продукты и сервисы. Это не общий AI-инструмент. Вход только через точку, опубликованную оператором.",
+    },
+  },
+  {
+    id: "products",
+    terms: ["product", "məhsul", "продукт", "产品", "منتج", "index", "plus", "difference", "fərq", "различ", "institutional", "институционал", "azevsm index", "azevsm plus"],
+    answer: {
+      en: "The public product families are Azevsm Index, Azevsm Institutional Index and Azevsm Plus. Index is standardized evaluation, not one score. Institutional Index is a separate contour. Plus is a family of specialized services under full public names.",
+      az: "İctimai məhsul ailələri Azevsm Index, Azevsm Institutional Index və Azevsm Plus-dır. Index standartlaşdırılmış qiymətləndirmədir, tək skor deyil. Institutional Index ayrı konturdur. Plus tam ictimai adlarla ixtisaslaşmış servislər ailəsidir.",
+      ar: "عائلات المنتجات العامة هي Azevsm Index وAzevsm Institutional Index وAzevsm Plus. Index تقييم معياري وليس درجة واحدة. Institutional Index محيط منفصل. Plus عائلة خدمات متخصصة بأسماء عامة كاملة.",
+      zh: "公开产品族是 Azevsm Index、Azevsm Institutional Index 和 Azevsm Plus。Index 是标准化评估，不是单一分数。Institutional Index 是分开的轮廓。Plus 是使用完整公开名称的专项服务族。",
+      ru: "Публичные семейства: Azevsm Index, Azevsm Institutional Index и Azevsm Plus. Index — стандартизированная оценка, а не один балл. Institutional Index — отдельный контур. Plus — семейство специализированных сервисов под полными публичными именами.",
+    },
+  },
+  {
+    id: "ai",
+    terms: ["azevsm ai", "intelligence", "intellekt", "интеллект", "架构", "ذكاء", "chatbot", "çat"],
+    answer: {
+      en: "AzeVSM AI is the proprietary intelligence architecture inside AzevsmAI. It assists extraction, structuring, validation, analysis and interpretation inside controlled boundaries. It does not own the calculation or the decision.",
+      az: "AzeVSM AI AzevsmAI-nin daxilindəki öz intellekt arxitekturasıdır. Çıxarış, struktur, yoxlama, təhlil və şərhə idarə olunan sərhəddə kömək edir. Hesablamanın və qərarın sahibi deyil.",
+      ar: "AzeVSM AI هي بنية الذكاء الخاصة داخل AzevsmAI. تساعد في الاستخراج والهيكلة والتحقق والتحليل والتفسير داخل حدود محكومة. لا تملك الحساب ولا القرار.",
+      zh: "AzeVSM AI 是 AzevsmAI 内部的专有智能架构。它在受控边界内协助提取、结构化、核验、分析与解释。它不拥有计算或决定。",
+      ru: "AzeVSM AI — собственная интеллектуальная архитектура внутри AzevsmAI. Она помогает извлекать, структурировать, проверять, анализировать и интерпретировать внутри управляемых границ. Она не владеет расчётом и решением.",
+    },
+  },
+  {
+    id: "access",
+    terms: ["access", "register", "registration", "giriş", "qeydiyyat", "доступ", "регистрац", "注册", "دخول", "تسجيل", "onboarding", "order", "sifariş"],
+    answer: {
+      en: "Platform access is through the entry point the operator publishes. This website does not invent a registration rule, a price or an onboarding exception. For an individual commercial conversation, use human support.",
+      az: "Platformaya giriş operatorun dərc etdiyi nöqtə vasitəsilədir. Bu sayt qeydiyyat qaydası, qiymət və ya onboarding istisnası uydurmur. Fərdi kommersiya söhbəti üçün insan dəstəyindən istifadə edin.",
+      ar: "الدخول إلى المنصة عبر نقطة الدخول التي ينشرها المشغّل. لا يخترع هذا الموقع قاعدة تسجيل أو سعرًا أو استثناء انضمام. للحوار التجاري الفردي استخدم الدعم البشري.",
+      zh: "平台访问通过运营方公布的入口。本网站不编造注册规则、价格或入驻例外。个别商务对话请使用人工支持。",
+      ru: "Доступ к платформе — через точку входа, которую публикует оператор. Сайт не выдумывает правило регистрации, цену или исключение онбординга. Для индивидуального коммерческого разговора используйте поддержку человека.",
+    },
+  },
+  {
+    id: "languages",
+    terms: ["language", "dil", "язык", "语言", "لغة", "arabic", "ərəb"],
+    answer: {
+      en: "The site is published in Azerbaijani, English, Arabic, Chinese and Russian. Language availability is not a claim of market presence or regulatory permission.",
+      az: "Sayt Azərbaycan, ingilis, ərəb, Çin və rus dillərində dərc olunur. Dilin olması bazar və ya tənzimləmə iddiası deyil.",
+      ar: "يُنشر الموقع بالأذربيجانية والإنجليزية والعربية والصينية والروسية. توفر اللغة ليس ادعاء حضور سوقي أو إذن تنظيمي.",
+      zh: "网站以阿塞拜疆语、英语、阿拉伯语、中文和俄语发布。提供语言并不表示市场存在或监管许可。",
+      ru: "Сайт опубликован на азербайджанском, английском, арабском, китайском и русском. Наличие языка не является заявлением о рынке или регуляторном допуске.",
+    },
+  },
+  {
+    id: "navigate",
+    terms: ["navigate", "page", "səhifə", "страниц", "页面", "صفحة", "where", "harada", "где", "white box", "trust", "etibar", "доверие", "菜单", "nav"],
+    answer: {
+      en: "Use Home, Platform, Products, Technology, White Box / Standard, Trust and Company. Contact and partnership are in the header. Legal pages are in the footer.",
+      az: "Ana səhifə, Platforma, Məhsullar, Texnologiya, White Box / Standart, Etibar və Şirkət bölmələrindən istifadə edin. Əlaqə başlıqdadır. Hüquqi səhifələr altbilgidədir.",
+      ar: "استخدم الرئيسية والمنصة والمنتجات والتقنية وWhite Box / المعيار والثقة والشركة. التواصل في الترويسة. الصفحات القانونية في التذييل.",
+      zh: "请使用首页、平台、产品、技术、White Box / 标准、信任和公司。联系在页眉。法律页面在页脚。",
+      ru: "Используйте Главную, Платформу, Продукты, Технологию, White Box / Стандарт, Доверие и Компанию. Контакт в шапке. Юридические страницы в подвале.",
+    },
+  },
+];
+
+const protectedTerms = ["formula", "threshold", "weight", "çəki", "формул", "порог", "вес", "公式", "阈值", "صيغة", "prompt", "mapping", "variablepack", "core", "anti-fraud", "antifraud", "orchestration"];
+const analystTerms = ["score my", "calculate", "hesabla", "рассчита", "оцени компан", "评估我", "قيّم", "predict", "cluster", "whitebox imit", "my result", "nəticəmi"];
+const unknownTerms = ["price", "qiymət", "цена", "价格", "سعر", "discount", "endirim", "скидк", "refund", "payment", "ödəniş", "country", "ölkə", "стран", "国家", "partnership list", "future product"];
+
+const fallback: Record<Locale, string> = {
+  en: "The published knowledge set does not contain a confirmed answer. This needs confirmation from human support. The assistant will not invent a fact.",
+  az: "Dərc olunmuş bilik dəstində təsdiqlənmiş cavab yoxdur. Bu, insan dəstəyinin təsdiqini tələb edir. Köməkçi fakt uydurmur.",
+  ar: "لا تحتوي مجموعة المعرفة المنشورة على جواب مؤكد. يحتاج الأمر إلى تأكيد من الدعم البشري. لن يخترع المساعد حقيقة.",
+  zh: "已发布的知识集里没有经确认的回答。这需要人工支持确认。助手不会编造事实。",
+  ru: "В опубликованном наборе знаний нет подтверждённого ответа. Нужно подтверждение поддержки человека. Помощник не выдумывает факт.",
+};
+
+const boundary: Record<Locale, string> = {
+  en: "That question crosses the public disclosure limit. Formulas, weights, internal variables, protected prompts and internal architecture are not explained here.",
+  az: "Bu sual ictimai açıqlama həddini keçir. Formul, çəki, daxili dəyişən, qorunan prompt və daxili arxitektura burada izah olunmur.",
+  ar: "يتجاوز هذا السؤال حد الإفصاح العام. لا تُشرح هنا الصيغ والأوزان والمتغيرات الداخلية والمطالبات المحمية والبنية الداخلية.",
+  zh: "这个问题越过了公开披露限度。公式、权重、内部变量、受保护的提示词和内部架构不在这里解释。",
+  ru: "Этот вопрос выходит за предел публичного раскрытия. Формулы, веса, внутренние переменные, защищённые промпты и внутренняя архитектура здесь не объясняются.",
+};
+
+const analyst: Record<Locale, string> = {
+  en: "This assistant is not an AzevsmAI analyst. It does not calculate an Index, run Azevsm Plus, interpret a client result or imitate White Box.",
+  az: "Bu köməkçi AzevsmAI analitik mühərriki deyil. Index hesablamır, Azevsm Plus icra etmir, müştəri nəticəsini şərh etmir və White Box-u təqlid etmir.",
+  ar: "هذا المساعد ليس محلل AzevsmAI. لا يحسب Index ولا يشغّل Azevsm Plus ولا يفسّر نتيجة عميل ولا يقلّد White Box.",
+  zh: "此助手不是 AzevsmAI 分析引擎。它不计算 Index，不运行 Azevsm Plus，不解释客户结果，也不模仿 White Box。",
+  ru: "Этот помощник не является аналитиком AzevsmAI. Он не считает Index, не выполняет Azevsm Plus, не интерпретирует результат клиента и не имитирует White Box.",
+};
+
+function norm(value: string) {
+  return value.toLowerCase();
+}
+
+export function answerQuestion(locale: Locale, question: string) {
+  const text = norm(question);
+  const human = true;
+  if (!text.trim()) {
+    return { answer: fallback[locale], version: KNOWLEDGE_VERSION, human, matched: null as string | null };
+  }
+  if (protectedTerms.some((term) => text.includes(term))) {
+    return { answer: boundary[locale], version: KNOWLEDGE_VERSION, human, matched: "boundary" };
+  }
+  if (analystTerms.some((term) => text.includes(term))) {
+    return { answer: analyst[locale], version: KNOWLEDGE_VERSION, human, matched: "analyst" };
+  }
+  if (unknownTerms.some((term) => text.includes(term))) {
+    return { answer: fallback[locale], version: KNOWLEDGE_VERSION, human, matched: "unknown" };
+  }
+  const service = services.find((item) => text.includes(norm(item.labels[locale])) || text.includes(norm(item.slug.replaceAll("-", " "))));
+  if (service) {
+    return { answer: `${service.labels[locale]}. ${service.summary[locale]}`, version: KNOWLEDGE_VERSION, human: false, matched: service.id };
+  }
+  let best: { id: string; score: number } | null = null;
+  for (const entry of entries) {
+    const score = entry.terms.reduce((sum, term) => sum + (text.includes(term) ? term.length : 0), 0);
+    if (score > 0 && (!best || score > best.score)) best = { id: entry.id, score };
+  }
+  if (!best) return { answer: fallback[locale], version: KNOWLEDGE_VERSION, human, matched: null };
+  const found = entries.find((entry) => entry.id === best.id)!;
+  return { answer: found.answer[locale], version: KNOWLEDGE_VERSION, human: false, matched: found.id };
+}

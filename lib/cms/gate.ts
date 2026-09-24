@@ -1,0 +1,76 @@
+import type { Locale } from "@/lib/i18n";
+import { locales } from "@/lib/i18n";
+import { services, type PublishStatus } from "@/lib/content/services";
+
+export type Claim = {
+  id: string;
+  kind: "technology" | "trust";
+  status: PublishStatus;
+  statement: Record<Locale, string>;
+  sourceOwner: string;
+  reviewDate: string;
+  public: boolean;
+};
+
+export const claims: Claim[] = [
+  {
+    id: "claim-ai-boundary",
+    kind: "technology",
+    status: "published",
+    sourceOwner: "AzevsmAI Systems",
+    reviewDate: "2026-09-16",
+    public: true,
+    statement: {
+      en: "AzeVSM AI assists inside controlled boundaries and is not the scoring authority.",
+      az: "AzeVSM AI idarə olunan sərhəddə kömək edir və skor səlahiyyəti deyil.",
+      ar: "تساعد AzeVSM AI داخل حدود محكومة وليست سلطة التسجيل.",
+      zh: "AzeVSM AI 在受控边界内协助，不是评分权威。",
+      ru: "AzeVSM AI помогает внутри управляемых границ и не является полномочием скоринга.",
+    },
+  },
+  {
+    id: "claim-trace",
+    kind: "trust",
+    status: "published",
+    sourceOwner: "AzevsmAI Systems",
+    reviewDate: "2026-09-16",
+    public: true,
+    statement: {
+      en: "Every result has a trace. Every rule has a version.",
+      az: "Hər nəticənin izi var. Hər qaydanın versiyası var.",
+      ar: "لكل نتيجة أثر. لكل قاعدة إصدار.",
+      zh: "每个结果都有痕迹。每条规则都有版本。",
+      ru: "У каждого результата есть след. У каждого правила есть версия.",
+    },
+  },
+];
+
+const order: PublishStatus[] = ["draft", "review", "approved", "published"];
+
+export function canTransition(from: PublishStatus, to: PublishStatus) {
+  return order.indexOf(to) === order.indexOf(from) + 1 || from === to;
+}
+
+export function localeComplete(fields: Record<Locale, string>) {
+  return locales.filter((locale) => !fields[locale]?.trim());
+}
+
+export function serviceGateIssues() {
+  const issues: string[] = [];
+  for (const service of services) {
+    const missing = localeComplete(service.labels);
+    if (missing.length) issues.push(`${service.id} missing labels: ${missing.join(",")}`);
+    for (const locale of locales) {
+      if (service.labels[locale]?.trim() === service.serviceCode) {
+        issues.push(`${service.id} uses service code as public label for ${locale}`);
+      }
+    }
+    if (service.status === "published" && missing.length) issues.push(`${service.id} cannot be published`);
+  }
+  for (const claim of claims) {
+    const missing = localeComplete(claim.statement);
+    if (claim.status === "published" && missing.length) issues.push(`${claim.id} missing statements`);
+    if (!claim.sourceOwner || !claim.reviewDate) issues.push(`${claim.id} missing governance fields`);
+  }
+  return issues;
+}
