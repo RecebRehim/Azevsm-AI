@@ -2,63 +2,55 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useId, useRef, useState } from "react";
+import { useState } from "react";
 import { LanguageMenu } from "@/components/language-menu";
+import { Logo } from "@/components/logo";
 import type { SiteCopy } from "@/lib/content/copy";
 import { localePath, type Locale } from "@/lib/i18n";
 import { platformEntryUrl } from "@/lib/platform";
-
-type Item = { href: string; label: string };
 
 export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?: string }) {
   const path = usePathname() || `/${locale}`;
   const [open, setOpen] = useState(false);
   const entry = platformEntryUrl();
   const enterHref = entry ?? localePath(locale, "/enter");
-  const groups: { key: string; label: string; items: Item[] }[] = [
-    {
-      key: "platform",
-      label: copy.nav.platform,
-      items: [
-        { href: "/platform", label: copy.nav.platform },
-        { href: "/technology", label: copy.nav.technology },
-        { href: "/white-box", label: copy.nav.whitebox },
-      ],
-    },
-    {
-      key: "products",
-      label: copy.nav.products,
-      items: [
-        { href: "/products", label: copy.nav.products },
-        { href: "/products/azevsm-index", label: "Azevsm Index" },
-        { href: "/products/azevsm-institutional-index", label: "Azevsm Institutional Index" },
-        { href: "/products/azevsm-plus", label: "Azevsm Plus" },
-      ],
-    },
-  ];
-  const company: Item[] = [
+  const close = () => setOpen(false);
+  const links = [
+    { href: "/platform", label: copy.nav.platform },
+    { href: "/products", label: copy.nav.products },
+    { href: "/technology", label: copy.nav.technology },
+    { href: "/white-box", label: copy.nav.whitebox },
+    { href: "/trust", label: copy.nav.trust },
     { href: "/company", label: copy.nav.company },
-    { href: "/insights", label: copy.insightsLink },
   ];
 
   return (
     <header className="site-header">
       <div className={`wrap header-inner${open ? " is-open" : ""}`}>
-        <Link className="wordmark" href={localePath(locale)} onClick={() => setOpen(false)}>
-          <strong>AzevsmAI</strong>
-          <span>Systems</span>
+        <Link className="wordmark" href={localePath(locale)} onClick={close}>
+          <Logo variant="mark" title={copy.logoTitle} />
+          <span className="wordmark-text">
+            <strong>Azevsm</strong>
+            <span>Systems</span>
+          </span>
         </Link>
         <button className="menu-toggle" type="button" aria-expanded={open} aria-controls="site-nav" onClick={() => setOpen((value) => !value)}>
           {open ? copy.close : copy.menu}
         </button>
         <nav id="site-nav" className="nav-main" aria-label={copy.footerNav}>
-          {groups.map((group) => (
-            <NavMenu key={group.key} label={group.label} items={group.items} locale={locale} path={path} onNavigate={() => setOpen(false)} />
-          ))}
-          <Link href={localePath(locale, "/trust")} aria-current={path.startsWith(`/${locale}/trust`) ? "page" : undefined} onClick={() => setOpen(false)}>
-            {copy.nav.trust}
+          <Link href={localePath(locale)} aria-current={path === `/${locale}` ? "page" : undefined} onClick={close}>
+            {copy.nav.home}
           </Link>
-          <NavMenu label={copy.nav.company} items={company} locale={locale} path={path} onNavigate={() => setOpen(false)} />
+          {links.map((item) => (
+            <Link
+              key={item.href}
+              href={localePath(locale, item.href)}
+              aria-current={path === `/${locale}${item.href}` || path.startsWith(`/${locale}${item.href}/`) ? "page" : undefined}
+              onClick={close}
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
         <div className="header-utilities">
           <LanguageMenu locale={locale} path={path} label={copy.language} />
@@ -72,50 +64,5 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
         </div>
       </div>
     </header>
-  );
-}
-
-function NavMenu({ label, items, locale, path, onNavigate }: { label: string; items: Item[]; locale: Locale; path: string; onNavigate: () => void }) {
-  const [open, setOpen] = useState(false);
-  const root = useRef<HTMLDivElement>(null);
-  const menuId = useId();
-  const active = items.some((item) => path === `/${locale}${item.href}` || path.startsWith(`/${locale}${item.href}/`));
-
-  useEffect(() => {
-    if (!open) return;
-    function onPointer(event: MouseEvent) {
-      if (!root.current?.contains(event.target as Node)) setOpen(false);
-    }
-    function onKey(event: KeyboardEvent) {
-      if (event.key === "Escape") setOpen(false);
-    }
-    document.addEventListener("mousedown", onPointer);
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("mousedown", onPointer);
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [open]);
-
-  function onTriggerClick() {
-    const hover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-    if (hover) return;
-    setOpen((value) => !value);
-  }
-
-  return (
-    <div className={`menu nav-menu${open ? " is-open" : ""}`} ref={root} onMouseLeave={() => setOpen(false)}>
-      <button className="nav-trigger" type="button" aria-expanded={open} aria-controls={menuId} aria-current={active ? "page" : undefined} onClick={onTriggerClick}>
-        {label}
-        <svg className="icon icon-dir chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
-      </button>
-      <div className="menu-panel" id={menuId} role="menu">
-        {items.map((item) => (
-          <Link key={item.href} role="menuitem" href={localePath(locale, item.href)} aria-current={path === `/${locale}${item.href}` ? "page" : undefined} onClick={() => { setOpen(false); onNavigate(); }}>
-            {item.label}
-          </Link>
-        ))}
-      </div>
-    </div>
   );
 }

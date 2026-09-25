@@ -1,0 +1,13 @@
+---
+description: Public website copy stays identical to the design specification. The reference image is layout only.
+alwaysApply: true
+---
+
+# Public content
+
+- An English sentence on the public site is copied from the design specification. Do not paraphrase it and do not replace it with a line that appears only in a mockup.
+- The reference image controls layout, spacing, and component rhythm. It does not add headlines, labels, or slogans.
+- If a label is not in the specification, leave it out and record it as a TODO. Do not invent a sentence to fill the gap.
+- Canonical names stay as written in the specification: AzevsmAI Systems, AzevsmAI, AzeVSM AI, Azevsm Index, Azevsm Institutional Index, Azevsm Plus.
+- Do not publish formulas, weights, thresholds, mappings, prompts, or protected mechanics.
+- Do not merge or remove Result System, Technology, Validation/Reproducibility, White Box, Data Security, Legal/Compliance, Trust, or Company without an explicit agreement.

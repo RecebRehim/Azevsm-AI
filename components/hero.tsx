@@ -9,7 +9,7 @@ export function Hero({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
   const entry = platformEntryUrl();
   return (
     <section className="hero">
-      <Image className="hero-photo" src="/hero-office.jpg" alt="" fill priority sizes="100vw" />
+      <Image className="hero-photo" src="/hero-bg.jpg" alt="" fill priority sizes="100vw" />
       <div className="hero-scrim" />
       <div className="wrap hero-grid">
         <div>
@@ -21,28 +21,16 @@ export function Hero({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
               <svg className="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
             </Link>
             <Link className="btn btn-ghost" href={localePath(locale, "/technology")}>{copy.ourTechnology}</Link>
-            <a className="btn btn-quiet" href={entry ?? localePath(locale, "/enter")}>{copy.enterPlatform}</a>
+            <a className="btn btn-ghost" href={entry ?? localePath(locale, "/enter")}>{copy.enterPlatform}</a>
           </div>
         </div>
         <aside className="hero-panel" aria-label={copy.logoTitle}>
-          <Logo title={copy.logoTitle} />
-          <p className="hero-words">{copy.heroIdeas}</p>
+          <Logo variant="mark" title={copy.logoTitle} size={112} />
+          <p className="hero-brand"><strong>Azevsm</strong><span>Systems</span></p>
           <hr className="hero-rule" />
+          <p className="hero-words">{copy.heroWords}</p>
+          <hr className="hero-rule hero-rule-navy" />
           <p className="hero-tomorrow">{copy.heroTomorrow}</p>
-          <div className="hero-viz" aria-hidden="true">
-            <div className="viz-labels">
-              {copy.vizLabels.map((label) => <span key={label}>{label}</span>)}
-            </div>
-            <div className="bars">
-              <span style={{ height: "28%" }} />
-              <span style={{ height: "46%" }} />
-              <span style={{ height: "70%" }} />
-              <span style={{ height: "54%" }} />
-              <span style={{ height: "86%" }} />
-              <span style={{ height: "40%" }} />
-            </div>
-            <div className="ring" />
-          </div>
         </aside>
       </div>
     </section>
