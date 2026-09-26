@@ -203,6 +203,42 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
         </div>
       </section>
+      <section className="home-trust" aria-labelledby="home-trust-title">
+        <div className="wrap">
+          <div className="home-trust-head">
+            <div>
+              <p className="kicker">{copy.standardKicker}</p>
+              <h2 id="home-trust-title">{copy.standardTitle}</h2>
+            </div>
+            <Link className="text-link" href={localePath(locale, "/trust")}>
+              {copy.learnMore}
+              <svg className="icon icon-dir" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </Link>
+          </div>
+          <div className="home-trust-grid">
+            {copy.standardPoints.map(([title, body], index) => (
+              <article key={title}>
+                <span className="trust-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="home-close">
+        <div className="wrap home-close-inner">
+          <div className="home-close-copy">
+            <p className="kicker">{copy.companyKicker}</p>
+            <h2>{copy.companyTitle}</h2>
+            <p>{copy.companyLead}</p>
+          </div>
+          <div className="cta-row home-close-actions">
+            <Link className="btn btn-on-dark" href={localePath(locale, "/company")}>{copy.learnMore}</Link>
+            <Link className="btn home-close-primary" href={localePath(locale, "/contact")}>{copy.contact}</Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
