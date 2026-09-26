@@ -12,8 +12,8 @@ const mono = IBM_Plex_Mono({ subsets: ["latin", "cyrillic"], variable: "--font-m
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
-  title: "AzevsmAI Systems",
-  description: "AzevsmAI Systems develops and operates AzevsmAI, a structured evaluation platform for companies and startups.",
+  title: "Azevsm Systems",
+  description: "Azevsm Systems creates, develops and operates AzevsmAI, an institutional analytical platform and technological analytical infrastructure.",
 };
 
 export default async function SiteLayout({ children }: Readonly<{ children: React.ReactNode }>) {

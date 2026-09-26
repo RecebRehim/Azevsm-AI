@@ -21,7 +21,7 @@ export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "AzevsmAI Systems",
+    name: "Azevsm Systems",
     url: siteUrl(),
   };
 }

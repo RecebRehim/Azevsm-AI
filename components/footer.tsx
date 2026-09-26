@@ -6,6 +6,7 @@ import { LanguageMenu } from "@/components/language-menu";
 import { localePath, type Locale } from "@/lib/i18n";
 import type { SiteCopy } from "@/lib/content/copy";
 import { publicServices } from "@/lib/content/services";
+import { authorityRouteLabels, isAuthorityLocale } from "@/lib/content/authority-pages-v31";
 
 export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?: string }) {
   const path = usePathname() || `/${locale}`;
@@ -15,7 +16,7 @@ export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
       <div className="wrap">
         <div className="footer-grid">
           <div>
-            <h2>AzevsmAI Systems</h2>
+            <h2>Azevsm Systems</h2>
             <p>{copy.footerAbout}</p>
           </div>
           <div>
@@ -25,6 +26,13 @@ export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
               <li><Link href={localePath(locale, "/technology")}>{copy.nav.technology}</Link></li>
               <li><Link href={localePath(locale, "/white-box")}>{copy.nav.whitebox}</Link></li>
               <li><Link href={localePath(locale, "/trust")}>{copy.nav.trust}</Link></li>
+              {isAuthorityLocale(locale) ? (
+                <>
+                  <li><Link href={localePath(locale, "/result-system")}>{authorityRouteLabels[locale].resultSystem}</Link></li>
+                  <li><Link href={localePath(locale, "/how-azevsmai-is-different")}>{authorityRouteLabels[locale].difference}</Link></li>
+                  <li><Link href={localePath(locale, "/index-field-investor-ecosystem")}>{authorityRouteLabels[locale].indexField}</Link></li>
+                </>
+              ) : null}
             </ul>
           </div>
           <div>
@@ -55,6 +63,13 @@ export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
               <li><Link href={localePath(locale, "/legal/terms")}>{copy.terms}</Link></li>
               <li><Link href={localePath(locale, "/legal/cookies")}>{copy.cookies}</Link></li>
               <li><Link href={localePath(locale, "/legal/security")}>{copy.security}</Link></li>
+              {isAuthorityLocale(locale) ? (
+                <>
+                  <li><Link href={localePath(locale, "/validation-reproducibility")}>{authorityRouteLabels[locale].validation}</Link></li>
+                  <li><Link href={localePath(locale, "/data-security")}>{authorityRouteLabels[locale].dataSecurity}</Link></li>
+                  <li><Link href={localePath(locale, "/legal-compliance")}>{authorityRouteLabels[locale].legalCompliance}</Link></li>
+                </>
+              ) : null}
               <li><Link href={localePath(locale, "/legal/accessibility")}>{copy.accessibility}</Link></li>
             </ul>
           </div>

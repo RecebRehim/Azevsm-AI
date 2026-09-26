@@ -1,6 +1,6 @@
-# AzevsmAI Systems
+# Azevsm Systems
 
-AzevsmAI Systems üçün korporativ sayt. Bu, ayrıca marketinq layihəsi deyil. O, AzevsmAI platformasının ilk xarici toxunuşudur və Institutional × Premium standartını özü göstərməlidir.
+Azevsm Systems üçün korporativ sayt. Bu, ayrıca marketinq layihəsi deyil. O, AzevsmAI platformasının ilk xarici toxunuşudur və Institutional × Premium standartını özü göstərməlidir.
 
 Sayt şirkəti, platformanı, məhsulları və AzeVSM AI arxitekturasını bir-birindən ayırır. Qiymətləndirməni tək skor və ya sərbəst söhbət kimi təqdim etmir. Nəticə sübutdan izaha gedən idarə olunan zəncir kimi izah olunur.
 
