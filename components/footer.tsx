@@ -3,19 +3,24 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LanguageMenu } from "@/components/language-menu";
+import { Logo } from "@/components/logo";
 import { localePath, type Locale } from "@/lib/i18n";
 import type { SiteCopy } from "@/lib/content/copy";
-import { publicServices } from "@/lib/content/services";
 
 export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?: string }) {
   const path = usePathname() || `/${locale}`;
-  const services = publicServices(locale);
   return (
     <footer className="site-footer">
       <div className="wrap">
         <div className="footer-grid">
           <div>
-            <h2>AzevsmAI Systems</h2>
+            <div className="footer-brand">
+              <Logo variant="mark" title={copy.logoTitle} size={36} />
+              <span className="wordmark-text">
+                <strong>Azevsm</strong>
+                <span>Systems</span>
+              </span>
+            </div>
             <p>{copy.footerAbout}</p>
           </div>
           <div>
@@ -33,11 +38,6 @@ export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
               <li><Link href={localePath(locale, "/products/azevsm-index")}>Azevsm Index</Link></li>
               <li><Link href={localePath(locale, "/products/azevsm-institutional-index")}>Azevsm Institutional Index</Link></li>
               <li><Link href={localePath(locale, "/products/azevsm-plus")}>Azevsm Plus</Link></li>
-              {services.map((service) => (
-                <li key={service.id}>
-                  <Link href={localePath(locale, `/products/azevsm-plus/${service.slug}`)}>{service.labels[locale]}</Link>
-                </li>
-              ))}
             </ul>
           </div>
           <div>
@@ -60,7 +60,7 @@ export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
           </div>
         </div>
         <div className="footer-base">
-          <span>{copy.footerRights}</span>
+          <span>© {new Date().getFullYear()} {copy.footerRights}</span>
           <LanguageMenu locale={locale} path={path} label={copy.language} />
         </div>
       </div>
