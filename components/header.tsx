@@ -4,9 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { LanguageMenu } from "@/components/language-menu";
+import { Flag } from "@/components/flag";
 import { Logo } from "@/components/logo";
 import type { SiteCopy } from "@/lib/content/copy";
-import { localePath, type Locale } from "@/lib/i18n";
+import { localeMeta, localePath, swapLocale, type Locale } from "@/lib/i18n";
 import { platformEntryUrl } from "@/lib/platform";
 
 export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?: string }) {
@@ -25,7 +26,7 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
   ];
 
   return (
-    <header className="site-header">
+    <header className={`site-header${locale === "ru" ? " ru-pilot-site-header" : ""}`}>
       <div className={`wrap header-inner${open ? " is-open" : ""}`}>
         <Link className="wordmark" href={localePath(locale)} onClick={close}>
           <Logo variant="mark" title={copy.logoTitle} />
@@ -54,15 +55,43 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
         </nav>
         <div className="header-utilities">
           <LanguageMenu locale={locale} path={path} label={copy.language} />
-          <Link className="btn btn-ghost btn-compact" href={localePath(locale, "/contact")}>
-            {copy.contactCta}
-          </Link>
+          {locale !== "ru" ? (
+            <Link className="btn btn-ghost btn-compact" href={localePath(locale, "/contact")}>
+              {copy.contactCta}
+            </Link>
+          ) : null}
           <a className="btn btn-primary btn-compact" href={enterHref} {...(entry ? { rel: "noreferrer" } : {})}>
             {copy.enter}
             <svg className="icon icon-dir" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
           </a>
         </div>
       </div>
+      {locale === "ru" ? <RuMobileLanguages path={path} /> : null}
     </header>
+  );
+}
+
+
+const ruLanguageOrder: Locale[] = ["ru", "en", "az", "ar", "zh"];
+
+function RuMobileLanguages({ path }: { path: string }) {
+  return (
+    <nav className="ru-mobile-languages wrap" aria-label="Языки">
+      {ruLanguageOrder.map((item) => {
+        const meta = localeMeta[item];
+        return (
+          <Link
+            key={item}
+            href={swapLocale(path, item)}
+            hrefLang={meta.hreflang}
+            lang={meta.htmlLang}
+            className="ru-mobile-language-link"
+          >
+            <Flag locale={item} />
+            <span>{item.toUpperCase()}</span>
+          </Link>
+        );
+      })}
+    </nav>
   );
 }

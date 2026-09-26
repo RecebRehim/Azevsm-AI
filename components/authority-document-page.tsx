@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageIntro } from "@/components/page-intro";
+import { RuAuthorityDocumentPage } from "@/components/ru-authority-document-page";
 import { getAuthorityPage, type AuthorityPageKey } from "@/lib/content/authority-pages-v31";
 import { localePath, type Locale } from "@/lib/i18n";
 
@@ -12,6 +13,8 @@ function splitCell(value: string) {
 export function AuthorityDocumentPage({ locale, pageKey }: { locale: Locale; pageKey: AuthorityPageKey }) {
   const page = getAuthorityPage(locale, pageKey);
   if (!page) notFound();
+  if (locale === "ru" && (pageKey === "resultSystem" || pageKey === "validation")) return <RuAuthorityDocumentPage pageKey={pageKey} />;
+  const actions = locale === "ru" ? page.actions.filter((action) => action.href !== "/contact") : page.actions;
 
   return (
     <>
@@ -47,7 +50,7 @@ export function AuthorityDocumentPage({ locale, pageKey }: { locale: Locale; pag
             return null;
           })}
           <div className="next-actions">
-            {page.actions.map((action, index) => (
+            {actions.map((action, index) => (
               <Link className={index === 0 ? "btn btn-primary" : "btn btn-ghost"} href={action.href.startsWith("#") ? action.href : localePath(locale, action.href)} key={action.label}>
                 {action.label}
               </Link>

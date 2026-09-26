@@ -28,8 +28,8 @@ export function Hero({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
           <Logo variant="mark" title={copy.logoTitle} size={100} />
           <p className="hero-brand"><strong>Azevsm</strong><span>Systems</span></p>
           <hr className="hero-rule" />
-          <p className="hero-words">{copy.heroWords}</p>
-          <p className="hero-tomorrow">{copy.heroTomorrow}</p>
+          <p className="hero-words">{locale === "ru" ? "ДОКАЗАТЕЛЬСТВА\nАНАЛИЗ\nДОВЕРИЕ" : copy.heroWords}</p>
+          <p className="hero-tomorrow">{locale === "ru" ? copy.thesisSub : copy.heroTomorrow}</p>
         </aside>
       </div>
     </section>

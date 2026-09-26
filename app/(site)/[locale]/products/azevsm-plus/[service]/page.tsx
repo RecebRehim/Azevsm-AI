@@ -39,8 +39,8 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
           <article><h2>{copy.traceability}</h2><p>{body.trust}</p></article>
           <p className="note">{copy.tiers}</p>
           <div className="next-actions">
-            <Link className="btn btn-primary" href={localePath(locale, "/contact")}>{copy.contact}</Link>
-            <Link className="btn btn-ghost" href={localePath(locale, "/products/azevsm-plus")}>{copy.plusTitle}</Link>
+            {locale !== "ru" ? <Link className="btn btn-primary" href={localePath(locale, "/contact")}>{copy.contact}</Link> : null}
+            <Link className={locale === "ru" ? "btn btn-primary" : "btn btn-ghost"} href={localePath(locale, "/products/azevsm-plus")}>{copy.plusTitle}</Link>
           </div>
         </div>
       </section>

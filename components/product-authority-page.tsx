@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageIntro } from "@/components/page-intro";
+import { RuProductAuthorityPage } from "@/components/ru-product-authority-page";
 import { getProductAuthorityPage, type ProductAuthorityKey } from "@/lib/content/product-authority-pages-v31";
 import { localePath, type Locale } from "@/lib/i18n";
 
@@ -12,6 +13,7 @@ function cell(value: string) {
 export function ProductAuthorityPage({ locale, pageKey }: { locale: Locale; pageKey: ProductAuthorityKey }) {
   const page = getProductAuthorityPage(locale, pageKey);
   if (!page) notFound();
+  if (locale === "ru") return <RuProductAuthorityPage pageKey={pageKey} />;
   return (
     <>
       <PageIntro title={page.title} lead={page.lead} />

@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
   for (const locale of locales) {
     for (const path of paths) {
+      if (locale === "ru" && path === "/contact") continue;
       entries.push({
         url: new URL(localePath(locale, path), site).toString(),
         alternates: { languages: Object.fromEntries(locales.map((item) => [item, new URL(localePath(item, path), site).toString()])) },

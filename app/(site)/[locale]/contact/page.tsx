@@ -8,7 +8,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  if (!isLocale(locale)) return {};
+  if (!isLocale(locale) || locale === "ru") return {};
   const page = getContactAuthority(locale);
   const copy = getCopy(locale);
   return page ? pageMetadata(locale, "/contact", page.title, page.lead) : pageMetadata(locale, "/contact", copy.contactTitle, copy.contactLead);
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  if (!isLocale(locale)) notFound();
+  if (!isLocale(locale) || locale === "ru") notFound();
   const authority = getContactAuthority(locale);
   const copy = getCopy(locale);
   if (!authority) return (

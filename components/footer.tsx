@@ -53,7 +53,7 @@ export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
             <ul>
               <li><Link href={localePath(locale, "/company")}>{copy.nav.company}</Link></li>
               <li><Link href={localePath(locale, "/insights")}>{copy.insightsLink}</Link></li>
-              <li><Link href={localePath(locale, "/contact")}>{copy.contact}</Link></li>
+              {locale !== "ru" ? <li><Link href={localePath(locale, "/contact")}>{copy.contact}</Link></li> : null}
             </ul>
           </div>
           <div>
