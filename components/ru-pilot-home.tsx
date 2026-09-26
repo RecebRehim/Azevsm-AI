@@ -53,7 +53,7 @@ export function RuPilotHome({ copy }: { copy: SiteCopy }) {
           <div className="band-head">
             <div>
               <p className="kicker">{copy.homeTechKicker}</p>
-              <h2>{copy.homeTechTitle}</h2>
+              <h2>Собственная технология искусственного интеллекта <span className="ru-nowrap-term">AzeVSM AI</span></h2>
             </div>
             <Link className="text-link" href={localePath("ru", "/technology")}>{copy.learnMore}</Link>
           </div>

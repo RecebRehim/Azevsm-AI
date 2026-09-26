@@ -5,6 +5,13 @@ import type { SiteCopy } from "@/lib/content/copy";
 import { localePath, type Locale } from "@/lib/i18n";
 import { platformEntryUrl } from "@/lib/platform";
 
+function renderRuThesis(text: string) {
+  const term = "AzeVSM AI";
+  const index = text.indexOf(term);
+  if (index < 0) return text;
+  return <>{text.slice(0, index)}<span className="ru-nowrap-term">{term}</span>{text.slice(index + term.length)}</>;
+}
+
 export function Hero({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
   const entry = platformEntryUrl();
   return (
@@ -31,7 +38,7 @@ export function Hero({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
           <p className="hero-brand"><strong>Azevsm</strong><span>Systems</span></p>
           <hr className="hero-rule" />
           <p className="hero-words">{locale === "ru" ? "ДОКАЗАТЕЛЬСТВА\nАНАЛИЗ\nДОВЕРИЕ" : copy.heroWords}</p>
-          <p className="hero-tomorrow">{locale === "ru" ? copy.thesisSub : copy.heroTomorrow}</p>
+          <p className="hero-tomorrow">{locale === "ru" ? renderRuThesis(copy.thesisSub) : copy.heroTomorrow}</p>
         </aside>
       </div>
     </section>

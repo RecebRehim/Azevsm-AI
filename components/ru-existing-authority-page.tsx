@@ -23,10 +23,11 @@ export function RuExistingAuthorityPage({ pageKey }: { pageKey: ExistingAuthorit
 
   const owner = actionOwner[pageKey];
   const actions = owner ? page.actions.filter((action) => action.href === owner) : [];
+  const topics = page.blocks.flatMap((block) => block.type === "heading" ? [block.text] : []).slice(0, 3);
 
   return (
     <>
-      <RuPilotHero kind={kind[pageKey]} title={page.title} lead={page.lead} />
+      <RuPilotHero kind={kind[pageKey]} title={page.title} lead={page.lead} topics={topics} />
       <section className="section-tight ru-authority-section">
         <div className="wrap ru-pilot-prose">
           <RuPilotBlocks blocks={page.blocks} />

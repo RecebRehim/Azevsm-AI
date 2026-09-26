@@ -4283,3 +4283,197 @@ html[lang="ru"] .assistant-panel {
     max-height: min(66vh, 560px);
   }
 }
+
+
+/* ============================================================
+   RU PILOT — DESKTOP-FIRST FOUNDER QA CONSOLIDATED REPAIR
+   Desktop/laptop is the primary visual baseline; mobile remains adapted.
+   ============================================================ */
+
+/* Restore the exact Founder-provided 4x4 sprite. */
+html[lang="ru"] .founder-icon,
+html[lang="ru"] .ru-plus-card-head .ru-plus-icon {
+  background-image: url("/founder-icons-ru.webp") !important;
+  background-size: 400% 400% !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+}
+html[lang="ru"] .founder-icon--azevsm-index { background-position: 0% 0% !important; }
+html[lang="ru"] .founder-icon--azevsm-institutional-index { background-position: 33.333% 0% !important; }
+html[lang="ru"] .founder-icon--azevsm-plus { background-position: 66.666% 0% !important; }
+html[lang="ru"] .founder-icon--methodology-ontology { background-position: 100% 0% !important; }
+html[lang="ru"] .founder-icon--azevsm-ai { background-position: 0% 33.333% !important; }
+html[lang="ru"] .founder-icon--white-box { background-position: 33.333% 33.333% !important; }
+html[lang="ru"] .founder-icon--structured-evidence { background-position: 66.666% 33.333% !important; }
+html[lang="ru"] .founder-icon--analytical-models { background-position: 100% 33.333% !important; }
+html[lang="ru"] .founder-icon--trusted-results { background-position: 0% 66.666% !important; }
+html[lang="ru"] .founder-icon--plus-budget { background-position: 33.333% 66.666% !important; }
+html[lang="ru"] .founder-icon--plus-investment { background-position: 66.666% 66.666% !important; }
+html[lang="ru"] .founder-icon--plus-financial-resilience { background-position: 100% 66.666% !important; }
+html[lang="ru"] .founder-icon--plus-institutional-risk { background-position: 0% 100% !important; }
+html[lang="ru"] .founder-icon--plus-governance { background-position: 33.333% 100% !important; }
+html[lang="ru"] .founder-icon--plus-product-rights { background-position: 66.666% 100% !important; }
+html[lang="ru"] .founder-icon--plus-sustainability { background-position: 100% 100% !important; }
+
+.ru-nowrap-term { white-space: nowrap; }
+
+/* Homepage: only Founder-noted repairs; accepted structure remains unchanged. */
+html[lang="ru"] .hero-tomorrow {
+  width: min(100%, 312px);
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: 1px solid rgba(111,139,159,.30);
+  border-radius: 12px;
+  background: rgba(250,252,253,.86);
+  -webkit-backdrop-filter: blur(9px) saturate(115%);
+  backdrop-filter: blur(9px) saturate(115%);
+  box-shadow: 0 10px 28px rgba(20,48,78,.08);
+  color: #102846;
+}
+
+html[lang="ru"] .ru-home-products .band-head,
+html[lang="ru"] .ru-home-tech .band-head {
+  display: grid;
+  grid-template-columns: minmax(120px,1fr) minmax(0,760px) minmax(120px,1fr);
+  align-items: end;
+  gap: 18px;
+}
+html[lang="ru"] .ru-home-products .band-head > div,
+html[lang="ru"] .ru-home-tech .band-head > div {
+  grid-column: 2;
+  text-align: center;
+}
+html[lang="ru"] .ru-home-products .band-head .kicker,
+html[lang="ru"] .ru-home-tech .band-head .kicker { justify-content: center; }
+html[lang="ru"] .ru-home-products .band-head .text-link,
+html[lang="ru"] .ru-home-tech .band-head .text-link {
+  grid-column: 3;
+  justify-self: end;
+  align-self: end;
+}
+
+/* Source-bound desktop topic rail: only headings already present on each page. */
+.ru-hero-art-core {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+.ru-hero-topic-grid { display: none; }
+
+@media (min-width: 1025px) {
+  html[lang="ru"] .ru-pilot-hero-inner {
+    min-height: 460px;
+    grid-template-columns: minmax(0,1fr) minmax(430px,.92fr);
+    gap: clamp(56px,6vw,96px);
+    padding-block: clamp(58px,6vw,76px);
+  }
+  html[lang="ru"] .ru-pilot-hero-copy {
+    align-self: center;
+    max-width: 720px;
+  }
+  html[lang="ru"] .ru-pilot-hero h1 {
+    max-width: 18ch;
+    font-size: clamp(42px,4vw,60px);
+  }
+  html[lang="ru"] .ru-pilot-lead {
+    max-width: 58ch;
+    font-size: clamp(17px,1.25vw,19px);
+  }
+
+  html[lang="ru"] .ru-thematic-hero-art {
+    position: relative;
+    width: min(100%,530px);
+    min-height: 350px;
+    justify-self: end;
+    align-content: center;
+    padding: 28px 32px 24px;
+    overflow: hidden;
+    border: 1px solid rgba(108,139,163,.25);
+    border-radius: 30px;
+    background: linear-gradient(145deg,rgba(255,255,255,.80),rgba(230,239,245,.65));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.84), 0 24px 58px rgba(19,49,80,.09);
+  }
+  html[lang="ru"] .ru-thematic-hero-art::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(31,73,112,.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(31,73,112,.035) 1px,transparent 1px);
+    background-size: 36px 36px;
+    mask-image: linear-gradient(180deg,rgba(0,0,0,.72),transparent 72%);
+  }
+  html[lang="ru"] .ru-hero-art-core { min-height: 224px; }
+  html[lang="ru"] .ru-hero-founder-icon {
+    width: clamp(210px,17vw,252px);
+    height: clamp(210px,17vw,252px);
+    filter: drop-shadow(0 24px 36px rgba(24,58,91,.13));
+  }
+  html[lang="ru"] .ru-products-hero-icons { gap: 12px; }
+  html[lang="ru"] .ru-products-hero-icons .founder-icon {
+    width: clamp(116px,10vw,142px);
+    height: clamp(116px,10vw,142px);
+  }
+  html[lang="ru"] .ru-products-hero-icons .founder-icon:nth-child(2) { transform: translateY(-18px); }
+  html[lang="ru"] .ru-company-mark,
+  html[lang="ru"] .ru-research-mark { width: clamp(210px,18vw,248px); }
+
+  html[lang="ru"] .ru-hero-topic-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 7px;
+    width: 100%;
+    margin-top: 10px;
+  }
+  html[lang="ru"] .ru-hero-topic {
+    display: grid;
+    grid-template-columns: 34px minmax(0,1fr);
+    gap: 10px;
+    align-items: center;
+    min-height: 40px;
+    padding: 8px 10px;
+    border-top: 1px solid rgba(112,141,163,.20);
+    color: #31465d;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+  html[lang="ru"] .ru-hero-topic b {
+    color: #9a793d;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .09em;
+  }
+
+  html[lang="ru"] .ru-authority-section .ru-pilot-prose { width: min(100%,1180px); }
+  html[lang="ru"] .ru-pilot-blocks > p { width: min(100%,900px); }
+  html[lang="ru"] .ru-pilot-blocks > h2 { width: min(100%,960px); }
+  html[lang="ru"] .ru-pilot-blocks > ul,
+  html[lang="ru"] .ru-pilot-note { width: min(100%,960px); }
+  html[lang="ru"] .ru-scenario-grid { width: min(100%,1100px); }
+  html[lang="ru"] .ru-scenario-card { min-height: 172px; }
+  html[lang="ru"] .ru-products-grid { width: min(100%,1180px); }
+  html[lang="ru"] .ru-product-card { min-height: 270px; }
+  html[lang="ru"] .ru-plus-grid { width: min(100%,1140px); }
+}
+
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-home-products .band-head,
+  html[lang="ru"] .ru-home-tech .band-head {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  html[lang="ru"] .ru-home-products .band-head > div,
+  html[lang="ru"] .ru-home-tech .band-head > div { width: 100%; }
+  html[lang="ru"] .ru-home-products .band-head .text-link,
+  html[lang="ru"] .ru-home-tech .band-head .text-link { align-self: center; }
+  html[lang="ru"] .hero-tomorrow {
+    width: min(100%,278px);
+    margin-inline: auto;
+  }
+  .ru-hero-topic-grid { display: none !important; }
+}

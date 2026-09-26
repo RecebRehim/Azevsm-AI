@@ -44,6 +44,10 @@ export function RuProductAuthorityPage({ pageKey }: { pageKey: ProductAuthorityK
   const page = getProductAuthorityPage("ru", pageKey);
   if (!page) notFound();
 
+  const heroTopics = page.blocks
+    .flatMap((block) => block.type === "heading" && !/^\d+\./.test(block.text) ? [block.text] : [])
+    .slice(0, 3);
+
   if (pageKey === "platform") {
     const heading = page.blocks.find((block) => block.type === "heading" && block.text === "Я представляю");
     const intro = page.blocks.find((block) => block.type === "p" && block.text.startsWith("Выберите свой сценарий"));
@@ -52,7 +56,7 @@ export function RuProductAuthorityPage({ pageKey }: { pageKey: ProductAuthorityK
     const copy = getCopy("ru");
     return (
       <>
-        <RuPilotHero kind="platform" title={page.title} lead={page.lead} />
+        <RuPilotHero kind="platform" title={page.title} lead={page.lead} topics={heroTopics} />
         <section className="section-tight">
           <div className="wrap ru-pilot-prose">
             <section className="ru-scenario-section">
@@ -97,7 +101,7 @@ export function RuProductAuthorityPage({ pageKey }: { pageKey: ProductAuthorityK
     const rows = table?.type === "table" ? table.rows.flat().filter(Boolean) : [];
     return (
       <>
-        <RuPilotHero kind="products" title={page.title} lead={page.lead} />
+        <RuPilotHero kind="products" title={page.title} lead={page.lead} topics={heroTopics} />
         <section className="section-tight">
           <div className="wrap ru-pilot-prose">
             <div className="ru-products-grid">
@@ -135,7 +139,7 @@ export function RuProductAuthorityPage({ pageKey }: { pageKey: ProductAuthorityK
     const clientBlocks = clientHeadingIndex >= 0 ? page.blocks.slice(clientHeadingIndex) : [];
     return (
       <>
-        <RuPilotHero kind="plus" title={page.title} lead={page.lead} />
+        <RuPilotHero kind="plus" title={page.title} lead={page.lead} topics={heroTopics} />
         <section className="section-tight">
           <div className="wrap ru-pilot-prose">
             {intro?.type === "p" ? <p className="ru-plus-intro">{intro.text}</p> : null}
@@ -164,7 +168,7 @@ export function RuProductAuthorityPage({ pageKey }: { pageKey: ProductAuthorityK
 
   return (
     <>
-      <RuPilotHero kind={heroKind[pageKey]} title={page.title} lead={page.lead} />
+      <RuPilotHero kind={heroKind[pageKey]} title={page.title} lead={page.lead} topics={heroTopics} />
       <section className="section-tight">
         <div className="wrap ru-pilot-prose">
           <RuPilotBlocks blocks={page.blocks} />

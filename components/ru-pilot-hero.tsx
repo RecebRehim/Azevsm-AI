@@ -30,10 +30,12 @@ export function RuPilotHero({
   kind,
   title,
   lead,
+  topics = [],
 }: {
   kind: RuPilotHeroKind;
   title: string;
   lead: string;
+  topics?: string[];
 }) {
   const icon = singleIcon[kind];
 
@@ -46,21 +48,33 @@ export function RuPilotHero({
         </div>
 
         <div className="ru-thematic-hero-art" aria-hidden="true">
-          {kind === "company" || kind === "insights" ? (
-            <div className={kind === "company" ? "ru-company-mark" : "ru-research-mark"}>
-              <Logo variant="mark" title="" size={128} />
+          <div className="ru-hero-art-core">
+            {kind === "company" || kind === "insights" ? (
+              <div className={kind === "company" ? "ru-company-mark" : "ru-research-mark"}>
+                <Logo variant="mark" title="" size={128} />
+              </div>
+            ) : kind === "products" ? (
+              <div className="ru-products-hero-icons">
+                <FounderIcon name="azevsm-index" />
+                <FounderIcon name="azevsm-institutional-index" />
+                <FounderIcon name="azevsm-plus" />
+              </div>
+            ) : icon ? (
+              <FounderIcon name={icon} className="ru-hero-founder-icon" />
+            ) : (
+              <div className="ru-platform-field" />
+            )}
+          </div>
+          {topics.length ? (
+            <div className="ru-hero-topic-grid">
+              {topics.slice(0, 3).map((topic, index) => (
+                <span className="ru-hero-topic" key={topic}>
+                  <b>{String(index + 1).padStart(2, "0")}</b>
+                  <span>{topic}</span>
+                </span>
+              ))}
             </div>
-          ) : kind === "products" ? (
-            <div className="ru-products-hero-icons">
-              <FounderIcon name="azevsm-index" />
-              <FounderIcon name="azevsm-institutional-index" />
-              <FounderIcon name="azevsm-plus" />
-            </div>
-          ) : icon ? (
-            <FounderIcon name={icon} className="ru-hero-founder-icon" />
-          ) : (
-            <div className="ru-platform-field" />
-          )}
+          ) : null}
         </div>
       </div>
     </header>
