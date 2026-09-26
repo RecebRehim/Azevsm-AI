@@ -26,6 +26,19 @@ const singleIcon: Partial<Record<RuPilotHeroKind, FounderIconName>> = {
   result: "analytical-models",
 };
 
+function renderProtectedTechnologyName(text: string) {
+  const term = "AzeVSM AI";
+  const index = text.indexOf(term);
+  if (index < 0) return text;
+  return (
+    <>
+      {text.slice(0, index)}
+      <span className="ru-nowrap-term">{term}</span>
+      {text.slice(index + term.length)}
+    </>
+  );
+}
+
 export function RuPilotHero({
   kind,
   title,
@@ -43,7 +56,7 @@ export function RuPilotHero({
     <header className={`ru-pilot-hero ru-pilot-hero--${kind}`}>
       <div className="wrap ru-pilot-hero-inner">
         <div className="ru-pilot-hero-copy">
-          <h1>{title}</h1>
+          <h1>{renderProtectedTechnologyName(title)}</h1>
           <p className="ru-pilot-lead">{lead}</p>
         </div>
 
