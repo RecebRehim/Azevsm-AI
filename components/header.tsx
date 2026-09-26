@@ -72,7 +72,18 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
 
 
 const ruDirectLanguages: Locale[] = ["ru", "en", "az"];
-const ruAvailableLanguages: Locale[] = ["ru", "en", "az", "ar", "zh"];
+const ruAdditionalLanguages = [
+  { code: "AR", name: "Arabic" },
+  { code: "ZH", name: "Chinese (Simplified)" },
+  { code: "TR", name: "Turkish" },
+  { code: "TK", name: "Turkmen" },
+  { code: "UZ", name: "Uzbek" },
+  { code: "KY", name: "Kyrgyz" },
+  { code: "KK", name: "Kazakh" },
+  { code: "DE", name: "German" },
+  { code: "IT", name: "Italian" },
+  { code: "FR", name: "French" },
+] as const;
 
 function RuLanguageAccess({ path }: { path: string }) {
   return (
@@ -95,22 +106,13 @@ function RuLanguageAccess({ path }: { path: string }) {
       </nav>
       <details className="ru-language-more">
         <summary>Языки</summary>
-        <div className="ru-language-panel" role="menu" aria-label="Доступные языки">
-          {ruAvailableLanguages.map((item) => {
-            const meta = localeMeta[item];
-            return (
-              <Link
-                key={item}
-                role="menuitem"
-                href={swapLocale(path, item)}
-                hrefLang={meta.hreflang}
-                lang={meta.htmlLang}
-              >
-                <span>{item.toUpperCase()}</span>
-                <span>{meta.name}</span>
-              </Link>
-            );
-          })}
+        <div className="ru-language-panel" aria-label="Дополнительные языки">
+          {ruAdditionalLanguages.map((item) => (
+            <div className="ru-language-pending" key={item.code}>
+              <span>{item.code}</span>
+              <span>{item.name}</span>
+            </div>
+          ))}
         </div>
       </details>
     </div>
