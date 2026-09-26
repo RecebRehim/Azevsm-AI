@@ -12,7 +12,7 @@ export function Hero({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
       <Image className="hero-photo" src="/hero-bg.jpg" alt="" fill priority sizes="100vw" />
       <div className="hero-scrim" />
       <div className="wrap hero-grid">
-        <div>
+        <div className="hero-copy">
           <h1>{copy.heroTitle}</h1>
           <p className="hero-lead">{copy.heroLead}</p>
           <div className="cta-row">
@@ -25,11 +25,10 @@ export function Hero({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
           </div>
         </div>
         <aside className="hero-panel" aria-label={copy.logoTitle}>
-          <Logo variant="mark" title={copy.logoTitle} size={112} />
+          <Logo variant="mark" title={copy.logoTitle} size={100} />
           <p className="hero-brand"><strong>Azevsm</strong><span>Systems</span></p>
           <hr className="hero-rule" />
           <p className="hero-words">{copy.heroWords}</p>
-          <hr className="hero-rule hero-rule-navy" />
           <p className="hero-tomorrow">{copy.heroTomorrow}</p>
         </aside>
       </div>
