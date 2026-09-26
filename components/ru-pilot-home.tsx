@@ -8,7 +8,7 @@ import { localePath } from "@/lib/i18n";
 import { platformEntryUrl } from "@/lib/platform";
 
 const productIcons: FounderIconName[] = ["azevsm-index", "azevsm-institutional-index", "azevsm-plus"];
-const techIcons: Array<FounderIconName | null> = ["methodology-ontology", "azevsm-ai", "white-box", null];
+const techIcons: FounderIconName[] = ["methodology-ontology", "azevsm-ai", "white-box"];
 const whyIcons: FounderIconName[] = ["structured-evidence", "analytical-models", "trusted-results"];
 
 export function RuPilotHome({ copy }: { copy: SiteCopy }) {
@@ -53,15 +53,15 @@ export function RuPilotHome({ copy }: { copy: SiteCopy }) {
           <div className="band-head">
             <div>
               <p className="kicker">{copy.homeTechKicker}</p>
-              <h2>Собственная технология искусственного интеллекта <span className="ru-nowrap-term">AzeVSM AI</span></h2>
+              <h2>{copy.homeTechTitle}</h2>
             </div>
             <Link className="text-link" href={localePath("ru", "/technology")}>{copy.learnMore}</Link>
           </div>
           <div className="foundation-row">
-            {copy.homeTech.map(([title, body], index) => (
+            {copy.homeTech.slice(0, 3).map(([title, body], index) => (
               <article key={title}>
-                {techIcons[index] ? <FounderIcon name={techIcons[index]!} className="ru-home-tech-icon" /> : null}
-                <h3>{title}</h3>
+                <FounderIcon name={techIcons[index]} className="ru-home-tech-icon" />
+                <h3 className={title === "AzeVSM AI" ? "ru-nowrap-term" : undefined}>{title}</h3>
                 <p>{body}</p>
               </article>
             ))}
