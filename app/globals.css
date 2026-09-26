@@ -4477,3 +4477,51 @@ html[lang="ru"] .ru-home-tech .band-head .text-link {
   }
   .ru-hero-topic-grid { display: none !important; }
 }
+
+
+/* RU PILOT — FOUNDER QA LAYOUT RECONCILIATION */
+
+/* The current DOM uses the outer hero as a full-width band and the inner wrapper as the grid.
+   Reset the legacy outer-grid/card geometry so it cannot squeeze the current composition. */
+html[lang="ru"] .ru-pilot-hero {
+  display: block;
+  grid-template-columns: none;
+  gap: 0;
+  align-items: initial;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid rgba(118, 146, 167, .18);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* The approved RU technology foundation contains three cards. */
+@media (min-width: 1025px) {
+  html[lang="ru"] .ru-home-tech .foundation-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Keep odd final cards visually balanced on two-column tablet layouts. */
+@media (min-width: 681px) and (max-width: 1024px) {
+  html[lang="ru"] .ru-home-tech .foundation-row > article:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: calc((100% - 16px) / 2);
+    justify-self: center;
+  }
+}
+
+/* Plus has seven products and the platform scenario set is odd-sized: center the final card,
+   without inventing a filler item or changing source order. */
+@media (min-width: 681px) {
+  html[lang="ru"] .ru-plus-grid > .ru-plus-card:last-child:nth-child(odd),
+  html[lang="ru"] .ru-scenario-grid > .ru-scenario-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: calc((100% - 16px) / 2);
+    justify-self: center;
+  }
+}
