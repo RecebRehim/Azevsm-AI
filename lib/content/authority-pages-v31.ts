@@ -317,7 +317,6 @@ const pages: Record<AuthorityLocale, Record<AuthorityPageKey, AuthorityPage>> = 
       ],
       actions: [
         { label: "Подобрать продукт", href: "/products" },
-        { label: "Посмотреть состав системы результата", href: "#result-system-components" },
       ],
     },
     difference: {
