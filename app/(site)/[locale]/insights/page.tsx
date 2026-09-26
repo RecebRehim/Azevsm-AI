@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageIntro } from "@/components/page-intro";
+import { RuPilotHero } from "@/components/ru-pilot-hero";
 import { getNewsAuthority } from "@/lib/content/news-contact-authority-v31";
 import { getCopy } from "@/lib/content/copy";
 import { isLocale, localePath } from "@/lib/i18n";
@@ -19,9 +20,40 @@ export default async function InsightsPage({ params }: { params: Promise<{ local
   if (!isLocale(locale)) notFound();
   const authority = getNewsAuthority(locale);
   const copy = getCopy(locale);
+
+  if (locale === "ru" && authority) {
+    return (
+      <>
+        <RuPilotHero kind="insights" title={authority.title} lead={authority.lead} />
+        <section className="section-tight ru-authority-section">
+          <div className="wrap ru-insights-prose">
+            <p className="ru-insights-intro">{authority.intro}</p>
+            <ul className="ru-insights-list">
+              {authority.items.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+            <article className="card ru-insights-note">
+              <h2>{authority.noteTitle}</h2>
+              <p>{authority.note}</p>
+            </article>
+            <div className="ru-insights-grid">
+              {copy.insightItems.map(([slug, title, body]) => (
+                <article className="card ru-insight-card" key={slug}>
+                  <h2>{title}</h2>
+                  <p>{body}</p>
+                  <p><Link href={localePath(locale, `/insights/${slug}`)}>{copy.readMore}</Link></p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      </>
+    );
+  }
+
   if (!authority) return (
     <><PageIntro title={copy.insightsTitle} lead={copy.insightsLead} /><section className="section-tight"><div className="wrap grid-2">{copy.insightItems.map(([slug,title,body]) => <article className="card" key={slug}><h2>{title}</h2><p>{body}</p><p style={{ marginTop: 12 }}><Link href={localePath(locale, `/insights/${slug}`)}>{copy.readMore}</Link></p></article>)}</div></section></>
   );
+
   return (
     <>
       <PageIntro title={authority.title} lead={authority.lead} />

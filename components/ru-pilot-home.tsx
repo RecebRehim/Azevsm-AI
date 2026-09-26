@@ -83,6 +83,16 @@ export function RuPilotHome({ copy }: { copy: SiteCopy }) {
         </div>
       </section>
 
+      <section className="ru-home-nav-strip">
+        <div className="wrap">
+          <div className="cta-row ru-home-nav-actions">
+            <Link className="btn btn-primary" href={localePath("ru", "/platform")}>{copy.explore}</Link>
+            <Link className="btn btn-ghost" href={localePath("ru", "/technology")}>{copy.ourTechnology}</Link>
+            <a className="btn btn-ghost" href={entry ?? localePath("ru", "/enter")}>{copy.enterPlatform}</a>
+          </div>
+        </div>
+      </section>
+
       <section className="home-close ru-home-company">
         <div className="wrap home-close-inner">
           <div className="home-close-copy">
@@ -92,20 +102,6 @@ export function RuPilotHome({ copy }: { copy: SiteCopy }) {
           </div>
           <div className="cta-row home-close-actions">
             <Link className="btn btn-on-dark" href={localePath("ru", "/company")}>{copy.nav.company}</Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="ru-home-final-cta">
-        <div className="wrap ru-home-final-cta-inner">
-          <div>
-            <p className="kicker">{copy.logoTitle}</p>
-            <h2>{copy.closeTitle}</h2>
-          </div>
-          <div className="cta-row">
-            <Link className="btn btn-primary" href={localePath("ru", "/platform")}>{copy.explore}</Link>
-            <Link className="btn btn-ghost" href={localePath("ru", "/technology")}>{copy.ourTechnology}</Link>
-            <a className="btn btn-ghost" href={entry ?? localePath("ru", "/enter")}>{copy.enterPlatform}</a>
           </div>
         </div>
       </section>

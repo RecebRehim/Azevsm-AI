@@ -10,21 +10,27 @@ const kind: Record<ExistingAuthorityPageKey, RuPilotHeroKind> = {
   company: "company",
 };
 
+const actionOwner: Record<ExistingAuthorityPageKey, string | null> = {
+  technology: "/white-box",
+  whiteBox: "/trust",
+  trust: "/validation-reproducibility",
+  company: "/insights",
+};
+
 export function RuExistingAuthorityPage({ pageKey }: { pageKey: ExistingAuthorityPageKey }) {
   const page = getExistingAuthorityPage("ru", pageKey);
   if (!page) notFound();
+
+  const owner = actionOwner[pageKey];
+  const actions = owner ? page.actions.filter((action) => action.href === owner) : [];
+
   return (
     <>
-      <RuPilotHero
-        kind={kind[pageKey]}
-        title={page.title}
-        lead={page.lead}
-        eyebrow={pageKey === "whiteBox" ? "Explain the Result. Protect the Method." : undefined}
-      />
-      <section className="section-tight">
+      <RuPilotHero kind={kind[pageKey]} title={page.title} lead={page.lead} />
+      <section className="section-tight ru-authority-section">
         <div className="wrap ru-pilot-prose">
           <RuPilotBlocks blocks={page.blocks} />
-          <RuPilotActions actions={page.actions} />
+          <RuPilotActions actions={actions} />
         </div>
       </section>
     </>
