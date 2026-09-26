@@ -3063,3 +3063,565 @@ html[lang="az"] h2 {
   body:has(.cookie) .ru-assistant-launch { bottom: 170px; }
   body:has(.cookie) .assistant-panel { bottom: 222px; }
 }
+
+
+/* RU FINAL PILOT REPAIR — founder-reviewed visual/typography layer */
+.founder-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 72px;
+  height: 72px;
+  background-image: url("/founder-icons-ru.webp");
+  background-size: 400% 400%;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+}
+.founder-icon--azevsm-index { background-position: 0% 0%; }
+.founder-icon--azevsm-institutional-index { background-position: 33.333% 0%; }
+.founder-icon--azevsm-plus { background-position: 66.666% 0%; }
+.founder-icon--methodology-ontology { background-position: 100% 0%; }
+.founder-icon--azevsm-ai { background-position: 0% 33.333%; }
+.founder-icon--white-box { background-position: 33.333% 33.333%; }
+.founder-icon--structured-evidence { background-position: 66.666% 33.333%; }
+.founder-icon--analytical-models { background-position: 100% 33.333%; }
+.founder-icon--trusted-results { background-position: 0% 66.666%; }
+.founder-icon--plus-budget { background-position: 33.333% 66.666%; }
+.founder-icon--plus-investment { background-position: 66.666% 66.666%; }
+.founder-icon--plus-financial-resilience { background-position: 100% 66.666%; }
+.founder-icon--plus-institutional-risk { background-position: 0% 100%; }
+.founder-icon--plus-governance { background-position: 33.333% 100%; }
+.founder-icon--plus-product-rights { background-position: 66.666% 100%; }
+.founder-icon--plus-sustainability { background-position: 100% 100%; }
+
+/* RU header: no flag row; direct RU/EN/AZ plus compact language drawer. */
+.ru-language-access {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  margin-inline-start: auto;
+}
+.ru-primary-locales {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.ru-primary-locales a,
+.ru-language-more summary {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 9px;
+  border-radius: 8px;
+  color: #33465d;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .045em;
+  cursor: pointer;
+}
+.ru-primary-locales a[aria-current="true"] {
+  background: #eef3f6;
+  color: #15284b;
+}
+.ru-language-more {
+  position: relative;
+}
+.ru-language-more summary {
+  list-style: none;
+  border: 1px solid #d5dee6;
+  background: #fff;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+.ru-language-more summary::-webkit-details-marker { display: none; }
+.ru-language-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  inset-inline-end: 0;
+  z-index: 90;
+  width: min(290px, calc(100vw - 28px));
+  padding: 7px;
+  display: grid;
+  background: #fff;
+  border: 1px solid #d7e0e7;
+  border-radius: 12px;
+  box-shadow: 0 18px 44px rgba(16, 40, 70, .13);
+}
+.ru-language-panel a {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 8px;
+  align-items: center;
+  min-height: 38px;
+  padding: 7px 9px;
+  border-radius: 8px;
+  color: #25384f;
+  text-decoration: none;
+  font-size: 13px;
+}
+.ru-language-panel a:hover { background: #f1f5f7; }
+
+/* Main RU hero: centered mobile composition and controlled desktop wrapping. */
+html[lang="ru"] .hero-copy {
+  max-width: 760px;
+}
+html[lang="ru"] .hero h1,
+html[lang="ru"] .hero h2,
+html[lang="ru"] .hero h3,
+html[lang="ru"] .ru-pilot-hero h1,
+html[lang="ru"] .ru-pilot-prose h2,
+html[lang="ru"] .band-head h2,
+html[lang="ru"] .home-close h2,
+html[lang="ru"] .ru-home-final-cta h2 {
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+  text-wrap: balance;
+}
+html[lang="ru"] .hero h1 {
+  max-width: 18ch;
+  line-height: 1.06;
+  letter-spacing: -.035em;
+}
+html[lang="ru"] .hero-lead {
+  max-width: 66ch;
+  text-wrap: pretty;
+}
+
+/* Replaces rejected generic node/axis cards with page-specific background heroes. */
+.ru-pilot-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: #edf3f6;
+}
+.ru-pilot-hero::before,
+.ru-pilot-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+}
+.ru-pilot-hero::after {
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(247,250,252,.98) 0%, rgba(247,250,252,.92) 43%, rgba(247,250,252,.36) 70%, rgba(247,250,252,.08) 100%);
+}
+.ru-pilot-hero-inner {
+  min-height: clamp(360px, 43vw, 520px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(280px, .88fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
+  padding-block: clamp(54px, 7vw, 86px);
+}
+.ru-pilot-hero-copy { max-width: 760px; min-width: 0; }
+.ru-pilot-hero h1 {
+  max-width: 20ch;
+  margin: 0 0 18px;
+  color: #102846;
+  font-size: clamp(38px, 4.4vw, 62px);
+  line-height: 1.04;
+  letter-spacing: -.035em;
+}
+.ru-pilot-lead {
+  max-width: 65ch;
+  margin: 0;
+  color: #425368;
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+.ru-thematic-hero-art {
+  min-height: 260px;
+  display: grid;
+  place-items: center;
+  opacity: .93;
+}
+.ru-hero-founder-icon { width: 176px; height: 176px; border-radius: 34px; box-shadow: 0 22px 55px rgba(19,52,88,.10); }
+.ru-company-mark {
+  display: grid;
+  place-items: center;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.68);
+  box-shadow: 0 24px 60px rgba(19,52,88,.10);
+}
+.ru-products-hero-icons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transform: translateY(10px);
+}
+.ru-products-hero-icons .founder-icon {
+  width: 112px;
+  height: 112px;
+  border-radius: 24px;
+  box-shadow: 0 18px 44px rgba(19,52,88,.09);
+}
+.ru-products-hero-icons .founder-icon:nth-child(2) { transform: translateY(-26px); }
+
+/* Each page receives a different semantic background treatment. */
+.ru-pilot-hero--platform::before {
+  background:
+    linear-gradient(135deg, transparent 0 58%, rgba(33,78,118,.09) 58.2% 59%, transparent 59.2%),
+    repeating-linear-gradient(0deg, rgba(35,77,112,.055) 0 1px, transparent 1px 38px),
+    radial-gradient(circle at 84% 38%, rgba(178,203,218,.62), transparent 28%);
+}
+.ru-pilot-hero--products::before {
+  background:
+    radial-gradient(circle at 79% 35%, rgba(178,202,219,.72), transparent 21%),
+    radial-gradient(circle at 92% 70%, rgba(199,170,103,.18), transparent 18%),
+    linear-gradient(135deg, #f5f8fa 20%, #e8f0f4 100%);
+}
+.ru-pilot-hero--index::before {
+  background:
+    linear-gradient(150deg, transparent 0 62%, rgba(177,143,72,.15) 62.2% 63%, transparent 63.2%),
+    linear-gradient(165deg, transparent 0 70%, rgba(30,74,138,.11) 70.2% 71%, transparent 71.2%),
+    radial-gradient(circle at 84% 50%, rgba(197,215,226,.72), transparent 27%);
+}
+.ru-pilot-hero--institutional::before {
+  background:
+    radial-gradient(circle at 84% 50%, rgba(176,201,218,.72), transparent 26%),
+    repeating-linear-gradient(90deg, transparent 0 39px, rgba(28,68,111,.055) 40px 41px),
+    linear-gradient(145deg, #f7fafb 10%, #e5eef3 100%);
+}
+.ru-pilot-hero--plus::before {
+  background:
+    radial-gradient(circle at 82% 28%, rgba(195,211,221,.74), transparent 20%),
+    radial-gradient(circle at 91% 72%, rgba(184,151,79,.17), transparent 22%),
+    linear-gradient(135deg, #f6f9fa, #e7eff3);
+}
+.ru-pilot-hero--technology::before {
+  background:
+    repeating-linear-gradient(135deg, transparent 0 31px, rgba(24,66,108,.055) 32px 33px),
+    radial-gradient(circle at 84% 48%, rgba(178,205,221,.72), transparent 25%),
+    linear-gradient(135deg, #f5f9fb, #e4edf2);
+}
+.ru-pilot-hero--whitebox::before {
+  background:
+    linear-gradient(125deg, transparent 0 67%, rgba(255,255,255,.88) 67.2% 78%, transparent 78.2%),
+    radial-gradient(circle at 84% 45%, rgba(191,212,224,.70), transparent 27%),
+    linear-gradient(145deg, #f7fafb, #e6eef3);
+}
+.ru-pilot-hero--trust::before {
+  background:
+    radial-gradient(circle at 83% 48%, rgba(182,205,218,.72), transparent 24%),
+    repeating-radial-gradient(circle at 83% 48%, rgba(29,70,112,.06) 0 1px, transparent 2px 32px),
+    linear-gradient(135deg, #f7fafb, #e8f0f4);
+}
+.ru-pilot-hero--company::before {
+  background:
+    linear-gradient(120deg, transparent 0 62%, rgba(24,65,107,.08) 62.2% 63.2%, transparent 63.4%),
+    radial-gradient(circle at 83% 45%, rgba(183,205,220,.68), transparent 25%),
+    linear-gradient(135deg, #f7fafb, #e6eef3);
+}
+.ru-pilot-hero--result::before {
+  background:
+    linear-gradient(155deg, transparent 0 62%, rgba(30,74,138,.09) 62.2% 63%, transparent 63.2%),
+    linear-gradient(165deg, transparent 0 72%, rgba(177,143,72,.13) 72.2% 73%, transparent 73.2%),
+    radial-gradient(circle at 84% 48%, rgba(184,207,221,.70), transparent 25%);
+}
+.ru-pilot-hero--validation::before {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(27,68,110,.055) 40px 41px),
+    radial-gradient(circle at 84% 48%, rgba(181,205,220,.70), transparent 24%),
+    linear-gradient(140deg, #f7fafb, #e7eff3);
+}
+
+/* Founder assets replace all temporary number/CSS/SVG icon placeholders in RU pilot surfaces. */
+.ru-home-product-icon { width: 76px; height: 76px; }
+.ru-home-tech-icon { width: 76px; height: 76px; margin-bottom: 16px; }
+.ru-home-why-icon { width: 68px; height: 68px; }
+.ru-products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 18px;
+  margin-bottom: 54px;
+}
+.ru-product-card {
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr) auto;
+  gap: 18px;
+  align-items: start;
+  min-height: 220px;
+  padding: 24px;
+  border: 1px solid rgba(133,155,173,.28);
+  border-radius: 22px;
+  background: linear-gradient(145deg, #fff, #f1f6f8);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 14px 36px rgba(15,34,58,.055);
+}
+.ru-product-card h2 {
+  margin: 8px 0 10px;
+  color: #122a4c;
+  font-size: 22px;
+  line-height: 1.2;
+}
+.ru-product-card p {
+  margin: 0;
+  color: #566474;
+  font-size: 15px;
+  line-height: 1.58;
+}
+.ru-product-card > span:last-child {
+  color: #9a793d;
+  font-size: 24px;
+  align-self: center;
+}
+.ru-product-card-icon { width: 82px; height: 82px; }
+
+.ru-plus-card-head .ru-plus-icon {
+  display: inline-block;
+  width: 78px;
+  height: 78px;
+  flex: 0 0 78px;
+  padding: 0;
+  border: 0;
+  border-radius: 18px;
+  background-image: url("/founder-icons-ru.webp");
+  background-size: 400% 400%;
+  box-shadow: none;
+}
+
+/* Better use of width for long RU authority content. */
+html[lang="ru"] .ru-pilot-prose {
+  width: min(100%, 1120px);
+}
+html[lang="ru"] .ru-pilot-blocks > p,
+html[lang="ru"] .ru-pilot-blocks > ul {
+  max-width: 900px;
+}
+html[lang="ru"] .ru-pilot-blocks > h2 {
+  max-width: 900px;
+}
+html[lang="ru"] .ru-pilot-table-wrap {
+  width: 100%;
+}
+.ru-home-final-cta {
+  padding: 48px 0 58px;
+  background: #f3f7f9;
+  border-top: 1px solid rgba(135,157,174,.22);
+}
+.ru-home-final-cta-inner {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  gap: 28px;
+  align-items: center;
+}
+.ru-home-final-cta h2 {
+  max-width: 19ch;
+  margin: 8px 0 0;
+  font-size: clamp(28px, 3vw, 42px);
+  color: #122a4c;
+}
+.ru-home-final-cta .cta-row { justify-content: flex-end; }
+
+/* Floating support: keep clear of text/cards/CTA on mobile. */
+html[lang="ru"] .ru-assistant-launch {
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  box-shadow: 0 10px 24px rgba(20,50,82,.18);
+}
+html[lang="ru"] .assistant-panel {
+  right: max(16px, env(safe-area-inset-right));
+  bottom: 72px;
+}
+
+@media (min-width: 1025px) and (max-width: 1220px) {
+  .ru-language-access { gap: 4px; }
+  .ru-primary-locales a { padding-inline: 6px; }
+  .ru-language-more summary { padding-inline: 8px; }
+  .ru-pilot-hero-inner { grid-template-columns: minmax(0,1.2fr) minmax(240px,.8fr); }
+}
+
+@media (max-width: 1024px) {
+  .ru-pilot-site-header .ru-language-access {
+    margin-inline-start: auto;
+    order: 2;
+  }
+  .ru-pilot-site-header .menu-toggle { order: 3; }
+  .ru-pilot-site-header .header-utilities { order: 4; }
+  .ru-pilot-hero-inner {
+    grid-template-columns: minmax(0,1.2fr) minmax(220px,.8fr);
+  }
+  .ru-products-grid { grid-template-columns: 1fr; }
+  .ru-product-card { min-height: 0; }
+}
+
+@media (max-width: 680px) {
+  html[lang="ru"] .wrap,
+  html[lang="ru"] .site-header .wrap {
+    width: min(var(--content), calc(100% - 28px));
+    margin-inline: auto;
+  }
+
+  .ru-pilot-site-header {
+    height: auto;
+    min-height: 60px;
+  }
+  .ru-pilot-site-header .header-inner {
+    min-height: 60px;
+    height: auto;
+    gap: 8px;
+    align-items: center;
+  }
+  .ru-pilot-site-header .wordmark-text { display: none; }
+  .ru-pilot-site-header .wordmark img { width: 28px; height: 32px; }
+  .ru-language-access { gap: 3px; }
+  .ru-primary-locales a {
+    min-height: 32px;
+    padding-inline: 6px;
+    font-size: 11px;
+  }
+  .ru-language-more summary {
+    min-height: 32px;
+    padding-inline: 7px;
+    font-size: 11px;
+  }
+  .ru-language-panel { position: fixed; top: 62px; right: 14px; left: 14px; width: auto; }
+  .ru-pilot-site-header .menu-toggle {
+    min-width: 38px;
+    min-height: 38px;
+    font-size: 12px;
+  }
+  .ru-pilot-site-header .header-utilities {
+    display: none;
+  }
+  .ru-pilot-site-header .header-inner.is-open .header-utilities {
+    display: flex;
+  }
+
+  html[lang="ru"] .hero-grid {
+    grid-template-columns: 1fr;
+    padding: 38px 0 62px;
+    text-align: center;
+    justify-items: center;
+  }
+  html[lang="ru"] .hero-copy {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+  html[lang="ru"] .hero h1 {
+    max-width: 15ch;
+    margin-inline: auto;
+    font-size: clamp(31px, 9.4vw, 42px);
+    line-height: 1.06;
+    letter-spacing: -.03em;
+  }
+  html[lang="ru"] .hero-lead {
+    max-width: 34ch;
+    margin-inline: auto;
+    font-size: 15.5px;
+    line-height: 1.58;
+    text-wrap: pretty;
+  }
+  html[lang="ru"] .hero-panel {
+    width: min(100%, 270px);
+    margin-inline: auto;
+  }
+
+  .ru-pilot-hero::after {
+    background: linear-gradient(180deg, rgba(247,250,252,.96) 0%, rgba(247,250,252,.83) 68%, rgba(247,250,252,.24) 100%);
+  }
+  .ru-pilot-hero-inner {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    text-align: center;
+    justify-items: center;
+    padding-block: 42px 34px;
+  }
+  .ru-pilot-hero-copy {
+    width: 100%;
+    max-width: 100%;
+  }
+  .ru-pilot-hero h1 {
+    max-width: 15ch;
+    margin: 0 auto 16px;
+    font-size: clamp(29px, 8.8vw, 38px);
+    line-height: 1.07;
+    letter-spacing: -.027em;
+  }
+  .ru-pilot-lead {
+    max-width: 35ch;
+    margin-inline: auto;
+    font-size: 15.5px;
+    line-height: 1.58;
+  }
+  .ru-thematic-hero-art { min-height: 142px; }
+  .ru-hero-founder-icon { width: 122px; height: 122px; border-radius: 26px; }
+  .ru-company-mark { width: 148px; height: 148px; }
+  .ru-products-hero-icons { gap: 7px; }
+  .ru-products-hero-icons .founder-icon { width: 76px; height: 76px; border-radius: 17px; }
+  .ru-products-hero-icons .founder-icon:nth-child(2) { transform: translateY(-16px); }
+
+  .ru-home-product-icon { width: 68px; height: 68px; }
+  .ru-home-tech-icon { width: 68px; height: 68px; }
+  .ru-home-why-icon { width: 62px; height: 62px; }
+
+  html[lang="ru"] .ru-pilot-blocks > h2,
+  html[lang="ru"] .band-head h2,
+  html[lang="ru"] .home-close h2,
+  html[lang="ru"] .ru-home-final-cta h2 {
+    max-width: 18ch;
+    font-size: clamp(26px, 7.4vw, 34px);
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+  html[lang="ru"] .ru-pilot-blocks > p {
+    max-width: 100%;
+    font-size: 16px;
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+
+  .ru-product-card {
+    grid-template-columns: auto minmax(0,1fr);
+    padding: 18px;
+    gap: 14px;
+  }
+  .ru-product-card > span:last-child { display: none; }
+  .ru-product-card-icon { width: 68px; height: 68px; }
+  .ru-product-card h2 { margin-top: 4px; font-size: 20px; }
+  .ru-plus-card-head .ru-plus-icon { width: 66px; height: 66px; flex-basis: 66px; }
+
+  .ru-home-final-cta { padding: 38px 0 92px; }
+  .ru-home-final-cta-inner { grid-template-columns: 1fr; gap: 22px; }
+  .ru-home-final-cta h2 { margin-inline: auto; text-align: center; }
+  .ru-home-final-cta .kicker { text-align: center; }
+  .ru-home-final-cta .cta-row {
+    justify-content: stretch;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .ru-home-final-cta .btn { width: 100%; }
+
+  html[lang="ru"] .ru-assistant-launch {
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    min-height: 42px;
+    right: max(14px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+  }
+  body:has(.cookie) html[lang="ru"] .ru-assistant-launch,
+  html[lang="ru"] body:has(.cookie) .ru-assistant-launch { bottom: 174px; }
+  html[lang="ru"] .assistant-panel {
+    left: 14px;
+    right: 14px;
+    bottom: 68px;
+    width: auto;
+    max-height: min(66vh, 560px);
+  }
+}

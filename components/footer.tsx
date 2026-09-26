@@ -76,7 +76,7 @@ export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
         </div>
         <div className="footer-base">
           <span>© {new Date().getFullYear()} {copy.footerRights}</span>
-          <LanguageMenu locale={locale} path={path} label={copy.language} />
+          {locale !== "ru" ? <LanguageMenu locale={locale} path={path} label={copy.language} /> : null}
         </div>
       </div>
     </footer>

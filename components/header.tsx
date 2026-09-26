@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { LanguageMenu } from "@/components/language-menu";
-import { Flag } from "@/components/flag";
 import { Logo } from "@/components/logo";
 import type { SiteCopy } from "@/lib/content/copy";
 import { localeMeta, localePath, swapLocale, type Locale } from "@/lib/i18n";
@@ -53,8 +52,9 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
             </Link>
           ))}
         </nav>
+        {locale === "ru" ? <RuLanguageAccess path={path} /> : null}
         <div className="header-utilities">
-          <LanguageMenu locale={locale} path={path} label={copy.language} />
+          {locale !== "ru" ? <LanguageMenu locale={locale} path={path} label={copy.language} /> : null}
           {locale !== "ru" ? (
             <Link className="btn btn-ghost btn-compact" href={localePath(locale, "/contact")}>
               {copy.contactCta}
@@ -66,32 +66,53 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
           </a>
         </div>
       </div>
-      {locale === "ru" ? <RuMobileLanguages path={path} /> : null}
     </header>
   );
 }
 
 
-const ruLanguageOrder: Locale[] = ["ru", "en", "az", "ar", "zh"];
+const ruDirectLanguages: Locale[] = ["ru", "en", "az"];
+const ruAvailableLanguages: Locale[] = ["ru", "en", "az", "ar", "zh"];
 
-function RuMobileLanguages({ path }: { path: string }) {
+function RuLanguageAccess({ path }: { path: string }) {
   return (
-    <nav className="ru-mobile-languages wrap" aria-label="Языки">
-      {ruLanguageOrder.map((item) => {
-        const meta = localeMeta[item];
-        return (
-          <Link
-            key={item}
-            href={swapLocale(path, item)}
-            hrefLang={meta.hreflang}
-            lang={meta.htmlLang}
-            className="ru-mobile-language-link"
-          >
-            <Flag locale={item} />
-            <span>{item.toUpperCase()}</span>
-          </Link>
-        );
-      })}
-    </nav>
+    <div className="ru-language-access">
+      <nav className="ru-primary-locales" aria-label="Основные языки">
+        {ruDirectLanguages.map((item) => {
+          const meta = localeMeta[item];
+          return (
+            <Link
+              key={item}
+              href={swapLocale(path, item)}
+              hrefLang={meta.hreflang}
+              lang={meta.htmlLang}
+              aria-current={item === "ru" ? "true" : undefined}
+            >
+              {item.toUpperCase()}
+            </Link>
+          );
+        })}
+      </nav>
+      <details className="ru-language-more">
+        <summary>Языки</summary>
+        <div className="ru-language-panel" role="menu" aria-label="Доступные языки">
+          {ruAvailableLanguages.map((item) => {
+            const meta = localeMeta[item];
+            return (
+              <Link
+                key={item}
+                role="menuitem"
+                href={swapLocale(path, item)}
+                hrefLang={meta.hreflang}
+                lang={meta.htmlLang}
+              >
+                <span>{item.toUpperCase()}</span>
+                <span>{meta.name}</span>
+              </Link>
+            );
+          })}
+        </div>
+      </details>
+    </div>
   );
 }

@@ -15,14 +15,16 @@ export function Hero({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
         <div className="hero-copy">
           <h1>{copy.heroTitle}</h1>
           <p className="hero-lead">{copy.heroLead}</p>
-          <div className="cta-row">
-            <Link className="btn btn-primary" href={localePath(locale, "/platform")}>
-              {copy.explore}
-              <svg className="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-            </Link>
-            <Link className="btn btn-ghost" href={localePath(locale, "/technology")}>{copy.ourTechnology}</Link>
-            <a className="btn btn-ghost" href={entry ?? localePath(locale, "/enter")}>{copy.enterPlatform}</a>
-          </div>
+          {locale !== "ru" ? (
+            <div className="cta-row">
+              <Link className="btn btn-primary" href={localePath(locale, "/platform")}>
+                {copy.explore}
+                <svg className="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </Link>
+              <Link className="btn btn-ghost" href={localePath(locale, "/technology")}>{copy.ourTechnology}</Link>
+              <a className="btn btn-ghost" href={entry ?? localePath(locale, "/enter")}>{copy.enterPlatform}</a>
+            </div>
+          ) : null}
         </div>
         <aside className="hero-panel" aria-label={copy.logoTitle}>
           <Logo variant="mark" title={copy.logoTitle} size={100} />
