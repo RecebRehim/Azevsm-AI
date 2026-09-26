@@ -1,5 +1,6 @@
 import type { Locale } from "@/lib/i18n";
 import type { AuthorityPage } from "@/lib/content/authority-pages-v31";
+import { legacyExistingPage } from "@/lib/content/legacy-page-fallback";
 
 export type ExistingAuthorityPageKey = "technology" | "whiteBox" | "trust" | "company";
 
@@ -229,6 +230,6 @@ const pages: Record<"en" | "az" | "ru", Record<ExistingAuthorityPageKey, Authori
 };
 
 export function getExistingAuthorityPage(locale: Locale, key: ExistingAuthorityPageKey): AuthorityPage | null {
-  if (locale !== "en" && locale !== "az" && locale !== "ru") return null;
+  if (locale !== "en" && locale !== "az" && locale !== "ru") return legacyExistingPage(locale, key);
   return pages[locale][key];
 }

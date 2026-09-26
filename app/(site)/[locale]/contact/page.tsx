@@ -10,15 +10,18 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const page = getContactAuthority(locale);
-  return page ? pageMetadata(locale, "/contact", page.title, page.lead) : {};
+  const copy = getCopy(locale);
+  return page ? pageMetadata(locale, "/contact", page.title, page.lead) : pageMetadata(locale, "/contact", copy.contactTitle, copy.contactLead);
 }
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const authority = getContactAuthority(locale);
-  if (!authority) notFound();
   const copy = getCopy(locale);
+  if (!authority) return (
+    <><PageIntro title={copy.contactTitle} lead={copy.contactLead} /><section className="section-tight"><div className="wrap"><ContactForm locale={locale} copy={copy} /></div></section></>
+  );
   return (
     <>
       <PageIntro title={authority.title} lead={authority.lead} />

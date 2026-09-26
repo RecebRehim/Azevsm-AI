@@ -1,5 +1,6 @@
 import type { Locale } from "@/lib/i18n";
 import type { AuthorityPage } from "@/lib/content/authority-pages-v31";
+import { legacyProductPage } from "@/lib/content/legacy-page-fallback";
 
 export type ProductAuthorityKey = "platform" | "products" | "index" | "institutional" | "plus";
 
@@ -1158,6 +1159,6 @@ const pages: Record<"en" | "az" | "ru", Record<ProductAuthorityKey, AuthorityPag
 };
 
 export function getProductAuthorityPage(locale: Locale, key: ProductAuthorityKey): AuthorityPage | null {
-  if (locale !== "en" && locale !== "az" && locale !== "ru") return null;
+  if (locale !== "en" && locale !== "az" && locale !== "ru") return legacyProductPage(locale, key);
   return pages[locale][key];
 }
