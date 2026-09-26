@@ -3,7 +3,7 @@ import type { AuthorityPage } from "@/lib/content/authority-pages-v31";
 
 export type ProductAuthorityKey = "platform" | "products" | "index" | "institutional" | "plus";
 
-const pages = {
+const pages: Record<"en" | "az" | "ru", Record<ProductAuthorityKey, AuthorityPage>> = {
   "en": {
     "platform": {
       "title": "From Complex Materials to a Structured Analytical Result",
@@ -1155,9 +1155,9 @@ const pages = {
       ]
     }
   }
-} as const satisfies Record<"en" | "az" | "ru", Record<ProductAuthorityKey, AuthorityPage>>;
+};
 
 export function getProductAuthorityPage(locale: Locale, key: ProductAuthorityKey): AuthorityPage | null {
   if (locale !== "en" && locale !== "az" && locale !== "ru") return null;
-  return pages[locale][key] as AuthorityPage;
+  return pages[locale][key];
 }
