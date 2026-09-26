@@ -1,63 +1,22 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PageIntro } from "@/components/page-intro";
-import { getCopy, type SiteCopy } from "@/lib/content/copy";
-import { isLocale, localePath, type Locale } from "@/lib/i18n";
+import { ProductAuthorityPage } from "@/components/product-authority-page";
+import { getProductAuthorityPage, type ProductAuthorityKey } from "@/lib/content/product-authority-pages-v31";
+import { isLocale } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/seo";
 
-const slugs = ["azevsm-index", "azevsm-institutional-index"] as const;
-
-function product(copy: SiteCopy, slug: string) {
-  if (slug === "azevsm-index") return { title: copy.indexTitle, lead: copy.indexLead };
-  if (slug === "azevsm-institutional-index") return { title: copy.instTitle, lead: copy.instLead };
-  return null;
-}
-
-export function generateStaticParams() {
-  return ["az", "en", "ar", "zh", "ru"].flatMap((locale) => slugs.map((slug) => ({ locale, slug })));
-}
+const map: Record<string, ProductAuthorityKey> = {
+  "azevsm-index": "index",
+  "azevsm-institutional-index": "institutional",
+};
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale, slug } = await params;
-  if (!isLocale(locale)) return {};
-  const item = product(getCopy(locale), slug);
-  if (!item) return {};
-  return pageMetadata(locale, `/products/${slug}`, item.title, item.lead);
+  if (!isLocale(locale) || !map[slug]) return {};
+  const page = getProductAuthorityPage(locale, map[slug]);
+  return page ? pageMetadata(locale, `/products/${slug}`, page.title, page.lead) : {};
 }
-
-export default async function ProductPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+export default async function Page({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale, slug } = await params;
-  if (!isLocale(locale)) notFound();
-  const copy = getCopy(locale);
-  const item = product(copy, slug);
-  if (!item) notFound();
-  const sections: [string, string][] = [
-    [copy.forWhom, copy.audienceLead],
-    [copy.problem, copy.problemLead],
-    [copy.receives, item.lead],
-    [copy.evidence, copy.serviceTemplate.evidence],
-    [copy.resultMeans, copy.serviceTemplate.result],
-    [copy.traceability, copy.serviceTemplate.trust],
-  ];
-  return (
-    <>
-      <PageIntro title={item.title} lead={item.lead} />
-      <section className="section-tight">
-        <div className="wrap prose">
-          <p className="note">{copy.tiers}</p>
-          {sections.map(([title, body]) => <article key={title}><h2>{title}</h2><p>{body}</p></article>)}
-          <div>
-            <h2>{copy.process}</h2>
-            <ol>{copy.serviceTemplate.process.map((step) => <li key={step}>{step}</li>)}</ol>
-          </div>
-          <div className="next-actions">
-            <Link className="btn btn-primary" href={localePath(locale, "/contact")}>{copy.contact}</Link>
-            <Link className="btn btn-ghost" href={localePath(locale, "/trust")}>{copy.nav.trust}</Link>
-          </div>
-        </div>
-      </section>
-    </>
-  );
+  if (!isLocale(locale) || !map[slug] || !getProductAuthorityPage(locale, map[slug])) notFound();
+  return <ProductAuthorityPage locale={locale} pageKey={map[slug]} />;
 }
-
-export type ProductLocale = Locale;
