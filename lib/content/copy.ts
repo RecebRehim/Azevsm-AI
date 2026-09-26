@@ -19,7 +19,7 @@ const copy = {
     close: "Close",
     language: "Language",
     heroTitle: "Azevsm Systems — creator, developer and operator of AzevsmAI.",
-    heroLead: "AzevsmAI is an institutional analytical platform and technological analytical infrastructure built on Azevsm Systems’ proprietary scientific-technical methodology, semantic ontology, and AzeVSM AI — its proprietary VSM-class AI technology."
+    heroLead: "AzevsmAI is an institutional analytical platform and technological analytical infrastructure built on Azevsm Systems’ proprietary scientific-technical methodology, semantic ontology, and AzeVSM AI — its proprietary VSM-class AI technology.",
     heroWords: "EVIDENCE\nANALYSIS\nTRUST",
     heroTomorrow: "A more certain tomorrow.",
     viewAll: "View all products",
