@@ -1,15 +1,11 @@
 import Link from "next/link";
 import { Hero } from "@/components/hero";
-import { FounderIcon, type FounderIconName } from "@/components/founder-icon";
+import { RuHomeFoundationIcon, RuHomeProductIcon, RuHomeWhyIcon } from "@/components/ru-line-icons";
 import { RuPilotBlocks } from "@/components/ru-pilot-blocks";
 import type { SiteCopy } from "@/lib/content/copy";
 import { getProductAuthorityPage } from "@/lib/content/product-authority-pages-v31";
 import { localePath } from "@/lib/i18n";
 import { platformEntryUrl } from "@/lib/platform";
-
-const productIcons: FounderIconName[] = ["azevsm-index", "azevsm-institutional-index", "azevsm-plus"];
-const techIcons: FounderIconName[] = ["methodology-ontology", "azevsm-ai", "white-box"];
-const whyIcons: FounderIconName[] = ["structured-evidence", "analytical-models", "trusted-results"];
 
 export function RuPilotHome({ copy }: { copy: SiteCopy }) {
   const platform = getProductAuthorityPage("ru", "platform");
@@ -39,7 +35,7 @@ export function RuPilotHome({ copy }: { copy: SiteCopy }) {
           <div className="product-row">
             {copy.homeProducts.map(([title, body, href], index) => (
               <Link className="line-card" key={title} href={localePath("ru", href)}>
-                <FounderIcon name={productIcons[index]} className="ru-home-product-icon" />
+                <span className="product-icon ru-home-product-icon"><RuHomeProductIcon index={index} /></span>
                 <span><h3>{title}</h3><p>{body}</p></span>
                 <svg className="icon line-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
               </Link>
@@ -60,7 +56,7 @@ export function RuPilotHome({ copy }: { copy: SiteCopy }) {
           <div className="foundation-row">
             {copy.homeTech.slice(0, 3).map(([title, body], index) => (
               <article key={title}>
-                <FounderIcon name={techIcons[index]} className="ru-home-tech-icon" />
+                <span className="foundation-icon ru-home-tech-icon"><RuHomeFoundationIcon index={index} /></span>
                 <h3 className={title === "AzeVSM AI" ? "ru-nowrap-term" : undefined}>{title}</h3>
                 <p>{body}</p>
               </article>
@@ -75,7 +71,7 @@ export function RuPilotHome({ copy }: { copy: SiteCopy }) {
           <div className="why-row">
             {copy.homeWhy.map(([title, body], index) => (
               <article key={title}>
-                <FounderIcon name={whyIcons[index]} className="ru-home-why-icon" />
+                <span className="why-icon ru-home-why-icon"><RuHomeWhyIcon index={index} /></span>
                 <div><h3>{title}</h3><p>{body}</p></div>
               </article>
             ))}
