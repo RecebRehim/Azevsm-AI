@@ -5075,3 +5075,37 @@ html[lang="ru"] .ru-plus-card h2 {
     transform: none !important;
   }
 }
+
+
+/* RU HOME — founder correction: right composition position/alignment only. */
+@media (min-width: 1025px) {
+  html[lang="ru"] .hero-panel {
+    justify-self: end;
+    align-items: center;
+    text-align: center;
+    width: min(100%, 320px);
+    max-width: 320px;
+    margin-inline: 0;
+    transform: translateY(-18px);
+  }
+
+  html[lang="ru"] .hero-panel > .logo,
+  html[lang="ru"] .hero-panel > svg,
+  html[lang="ru"] .hero-brand,
+  html[lang="ru"] .hero-rule,
+  html[lang="ru"] .hero-words,
+  html[lang="ru"] .hero-tomorrow {
+    align-self: center;
+  }
+
+  html[lang="ru"] .hero-words,
+  html[lang="ru"] .hero-tomorrow {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+
+  html[lang="ru"] .hero-tomorrow {
+    margin: 10px auto 0;
+  }
+}
