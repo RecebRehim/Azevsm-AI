@@ -16,6 +16,10 @@ export function isLocale(value: string): value is Locale {
   return locales.includes(value as Locale);
 }
 
+export function isPilotLocale(locale: Locale) {
+  return locale === "ru" || locale === "en" || locale === "az";
+}
+
 export function localePath(locale: Locale, path = "") {
   const suffix = path.startsWith("/") ? path : path ? `/${path}` : "";
   return `/${locale}${suffix}`;
