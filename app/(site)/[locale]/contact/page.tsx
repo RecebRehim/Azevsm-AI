@@ -3,12 +3,12 @@ import { ContactForm } from "@/components/contact-form";
 import { PageIntro } from "@/components/page-intro";
 import { getContactAuthority } from "@/lib/content/news-contact-authority-v31";
 import { getCopy } from "@/lib/content/copy";
-import { isLocale } from "@/lib/i18n";
+import { isLocale, isPilotLocale } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  if (!isLocale(locale) || locale === "ru") return {};
+  if (!isLocale(locale) || isPilotLocale(locale)) return {};
   const page = getContactAuthority(locale);
   const copy = getCopy(locale);
   return page ? pageMetadata(locale, "/contact", page.title, page.lead) : pageMetadata(locale, "/contact", copy.contactTitle, copy.contactLead);
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  if (!isLocale(locale) || locale === "ru") notFound();
+  if (!isLocale(locale) || isPilotLocale(locale)) notFound();
   const authority = getContactAuthority(locale);
   const copy = getCopy(locale);
   if (!authority) return (
