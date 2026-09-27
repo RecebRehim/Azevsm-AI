@@ -5763,3 +5763,16 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-hero-icon {
     top: calc(100% + 6px) !important;
   }
 }
+
+
+/* PILOT TABLET/DESKTOP ODD CARD CENTERING */
+@media (min-width: 681px) and (max-width: 1024px) {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .product-row > :last-child:nth-child(odd),
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-why .why-row > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: calc(50% - 8px);
+    max-width: calc(50% - 8px);
+    justify-self: center;
+    box-sizing: border-box;
+  }
+}
