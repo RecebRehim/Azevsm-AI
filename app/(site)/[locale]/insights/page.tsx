@@ -4,7 +4,7 @@ import { PageIntro } from "@/components/page-intro";
 import { RuPilotHero } from "@/components/ru-pilot-hero";
 import { getNewsAuthority } from "@/lib/content/news-contact-authority-v31";
 import { getCopy } from "@/lib/content/copy";
-import { isLocale, localePath } from "@/lib/i18n";
+import { isLocale, isPilotLocale, localePath } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -21,7 +21,7 @@ export default async function InsightsPage({ params }: { params: Promise<{ local
   const authority = getNewsAuthority(locale);
   const copy = getCopy(locale);
 
-  if (locale === "ru" && authority) {
+  if (isPilotLocale(locale) && authority) {
     return (
       <>
         <RuPilotHero kind="insights" title={authority.title} lead={authority.lead} />
