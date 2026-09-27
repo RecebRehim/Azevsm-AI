@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FounderIcon, type FounderIconName } from "@/components/founder-icon";
+import { RuPlusServiceIcon, type RuPlusServiceIconName } from "@/components/ru-line-icons";
 import { RuPilotActions, RuPilotBlocks } from "@/components/ru-pilot-blocks";
 import { RuPilotHero, type RuPilotHeroKind } from "@/components/ru-pilot-hero";
 import { getCopy } from "@/lib/content/copy";
@@ -25,14 +26,14 @@ const scenarioRoutes: Record<string, string> = {
 };
 
 const productIcons: FounderIconName[] = ["azevsm-index", "azevsm-institutional-index", "azevsm-plus"];
-const plusIcons: FounderIconName[] = [
-  "plus-budget",
-  "plus-investment",
-  "plus-financial-resilience",
-  "plus-institutional-risk",
-  "plus-governance",
-  "plus-product-rights",
-  "plus-sustainability",
+const plusIcons: RuPlusServiceIconName[] = [
+  "budget",
+  "investment",
+  "financial-resilience",
+  "institutional-risk",
+  "governance",
+  "product-rights",
+  "sustainability",
 ];
 
 function splitCell(value: string) {
@@ -149,7 +150,7 @@ export function RuProductAuthorityPage({ pageKey }: { pageKey: ProductAuthorityK
                 return (
                   <article className="ru-plus-card" key={item.heading}>
                     <div className="ru-plus-card-head">
-                      <FounderIcon name={plusIcons[index]} className="ru-plus-icon" />
+                      <span className="ru-plus-icon"><RuPlusServiceIcon name={plusIcons[index]} /></span>
                       <h2>{item.heading}</h2>
                     </div>
                     <p style={{ whiteSpace: "pre-line" }}>{item.body}</p>
