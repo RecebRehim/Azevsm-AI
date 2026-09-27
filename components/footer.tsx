@@ -4,12 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LanguageMenu } from "@/components/language-menu";
 import { Logo } from "@/components/logo";
-import { localePath, type Locale } from "@/lib/i18n";
+import { isPilotLocale, localePath, type Locale } from "@/lib/i18n";
 import type { SiteCopy } from "@/lib/content/copy";
 import { authorityRouteLabels, isAuthorityLocale } from "@/lib/content/authority-pages-v31";
 
 export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?: string }) {
   const path = usePathname() || `/${locale}`;
+  const pilotLocale = isPilotLocale(locale);
   return (
     <footer className="site-footer">
       <div className="wrap">
@@ -53,7 +54,7 @@ export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
             <ul>
               <li><Link href={localePath(locale, "/company")}>{copy.nav.company}</Link></li>
               <li><Link href={localePath(locale, "/insights")}>{copy.insightsLink}</Link></li>
-              {locale !== "ru" ? <li><Link href={localePath(locale, "/contact")}>{copy.contact}</Link></li> : null}
+              {!pilotLocale ? <li><Link href={localePath(locale, "/contact")}>{copy.contact}</Link></li> : null}
             </ul>
           </div>
           <div>
@@ -76,7 +77,7 @@ export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
         </div>
         <div className="footer-base">
           <span>© {new Date().getFullYear()} {copy.footerRights}</span>
-          {locale !== "ru" ? <LanguageMenu locale={locale} path={path} label={copy.language} /> : null}
+          {!pilotLocale ? <LanguageMenu locale={locale} path={path} label={copy.language} /> : null}
         </div>
       </div>
     </footer>
