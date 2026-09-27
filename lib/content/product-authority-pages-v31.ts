@@ -1158,7 +1158,51 @@ const pages: Record<"en" | "az" | "ru", Record<ProductAuthorityKey, AuthorityPag
   }
 };
 
+function normalizePilotProductPage(page: AuthorityPage, key: ProductAuthorityKey): AuthorityPage {
+  if (key === "platform") {
+    const blocks = page.blocks.map((block, index) => {
+      if (block.type !== "table" || !block.header) return block;
+      if (index === 2) {
+        const cells = block.rows.slice(1).map((row) => `${row[0] ?? ""}\n${row[1] ?? ""}`);
+        return {
+          type: "table" as const,
+          rows: [
+            [cells[0] ?? "", cells[1] ?? ""],
+            [cells[2] ?? "", cells[3] ?? ""],
+            [cells[4] ?? "", ""],
+          ],
+        };
+      }
+      if (index === 8) {
+        return {
+          type: "table" as const,
+          rows: block.rows.slice(1).map((row) => [
+            `${row[0] ?? ""}\n${row[1] ?? ""}`,
+            `${row[2] ?? ""}\n${row[3] ?? ""}`,
+          ]),
+        };
+      }
+      return block;
+    });
+    return { ...page, blocks };
+  }
+
+  if (key === "products") {
+    const blocks = page.blocks.map((block) => {
+      if (block.type !== "table" || !block.header) return block;
+      return {
+        type: "table" as const,
+        rows: block.rows.slice(1).map((row) => [`${row[0] ?? ""}\n${row[1] ?? ""}`]),
+      };
+    });
+    return { ...page, blocks };
+  }
+
+  return page;
+}
+
 export function getProductAuthorityPage(locale: Locale, key: ProductAuthorityKey): AuthorityPage | null {
   if (locale !== "en" && locale !== "az" && locale !== "ru") return legacyProductPage(locale, key);
-  return pages[locale][key];
+  const page = pages[locale][key];
+  return locale === "ru" ? page : normalizePilotProductPage(page, key);
 }
