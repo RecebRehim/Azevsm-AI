@@ -5293,3 +5293,53 @@ html[lang="ru"] .ru-plus-card h2 {
     text-align: center;
   }
 }
+
+
+/* RU MOBILE — final alignment correction: home hero mark stack + WHY heading. */
+@media (max-width: 680px) {
+  html[lang="ru"] .hero-panel {
+    justify-self: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  html[lang="ru"] .hero-panel > .logo-mark {
+    display: block;
+    align-self: center !important;
+    margin-inline: auto !important;
+  }
+
+  html[lang="ru"] .hero-panel .hero-brand,
+  html[lang="ru"] .hero-panel .hero-rule,
+  html[lang="ru"] .hero-panel .hero-words,
+  html[lang="ru"] .hero-panel .hero-tomorrow {
+    align-self: center !important;
+    margin-inline: auto !important;
+    text-align: center !important;
+  }
+
+  html[lang="ru"] .hero-panel .hero-words,
+  html[lang="ru"] .hero-panel .hero-tomorrow {
+    width: min(100%, 320px);
+    max-width: 320px;
+  }
+
+  html[lang="ru"] .ru-home-why > .wrap > .kicker {
+    width: 100%;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px;
+    margin-inline: auto;
+    text-align: center !important;
+  }
+
+  html[lang="ru"] .ru-home-why > .wrap > .kicker::before {
+    display: block;
+    margin: 0 auto;
+  }
+}
