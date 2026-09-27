@@ -4951,3 +4951,39 @@ html[lang="ru"] .ru-authority-section .wrap.ru-pilot-prose {
     margin-inline: auto;
   }
 }
+
+
+/* RU PILOT — SYSTEMIC INTERNAL SECTION GUTTER ACCEPTANCE
+   Every direct .wrap inside section-tight keeps a real viewport gutter,
+   regardless of prose / ru-pilot-prose width rules. */
+html[lang="ru"] .section-tight > .wrap {
+  width: min(var(--content), calc(100% - 48px)) !important;
+  margin-inline: auto !important;
+  box-sizing: border-box;
+}
+
+html[lang="ru"] .section-tight > .wrap.prose {
+  width: min(980px, calc(100% - 48px)) !important;
+  max-width: 980px;
+}
+
+html[lang="ru"] .section-tight > .wrap.ru-pilot-prose {
+  width: min(1120px, calc(100% - 48px)) !important;
+  max-width: 1120px;
+}
+
+html[lang="ru"] .section-tight.ru-authority-section > .wrap.ru-pilot-prose {
+  width: min(1180px, calc(100% - 48px)) !important;
+  max-width: 1180px;
+}
+
+@media (max-width: 680px) {
+  html[lang="ru"] .section-tight > .wrap,
+  html[lang="ru"] .section-tight > .wrap.prose,
+  html[lang="ru"] .section-tight > .wrap.ru-pilot-prose,
+  html[lang="ru"] .section-tight.ru-authority-section > .wrap.ru-pilot-prose {
+    width: calc(100% - 32px) !important;
+    max-width: calc(100% - 32px);
+    margin-inline: auto !important;
+  }
+}
