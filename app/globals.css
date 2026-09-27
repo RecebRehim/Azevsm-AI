@@ -2617,8 +2617,8 @@ th {
   overflow-wrap: anywhere;
 }
 
-html[lang="ru"] h1,
-html[lang="ru"] h2,
+html:is([lang="ru"], [lang="en"], [lang="az"]) h1,
+html:is([lang="ru"], [lang="en"], [lang="az"]) h2,
 html[lang="az"] h1,
 html[lang="az"] h2 {
   hyphens: auto;
@@ -2948,15 +2948,15 @@ html[lang="az"] h2 {
 }
 
 @media (max-width: 680px) {
-  html[lang="ru"] h1,
-  html[lang="ru"] h2,
-  html[lang="ru"] h3,
-  html[lang="ru"] p,
-  html[lang="ru"] li,
-  html[lang="ru"] a,
-  html[lang="ru"] button,
-  html[lang="ru"] td,
-  html[lang="ru"] th {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) h1,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) h3,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) p,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) li,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) a,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) button,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) td,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) th {
     overflow-wrap: normal;
     word-break: normal;
     hyphens: none;
@@ -3024,7 +3024,7 @@ html[lang="az"] h2 {
   .ru-pilot-prose > h2,
   .ru-scenario-section > h2,
   .ru-platform-repro > h2,
-  html[lang="ru"] .page-hero h1 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .page-hero h1 {
     font-size: clamp(27px, 7.6vw, 34px);
     line-height: 1.12;
     letter-spacing: -.02em;
@@ -3136,28 +3136,28 @@ html[lang="az"] h2 {
 .ru-language-panel a:hover { background: #f1f5f7; }
 
 /* Main RU hero: centered mobile composition and controlled desktop wrapping. */
-html[lang="ru"] .hero-copy {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-copy {
   max-width: 760px;
 }
-html[lang="ru"] .hero h1,
-html[lang="ru"] .hero h2,
-html[lang="ru"] .hero h3,
-html[lang="ru"] .ru-pilot-hero h1,
-html[lang="ru"] .ru-pilot-prose h2,
-html[lang="ru"] .band-head h2,
-html[lang="ru"] .home-close h2,
-html[lang="ru"] .ru-home-final-cta h2 {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero h1,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero h2,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero h3,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero h1,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-prose h2,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .band-head h2,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .home-close h2,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-final-cta h2 {
   word-break: normal !important;
   overflow-wrap: normal !important;
   hyphens: none !important;
   text-wrap: balance;
 }
-html[lang="ru"] .hero h1 {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero h1 {
   max-width: 18ch;
   line-height: 1.06;
   letter-spacing: -.035em;
 }
-html[lang="ru"] .hero-lead {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-lead {
   max-width: 66ch;
   text-wrap: pretty;
 }
@@ -3353,17 +3353,17 @@ html[lang="ru"] .hero-lead {
 .ru-product-card-icon { width: 82px; height: 82px; }
 
 /* Better use of width for long RU authority content. */
-html[lang="ru"] .ru-pilot-prose {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-prose {
   width: min(100%, 1120px);
 }
-html[lang="ru"] .ru-pilot-blocks > p,
-html[lang="ru"] .ru-pilot-blocks > ul {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > p,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > ul {
   max-width: 900px;
 }
-html[lang="ru"] .ru-pilot-blocks > h2 {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > h2 {
   max-width: 900px;
 }
-html[lang="ru"] .ru-pilot-table-wrap {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-table-wrap {
   width: 100%;
 }
 .ru-home-final-cta {
@@ -3386,12 +3386,12 @@ html[lang="ru"] .ru-pilot-table-wrap {
 .ru-home-final-cta .cta-row { justify-content: flex-end; }
 
 /* Floating support: keep clear of text/cards/CTA on mobile. */
-html[lang="ru"] .ru-assistant-launch {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-assistant-launch {
   right: max(16px, env(safe-area-inset-right));
   bottom: max(18px, env(safe-area-inset-bottom));
   box-shadow: 0 10px 24px rgba(20,50,82,.18);
 }
-html[lang="ru"] .assistant-panel {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .assistant-panel {
   right: max(16px, env(safe-area-inset-right));
   bottom: 72px;
 }
@@ -3418,8 +3418,8 @@ html[lang="ru"] .assistant-panel {
 }
 
 @media (max-width: 680px) {
-  html[lang="ru"] .wrap,
-  html[lang="ru"] .site-header .wrap {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .wrap,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .site-header .wrap {
     width: min(var(--content), calc(100% - 28px));
     margin-inline: auto;
   }
@@ -3460,32 +3460,32 @@ html[lang="ru"] .assistant-panel {
     display: flex;
   }
 
-  html[lang="ru"] .hero-grid {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-grid {
     grid-template-columns: 1fr;
     padding: 38px 0 62px;
     text-align: center;
     justify-items: center;
   }
-  html[lang="ru"] .hero-copy {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-copy {
     width: 100%;
     max-width: 100%;
     margin-inline: auto;
   }
-  html[lang="ru"] .hero h1 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero h1 {
     max-width: 15ch;
     margin-inline: auto;
     font-size: clamp(31px, 9.4vw, 42px);
     line-height: 1.06;
     letter-spacing: -.03em;
   }
-  html[lang="ru"] .hero-lead {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-lead {
     max-width: 34ch;
     margin-inline: auto;
     font-size: 15.5px;
     line-height: 1.58;
     text-wrap: pretty;
   }
-  html[lang="ru"] .hero-panel {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel {
     width: min(100%, 270px);
     margin-inline: auto;
   }
@@ -3529,16 +3529,16 @@ html[lang="ru"] .assistant-panel {
   .ru-home-tech-icon { width: 68px; height: 68px; }
   .ru-home-why-icon { width: 62px; height: 62px; }
 
-  html[lang="ru"] .ru-pilot-blocks > h2,
-  html[lang="ru"] .band-head h2,
-  html[lang="ru"] .home-close h2,
-  html[lang="ru"] .ru-home-final-cta h2 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .band-head h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .home-close h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-final-cta h2 {
     max-width: 18ch;
     font-size: clamp(26px, 7.4vw, 34px);
     line-height: 1.12;
     text-wrap: balance;
   }
-  html[lang="ru"] .ru-pilot-blocks > p {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > p {
     max-width: 100%;
     font-size: 16px;
     line-height: 1.65;
@@ -3566,7 +3566,7 @@ html[lang="ru"] .assistant-panel {
   }
   .ru-home-final-cta .btn { width: 100%; }
 
-  html[lang="ru"] .ru-assistant-launch {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-assistant-launch {
     width: 42px;
     min-width: 42px;
     height: 42px;
@@ -3574,9 +3574,9 @@ html[lang="ru"] .assistant-panel {
     right: max(14px, env(safe-area-inset-right));
     bottom: max(16px, env(safe-area-inset-bottom));
   }
-  body:has(.cookie) html[lang="ru"] .ru-assistant-launch,
-  html[lang="ru"] body:has(.cookie) .ru-assistant-launch { bottom: 174px; }
-  html[lang="ru"] .assistant-panel {
+  body:has(.cookie) html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-assistant-launch,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) body:has(.cookie) .ru-assistant-launch { bottom: 174px; }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .assistant-panel {
     left: 14px;
     right: 14px;
     bottom: 68px;
@@ -3608,17 +3608,17 @@ html[lang="ru"] .assistant-panel {
 .ru-language-pending { cursor: default; }
 
 /* Systemic RU typography: no intra-word break and controlled line composition. */
-html[lang="ru"] h1,
-html[lang="ru"] h2,
-html[lang="ru"] h3,
-html[lang="ru"] h4 {
+html:is([lang="ru"], [lang="en"], [lang="az"]) h1,
+html:is([lang="ru"], [lang="en"], [lang="az"]) h2,
+html:is([lang="ru"], [lang="en"], [lang="az"]) h3,
+html:is([lang="ru"], [lang="en"], [lang="az"]) h4 {
   word-break: keep-all !important;
   overflow-wrap: normal !important;
   hyphens: none !important;
   text-wrap: balance;
 }
-html[lang="ru"] p,
-html[lang="ru"] li {
+html:is([lang="ru"], [lang="en"], [lang="az"]) p,
+html:is([lang="ru"], [lang="en"], [lang="az"]) li {
   word-break: normal !important;
   overflow-wrap: normal !important;
   hyphens: none !important;
@@ -3626,22 +3626,22 @@ html[lang="ru"] li {
 }
 
 /* Main hero: balanced mobile/desktop typography and equal margins. */
-html[lang="ru"] .hero-grid {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-grid {
   align-items: center;
   gap: clamp(38px, 6vw, 88px);
 }
-html[lang="ru"] .hero-copy {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-copy {
   width: 100%;
   max-width: 800px;
 }
-html[lang="ru"] .hero h1 {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero h1 {
   width: 100%;
   max-width: 19ch;
   line-height: 1.035;
   letter-spacing: -.038em;
   text-wrap: balance;
 }
-html[lang="ru"] .hero-lead {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-lead {
   width: 100%;
   max-width: 62ch;
   line-height: 1.62;
@@ -3810,14 +3810,14 @@ html[lang="ru"] .hero-lead {
 .ru-authority-section {
   padding-block: clamp(52px, 6vw, 82px);
 }
-html[lang="ru"] .ru-pilot-prose {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-prose {
   width: min(100%, 1120px);
   margin-inline: auto;
 }
-html[lang="ru"] .ru-pilot-blocks {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks {
   width: 100%;
 }
-html[lang="ru"] .ru-pilot-blocks > h2 {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > h2 {
   width: min(100%, 880px);
   margin: 56px auto 18px;
   padding-top: 30px;
@@ -3826,11 +3826,11 @@ html[lang="ru"] .ru-pilot-blocks > h2 {
   line-height: 1.12;
   letter-spacing: -.026em;
 }
-html[lang="ru"] .ru-pilot-blocks > h2:first-child {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > h2:first-child {
   margin-top: 0;
   padding-top: 0;
 }
-html[lang="ru"] .ru-pilot-blocks > p {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > p {
   width: min(100%, 840px);
   margin: 0 auto 24px;
   color: #536171;
@@ -3838,36 +3838,36 @@ html[lang="ru"] .ru-pilot-blocks > p {
   line-height: 1.72;
   text-align: left;
 }
-html[lang="ru"] .ru-pilot-blocks > ul {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > ul {
   width: min(100%, 900px);
   margin: 20px auto 32px;
   padding: 24px 32px 24px 50px;
 }
-html[lang="ru"] .ru-pilot-note {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-note {
   width: min(100%, 900px);
   margin: 28px auto 36px;
 }
-html[lang="ru"] .ru-pilot-table-wrap {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-table-wrap {
   width: 100%;
   margin: 24px auto 36px;
 }
-html[lang="ru"] .ru-pilot-actions {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-actions {
   width: min(100%, 900px);
   margin: 42px auto 0;
   justify-content: center;
 }
 
 /* Platform scenario intro and cards. */
-html[lang="ru"] .ru-scenario-section > h2,
-html[lang="ru"] .ru-platform-repro > h2 {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-section > h2,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-repro > h2 {
   max-width: 22ch;
   margin-inline: auto;
   text-align: center;
   text-wrap: balance;
 }
-html[lang="ru"] .ru-scenario-section > p,
-html[lang="ru"] .ru-platform-repro > p,
-html[lang="ru"] .ru-plus-intro {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-section > p,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-repro > p,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-intro {
   width: min(100%, 800px);
   margin-inline: auto;
   text-align: center;
@@ -3988,11 +3988,11 @@ html[lang="ru"] .ru-plus-intro {
 .ru-insight-detail > .text-link { justify-self: center; }
 
 /* Support launcher stays outside primary reading column. */
-html[lang="ru"] .ru-assistant-launch {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-assistant-launch {
   right: max(18px, env(safe-area-inset-right));
   bottom: max(18px, env(safe-area-inset-bottom));
 }
-html[lang="ru"] .assistant-panel {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .assistant-panel {
   right: max(18px, env(safe-area-inset-right));
   bottom: 74px;
 }
@@ -4008,38 +4008,38 @@ html[lang="ru"] .assistant-panel {
 }
 
 @media (max-width: 680px) {
-  html[lang="ru"] .wrap,
-  html[lang="ru"] .site-header .wrap {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .wrap,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .site-header .wrap {
     width: calc(100% - 32px);
     margin-inline: auto;
   }
 
-  html[lang="ru"] .hero-grid {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-grid {
     grid-template-columns: 1fr;
     justify-items: center;
     text-align: center;
     gap: 30px;
     padding: 42px 0 54px;
   }
-  html[lang="ru"] .hero-copy {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-copy {
     width: 100%;
     max-width: none;
   }
-  html[lang="ru"] .hero h1 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero h1 {
     max-width: 100%;
     margin-inline: auto;
     font-size: clamp(30px, 8.2vw, 37px);
     line-height: 1.07;
     letter-spacing: -.027em;
   }
-  html[lang="ru"] .hero-lead {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-lead {
     width: min(100%, 36ch);
     margin-inline: auto;
     font-size: 16px;
     line-height: 1.58;
     text-align: center;
   }
-  html[lang="ru"] .hero-panel {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel {
     width: min(100%, 270px);
     margin-inline: auto;
   }
@@ -4085,7 +4085,7 @@ html[lang="ru"] .assistant-panel {
   .ru-products-hero-icons .founder-icon:nth-child(2) { transform: translateY(-12px); }
 
   .ru-authority-section { padding-block: 44px 66px; }
-  html[lang="ru"] .ru-pilot-blocks > h2 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > h2 {
     width: min(100%, 20ch);
     margin: 46px auto 16px;
     padding-top: 24px;
@@ -4093,27 +4093,27 @@ html[lang="ru"] .assistant-panel {
     line-height: 1.12;
     text-align: center;
   }
-  html[lang="ru"] .ru-pilot-blocks > p {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > p {
     width: min(100%, 38ch);
     margin: 0 auto 22px;
     font-size: 16px;
     line-height: 1.66;
     text-align: left;
   }
-  html[lang="ru"] .ru-pilot-blocks > ul,
-  html[lang="ru"] .ru-pilot-note {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > ul,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-note {
     width: 100%;
   }
 
-  html[lang="ru"] .ru-scenario-section > h2,
-  html[lang="ru"] .ru-platform-repro > h2 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-section > h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-repro > h2 {
     max-width: 18ch;
     margin-inline: auto;
     text-align: center;
   }
-  html[lang="ru"] .ru-scenario-section > p,
-  html[lang="ru"] .ru-platform-repro > p,
-  html[lang="ru"] .ru-plus-intro {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-section > p,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-repro > p,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-intro {
     width: min(100%, 36ch);
     margin-inline: auto;
     text-align: center;
@@ -4164,7 +4164,7 @@ html[lang="ru"] .assistant-panel {
   .ru-insight-card { min-height: 0; }
   .ru-insight-detail-copy { padding: 24px 20px; }
 
-  html[lang="ru"] .ru-assistant-launch {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-assistant-launch {
     width: 42px;
     min-width: 42px;
     height: 42px;
@@ -4172,7 +4172,7 @@ html[lang="ru"] .assistant-panel {
     right: max(14px, env(safe-area-inset-right));
     bottom: max(16px, env(safe-area-inset-bottom));
   }
-  html[lang="ru"] .assistant-panel {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .assistant-panel {
     left: 14px;
     right: 14px;
     bottom: 68px;
@@ -4190,7 +4190,7 @@ html[lang="ru"] .assistant-panel {
 .ru-nowrap-term { white-space: nowrap; }
 
 /* Homepage: only Founder-noted repairs; accepted structure remains unchanged. */
-html[lang="ru"] .hero-tomorrow {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-tomorrow {
   width: min(100%, 312px);
   margin-top: 14px;
   padding: 12px 14px;
@@ -4203,22 +4203,22 @@ html[lang="ru"] .hero-tomorrow {
   color: #102846;
 }
 
-html[lang="ru"] .ru-home-products .band-head,
-html[lang="ru"] .ru-home-tech .band-head {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .band-head,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .band-head {
   display: grid;
   grid-template-columns: minmax(120px,1fr) minmax(0,760px) minmax(120px,1fr);
   align-items: end;
   gap: 18px;
 }
-html[lang="ru"] .ru-home-products .band-head > div,
-html[lang="ru"] .ru-home-tech .band-head > div {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .band-head > div,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .band-head > div {
   grid-column: 2;
   text-align: center;
 }
-html[lang="ru"] .ru-home-products .band-head .kicker,
-html[lang="ru"] .ru-home-tech .band-head .kicker { justify-content: center; }
-html[lang="ru"] .ru-home-products .band-head .text-link,
-html[lang="ru"] .ru-home-tech .band-head .text-link {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .band-head .kicker,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .band-head .kicker { justify-content: center; }
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .band-head .text-link,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .band-head .text-link {
   grid-column: 3;
   justify-self: end;
   align-self: end;
@@ -4235,26 +4235,26 @@ html[lang="ru"] .ru-home-tech .band-head .text-link {
 .ru-hero-topic-grid { display: none; }
 
 @media (min-width: 1025px) {
-  html[lang="ru"] .ru-pilot-hero-inner {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-inner {
     min-height: 460px;
     grid-template-columns: minmax(0,1fr) minmax(430px,.92fr);
     gap: clamp(56px,6vw,96px);
     padding-block: clamp(58px,6vw,76px);
   }
-  html[lang="ru"] .ru-pilot-hero-copy {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-copy {
     align-self: center;
     max-width: 720px;
   }
-  html[lang="ru"] .ru-pilot-hero h1 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero h1 {
     max-width: 18ch;
     font-size: clamp(42px,4vw,60px);
   }
-  html[lang="ru"] .ru-pilot-lead {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-lead {
     max-width: 58ch;
     font-size: clamp(17px,1.25vw,19px);
   }
 
-  html[lang="ru"] .ru-thematic-hero-art {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-thematic-hero-art {
     position: relative;
     width: min(100%,530px);
     min-height: 350px;
@@ -4267,7 +4267,7 @@ html[lang="ru"] .ru-home-tech .band-head .text-link {
     background: linear-gradient(145deg,rgba(255,255,255,.80),rgba(230,239,245,.65));
     box-shadow: inset 0 1px 0 rgba(255,255,255,.84), 0 24px 58px rgba(19,49,80,.09);
   }
-  html[lang="ru"] .ru-thematic-hero-art::before {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-thematic-hero-art::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -4278,22 +4278,22 @@ html[lang="ru"] .ru-home-tech .band-head .text-link {
     background-size: 36px 36px;
     mask-image: linear-gradient(180deg,rgba(0,0,0,.72),transparent 72%);
   }
-  html[lang="ru"] .ru-hero-art-core { min-height: 224px; }
-  html[lang="ru"] .ru-hero-founder-icon {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-art-core { min-height: 224px; }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-founder-icon {
     width: clamp(210px,17vw,252px);
     height: clamp(210px,17vw,252px);
     filter: drop-shadow(0 24px 36px rgba(24,58,91,.13));
   }
-  html[lang="ru"] .ru-products-hero-icons { gap: 12px; }
-  html[lang="ru"] .ru-products-hero-icons .founder-icon {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-products-hero-icons { gap: 12px; }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-products-hero-icons .founder-icon {
     width: clamp(116px,10vw,142px);
     height: clamp(116px,10vw,142px);
   }
-  html[lang="ru"] .ru-products-hero-icons .founder-icon:nth-child(2) { transform: translateY(-18px); }
-  html[lang="ru"] .ru-company-mark,
-  html[lang="ru"] .ru-research-mark { width: clamp(210px,18vw,248px); }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-products-hero-icons .founder-icon:nth-child(2) { transform: translateY(-18px); }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-company-mark,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-research-mark { width: clamp(210px,18vw,248px); }
 
-  html[lang="ru"] .ru-hero-topic-grid {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-topic-grid {
     position: relative;
     z-index: 1;
     display: grid;
@@ -4301,7 +4301,7 @@ html[lang="ru"] .ru-home-tech .band-head .text-link {
     width: 100%;
     margin-top: 10px;
   }
-  html[lang="ru"] .ru-hero-topic {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-topic {
     display: grid;
     grid-template-columns: 34px minmax(0,1fr);
     gap: 10px;
@@ -4313,37 +4313,37 @@ html[lang="ru"] .ru-home-tech .band-head .text-link {
     font-size: 13px;
     line-height: 1.35;
   }
-  html[lang="ru"] .ru-hero-topic b {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-topic b {
     color: #9a793d;
     font-size: 11px;
     font-weight: 800;
     letter-spacing: .09em;
   }
 
-  html[lang="ru"] .ru-authority-section .ru-pilot-prose { width: min(100%,1180px); }
-  html[lang="ru"] .ru-pilot-blocks > p { width: min(100%,900px); }
-  html[lang="ru"] .ru-pilot-blocks > h2 { width: min(100%,960px); }
-  html[lang="ru"] .ru-pilot-blocks > ul,
-  html[lang="ru"] .ru-pilot-note { width: min(100%,960px); }
-  html[lang="ru"] .ru-scenario-grid { width: min(100%,1100px); }
-  html[lang="ru"] .ru-scenario-card { min-height: 172px; }
-  html[lang="ru"] .ru-products-grid { width: min(100%,1180px); }
-  html[lang="ru"] .ru-product-card { min-height: 270px; }
-  html[lang="ru"] .ru-plus-grid { width: min(100%,1140px); }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-authority-section .ru-pilot-prose { width: min(100%,1180px); }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > p { width: min(100%,900px); }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > h2 { width: min(100%,960px); }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > ul,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-note { width: min(100%,960px); }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-grid { width: min(100%,1100px); }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-card { min-height: 172px; }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-products-grid { width: min(100%,1180px); }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-product-card { min-height: 270px; }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-grid { width: min(100%,1140px); }
 }
 
 @media (max-width: 680px) {
-  html[lang="ru"] .ru-home-products .band-head,
-  html[lang="ru"] .ru-home-tech .band-head {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .band-head,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .band-head {
     display: flex;
     align-items: center;
     text-align: center;
   }
-  html[lang="ru"] .ru-home-products .band-head > div,
-  html[lang="ru"] .ru-home-tech .band-head > div { width: 100%; }
-  html[lang="ru"] .ru-home-products .band-head .text-link,
-  html[lang="ru"] .ru-home-tech .band-head .text-link { align-self: center; }
-  html[lang="ru"] .hero-tomorrow {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .band-head > div,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .band-head > div { width: 100%; }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .band-head .text-link,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .band-head .text-link { align-self: center; }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-tomorrow {
     width: min(100%,278px);
     margin-inline: auto;
   }
@@ -4355,7 +4355,7 @@ html[lang="ru"] .ru-home-tech .band-head .text-link {
 
 /* The current DOM uses the outer hero as a full-width band and the inner wrapper as the grid.
    Reset the legacy outer-grid/card geometry so it cannot squeeze the current composition. */
-html[lang="ru"] .ru-pilot-hero {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero {
   display: block;
   grid-template-columns: none;
   gap: 0;
@@ -4371,14 +4371,14 @@ html[lang="ru"] .ru-pilot-hero {
 
 /* The approved RU technology foundation contains three cards. */
 @media (min-width: 1025px) {
-  html[lang="ru"] .ru-home-tech .foundation-row {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .foundation-row {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 /* Keep odd final cards visually balanced on two-column tablet layouts. */
 @media (min-width: 681px) and (max-width: 1024px) {
-  html[lang="ru"] .ru-home-tech .foundation-row > article:last-child:nth-child(odd) {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .foundation-row > article:last-child:nth-child(odd) {
     grid-column: 1 / -1;
     width: 100%;
     max-width: calc((100% - 16px) / 2);
@@ -4389,8 +4389,8 @@ html[lang="ru"] .ru-pilot-hero {
 /* Plus has seven products and the platform scenario set is odd-sized: center the final card,
    without inventing a filler item or changing source order. */
 @media (min-width: 681px) {
-  html[lang="ru"] .ru-plus-grid > .ru-plus-card:last-child:nth-child(odd),
-  html[lang="ru"] .ru-scenario-grid > .ru-scenario-card:last-child:nth-child(odd) {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-grid > .ru-plus-card:last-child:nth-child(odd),
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-grid > .ru-scenario-card:last-child:nth-child(odd) {
     grid-column: 1 / -1;
     width: 100%;
     max-width: calc((100% - 16px) / 2);
@@ -4402,7 +4402,7 @@ html[lang="ru"] .ru-pilot-hero {
 /* RU PILOT — FOUNDER QA FINAL VISUAL REPAIR */
 
 /* Home hero: remove the white plaque and solve readability at the background level. */
-html[lang="ru"] .hero-scrim {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-scrim {
   background:
     linear-gradient(90deg,
       rgba(247,248,246,.74) 0%,
@@ -4412,16 +4412,16 @@ html[lang="ru"] .hero-scrim {
       rgba(247,248,246,.70) 100%);
 }
 
-html[lang="ru"] .hero-grid {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-grid {
   grid-template-columns: minmax(0,1.08fr) minmax(280px,.82fr);
   gap: clamp(40px,5vw,76px);
 }
 
-html[lang="ru"] .hero-copy {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-copy {
   max-width: 760px;
 }
 
-html[lang="ru"] .hero-panel {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel {
   width: min(100%,320px);
   max-width: 320px;
   margin-inline-start: 0;
@@ -4429,7 +4429,7 @@ html[lang="ru"] .hero-panel {
   transform: translateY(-18px);
 }
 
-html[lang="ru"] .hero-tomorrow {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-tomorrow {
   width: auto;
   max-width: 300px;
   margin: 12px 0 0;
@@ -4445,9 +4445,9 @@ html[lang="ru"] .hero-tomorrow {
 }
 
 /* RU home uses the clear, visible line-icon language already proven on EN home. */
-html[lang="ru"] .ru-home-product-icon,
-html[lang="ru"] .ru-home-tech-icon,
-html[lang="ru"] .ru-home-why-icon {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-product-icon,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech-icon,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-why-icon {
   display: grid;
   place-items: center;
   background: transparent !important;
@@ -4456,16 +4456,16 @@ html[lang="ru"] .ru-home-why-icon {
   box-shadow: none;
 }
 
-html[lang="ru"] .ru-home-product-icon svg,
-html[lang="ru"] .ru-home-tech-icon svg,
-html[lang="ru"] .ru-home-why-icon svg {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-product-icon svg,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech-icon svg,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-why-icon svg {
   width: 100%;
   height: 100%;
   display: block;
 }
 
 /* Seven Azevsm Plus service icons: standalone SVGs, no legacy sprite/background override. */
-html[lang="ru"] .ru-plus-card-head .ru-plus-icon {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card-head .ru-plus-icon {
   display: grid;
   place-items: center;
   width: 72px;
@@ -4479,25 +4479,25 @@ html[lang="ru"] .ru-plus-card-head .ru-plus-icon {
   box-shadow: none;
 }
 
-html[lang="ru"] .ru-plus-card-head .ru-plus-icon svg {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card-head .ru-plus-icon svg {
   display: block;
   width: 100%;
   height: 100%;
 }
 
 /* Keep Plus service name and icon as one readable heading unit. */
-html[lang="ru"] .ru-plus-card-head {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card-head {
   align-items: center;
   gap: 18px;
 }
 
-html[lang="ru"] .ru-plus-card h2 {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card h2 {
   margin: 0;
   text-wrap: balance;
 }
 
 @media (max-width: 680px) {
-  html[lang="ru"] .hero-scrim {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-scrim {
     background:
       linear-gradient(180deg,
         rgba(247,248,246,.90) 0%,
@@ -4506,14 +4506,14 @@ html[lang="ru"] .ru-plus-card h2 {
         rgba(247,248,246,.72) 100%);
   }
 
-  html[lang="ru"] .hero-panel {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel {
     width: min(100%,280px);
     max-width: 280px;
     margin-inline: auto;
     transform: none;
   }
 
-  html[lang="ru"] .hero-tomorrow {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-tomorrow {
     width: min(100%,280px);
     max-width: 280px;
     margin-inline: auto;
@@ -4523,7 +4523,7 @@ html[lang="ru"] .ru-plus-card h2 {
     box-shadow: none;
   }
 
-  html[lang="ru"] .ru-plus-card-head .ru-plus-icon {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card-head .ru-plus-icon {
     width: 60px;
     height: 60px;
     flex-basis: 60px;
@@ -4535,29 +4535,29 @@ html[lang="ru"] .ru-plus-card h2 {
 /* RU PILOT — EN-COMPOSITION REFERENCE FOR INTERNAL HEROES */
 
 /* Keep RU content, but return internal-page composition to the calmer EN baseline. */
-html[lang="ru"] .ru-pilot-hero-inner {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-inner {
   min-height: 320px;
   grid-template-columns: minmax(0,1.35fr) minmax(180px,.45fr);
   gap: clamp(32px,4vw,64px);
   padding-block: clamp(44px,5vw,64px);
 }
 
-html[lang="ru"] .ru-pilot-hero-copy {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-copy {
   max-width: 860px;
 }
 
-html[lang="ru"] .ru-pilot-hero h1 {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero h1 {
   max-width: 20ch;
   font-size: clamp(38px,3.6vw,54px);
   line-height: 1.06;
 }
 
-html[lang="ru"] .ru-pilot-lead {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-lead {
   max-width: 66ch;
   font-size: clamp(17px,1.2vw,19px);
 }
 
-html[lang="ru"] .ru-thematic-hero-art {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-thematic-hero-art {
   width: 100%;
   min-height: 180px;
   padding: 0;
@@ -4568,32 +4568,32 @@ html[lang="ru"] .ru-thematic-hero-art {
   justify-self: center;
 }
 
-html[lang="ru"] .ru-thematic-hero-art::before,
-html[lang="ru"] .ru-hero-topic-grid {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-thematic-hero-art::before,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-topic-grid {
   display: none !important;
 }
 
-html[lang="ru"] .ru-hero-art-core {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-art-core {
   min-height: 0;
 }
 
-html[lang="ru"] .ru-hero-founder-icon {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-founder-icon {
   width: clamp(120px,11vw,156px);
   height: clamp(120px,11vw,156px);
   filter: none;
 }
 
-html[lang="ru"] .ru-products-hero-icons .founder-icon {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-products-hero-icons .founder-icon {
   width: clamp(78px,7vw,96px);
   height: clamp(78px,7vw,96px);
 }
 
-html[lang="ru"] .ru-products-hero-icons .founder-icon:nth-child(2) {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-products-hero-icons .founder-icon:nth-child(2) {
   transform: translateY(-10px);
 }
 
-html[lang="ru"] .ru-company-mark,
-html[lang="ru"] .ru-research-mark {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-company-mark,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-research-mark {
   width: clamp(140px,12vw,176px);
   background: transparent;
   border: 0;
@@ -4601,18 +4601,18 @@ html[lang="ru"] .ru-research-mark {
 }
 
 @media (max-width: 680px) {
-  html[lang="ru"] .ru-pilot-hero-inner {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-inner {
     grid-template-columns: 1fr;
     min-height: 0;
     gap: 18px;
     padding-block: 40px 34px;
   }
 
-  html[lang="ru"] .ru-thematic-hero-art {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-thematic-hero-art {
     min-height: 104px;
   }
 
-  html[lang="ru"] .ru-hero-founder-icon {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-founder-icon {
     width: 104px;
     height: 104px;
   }
@@ -4621,7 +4621,7 @@ html[lang="ru"] .ru-research-mark {
 
 /* RU PILOT — ONE-PASS FOUNDER QA ACCEPTANCE LAYER
    Closes confirmed responsive and icon-rendering blockers without changing content. */
-html[lang="ru"] .founder-icon--inline {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .founder-icon--inline {
   display: inline-grid;
   place-items: center;
   background: transparent !important;
@@ -4632,7 +4632,7 @@ html[lang="ru"] .founder-icon--inline {
   box-shadow: none;
   overflow: visible;
 }
-html[lang="ru"] .founder-icon--inline > svg {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .founder-icon--inline > svg {
   display: block;
   width: 100%;
   height: 100%;
@@ -4640,41 +4640,41 @@ html[lang="ru"] .founder-icon--inline > svg {
 }
 
 /* Home right column is one visual unit: proof words with the thesis directly below. */
-html[lang="ru"] .hero-panel {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel {
   align-items: stretch;
   text-align: left;
 }
-html[lang="ru"] .hero-panel > .logo,
-html[lang="ru"] .hero-panel > svg,
-html[lang="ru"] .hero-brand,
-html[lang="ru"] .hero-rule {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel > .logo,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel > svg,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-brand,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-rule {
   align-self: center;
 }
-html[lang="ru"] .hero-words,
-html[lang="ru"] .hero-tomorrow {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-words,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-tomorrow {
   width: 100%;
   max-width: 100%;
   color: #1a4f9c;
   text-align: left;
 }
-html[lang="ru"] .hero-tomorrow {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-tomorrow {
   align-self: stretch;
   margin-top: 10px;
 }
 
 /* Mobile acceptance: later desktop RU rules must never recreate a second off-screen column. */
 @media (max-width: 680px) {
-  html[lang="ru"],
-  html[lang="ru"] body {
+  html:is([lang="ru"], [lang="en"], [lang="az"]),
+  html:is([lang="ru"], [lang="en"], [lang="az"]) body {
     max-width: 100%;
     overflow-x: hidden;
   }
 
-  html[lang="ru"] .hero {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero {
     overflow: hidden;
   }
 
-  html[lang="ru"] .hero-grid {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-grid {
     width: 100%;
     max-width: 100%;
     min-width: 0;
@@ -4685,7 +4685,7 @@ html[lang="ru"] .hero-tomorrow {
     padding: 38px 0 50px;
   }
 
-  html[lang="ru"] .hero-copy {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-copy {
     grid-column: 1;
     grid-row: 1;
     width: 100%;
@@ -4694,7 +4694,7 @@ html[lang="ru"] .hero-tomorrow {
     text-align: left;
   }
 
-  html[lang="ru"] .hero h1 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero h1 {
     width: 100%;
     max-width: 100%;
     margin-inline: 0;
@@ -4704,7 +4704,7 @@ html[lang="ru"] .hero-tomorrow {
     text-wrap: balance;
   }
 
-  html[lang="ru"] .hero-lead {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-lead {
     width: 100%;
     max-width: 100%;
     margin-inline: 0;
@@ -4713,7 +4713,7 @@ html[lang="ru"] .hero-tomorrow {
     text-align: left;
   }
 
-  html[lang="ru"] .hero-panel {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel {
     grid-column: 1;
     grid-row: 2;
     justify-self: stretch;
@@ -4725,22 +4725,22 @@ html[lang="ru"] .hero-tomorrow {
     align-items: stretch;
   }
 
-  html[lang="ru"] .hero-brand,
-  html[lang="ru"] .hero-rule {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-brand,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-rule {
     align-self: flex-start;
   }
 
-  html[lang="ru"] .hero-panel > .logo,
-  html[lang="ru"] .hero-panel > svg {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel > .logo,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel > svg {
     align-self: flex-start;
   }
 
-  html[lang="ru"] .hero-words {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-words {
     letter-spacing: .22em;
     line-height: 1.7;
   }
 
-  html[lang="ru"] .hero-tomorrow {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-tomorrow {
     width: 100%;
     max-width: 100%;
     margin: 8px 0 0;
@@ -4750,16 +4750,16 @@ html[lang="ru"] .hero-tomorrow {
     box-shadow: none;
   }
 
-  html[lang="ru"] .ru-pilot-hero,
-  html[lang="ru"] .ru-pilot-hero-inner,
-  html[lang="ru"] .ru-pilot-hero-copy,
-  html[lang="ru"] .ru-thematic-hero-art,
-  html[lang="ru"] .ru-hero-art-core {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-inner,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-copy,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-thematic-hero-art,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-art-core {
     max-width: 100%;
     min-width: 0;
   }
 
-  html[lang="ru"] .ru-pilot-hero-inner {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-inner {
     grid-template-columns: minmax(0,1fr);
     gap: 18px;
     justify-items: stretch;
@@ -4767,26 +4767,26 @@ html[lang="ru"] .hero-tomorrow {
     padding-block: 38px 32px;
   }
 
-  html[lang="ru"] .ru-pilot-hero-copy,
-  html[lang="ru"] .ru-pilot-hero h1,
-  html[lang="ru"] .ru-pilot-lead {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-copy,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero h1,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-lead {
     width: 100%;
     max-width: 100%;
     margin-inline: 0;
     text-align: left;
   }
 
-  html[lang="ru"] .ru-thematic-hero-art {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-thematic-hero-art {
     justify-self: start;
     place-items: start;
     min-height: 96px;
   }
 
-  html[lang="ru"] .ru-hero-art-core {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-art-core {
     place-items: start;
   }
 
-  html[lang="ru"] .ru-products-hero-icons {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-products-hero-icons {
     width: 100%;
     max-width: 100%;
     flex-wrap: nowrap;
@@ -4797,27 +4797,27 @@ html[lang="ru"] .hero-tomorrow {
 
 /* RU PILOT — CONTAINER GUTTER ROOT-CAUSE CLOSURE
    Components that also carry .wrap must not override the wrap gutter with width:100%. */
-html[lang="ru"] .wrap.ru-pilot-prose {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .wrap.ru-pilot-prose {
   width: min(1120px, calc(100% - 48px));
   max-width: 1120px;
   margin-inline: auto;
   box-sizing: border-box;
 }
 
-html[lang="ru"] .ru-authority-section .wrap.ru-pilot-prose {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-authority-section .wrap.ru-pilot-prose {
   width: min(1180px, calc(100% - 48px));
   max-width: 1180px;
 }
 
 @media (max-width: 680px) {
-  html[lang="ru"] .wrap.hero-grid {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .wrap.hero-grid {
     width: calc(100% - 32px);
     max-width: calc(100% - 32px);
     margin-inline: auto;
   }
 
-  html[lang="ru"] .wrap.ru-pilot-prose,
-  html[lang="ru"] .ru-authority-section .wrap.ru-pilot-prose {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .wrap.ru-pilot-prose,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-authority-section .wrap.ru-pilot-prose {
     width: calc(100% - 32px);
     max-width: calc(100% - 32px);
     margin-inline: auto;
@@ -4828,32 +4828,32 @@ html[lang="ru"] .ru-authority-section .wrap.ru-pilot-prose {
 /* RU PILOT — SYSTEMIC INTERNAL SECTION GUTTER ACCEPTANCE
    Every direct .wrap inside section-tight keeps a real viewport gutter,
    regardless of prose / ru-pilot-prose width rules. */
-html[lang="ru"] .section-tight > .wrap {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight > .wrap {
   width: min(var(--content), calc(100% - 48px)) !important;
   margin-inline: auto !important;
   box-sizing: border-box;
 }
 
-html[lang="ru"] .section-tight > .wrap.prose {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight > .wrap.prose {
   width: min(980px, calc(100% - 48px)) !important;
   max-width: 980px;
 }
 
-html[lang="ru"] .section-tight > .wrap.ru-pilot-prose {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight > .wrap.ru-pilot-prose {
   width: min(1120px, calc(100% - 48px)) !important;
   max-width: 1120px;
 }
 
-html[lang="ru"] .section-tight.ru-authority-section > .wrap.ru-pilot-prose {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight.ru-authority-section > .wrap.ru-pilot-prose {
   width: min(1180px, calc(100% - 48px)) !important;
   max-width: 1180px;
 }
 
 @media (max-width: 680px) {
-  html[lang="ru"] .section-tight > .wrap,
-  html[lang="ru"] .section-tight > .wrap.prose,
-  html[lang="ru"] .section-tight > .wrap.ru-pilot-prose,
-  html[lang="ru"] .section-tight.ru-authority-section > .wrap.ru-pilot-prose {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight > .wrap,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight > .wrap.prose,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight > .wrap.ru-pilot-prose,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight.ru-authority-section > .wrap.ru-pilot-prose {
     width: calc(100% - 32px) !important;
     max-width: calc(100% - 32px);
     margin-inline: auto !important;
@@ -4864,44 +4864,44 @@ html[lang="ru"] .section-tight.ru-authority-section > .wrap.ru-pilot-prose {
 /* RU PILOT — DESIGN SPEC v1.0 SOURCE-BOUND ACCEPTANCE
    Applies only explicit grid/spacing/header requirements from the Founder/Architect brief. */
 @media (min-width: 681px) {
-  html[lang="ru"] .ru-pilot-site-header,
-  html[lang="ru"] .ru-pilot-site-header .header-inner {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .header-inner {
     height: 76px;
     min-height: 76px;
   }
 
-  html[lang="ru"] .section-tight {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight {
     padding-block: 96px;
   }
 
-  html[lang="ru"] .section-tight > .wrap.ru-pilot-prose,
-  html[lang="ru"] .section-tight.ru-authority-section > .wrap.ru-pilot-prose {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight > .wrap.ru-pilot-prose,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight.ru-authority-section > .wrap.ru-pilot-prose {
     width: min(1200px, calc(100% - 48px)) !important;
     max-width: 1200px;
   }
 }
 
 @media (max-width: 680px) {
-  html[lang="ru"] .ru-pilot-site-header,
-  html[lang="ru"] .ru-pilot-site-header .header-inner {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .header-inner {
     min-height: 64px;
   }
 
-  html[lang="ru"] .wrap,
-  html[lang="ru"] .site-header .wrap,
-  html[lang="ru"] .wrap.hero-grid,
-  html[lang="ru"] .wrap.ru-pilot-hero-inner,
-  html[lang="ru"] .section-tight > .wrap,
-  html[lang="ru"] .section-tight > .wrap.prose,
-  html[lang="ru"] .section-tight > .wrap.ru-pilot-prose,
-  html[lang="ru"] .section-tight.ru-authority-section > .wrap.ru-pilot-prose {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .wrap,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .site-header .wrap,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .wrap.hero-grid,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .wrap.ru-pilot-hero-inner,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight > .wrap,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight > .wrap.prose,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight > .wrap.ru-pilot-prose,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight.ru-authority-section > .wrap.ru-pilot-prose {
     width: calc(100% - 48px) !important;
     max-width: calc(100% - 48px);
     margin-inline: auto !important;
     box-sizing: border-box;
   }
 
-  html[lang="ru"] .section-tight {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight {
     padding-block: 64px;
   }
 }
@@ -4909,10 +4909,10 @@ html[lang="ru"] .section-tight.ru-authority-section > .wrap.ru-pilot-prose {
 
 /* RU PILOT — SYSTEMIC INTERNAL HERO CLOSURE
    Legacy sprite layers are physically removed above. Inline SVG is the only icon renderer. */
-html[lang="ru"] .founder-icon,
-html[lang="ru"] .founder-icon--inline,
-html[lang="ru"] .ru-hero-founder-icon,
-html[lang="ru"] .ru-products-hero-icons .founder-icon {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .founder-icon,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .founder-icon--inline,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-founder-icon,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-products-hero-icons .founder-icon {
   display: inline-grid;
   place-items: center;
   background: transparent !important;
@@ -4925,49 +4925,49 @@ html[lang="ru"] .ru-products-hero-icons .founder-icon {
   overflow: visible;
 }
 
-html[lang="ru"] .founder-icon > svg,
-html[lang="ru"] .founder-icon--inline > svg {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .founder-icon > svg,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .founder-icon--inline > svg {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-html[lang="ru"] .ru-thematic-hero-art,
-html[lang="ru"] .ru-hero-art-core {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-thematic-hero-art,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-art-core {
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
 }
 
-html[lang="ru"] .ru-thematic-hero-art::before,
-html[lang="ru"] .ru-hero-topic-grid {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-thematic-hero-art::before,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-topic-grid {
   display: none !important;
 }
 
 /* Calm internal typography: source-bound to the Website Design Spec scale. */
-html[lang="ru"] .ru-pilot-hero h1 {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero h1 {
   font-size: clamp(44px, 3.2vw, 50px);
   line-height: 1.08;
   max-width: 22ch;
 }
 
-html[lang="ru"] .ru-pilot-prose h2,
-html[lang="ru"] .ru-pilot-blocks > h2,
-html[lang="ru"] .band-head h2 {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-prose h2,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > h2,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .band-head h2 {
   font-size: clamp(30px, 2.4vw, 38px);
   line-height: 1.16;
 }
 
-html[lang="ru"] .ru-pilot-prose h3,
-html[lang="ru"] .ru-product-card h2,
-html[lang="ru"] .ru-plus-card h2 {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-prose h3,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-product-card h2,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card h2 {
   font-size: clamp(22px, 1.8vw, 27px);
   line-height: 1.22;
 }
 
 /* Internal hero = balanced text + icon composition, centered as one unit. */
 @media (min-width: 1025px) {
-  html[lang="ru"] .wrap.ru-pilot-hero-inner {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .wrap.ru-pilot-hero-inner {
     width: min(1200px, calc(100% - 48px)) !important;
     max-width: 1200px;
     min-height: 360px;
@@ -4977,17 +4977,17 @@ html[lang="ru"] .ru-plus-card h2 {
     padding-block: 64px;
   }
 
-  html[lang="ru"] .ru-pilot-hero-copy {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-copy {
     width: 100%;
     max-width: 620px;
     justify-self: end;
   }
 
-  html[lang="ru"] .ru-pilot-lead {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-lead {
     max-width: 58ch;
   }
 
-  html[lang="ru"] .ru-thematic-hero-art {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-thematic-hero-art {
     width: 100%;
     min-height: 180px;
     justify-self: start;
@@ -4995,19 +4995,19 @@ html[lang="ru"] .ru-plus-card h2 {
     place-items: center;
   }
 
-  html[lang="ru"] .ru-hero-art-core {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-art-core {
     width: 100%;
     min-height: 0;
     display: grid;
     place-items: center;
   }
 
-  html[lang="ru"] .ru-hero-founder-icon {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-founder-icon {
     width: 144px;
     height: 144px;
   }
 
-  html[lang="ru"] .ru-products-hero-icons {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-products-hero-icons {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -5015,7 +5015,7 @@ html[lang="ru"] .ru-plus-card h2 {
     transform: none;
   }
 
-  html[lang="ru"] .ru-products-hero-icons .founder-icon {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-products-hero-icons .founder-icon {
     width: 92px;
     height: 92px;
     transform: none !important;
@@ -5023,53 +5023,53 @@ html[lang="ru"] .ru-plus-card h2 {
 }
 
 @media (max-width: 1024px) and (min-width: 681px) {
-  html[lang="ru"] .ru-pilot-hero-inner {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-inner {
     grid-template-columns: minmax(0, 1fr) minmax(220px, .75fr);
     gap: 32px;
   }
 
-  html[lang="ru"] .ru-pilot-hero h1 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero h1 {
     font-size: clamp(42px, 4.7vw, 48px);
   }
 }
 
 @media (max-width: 680px) {
-  html[lang="ru"] .ru-pilot-hero h1 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero h1 {
     font-size: clamp(38px, 10vw, 42px);
     line-height: 1.08;
     max-width: 100%;
   }
 
-  html[lang="ru"] .ru-pilot-prose h2,
-  html[lang="ru"] .ru-pilot-blocks > h2,
-  html[lang="ru"] .band-head h2 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-prose h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .band-head h2 {
     font-size: clamp(30px, 8vw, 34px);
   }
 
-  html[lang="ru"] .ru-pilot-hero-inner {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-inner {
     grid-template-columns: 1fr;
     gap: 22px;
   }
 
-  html[lang="ru"] .ru-thematic-hero-art,
-  html[lang="ru"] .ru-hero-art-core {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-thematic-hero-art,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-art-core {
     width: 100%;
     min-height: 92px;
     place-items: start;
   }
 
-  html[lang="ru"] .ru-hero-founder-icon {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-founder-icon {
     width: 96px;
     height: 96px;
   }
 
-  html[lang="ru"] .ru-products-hero-icons {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-products-hero-icons {
     justify-content: flex-start;
     gap: 14px;
     transform: none;
   }
 
-  html[lang="ru"] .ru-products-hero-icons .founder-icon {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-products-hero-icons .founder-icon {
     width: 72px;
     height: 72px;
     transform: none !important;
@@ -5079,7 +5079,7 @@ html[lang="ru"] .ru-plus-card h2 {
 
 /* RU HOME — founder correction: right composition position/alignment only. */
 @media (min-width: 1025px) {
-  html[lang="ru"] .hero-panel {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel {
     justify-self: end;
     align-items: center;
     text-align: center;
@@ -5089,23 +5089,23 @@ html[lang="ru"] .ru-plus-card h2 {
     transform: translateY(-18px);
   }
 
-  html[lang="ru"] .hero-panel > .logo,
-  html[lang="ru"] .hero-panel > svg,
-  html[lang="ru"] .hero-brand,
-  html[lang="ru"] .hero-rule,
-  html[lang="ru"] .hero-words,
-  html[lang="ru"] .hero-tomorrow {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel > .logo,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel > svg,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-brand,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-rule,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-words,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-tomorrow {
     align-self: center;
   }
 
-  html[lang="ru"] .hero-words,
-  html[lang="ru"] .hero-tomorrow {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-words,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-tomorrow {
     width: 100%;
     max-width: 320px;
     text-align: center;
   }
 
-  html[lang="ru"] .hero-tomorrow {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-tomorrow {
     margin: 10px auto 0;
   }
 }
@@ -5114,47 +5114,47 @@ html[lang="ru"] .ru-plus-card h2 {
 /* RU HOME — below-hero density/width correction from Founder video review.
    Keep content unchanged; use more of the approved desktop grid and calm the type scale. */
 @media (min-width: 1025px) {
-  html[lang="ru"] .ru-home-transfer > .wrap.ru-pilot-prose {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-transfer > .wrap.ru-pilot-prose {
     width: min(1200px, calc(100% - 48px)) !important;
     max-width: 1200px;
   }
 
-  html[lang="ru"] .ru-home-transfer .ru-pilot-blocks > h2 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-transfer .ru-pilot-blocks > h2 {
     width: min(100%, 1080px);
     max-width: 1080px;
     font-size: clamp(30px, 2.2vw, 34px);
     line-height: 1.16;
   }
 
-  html[lang="ru"] .ru-home-transfer .ru-pilot-blocks > p {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-transfer .ru-pilot-blocks > p {
     width: min(100%, 1040px);
     max-width: 1040px;
     font-size: 17px;
     line-height: 1.66;
   }
 
-  html[lang="ru"] .ru-home-products .band-head,
-  html[lang="ru"] .ru-home-tech .band-head {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .band-head,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .band-head {
     grid-template-columns: minmax(100px, .8fr) minmax(0, 900px) minmax(100px, .8fr);
   }
 
-  html[lang="ru"] .ru-home-products .band-head h2,
-  html[lang="ru"] .ru-home-tech .band-head h2,
-  html[lang="ru"] .ru-home-company h2 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .band-head h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .band-head h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-company h2 {
     font-size: clamp(30px, 2.2vw, 34px);
     line-height: 1.16;
   }
 
-  html[lang="ru"] .ru-home-products .line-card h3,
-  html[lang="ru"] .ru-home-tech .foundation-row h3,
-  html[lang="ru"] .ru-home-why .why-row h3 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .line-card h3,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .foundation-row h3,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-why .why-row h3 {
     font-size: 17px;
     line-height: 1.3;
   }
 
-  html[lang="ru"] .ru-home-products .line-card p,
-  html[lang="ru"] .ru-home-tech .foundation-row p,
-  html[lang="ru"] .ru-home-why .why-row p {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .line-card p,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .foundation-row p,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-why .why-row p {
     font-size: 15px;
     line-height: 1.55;
   }
@@ -5165,7 +5165,7 @@ html[lang="ru"] .ru-plus-card h2 {
    Desktop is already accepted; this block is mobile-only. */
 @media (max-width: 680px) {
   /* Main hero: protect the first word and keep the right composition on one center axis. */
-  html[lang="ru"] .hero h1 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero h1 {
     font-size: clamp(26px, 7.2vw, 31px);
     line-height: 1.08;
     text-align: left;
@@ -5174,7 +5174,7 @@ html[lang="ru"] .ru-plus-card h2 {
     hyphens: none !important;
   }
 
-  html[lang="ru"] .hero-panel {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel {
     justify-self: center;
     width: min(100%, 300px);
     max-width: 300px;
@@ -5183,17 +5183,17 @@ html[lang="ru"] .ru-plus-card h2 {
     text-align: center;
   }
 
-  html[lang="ru"] .hero-panel > .logo,
-  html[lang="ru"] .hero-panel > svg,
-  html[lang="ru"] .hero-brand,
-  html[lang="ru"] .hero-rule,
-  html[lang="ru"] .hero-words,
-  html[lang="ru"] .hero-tomorrow {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel > .logo,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel > svg,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-brand,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-rule,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-words,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-tomorrow {
     align-self: center;
   }
 
-  html[lang="ru"] .hero-words,
-  html[lang="ru"] .hero-tomorrow {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-words,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-tomorrow {
     width: 100%;
     max-width: 300px;
     margin-inline: auto;
@@ -5201,35 +5201,35 @@ html[lang="ru"] .ru-plus-card h2 {
   }
 
   /* Home transfer: restore the approved 24px mobile gutter and calm the scale. */
-  html[lang="ru"] .ru-home-transfer > .wrap.ru-pilot-prose {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-transfer > .wrap.ru-pilot-prose {
     width: calc(100% - 48px) !important;
     max-width: calc(100% - 48px);
     margin-inline: auto !important;
     box-sizing: border-box;
   }
 
-  html[lang="ru"] .ru-home-transfer .ru-pilot-blocks > h2,
-  html[lang="ru"] .ru-home-transfer .ru-pilot-blocks > p {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-transfer .ru-pilot-blocks > h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-transfer .ru-pilot-blocks > p {
     width: 100%;
     max-width: 100%;
     margin-inline: auto;
   }
 
-  html[lang="ru"] .ru-home-transfer .ru-pilot-blocks > h2 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-transfer .ru-pilot-blocks > h2 {
     font-size: clamp(28px, 7.6vw, 32px);
     line-height: 1.14;
     text-align: center;
   }
 
-  html[lang="ru"] .ru-home-transfer .ru-pilot-blocks > p {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-transfer .ru-pilot-blocks > p {
     font-size: 16px;
     line-height: 1.62;
     text-align: left;
   }
 
   /* Mobile heading system: section headings are centered. */
-  html[lang="ru"] .ru-home-products .band-head,
-  html[lang="ru"] .ru-home-tech .band-head {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .band-head,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .band-head {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -5238,15 +5238,15 @@ html[lang="ru"] .ru-plus-card h2 {
     text-align: center;
   }
 
-  html[lang="ru"] .ru-home-products .band-head > div,
-  html[lang="ru"] .ru-home-tech .band-head > div {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .band-head > div,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .band-head > div {
     width: 100%;
     text-align: center;
   }
 
-  html[lang="ru"] .ru-home-products .band-head .kicker,
-  html[lang="ru"] .ru-home-tech .band-head .kicker,
-  html[lang="ru"] .ru-home-why > .wrap > .kicker {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .band-head .kicker,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .band-head .kicker,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-why > .wrap > .kicker {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -5256,16 +5256,16 @@ html[lang="ru"] .ru-plus-card h2 {
     text-align: center;
   }
 
-  html[lang="ru"] .ru-home-products .band-head .kicker::before,
-  html[lang="ru"] .ru-home-tech .band-head .kicker::before,
-  html[lang="ru"] .ru-home-why > .wrap > .kicker::before {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .band-head .kicker::before,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .band-head .kicker::before,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-why > .wrap > .kicker::before {
     display: block;
     margin: 0 auto;
   }
 
-  html[lang="ru"] .ru-home-products .band-head h2,
-  html[lang="ru"] .ru-home-tech .band-head h2,
-  html[lang="ru"] .ru-home-company h2 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .band-head h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .band-head h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-company h2 {
     width: 100%;
     max-width: 100%;
     margin-inline: auto;
@@ -5274,20 +5274,20 @@ html[lang="ru"] .ru-plus-card h2 {
     text-align: center;
   }
 
-  html[lang="ru"] .ru-home-products .band-head .text-link,
-  html[lang="ru"] .ru-home-tech .band-head .text-link {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .band-head .text-link,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .band-head .text-link {
     align-self: center;
     justify-self: center;
   }
 
-  html[lang="ru"] .ru-home-products .product-row,
-  html[lang="ru"] .ru-home-tech .foundation-row {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .product-row,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .foundation-row {
     width: 100%;
     margin-inline: auto;
   }
 
-  html[lang="ru"] .ru-scenario-section > h2,
-  html[lang="ru"] .ru-platform-repro > h2 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-section > h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-repro > h2 {
     width: 100%;
     max-width: 100%;
     margin-inline: auto;
@@ -5296,8 +5296,8 @@ html[lang="ru"] .ru-plus-card h2 {
     line-height: 1.14;
   }
 
-  html[lang="ru"] .ru-scenario-section > p,
-  html[lang="ru"] .ru-platform-repro > p {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-section > p,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-repro > p {
     margin-inline: auto;
     text-align: center;
   }
@@ -5306,7 +5306,7 @@ html[lang="ru"] .ru-plus-card h2 {
 
 /* RU MOBILE — final alignment correction: home hero mark stack + WHY heading. */
 @media (max-width: 680px) {
-  html[lang="ru"] .hero-panel {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel {
     justify-self: stretch !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -5317,32 +5317,32 @@ html[lang="ru"] .ru-plus-card h2 {
     text-align: center !important;
   }
 
-  html[lang="ru"] .hero-panel > .logo-mark {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel > .logo-mark {
     display: block;
     align-self: center !important;
     margin-inline: auto !important;
   }
 
-  html[lang="ru"] .hero-panel .hero-brand,
-  html[lang="ru"] .hero-panel .hero-rule,
-  html[lang="ru"] .hero-panel .hero-words,
-  html[lang="ru"] .hero-panel .hero-tomorrow {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel .hero-brand,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel .hero-rule,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel .hero-words,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel .hero-tomorrow {
     align-self: center !important;
     margin-inline: auto !important;
     text-align: center !important;
   }
 
-  html[lang="ru"] .hero-panel .hero-words,
-  html[lang="ru"] .hero-panel .hero-tomorrow {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel .hero-words,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel .hero-tomorrow {
     width: min(100%, 320px);
     max-width: 320px;
   }
 
-  html[lang="ru"] .hero-panel .hero-words {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel .hero-words {
     text-indent: .28em;
   }
 
-  html[lang="ru"] .ru-home-why > .wrap > .kicker {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-why > .wrap > .kicker {
     width: 100%;
     display: flex !important;
     flex-direction: column;
@@ -5353,7 +5353,7 @@ html[lang="ru"] .ru-plus-card h2 {
     text-align: center !important;
   }
 
-  html[lang="ru"] .ru-home-why > .wrap > .kicker::before {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-why > .wrap > .kicker::before {
     display: block;
     margin: 0 auto;
   }
@@ -5362,17 +5362,17 @@ html[lang="ru"] .ru-plus-card h2 {
 
 /* RU MOBILE INNER PAGES — FINAL CENTERING REPAIR */
 @media (max-width: 680px) {
-  html[lang="ru"] .ru-pilot-hero {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero {
     overflow: hidden;
   }
 
-  html[lang="ru"] .wrap.ru-pilot-hero-inner {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .wrap.ru-pilot-hero-inner {
     grid-template-columns: minmax(0, 1fr);
     justify-items: center;
     text-align: center;
   }
 
-  html[lang="ru"] .ru-pilot-hero-copy {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-copy {
     width: 100%;
     max-width: 100%;
     min-width: 0;
@@ -5380,7 +5380,7 @@ html[lang="ru"] .ru-plus-card h2 {
     text-align: center;
   }
 
-  html[lang="ru"] .ru-pilot-hero h1 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero h1 {
     width: 100%;
     max-width: 100%;
     margin: 0 auto 18px;
@@ -5393,12 +5393,12 @@ html[lang="ru"] .ru-plus-card h2 {
     text-wrap: balance;
   }
 
-  html[lang="ru"] .ru-pilot-hero--platform h1,
-  html[lang="ru"] .ru-pilot-hero--company h1 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--platform h1,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--company h1 {
     font-size: clamp(27px, 7.4vw, 30px);
   }
 
-  html[lang="ru"] .ru-pilot-lead {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-lead {
     width: min(100%, 40ch);
     max-width: 40ch;
     margin: 0 auto;
@@ -5408,27 +5408,27 @@ html[lang="ru"] .ru-plus-card h2 {
     hyphens: none;
   }
 
-  html[lang="ru"] .ru-thematic-hero-art {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-thematic-hero-art {
     width: 100%;
     max-width: 100%;
     justify-self: center;
     place-items: center;
   }
 
-  html[lang="ru"] .ru-hero-art-core {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-art-core {
     width: 100%;
     max-width: 100%;
     display: grid;
     place-items: center;
   }
 
-  html[lang="ru"] .ru-hero-founder-icon,
-  html[lang="ru"] .ru-company-mark,
-  html[lang="ru"] .ru-research-mark {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-founder-icon,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-company-mark,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-research-mark {
     margin-inline: auto;
   }
 
-  html[lang="ru"] .ru-products-hero-icons {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-products-hero-icons {
     width: 100%;
     max-width: 100%;
     margin-inline: auto;
@@ -5441,34 +5441,34 @@ html[lang="ru"] .ru-plus-card h2 {
 
 /* RU MOBILE AZEVSM PLUS — CARD WIDTH CLOSURE */
 @media (max-width: 680px) {
-  html[lang="ru"] .ru-plus-grid {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-grid {
     width: 100%;
     max-width: 100%;
     min-width: 0;
     grid-template-columns: minmax(0, 1fr);
   }
 
-  html[lang="ru"] .ru-plus-card {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card {
     width: 100%;
     max-width: 100%;
     min-width: 0;
     box-sizing: border-box;
   }
 
-  html[lang="ru"] .ru-plus-card-head {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card-head {
     width: 100%;
     max-width: 100%;
     min-width: 0;
     gap: 12px;
   }
 
-  html[lang="ru"] .ru-plus-card-head .ru-plus-icon {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card-head .ru-plus-icon {
     width: 54px;
     height: 54px;
     flex: 0 0 54px;
   }
 
-  html[lang="ru"] .ru-plus-card h2 {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card h2 {
     min-width: 0;
     max-width: 100%;
     font-size: 20px;
@@ -5478,7 +5478,7 @@ html[lang="ru"] .ru-plus-card h2 {
     hyphens: none;
   }
 
-  html[lang="ru"] .ru-plus-card p {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card p {
     width: 100%;
     max-width: 100%;
     min-width: 0;
@@ -5491,28 +5491,28 @@ html[lang="ru"] .ru-plus-card h2 {
 
 /* RU DESKTOP FINAL REPAIR — FOUNDER ACCEPTANCE */
 /* Platform icon remains visually absent below desktop so this pass cannot alter mobile. */
-html[lang="ru"] .ru-platform-hero-icon {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-hero-icon {
   display: none !important;
 }
 
 @media (min-width: 1025px) {
   /* Homepage right rail: keep the existing mark position; center only the text stack beneath it. */
-  html[lang="ru"] .hero-panel .hero-brand,
-  html[lang="ru"] .hero-panel .hero-words,
-  html[lang="ru"] .hero-panel .hero-tomorrow {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel .hero-brand,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel .hero-words,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel .hero-tomorrow {
     width: 100%;
     margin-inline: auto;
     text-align: center;
     align-self: center;
   }
 
-  html[lang="ru"] .hero-panel .hero-words {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel .hero-words {
     box-sizing: border-box;
     padding-inline-start: .34em;
   }
 
   /* Laptop desktop menu: solid reading surface, no hero/background bleed-through. */
-  html[lang="ru"] .ru-pilot-site-header .header-inner.is-open {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .header-inner.is-open {
     background: #ffffff !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
@@ -5520,31 +5520,31 @@ html[lang="ru"] .ru-platform-hero-icon {
     box-shadow: 0 18px 42px rgba(15,34,58,.14);
   }
 
-  html[lang="ru"] .ru-pilot-site-header .header-inner.is-open .nav-main {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .header-inner.is-open .nav-main {
     background: #ffffff;
   }
 
   /* Desktop title axis: hero and section titles only; card/product titles remain unchanged. */
-  html[lang="ru"] .hero h1,
-  html[lang="ru"] .ru-pilot-hero h1,
-  html[lang="ru"] .page-hero h1,
-  html[lang="ru"] .ru-pilot-blocks > h2,
-  html[lang="ru"] .ru-scenario-section > h2,
-  html[lang="ru"] .ru-platform-repro > h2,
-  html[lang="ru"] .band-head h2,
-  html[lang="ru"] .home-close h2,
-  html[lang="ru"] .wrap.prose > h2,
-  html[lang="ru"] .ru-home-why > .wrap > h2.kicker {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero h1,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero h1,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .page-hero h1,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-section > h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-repro > h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .band-head h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .home-close h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .wrap.prose > h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-why > .wrap > h2.kicker {
     margin-inline: auto;
     text-align: center;
   }
 
   /* Platform: preserve the two-column desktop hero and fill the intentional right field. */
-  html[lang="ru"] .ru-pilot-hero--platform .ru-pilot-hero-copy {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--platform .ru-pilot-hero-copy {
     text-align: center;
   }
 
-  html[lang="ru"] .ru-platform-hero-icon {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-hero-icon {
     display: inline-grid !important;
     width: clamp(136px, 11vw, 164px);
     height: clamp(136px, 11vw, 164px);
@@ -5558,7 +5558,7 @@ html[lang="ru"] .ru-platform-hero-icon {
 /* RU HOME HERO — CORRECTED SINGLE AXIS */
 /* Applies to desktop/tablet layouts only. Mobile <=680px remains untouched. */
 @media (min-width: 681px) {
-  html[lang="ru"] .hero-panel {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel {
     width: min(100%, 320px);
     max-width: 320px;
     justify-self: end !important;
@@ -5566,7 +5566,7 @@ html[lang="ru"] .ru-platform-hero-icon {
     transform: translateY(-18px) !important;
   }
 
-  html[lang="ru"] .hero-panel-axis {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis {
     width: 100%;
     max-width: 320px;
     display: flex;
@@ -5576,24 +5576,24 @@ html[lang="ru"] .ru-platform-hero-icon {
     text-align: center;
   }
 
-  html[lang="ru"] .hero-panel-axis > .logo-mark,
-  html[lang="ru"] .hero-panel-axis > .hero-brand,
-  html[lang="ru"] .hero-panel-axis > .hero-rule,
-  html[lang="ru"] .hero-panel-axis > .hero-words,
-  html[lang="ru"] .hero-panel-axis > .hero-tomorrow {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .logo-mark,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-brand,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-rule,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-words,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-tomorrow {
     align-self: center !important;
     margin-inline: auto !important;
   }
 
-  html[lang="ru"] .hero-panel-axis > .hero-brand,
-  html[lang="ru"] .hero-panel-axis > .hero-words,
-  html[lang="ru"] .hero-panel-axis > .hero-tomorrow {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-brand,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-words,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-tomorrow {
     width: 100%;
     max-width: 320px;
     text-align: center !important;
   }
 
-  html[lang="ru"] .hero-panel-axis > .hero-words {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-words {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -5601,7 +5601,7 @@ html[lang="ru"] .ru-platform-hero-icon {
     white-space: normal;
   }
 
-  html[lang="ru"] .hero-panel-axis > .hero-words > span {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-words > span {
     display: block;
     width: 100%;
     text-align: center;
@@ -5609,19 +5609,19 @@ html[lang="ru"] .ru-platform-hero-icon {
 }
 
 @media (min-width: 681px) and (max-width: 1024px) {
-  html[lang="ru"] .hero-panel,
-  html[lang="ru"] .hero-panel-axis {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis {
     width: 280px;
     max-width: 280px;
   }
 
-  html[lang="ru"] .hero-panel-axis > .hero-words {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-words {
     font-size: 15px;
     letter-spacing: .24em;
     line-height: 1.82;
   }
 
-  html[lang="ru"] .hero-panel-axis > .hero-tomorrow {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-tomorrow {
     max-width: 280px;
   }
 }
@@ -5629,7 +5629,7 @@ html[lang="ru"] .ru-platform-hero-icon {
 
 /* RU MOBILE HOME HERO — WRAPPER REGRESSION REPAIR */
 @media (max-width: 680px) {
-  html[lang="ru"] .hero-panel-axis {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis {
     width: 100%;
     max-width: 320px;
     margin-inline: auto;
@@ -5640,29 +5640,29 @@ html[lang="ru"] .ru-platform-hero-icon {
     text-align: center;
   }
 
-  html[lang="ru"] .hero-panel-axis > .logo-mark {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .logo-mark {
     display: block;
     align-self: center !important;
     margin-inline: auto !important;
   }
 
-  html[lang="ru"] .hero-panel-axis > .hero-brand,
-  html[lang="ru"] .hero-panel-axis > .hero-rule,
-  html[lang="ru"] .hero-panel-axis > .hero-words,
-  html[lang="ru"] .hero-panel-axis > .hero-tomorrow {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-brand,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-rule,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-words,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-tomorrow {
     align-self: center !important;
     margin-inline: auto !important;
     text-align: center !important;
   }
 
-  html[lang="ru"] .hero-panel-axis > .hero-brand,
-  html[lang="ru"] .hero-panel-axis > .hero-words,
-  html[lang="ru"] .hero-panel-axis > .hero-tomorrow {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-brand,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-words,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-tomorrow {
     width: min(100%, 320px);
     max-width: 320px;
   }
 
-  html[lang="ru"] .hero-panel-axis > .hero-words {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-words {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -5671,7 +5671,7 @@ html[lang="ru"] .ru-platform-hero-icon {
     white-space: normal;
   }
 
-  html[lang="ru"] .hero-panel-axis > .hero-words > span {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis > .hero-words > span {
     display: block;
     width: 100%;
     text-align: center;
