@@ -2,9 +2,10 @@ import { notFound } from "next/navigation";
 import { RuPilotActions, RuPilotBlocks } from "@/components/ru-pilot-blocks";
 import { RuPilotHero } from "@/components/ru-pilot-hero";
 import { getAuthorityPage, type AuthorityPageKey } from "@/lib/content/authority-pages-v31";
+import type { Locale } from "@/lib/i18n";
 
-export function RuAuthorityDocumentPage({ pageKey }: { pageKey: AuthorityPageKey }) {
-  const page = getAuthorityPage("ru", pageKey);
+export function RuAuthorityDocumentPage({ locale, pageKey }: { locale: Locale; pageKey: AuthorityPageKey }) {
+  const page = getAuthorityPage(locale, pageKey);
   if (!page) notFound();
 
   const kind = pageKey === "validation" ? "validation" : "result";
@@ -20,7 +21,7 @@ export function RuAuthorityDocumentPage({ pageKey }: { pageKey: AuthorityPageKey
       <section className="section-tight ru-authority-section">
         <div className="wrap ru-pilot-prose">
           <RuPilotBlocks blocks={page.blocks} />
-          <RuPilotActions actions={actions} />
+          <RuPilotActions actions={actions} locale={locale} />
         </div>
       </section>
     </>
