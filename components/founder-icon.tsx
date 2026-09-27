@@ -2,6 +2,7 @@ export type FounderIconName =
   | "azevsm-index"
   | "azevsm-institutional-index"
   | "azevsm-plus"
+  | "platform-structure"
   | "methodology-ontology"
   | "azevsm-ai"
   | "white-box"
@@ -53,6 +54,17 @@ function FounderGlyph({ name }: { name: FounderIconName }) {
         <rect x="12" y="12" width="40" height="40" rx="10" {...common} />
         <path d="M32 21v22M21 32h22" fill="none" stroke={gold} strokeWidth="3" strokeLinecap="round" />
         <path d="M17 17l5 5M47 17l-5 5M17 47l5-5M47 47l-5-5" {...common} />
+      </>
+    );
+  }
+
+  if (name === "platform-structure") {
+    return (
+      <>
+        <path d="M9 11h20v42H9zM14 20h10M14 27h10M14 34h7M14 41h10" {...common} />
+        <path d="M32 32h8M36 28l4 4-4 4" fill="none" stroke={gold} strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+        <rect x="44" y="14" width="12" height="36" rx="2.5" {...common} />
+        <path d="M48 22h4M48 29h4M48 36h4M48 43h4" fill="none" stroke={gold} strokeWidth="2.2" strokeLinecap="round" />
       </>
     );
   }

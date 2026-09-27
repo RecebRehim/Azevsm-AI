@@ -62,7 +62,9 @@ export function RuPilotHero({
 
         <div className="ru-thematic-hero-art" aria-hidden="true">
           <div className="ru-hero-art-core">
-            {kind === "company" || kind === "insights" ? (
+            {kind === "platform" ? (
+              <FounderIcon name="platform-structure" className="ru-platform-hero-icon" />
+            ) : kind === "company" || kind === "insights" ? (
               <div className={kind === "company" ? "ru-company-mark" : "ru-research-mark"}>
                 <Logo variant="mark" title="" size={128} />
               </div>
