@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { AuthorityPage } from "@/lib/content/authority-pages-v31";
-import { localePath } from "@/lib/i18n";
+import { localePath, type Locale } from "@/lib/i18n";
 
 function splitCell(value: string) {
   const [title, ...rest] = value.split("\n");
@@ -42,7 +42,7 @@ export function RuPilotBlocks({ blocks }: { blocks: AuthorityPage["blocks"] }) {
   );
 }
 
-export function RuPilotActions({ actions }: { actions: AuthorityPage["actions"] }) {
+export function RuPilotActions({ actions, locale = "ru" }: { actions: AuthorityPage["actions"]; locale?: Locale }) {
   const visible = actions.filter((action) => action.href !== "/contact");
   if (!visible.length) return null;
   return (
@@ -50,7 +50,7 @@ export function RuPilotActions({ actions }: { actions: AuthorityPage["actions"] 
       {visible.map((action, index) => (
         <Link
           className={index === 0 ? "btn btn-primary" : "btn btn-ghost"}
-          href={action.href.startsWith("#") ? action.href : localePath("ru", action.href)}
+          href={action.href.startsWith("#") ? action.href : localePath(locale, action.href)}
           key={action.label}
         >
           {action.label}
