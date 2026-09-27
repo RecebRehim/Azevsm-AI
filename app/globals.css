@@ -4987,3 +4987,49 @@ html[lang="ru"] .section-tight.ru-authority-section > .wrap.ru-pilot-prose {
     margin-inline: auto !important;
   }
 }
+
+
+/* RU PILOT — DESIGN SPEC v1.0 SOURCE-BOUND ACCEPTANCE
+   Applies only explicit grid/spacing/header requirements from the Founder/Architect brief. */
+@media (min-width: 681px) {
+  html[lang="ru"] .ru-pilot-site-header,
+  html[lang="ru"] .ru-pilot-site-header .header-inner {
+    height: 76px;
+    min-height: 76px;
+  }
+
+  html[lang="ru"] .section-tight {
+    padding-block: 96px;
+  }
+
+  html[lang="ru"] .section-tight > .wrap.ru-pilot-prose,
+  html[lang="ru"] .section-tight.ru-authority-section > .wrap.ru-pilot-prose {
+    width: min(1200px, calc(100% - 48px)) !important;
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-pilot-site-header,
+  html[lang="ru"] .ru-pilot-site-header .header-inner {
+    min-height: 64px;
+  }
+
+  html[lang="ru"] .wrap,
+  html[lang="ru"] .site-header .wrap,
+  html[lang="ru"] .wrap.hero-grid,
+  html[lang="ru"] .wrap.ru-pilot-hero-inner,
+  html[lang="ru"] .section-tight > .wrap,
+  html[lang="ru"] .section-tight > .wrap.prose,
+  html[lang="ru"] .section-tight > .wrap.ru-pilot-prose,
+  html[lang="ru"] .section-tight.ru-authority-section > .wrap.ru-pilot-prose {
+    width: calc(100% - 48px) !important;
+    max-width: calc(100% - 48px);
+    margin-inline: auto !important;
+    box-sizing: border-box;
+  }
+
+  html[lang="ru"] .section-tight {
+    padding-block: 64px;
+  }
+}
