@@ -5625,3 +5625,55 @@ html[lang="ru"] .ru-platform-hero-icon {
     max-width: 280px;
   }
 }
+
+
+/* RU MOBILE HOME HERO — WRAPPER REGRESSION REPAIR */
+@media (max-width: 680px) {
+  html[lang="ru"] .hero-panel-axis {
+    width: 100%;
+    max-width: 320px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  html[lang="ru"] .hero-panel-axis > .logo-mark {
+    display: block;
+    align-self: center !important;
+    margin-inline: auto !important;
+  }
+
+  html[lang="ru"] .hero-panel-axis > .hero-brand,
+  html[lang="ru"] .hero-panel-axis > .hero-rule,
+  html[lang="ru"] .hero-panel-axis > .hero-words,
+  html[lang="ru"] .hero-panel-axis > .hero-tomorrow {
+    align-self: center !important;
+    margin-inline: auto !important;
+    text-align: center !important;
+  }
+
+  html[lang="ru"] .hero-panel-axis > .hero-brand,
+  html[lang="ru"] .hero-panel-axis > .hero-words,
+  html[lang="ru"] .hero-panel-axis > .hero-tomorrow {
+    width: min(100%, 320px);
+    max-width: 320px;
+  }
+
+  html[lang="ru"] .hero-panel-axis > .hero-words {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 0 !important;
+    text-indent: 0 !important;
+    white-space: normal;
+  }
+
+  html[lang="ru"] .hero-panel-axis > .hero-words > span {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
