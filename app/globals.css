@@ -5576,3 +5576,45 @@ html[lang="ru"] .ru-platform-hero-icon {
     text-align: center;
   }
 }
+
+
+/* RU DESKTOP HOME HERO — SINGLE PHYSICAL AXIS */
+@media (min-width: 1025px) {
+  html[lang="ru"] .hero-panel {
+    width: 320px;
+    max-width: 320px;
+    transform: translate(48px, -18px);
+  }
+
+  html[lang="ru"] .hero-panel-axis {
+    width: 320px;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  html[lang="ru"] .hero-panel-axis > .logo-mark,
+  html[lang="ru"] .hero-panel-axis > .hero-brand,
+  html[lang="ru"] .hero-panel-axis > .hero-rule,
+  html[lang="ru"] .hero-panel-axis > .hero-words,
+  html[lang="ru"] .hero-panel-axis > .hero-tomorrow {
+    align-self: center !important;
+    margin-inline: auto !important;
+  }
+
+  html[lang="ru"] .hero-panel-axis > .hero-brand,
+  html[lang="ru"] .hero-panel-axis > .hero-words,
+  html[lang="ru"] .hero-panel-axis > .hero-tomorrow {
+    width: 100%;
+    max-width: 320px;
+    text-align: center !important;
+  }
+
+  html[lang="ru"] .hero-panel-axis > .hero-words {
+    box-sizing: border-box;
+    padding-inline: 0 !important;
+  }
+}

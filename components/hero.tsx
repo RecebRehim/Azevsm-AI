@@ -45,11 +45,23 @@ export function Hero({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
           ) : null}
         </div>
         <aside className="hero-panel" aria-label={copy.logoTitle}>
-          <Logo variant="mark" title={copy.logoTitle} size={100} />
-          <p className="hero-brand"><strong>Azevsm</strong><span>Systems</span></p>
-          <hr className="hero-rule" />
-          <p className="hero-words">{locale === "ru" ? "ДОКАЗАТЕЛЬСТВА\nАНАЛИЗ\nДОВЕРИЕ" : copy.heroWords}</p>
-          <p className="hero-tomorrow">{locale === "ru" ? renderRuThesis(copy.thesisSub) : copy.heroTomorrow}</p>
+          {locale === "ru" ? (
+            <div className="hero-panel-axis">
+              <Logo variant="mark" title={copy.logoTitle} size={100} />
+              <p className="hero-brand"><strong>Azevsm</strong><span>Systems</span></p>
+              <hr className="hero-rule" />
+              <p className="hero-words">ДОКАЗАТЕЛЬСТВА\nАНАЛИЗ\nДОВЕРИЕ</p>
+              <p className="hero-tomorrow">{renderRuThesis(copy.thesisSub)}</p>
+            </div>
+          ) : (
+            <>
+              <Logo variant="mark" title={copy.logoTitle} size={100} />
+              <p className="hero-brand"><strong>Azevsm</strong><span>Systems</span></p>
+              <hr className="hero-rule" />
+              <p className="hero-words">{copy.heroWords}</p>
+              <p className="hero-tomorrow">{copy.heroTomorrow}</p>
+            </>
+          )}
         </aside>
       </div>
     </section>
