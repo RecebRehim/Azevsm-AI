@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Hero } from "@/components/hero";
 import { RuPilotHome } from "@/components/ru-pilot-home";
 import { getCopy } from "@/lib/content/copy";
-import { isLocale, localePath, type Locale } from "@/lib/i18n";
+import { isLocale, isPilotLocale, localePath, type Locale } from "@/lib/i18n";
 import { pageMetadata, organizationJsonLd } from "@/lib/seo";
 import { notFound } from "next/navigation";
 
@@ -135,11 +135,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   if (!isLocale(raw)) notFound();
   const locale: Locale = raw;
   const copy = getCopy(locale);
-  if (locale === "ru") {
+  if (isPilotLocale(locale)) {
     return (
       <>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }} />
-        <RuPilotHome copy={copy} />
+        <RuPilotHome locale={locale} copy={copy} />
       </>
     );
   }
