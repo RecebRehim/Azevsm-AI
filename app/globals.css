@@ -4921,3 +4921,33 @@ html[lang="ru"] .hero-tomorrow {
     justify-content: flex-start;
   }
 }
+
+
+/* RU PILOT — CONTAINER GUTTER ROOT-CAUSE CLOSURE
+   Components that also carry .wrap must not override the wrap gutter with width:100%. */
+html[lang="ru"] .wrap.ru-pilot-prose {
+  width: min(1120px, calc(100% - 48px));
+  max-width: 1120px;
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+html[lang="ru"] .ru-authority-section .wrap.ru-pilot-prose {
+  width: min(1180px, calc(100% - 48px));
+  max-width: 1180px;
+}
+
+@media (max-width: 680px) {
+  html[lang="ru"] .wrap.hero-grid {
+    width: calc(100% - 32px);
+    max-width: calc(100% - 32px);
+    margin-inline: auto;
+  }
+
+  html[lang="ru"] .wrap.ru-pilot-prose,
+  html[lang="ru"] .ru-authority-section .wrap.ru-pilot-prose {
+    width: calc(100% - 32px);
+    max-width: calc(100% - 32px);
+    margin-inline: auto;
+  }
+}
