@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { PageIntro } from "@/components/page-intro";
 import { RuExistingAuthorityPage } from "@/components/ru-existing-authority-page";
 import { getExistingAuthorityPage, type ExistingAuthorityPageKey } from "@/lib/content/existing-authority-pages-v31";
-import { localePath, type Locale } from "@/lib/i18n";
+import { isPilotLocale, localePath, type Locale } from "@/lib/i18n";
 
 function splitCell(value: string) {
   const [title, ...rest] = value.split("\n");
@@ -13,7 +13,7 @@ function splitCell(value: string) {
 export function ExistingAuthorityPage({ locale, pageKey }: { locale: Locale; pageKey: ExistingAuthorityPageKey }) {
   const page = getExistingAuthorityPage(locale, pageKey);
   if (!page) notFound();
-  if (locale === "ru") return <RuExistingAuthorityPage pageKey={pageKey} />;
+  if (isPilotLocale(locale)) return <RuExistingAuthorityPage locale={locale} pageKey={pageKey} />;
 
   return (
     <>
