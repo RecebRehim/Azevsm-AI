@@ -3065,34 +3065,6 @@ html[lang="az"] h2 {
 }
 
 
-/* RU FINAL PILOT REPAIR — founder-reviewed visual/typography layer */
-.founder-icon {
-  display: inline-block;
-  flex: 0 0 auto;
-  width: 72px;
-  height: 72px;
-  background-image: url("/founder-icons-ru.webp");
-  background-size: 400% 400%;
-  background-repeat: no-repeat;
-  border-radius: 16px;
-}
-.founder-icon--azevsm-index { background-position: 0% 0%; }
-.founder-icon--azevsm-institutional-index { background-position: 33.333% 0%; }
-.founder-icon--azevsm-plus { background-position: 66.666% 0%; }
-.founder-icon--methodology-ontology { background-position: 100% 0%; }
-.founder-icon--azevsm-ai { background-position: 0% 33.333%; }
-.founder-icon--white-box { background-position: 33.333% 33.333%; }
-.founder-icon--structured-evidence { background-position: 66.666% 33.333%; }
-.founder-icon--analytical-models { background-position: 100% 33.333%; }
-.founder-icon--trusted-results { background-position: 0% 66.666%; }
-.founder-icon--plus-budget { background-position: 33.333% 66.666%; }
-.founder-icon--plus-investment { background-position: 66.666% 66.666%; }
-.founder-icon--plus-financial-resilience { background-position: 100% 66.666%; }
-.founder-icon--plus-institutional-risk { background-position: 0% 100%; }
-.founder-icon--plus-governance { background-position: 33.333% 100%; }
-.founder-icon--plus-product-rights { background-position: 66.666% 100%; }
-.founder-icon--plus-sustainability { background-position: 100% 100%; }
-
 /* RU header: no flag row; direct RU/EN/AZ plus compact language drawer. */
 .ru-language-access {
   display: flex;
@@ -3380,19 +3352,6 @@ html[lang="ru"] .hero-lead {
 }
 .ru-product-card-icon { width: 82px; height: 82px; }
 
-.ru-plus-card-head .ru-plus-icon {
-  display: inline-block;
-  width: 78px;
-  height: 78px;
-  flex: 0 0 78px;
-  padding: 0;
-  border: 0;
-  border-radius: 18px;
-  background-image: url("/founder-icons-ru.webp");
-  background-size: 400% 400%;
-  box-shadow: none;
-}
-
 /* Better use of width for long RU authority content. */
 html[lang="ru"] .ru-pilot-prose {
   width: min(100%, 1120px);
@@ -3647,68 +3606,6 @@ html[lang="ru"] .assistant-panel {
 }
 .ru-language-panel a { text-decoration: none; }
 .ru-language-pending { cursor: default; }
-
-/* Exact Founder-provided icon asset rows. No generated/redrawn iconography. */
-.founder-icon {
-  display: inline-block;
-  flex: 0 0 auto;
-  background-repeat: no-repeat !important;
-  background-size: 400% 100% !important;
-  background-color: transparent !important;
-  border-radius: 0;
-}
-.founder-icon--azevsm-index,
-.founder-icon--azevsm-institutional-index,
-.founder-icon--azevsm-plus,
-.founder-icon--methodology-ontology {
-  background-image: url("/founder-icons-row-1.webp") !important;
-}
-.founder-icon--azevsm-ai,
-.founder-icon--white-box,
-.founder-icon--structured-evidence,
-.founder-icon--analytical-models {
-  background-image: url("/founder-icons-row-2.webp") !important;
-}
-.founder-icon--trusted-results,
-.founder-icon--plus-budget,
-.founder-icon--plus-investment,
-.founder-icon--plus-financial-resilience {
-  background-image: url("/founder-icons-row-3.webp") !important;
-}
-.founder-icon--plus-institutional-risk,
-.founder-icon--plus-governance,
-.founder-icon--plus-product-rights,
-.founder-icon--plus-sustainability {
-  background-image: url("/founder-icons-row-4.webp") !important;
-}
-
-.founder-icon--azevsm-index,
-.founder-icon--azevsm-ai,
-.founder-icon--trusted-results,
-.founder-icon--plus-institutional-risk { background-position: 0% 50% !important; }
-
-.founder-icon--azevsm-institutional-index,
-.founder-icon--white-box,
-.founder-icon--plus-budget,
-.founder-icon--plus-governance { background-position: 33.333% 50% !important; }
-
-.founder-icon--azevsm-plus,
-.founder-icon--structured-evidence,
-.founder-icon--plus-investment,
-.founder-icon--plus-product-rights { background-position: 66.666% 50% !important; }
-
-.founder-icon--methodology-ontology,
-.founder-icon--analytical-models,
-.founder-icon--plus-financial-resilience,
-.founder-icon--plus-sustainability { background-position: 100% 50% !important; }
-
-/* Never let the old Plus sprite override the final assets. */
-.ru-plus-card-head .ru-plus-icon {
-  background-size: 400% 100% !important;
-  background-repeat: no-repeat !important;
-  border: 0;
-  box-shadow: none;
-}
 
 /* Systemic RU typography: no intra-word break and controlled line composition. */
 html[lang="ru"] h1,
@@ -4289,31 +4186,6 @@ html[lang="ru"] .assistant-panel {
    RU PILOT — DESKTOP-FIRST FOUNDER QA CONSOLIDATED REPAIR
    Desktop/laptop is the primary visual baseline; mobile remains adapted.
    ============================================================ */
-
-/* Restore the exact Founder-provided 4x4 sprite. */
-html[lang="ru"] .founder-icon,
-html[lang="ru"] .ru-plus-card-head .ru-plus-icon {
-  background-image: url("/founder-icons-ru.webp") !important;
-  background-size: 400% 400% !important;
-  background-repeat: no-repeat !important;
-  background-color: transparent !important;
-}
-html[lang="ru"] .founder-icon--azevsm-index { background-position: 0% 0% !important; }
-html[lang="ru"] .founder-icon--azevsm-institutional-index { background-position: 33.333% 0% !important; }
-html[lang="ru"] .founder-icon--azevsm-plus { background-position: 66.666% 0% !important; }
-html[lang="ru"] .founder-icon--methodology-ontology { background-position: 100% 0% !important; }
-html[lang="ru"] .founder-icon--azevsm-ai { background-position: 0% 33.333% !important; }
-html[lang="ru"] .founder-icon--white-box { background-position: 33.333% 33.333% !important; }
-html[lang="ru"] .founder-icon--structured-evidence { background-position: 66.666% 33.333% !important; }
-html[lang="ru"] .founder-icon--analytical-models { background-position: 100% 33.333% !important; }
-html[lang="ru"] .founder-icon--trusted-results { background-position: 0% 66.666% !important; }
-html[lang="ru"] .founder-icon--plus-budget { background-position: 33.333% 66.666% !important; }
-html[lang="ru"] .founder-icon--plus-investment { background-position: 66.666% 66.666% !important; }
-html[lang="ru"] .founder-icon--plus-financial-resilience { background-position: 100% 66.666% !important; }
-html[lang="ru"] .founder-icon--plus-institutional-risk { background-position: 0% 100% !important; }
-html[lang="ru"] .founder-icon--plus-governance { background-position: 33.333% 100% !important; }
-html[lang="ru"] .founder-icon--plus-product-rights { background-position: 66.666% 100% !important; }
-html[lang="ru"] .founder-icon--plus-sustainability { background-position: 100% 100% !important; }
 
 .ru-nowrap-term { white-space: nowrap; }
 
@@ -5031,5 +4903,175 @@ html[lang="ru"] .section-tight.ru-authority-section > .wrap.ru-pilot-prose {
 
   html[lang="ru"] .section-tight {
     padding-block: 64px;
+  }
+}
+
+
+/* RU PILOT — SYSTEMIC INTERNAL HERO CLOSURE
+   Legacy sprite layers are physically removed above. Inline SVG is the only icon renderer. */
+html[lang="ru"] .founder-icon,
+html[lang="ru"] .founder-icon--inline,
+html[lang="ru"] .ru-hero-founder-icon,
+html[lang="ru"] .ru-products-hero-icons .founder-icon {
+  display: inline-grid;
+  place-items: center;
+  background: transparent !important;
+  background-image: none !important;
+  background-position: initial !important;
+  background-size: initial !important;
+  border: 0 !important;
+  border-radius: 0;
+  box-shadow: none !important;
+  overflow: visible;
+}
+
+html[lang="ru"] .founder-icon > svg,
+html[lang="ru"] .founder-icon--inline > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+html[lang="ru"] .ru-thematic-hero-art,
+html[lang="ru"] .ru-hero-art-core {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+html[lang="ru"] .ru-thematic-hero-art::before,
+html[lang="ru"] .ru-hero-topic-grid {
+  display: none !important;
+}
+
+/* Calm internal typography: source-bound to the Website Design Spec scale. */
+html[lang="ru"] .ru-pilot-hero h1 {
+  font-size: clamp(44px, 3.2vw, 50px);
+  line-height: 1.08;
+  max-width: 22ch;
+}
+
+html[lang="ru"] .ru-pilot-prose h2,
+html[lang="ru"] .ru-pilot-blocks > h2,
+html[lang="ru"] .band-head h2 {
+  font-size: clamp(30px, 2.4vw, 38px);
+  line-height: 1.16;
+}
+
+html[lang="ru"] .ru-pilot-prose h3,
+html[lang="ru"] .ru-product-card h2,
+html[lang="ru"] .ru-plus-card h2 {
+  font-size: clamp(22px, 1.8vw, 27px);
+  line-height: 1.22;
+}
+
+/* Internal hero = balanced text + icon composition, centered as one unit. */
+@media (min-width: 1025px) {
+  html[lang="ru"] .wrap.ru-pilot-hero-inner {
+    width: min(1200px, calc(100% - 48px)) !important;
+    max-width: 1200px;
+    min-height: 360px;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 1fr);
+    gap: clamp(48px, 6vw, 88px);
+    align-items: center;
+    padding-block: 64px;
+  }
+
+  html[lang="ru"] .ru-pilot-hero-copy {
+    width: 100%;
+    max-width: 620px;
+    justify-self: end;
+  }
+
+  html[lang="ru"] .ru-pilot-lead {
+    max-width: 58ch;
+  }
+
+  html[lang="ru"] .ru-thematic-hero-art {
+    width: 100%;
+    min-height: 180px;
+    justify-self: start;
+    display: grid;
+    place-items: center;
+  }
+
+  html[lang="ru"] .ru-hero-art-core {
+    width: 100%;
+    min-height: 0;
+    display: grid;
+    place-items: center;
+  }
+
+  html[lang="ru"] .ru-hero-founder-icon {
+    width: 144px;
+    height: 144px;
+  }
+
+  html[lang="ru"] .ru-products-hero-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    transform: none;
+  }
+
+  html[lang="ru"] .ru-products-hero-icons .founder-icon {
+    width: 92px;
+    height: 92px;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 681px) {
+  html[lang="ru"] .ru-pilot-hero-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, .75fr);
+    gap: 32px;
+  }
+
+  html[lang="ru"] .ru-pilot-hero h1 {
+    font-size: clamp(42px, 4.7vw, 48px);
+  }
+}
+
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-pilot-hero h1 {
+    font-size: clamp(38px, 10vw, 42px);
+    line-height: 1.08;
+    max-width: 100%;
+  }
+
+  html[lang="ru"] .ru-pilot-prose h2,
+  html[lang="ru"] .ru-pilot-blocks > h2,
+  html[lang="ru"] .band-head h2 {
+    font-size: clamp(30px, 8vw, 34px);
+  }
+
+  html[lang="ru"] .ru-pilot-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  html[lang="ru"] .ru-thematic-hero-art,
+  html[lang="ru"] .ru-hero-art-core {
+    width: 100%;
+    min-height: 92px;
+    place-items: start;
+  }
+
+  html[lang="ru"] .ru-hero-founder-icon {
+    width: 96px;
+    height: 96px;
+  }
+
+  html[lang="ru"] .ru-products-hero-icons {
+    justify-content: flex-start;
+    gap: 14px;
+    transform: none;
+  }
+
+  html[lang="ru"] .ru-products-hero-icons .founder-icon {
+    width: 72px;
+    height: 72px;
+    transform: none !important;
   }
 }
