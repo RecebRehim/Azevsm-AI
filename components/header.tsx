@@ -36,7 +36,7 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
           </span>
         </Link>
         <button className="menu-toggle" type="button" aria-expanded={open} aria-controls="site-nav" onClick={() => setOpen((value) => !value)}>
-          {open ? copy.close : copy.menu}
+          {locale === "az" ? copy.menu : open ? copy.close : copy.menu}
         </button>
         <nav id="site-nav" className="nav-main" aria-label={copy.footerNav}>
           <Link href={localePath(locale)} aria-current={path === `/${locale}` ? "page" : undefined} onClick={close}>
