@@ -5552,3 +5552,27 @@ html[lang="ru"] .ru-platform-hero-icon {
     filter: drop-shadow(0 18px 30px rgba(24,58,91,.12));
   }
 }
+
+
+/* RU DESKTOP HOME HERO — RIGHT AXIS FINAL */
+@media (min-width: 1025px) {
+  html[lang="ru"] .hero-panel {
+    transform: translate(48px, -18px);
+  }
+
+  html[lang="ru"] .hero-panel > .logo-mark,
+  html[lang="ru"] .hero-panel .hero-brand,
+  html[lang="ru"] .hero-panel .hero-rule,
+  html[lang="ru"] .hero-panel .hero-words,
+  html[lang="ru"] .hero-panel .hero-tomorrow {
+    margin-inline: auto;
+    align-self: center;
+  }
+
+  html[lang="ru"] .hero-panel .hero-brand,
+  html[lang="ru"] .hero-panel .hero-words,
+  html[lang="ru"] .hero-panel .hero-tomorrow {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -70,11 +70,13 @@ export function RuHomeWhyIcon({ index }: { index: number }) {
       <path d="M48 48V26h8v22z" fill="#c5a059" />
       <path d="M8 50h52" fill="none" stroke="#1e4a8a" strokeWidth="2.5" strokeLinecap="round" />
     </svg>,
-    <svg key="hands" viewBox="0 0 64 64" aria-hidden="true">
-      <path d="M12 19h14l7 7 4-4c4-4 10-4 14 0l4 4" fill="none" stroke="#1e4a8a" strokeWidth="2.7" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M9 18l-3 25h9l14 13c3 3 7-1 4-4l-3-3" fill="none" stroke="#1e4a8a" strokeWidth="2.7" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M55 18l3 25h-8L37 54" fill="none" stroke="#1e4a8a" strokeWidth="2.7" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M25 26l-5 5c-3 3 1 7 4 4l6-6" fill="none" stroke="#c5a059" strokeWidth="2.7" strokeLinecap="round" />
+    <svg key="verified-result" viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M11 8h25l8 8v36H11zM36 8v9h8" fill="none" stroke="#1e4a8a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M17 32V25h6v7M26 32V20h6v12M35 32V16h6v16M16 34h26" fill="none" stroke="#1e4a8a" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M17 41h16M17 47h13" fill="none" stroke="#1e4a8a" strokeWidth="2.3" strokeLinecap="round" />
+      <circle cx="43" cy="41" r="10" fill="#f7f9fa" stroke="#1e4a8a" strokeWidth="2.5" />
+      <path d="M50 48l7 7" fill="none" stroke="#1e4a8a" strokeWidth="2.7" strokeLinecap="round" />
+      <path d="M38.5 41l3 3 6-7" fill="none" stroke="#c5a059" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
     </svg>,
   ];
   return icons[index] ?? null;
