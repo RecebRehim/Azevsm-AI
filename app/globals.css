@@ -4525,3 +4525,136 @@ html[lang="ru"] .ru-pilot-hero {
     justify-self: center;
   }
 }
+
+
+/* RU PILOT — FOUNDER QA FINAL VISUAL REPAIR */
+
+/* Home hero: remove the white plaque and solve readability at the background level. */
+html[lang="ru"] .hero-scrim {
+  background:
+    linear-gradient(90deg,
+      rgba(247,248,246,.74) 0%,
+      rgba(247,248,246,.58) 34%,
+      rgba(247,248,246,.26) 58%,
+      rgba(247,248,246,.52) 78%,
+      rgba(247,248,246,.70) 100%);
+}
+
+html[lang="ru"] .hero-grid {
+  grid-template-columns: minmax(0,1.08fr) minmax(280px,.82fr);
+  gap: clamp(40px,5vw,76px);
+}
+
+html[lang="ru"] .hero-copy {
+  max-width: 760px;
+}
+
+html[lang="ru"] .hero-panel {
+  width: min(100%,320px);
+  max-width: 320px;
+  margin-inline-start: 0;
+  justify-self: center;
+  transform: translateY(-18px);
+}
+
+html[lang="ru"] .hero-tomorrow {
+  width: auto;
+  max-width: 300px;
+  margin: 12px 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+  color: #102846;
+  text-shadow: 0 1px 10px rgba(255,255,255,.82);
+}
+
+/* RU home uses the clear, visible line-icon language already proven on EN home. */
+html[lang="ru"] .ru-home-product-icon,
+html[lang="ru"] .ru-home-tech-icon,
+html[lang="ru"] .ru-home-why-icon {
+  display: grid;
+  place-items: center;
+  background: transparent !important;
+  background-image: none !important;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+html[lang="ru"] .ru-home-product-icon svg,
+html[lang="ru"] .ru-home-tech-icon svg,
+html[lang="ru"] .ru-home-why-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Seven Azevsm Plus service icons: standalone SVGs, no legacy sprite/background override. */
+html[lang="ru"] .ru-plus-card-head .ru-plus-icon {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  padding: 6px;
+  border: 0;
+  border-radius: 0;
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none;
+}
+
+html[lang="ru"] .ru-plus-card-head .ru-plus-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Keep Plus service name and icon as one readable heading unit. */
+html[lang="ru"] .ru-plus-card-head {
+  align-items: center;
+  gap: 18px;
+}
+
+html[lang="ru"] .ru-plus-card h2 {
+  margin: 0;
+  text-wrap: balance;
+}
+
+@media (max-width: 680px) {
+  html[lang="ru"] .hero-scrim {
+    background:
+      linear-gradient(180deg,
+        rgba(247,248,246,.90) 0%,
+        rgba(247,248,246,.80) 44%,
+        rgba(247,248,246,.60) 72%,
+        rgba(247,248,246,.72) 100%);
+  }
+
+  html[lang="ru"] .hero-panel {
+    width: min(100%,280px);
+    max-width: 280px;
+    margin-inline: auto;
+    transform: none;
+  }
+
+  html[lang="ru"] .hero-tomorrow {
+    width: min(100%,280px);
+    max-width: 280px;
+    margin-inline: auto;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  html[lang="ru"] .ru-plus-card-head .ru-plus-icon {
+    width: 60px;
+    height: 60px;
+    flex-basis: 60px;
+    padding: 4px;
+  }
+}
