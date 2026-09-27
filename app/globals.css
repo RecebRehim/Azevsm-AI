@@ -4658,3 +4658,90 @@ html[lang="ru"] .ru-plus-card h2 {
     padding: 4px;
   }
 }
+
+
+/* RU PILOT — EN-COMPOSITION REFERENCE FOR INTERNAL HEROES */
+
+/* Keep RU content, but return internal-page composition to the calmer EN baseline. */
+html[lang="ru"] .ru-pilot-hero-inner {
+  min-height: 320px;
+  grid-template-columns: minmax(0,1.35fr) minmax(180px,.45fr);
+  gap: clamp(32px,4vw,64px);
+  padding-block: clamp(44px,5vw,64px);
+}
+
+html[lang="ru"] .ru-pilot-hero-copy {
+  max-width: 860px;
+}
+
+html[lang="ru"] .ru-pilot-hero h1 {
+  max-width: 20ch;
+  font-size: clamp(38px,3.6vw,54px);
+  line-height: 1.06;
+}
+
+html[lang="ru"] .ru-pilot-lead {
+  max-width: 66ch;
+  font-size: clamp(17px,1.2vw,19px);
+}
+
+html[lang="ru"] .ru-thematic-hero-art {
+  width: 100%;
+  min-height: 180px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  justify-self: center;
+}
+
+html[lang="ru"] .ru-thematic-hero-art::before,
+html[lang="ru"] .ru-hero-topic-grid {
+  display: none !important;
+}
+
+html[lang="ru"] .ru-hero-art-core {
+  min-height: 0;
+}
+
+html[lang="ru"] .ru-hero-founder-icon {
+  width: clamp(120px,11vw,156px);
+  height: clamp(120px,11vw,156px);
+  filter: none;
+}
+
+html[lang="ru"] .ru-products-hero-icons .founder-icon {
+  width: clamp(78px,7vw,96px);
+  height: clamp(78px,7vw,96px);
+}
+
+html[lang="ru"] .ru-products-hero-icons .founder-icon:nth-child(2) {
+  transform: translateY(-10px);
+}
+
+html[lang="ru"] .ru-company-mark,
+html[lang="ru"] .ru-research-mark {
+  width: clamp(140px,12vw,176px);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-pilot-hero-inner {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: 18px;
+    padding-block: 40px 34px;
+  }
+
+  html[lang="ru"] .ru-thematic-hero-art {
+    min-height: 104px;
+  }
+
+  html[lang="ru"] .ru-hero-founder-icon {
+    width: 104px;
+    height: 104px;
+  }
+}
