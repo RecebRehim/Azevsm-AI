@@ -7,7 +7,7 @@ import { RuPilotHero, type RuPilotHeroKind } from "@/components/ru-pilot-hero";
 import { getCopy } from "@/lib/content/copy";
 import { getProductAuthorityPage, type ProductAuthorityKey } from "@/lib/content/product-authority-pages-v31";
 import { publicServices } from "@/lib/content/services";
-import { localePath } from "@/lib/i18n";
+import { localePath, type Locale } from "@/lib/i18n";
 
 const heroKind: Record<ProductAuthorityKey, RuPilotHeroKind> = {
   platform: "platform",
@@ -17,13 +17,13 @@ const heroKind: Record<ProductAuthorityKey, RuPilotHeroKind> = {
   plus: "plus",
 };
 
-const scenarioRoutes: Record<string, string> = {
-  "Стартап / основатель": "/products/azevsm-index",
-  "Инвестор / фонд": "/products/azevsm-index",
-  "Компания / корпорация": "/products",
-  "Банк / институт": "/products/azevsm-institutional-index",
-  "Государственная / программная структура": "/products/azevsm-institutional-index",
-};
+const scenarioRoutes = [
+  "/products/azevsm-index",
+  "/products/azevsm-index",
+  "/products",
+  "/products/azevsm-institutional-index",
+  "/products/azevsm-institutional-index",
+] as const;
 
 const productIcons: FounderIconName[] = ["azevsm-index", "azevsm-institutional-index", "azevsm-plus"];
 const plusIcons: RuPlusServiceIconName[] = [
@@ -41,8 +41,8 @@ function splitCell(value: string) {
   return { title, body: rest.join("\n") };
 }
 
-export function RuProductAuthorityPage({ pageKey }: { pageKey: ProductAuthorityKey }) {
-  const page = getProductAuthorityPage("ru", pageKey);
+export function RuProductAuthorityPage({ locale, pageKey }: { locale: Locale; pageKey: ProductAuthorityKey }) {
+  const page = getProductAuthorityPage(locale, pageKey);
   if (!page) notFound();
 
   const heroTopics = page.blocks
@@ -50,11 +50,16 @@ export function RuProductAuthorityPage({ pageKey }: { pageKey: ProductAuthorityK
     .slice(0, 3);
 
   if (pageKey === "platform") {
-    const heading = page.blocks.find((block) => block.type === "heading" && block.text === "Я представляю");
-    const intro = page.blocks.find((block) => block.type === "p" && block.text.startsWith("Выберите свой сценарий"));
+    const heading = page.blocks.find((block) => block.type === "heading");
+    const intro = page.blocks.find((block) => block.type === "p");
     const table = page.blocks.find((block) => block.type === "table");
-    const cells = table?.type === "table" ? table.rows.flat().filter(Boolean) : [];
-    const copy = getCopy("ru");
+    const scenarios =
+      table?.type === "table"
+        ? table.header
+          ? table.rows.slice(1).map((row) => ({ title: row[0] ?? "", body: row[1] ?? "" }))
+          : table.rows.flat().filter(Boolean).map(splitCell)
+        : [];
+    const copy = getCopy(locale);
     return (
       <>
         <RuPilotHero kind="platform" title={page.title} lead={page.lead} topics={heroTopics} />
@@ -64,11 +69,10 @@ export function RuProductAuthorityPage({ pageKey }: { pageKey: ProductAuthorityK
               <h2>{heading?.type === "heading" ? heading.text : "Я представляю"}</h2>
               {intro?.type === "p" ? <p>{intro.text}</p> : null}
               <div className="ru-scenario-grid">
-                {cells.map((value) => {
-                  const item = splitCell(value);
-                  const href = scenarioRoutes[item.title];
+                {scenarios.map((item, index) => {
+                  const href = scenarioRoutes[index];
                   return href ? (
-                    <Link className="ru-scenario-card" href={localePath("ru", href)} key={item.title}>
+                    <Link className="ru-scenario-card" href={localePath(locale, href)} key={item.title}>
                       <strong>{item.title}</strong>
                       <span>{item.body}</span>
                       <i aria-hidden="true">→</i>
@@ -90,7 +94,7 @@ export function RuProductAuthorityPage({ pageKey }: { pageKey: ProductAuthorityK
                 ))}
               </div>
             </section>
-            <RuPilotActions actions={page.actions} />
+            <RuPilotActions actions={page.actions} locale={locale} />
           </div>
         </section>
       </>
@@ -99,18 +103,22 @@ export function RuProductAuthorityPage({ pageKey }: { pageKey: ProductAuthorityK
 
   if (pageKey === "products") {
     const table = page.blocks.find((block) => block.type === "table");
-    const rows = table?.type === "table" ? table.rows.flat().filter(Boolean) : [];
+    const rows =
+      table?.type === "table"
+        ? table.header
+          ? table.rows.slice(1).map((row) => ({ title: row[0] ?? "", body: row[1] ?? "" }))
+          : table.rows.flat().filter(Boolean).map(splitCell)
+        : [];
     return (
       <>
         <RuPilotHero kind="products" title={page.title} lead={page.lead} topics={heroTopics} />
         <section className="section-tight">
           <div className="wrap ru-pilot-prose">
             <div className="ru-products-grid">
-              {rows.slice(0, 3).map((value, index) => {
-                const item = splitCell(value);
+              {rows.slice(0, 3).map((item, index) => {
                 const action = page.actions[index];
                 return (
-                  <Link className="ru-product-card" href={localePath("ru", action.href)} key={item.title}>
+                  <Link className="ru-product-card" href={localePath(locale, action.href)} key={item.title}>
                     <FounderIcon name={productIcons[index]} className="ru-product-card-icon" />
                     <div>
                       <h2>{item.title}</h2>
@@ -130,13 +138,16 @@ export function RuProductAuthorityPage({ pageKey }: { pageKey: ProductAuthorityK
 
   if (pageKey === "plus") {
     const intro = page.blocks.find((block) => block.type === "p");
-    const services = publicServices("ru");
+    const services = publicServices(locale);
     const items = page.blocks.flatMap((block, index) => {
       if (block.type !== "heading" || !/^[1-7]\./.test(block.text)) return [];
       const body = page.blocks[index + 1];
       return body?.type === "p" ? [{ heading: block.text, body: body.text }] : [];
     });
-    const clientHeadingIndex = page.blocks.findIndex((block) => block.type === "heading" && block.text === "Что получает клиент");
+    let clientHeadingIndex = -1;
+    page.blocks.forEach((block, index) => {
+      if (block.type === "heading" && !/^[1-7]\./.test(block.text)) clientHeadingIndex = index;
+    });
     const clientBlocks = clientHeadingIndex >= 0 ? page.blocks.slice(clientHeadingIndex) : [];
     return (
       <>
@@ -154,13 +165,13 @@ export function RuProductAuthorityPage({ pageKey }: { pageKey: ProductAuthorityK
                       <h2>{item.heading}</h2>
                     </div>
                     <p style={{ whiteSpace: "pre-line" }}>{item.body}</p>
-                    {service ? <span className="ru-plus-product-name">{service.labels.ru}</span> : null}
+                    {service ? <span className="ru-plus-product-name">{service.labels[locale]}</span> : null}
                   </article>
                 );
               })}
             </div>
             <RuPilotBlocks blocks={clientBlocks} />
-            <RuPilotActions actions={page.actions} />
+            <RuPilotActions actions={page.actions} locale={locale} />
           </div>
         </section>
       </>
@@ -173,7 +184,7 @@ export function RuProductAuthorityPage({ pageKey }: { pageKey: ProductAuthorityK
       <section className="section-tight">
         <div className="wrap ru-pilot-prose">
           <RuPilotBlocks blocks={page.blocks} />
-          <RuPilotActions actions={page.actions} />
+          <RuPilotActions actions={page.actions} locale={locale} />
         </div>
       </section>
     </>
