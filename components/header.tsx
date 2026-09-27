@@ -6,11 +6,12 @@ import { useState } from "react";
 import { LanguageMenu } from "@/components/language-menu";
 import { Logo } from "@/components/logo";
 import type { SiteCopy } from "@/lib/content/copy";
-import { localeMeta, localePath, swapLocale, type Locale } from "@/lib/i18n";
+import { isPilotLocale, localeMeta, localePath, swapLocale, type Locale } from "@/lib/i18n";
 import { platformEntryUrl } from "@/lib/platform";
 
 export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?: string }) {
   const path = usePathname() || `/${locale}`;
+  const pilotLocale = isPilotLocale(locale);
   const [open, setOpen] = useState(false);
   const entry = platformEntryUrl();
   const enterHref = entry ?? localePath(locale, "/enter");
@@ -25,7 +26,7 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
   ];
 
   return (
-    <header className={`site-header${locale === "ru" ? " ru-pilot-site-header" : ""}`}>
+    <header className={`site-header${pilotLocale ? " ru-pilot-site-header" : ""}`}>
       <div className={`wrap header-inner${open ? " is-open" : ""}`}>
         <Link className="wordmark" href={localePath(locale)} onClick={close}>
           <Logo variant="mark" title={copy.logoTitle} />
@@ -52,10 +53,10 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
             </Link>
           ))}
         </nav>
-        {locale === "ru" ? <RuLanguageAccess path={path} /> : null}
+        {pilotLocale ? <RuLanguageAccess path={path} locale={locale} label={copy.language} /> : null}
         <div className="header-utilities">
-          {locale !== "ru" ? <LanguageMenu locale={locale} path={path} label={copy.language} /> : null}
-          {locale !== "ru" ? (
+          {!pilotLocale ? <LanguageMenu locale={locale} path={path} label={copy.language} /> : null}
+          {!pilotLocale ? (
             <Link className="btn btn-ghost btn-compact" href={localePath(locale, "/contact")}>
               {copy.contactCta}
             </Link>
@@ -85,10 +86,11 @@ const ruAdditionalLanguages = [
   { code: "FR", name: "French" },
 ] as const;
 
-function RuLanguageAccess({ path }: { path: string }) {
+function RuLanguageAccess({ path, locale, label }: { path: string; locale: Locale; label: string }) {
+  const moreLabel = locale === "ru" ? "Языки" : locale === "az" ? "Dillər" : "Languages";
   return (
     <div className="ru-language-access">
-      <nav className="ru-primary-locales" aria-label="Основные языки">
+      <nav className="ru-primary-locales" aria-label={label}>
         {ruDirectLanguages.map((item) => {
           const meta = localeMeta[item];
           return (
@@ -97,7 +99,7 @@ function RuLanguageAccess({ path }: { path: string }) {
               href={swapLocale(path, item)}
               hrefLang={meta.hreflang}
               lang={meta.htmlLang}
-              aria-current={item === "ru" ? "true" : undefined}
+              aria-current={item === locale ? "true" : undefined}
             >
               {item.toUpperCase()}
             </Link>
@@ -105,8 +107,8 @@ function RuLanguageAccess({ path }: { path: string }) {
         })}
       </nav>
       <details className="ru-language-more">
-        <summary>Языки</summary>
-        <div className="ru-language-panel" aria-label="Дополнительные языки">
+        <summary>{moreLabel}</summary>
+        <div className="ru-language-panel" aria-label={moreLabel}>
           {ruAdditionalLanguages.map((item) => (
             <div className="ru-language-pending" key={item.code}>
               <span>{item.code}</span>
