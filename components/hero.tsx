@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Logo } from "@/components/logo";
 import type { SiteCopy } from "@/lib/content/copy";
-import { localePath, type Locale } from "@/lib/i18n";
+import { isPilotLocale, localePath, type Locale } from "@/lib/i18n";
 import { platformEntryUrl } from "@/lib/platform";
 
 function renderRuThesis(text: string) {
@@ -25,6 +25,7 @@ function renderRuHeroTitle(text: string) {
 
 export function Hero({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
   const entry = platformEntryUrl();
+  const pilotLocale = isPilotLocale(locale);
   return (
     <section className="hero">
       <Image className="hero-photo" src="/hero-bg.jpg" alt="" fill priority sizes="100vw" />
@@ -45,12 +46,12 @@ export function Hero({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
           ) : null}
         </div>
         <aside className="hero-panel" aria-label={copy.logoTitle}>
-          {locale === "ru" ? (
+          {pilotLocale ? (
             <div className="hero-panel-axis">
               <Logo variant="mark" title={copy.logoTitle} size={100} />
               <p className="hero-brand"><strong>Azevsm</strong><span>Systems</span></p>
               <hr className="hero-rule" />
-              <p className="hero-words"><span>ДОКАЗАТЕЛЬСТВА</span><span>АНАЛИЗ</span><span>ДОВЕРИЕ</span></p>
+              <p className="hero-words">{copy.heroWords.split("\n").map((word) => <span key={word}>{word}</span>)}</p>
               <p className="hero-tomorrow">{renderRuThesis(copy.thesisSub)}</p>
             </div>
           ) : (
