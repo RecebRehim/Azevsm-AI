@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { PageIntro } from "@/components/page-intro";
 import { RuAuthorityDocumentPage } from "@/components/ru-authority-document-page";
 import { getAuthorityPage, type AuthorityPageKey } from "@/lib/content/authority-pages-v31";
-import { localePath, type Locale } from "@/lib/i18n";
+import { isPilotLocale, localePath, type Locale } from "@/lib/i18n";
 
 function splitCell(value: string) {
   const [title, ...rest] = value.split("\n");
@@ -13,8 +13,9 @@ function splitCell(value: string) {
 export function AuthorityDocumentPage({ locale, pageKey }: { locale: Locale; pageKey: AuthorityPageKey }) {
   const page = getAuthorityPage(locale, pageKey);
   if (!page) notFound();
-  if (locale === "ru" && (pageKey === "resultSystem" || pageKey === "validation")) return <RuAuthorityDocumentPage pageKey={pageKey} />;
-  const actions = locale === "ru" ? page.actions.filter((action) => action.href !== "/contact") : page.actions;
+  const pilotLocale = isPilotLocale(locale);
+  if (pilotLocale && (pageKey === "resultSystem" || pageKey === "validation")) return <RuAuthorityDocumentPage locale={locale} pageKey={pageKey} />;
+  const actions = pilotLocale ? page.actions.filter((action) => action.href !== "/contact") : page.actions;
 
   return (
     <>
