@@ -4745,3 +4745,179 @@ html[lang="ru"] .ru-research-mark {
     height: 104px;
   }
 }
+
+
+/* RU PILOT — ONE-PASS FOUNDER QA ACCEPTANCE LAYER
+   Closes confirmed responsive and icon-rendering blockers without changing content. */
+html[lang="ru"] .founder-icon--inline {
+  display: inline-grid;
+  place-items: center;
+  background: transparent !important;
+  background-image: none !important;
+  background-position: initial !important;
+  background-size: initial !important;
+  border: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+html[lang="ru"] .founder-icon--inline > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Home right column is one visual unit: proof words with the thesis directly below. */
+html[lang="ru"] .hero-panel {
+  align-items: stretch;
+  text-align: left;
+}
+html[lang="ru"] .hero-panel > .logo,
+html[lang="ru"] .hero-panel > svg,
+html[lang="ru"] .hero-brand,
+html[lang="ru"] .hero-rule {
+  align-self: center;
+}
+html[lang="ru"] .hero-words,
+html[lang="ru"] .hero-tomorrow {
+  width: 100%;
+  max-width: 100%;
+  color: #1a4f9c;
+  text-align: left;
+}
+html[lang="ru"] .hero-tomorrow {
+  align-self: stretch;
+  margin-top: 10px;
+}
+
+/* Mobile acceptance: later desktop RU rules must never recreate a second off-screen column. */
+@media (max-width: 680px) {
+  html[lang="ru"],
+  html[lang="ru"] body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  html[lang="ru"] .hero {
+    overflow: hidden;
+  }
+
+  html[lang="ru"] .hero-grid {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    justify-items: stretch;
+    text-align: left;
+    padding: 38px 0 50px;
+  }
+
+  html[lang="ru"] .hero-copy {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    text-align: left;
+  }
+
+  html[lang="ru"] .hero h1 {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: 0;
+    font-size: clamp(30px, 8.4vw, 37px);
+    line-height: 1.08;
+    text-align: left;
+    text-wrap: balance;
+  }
+
+  html[lang="ru"] .hero-lead {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: 0;
+    font-size: 16px;
+    line-height: 1.58;
+    text-align: left;
+  }
+
+  html[lang="ru"] .hero-panel {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: stretch;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    transform: none;
+    align-items: stretch;
+  }
+
+  html[lang="ru"] .hero-brand,
+  html[lang="ru"] .hero-rule {
+    align-self: flex-start;
+  }
+
+  html[lang="ru"] .hero-panel > .logo,
+  html[lang="ru"] .hero-panel > svg {
+    align-self: flex-start;
+  }
+
+  html[lang="ru"] .hero-words {
+    letter-spacing: .22em;
+    line-height: 1.7;
+  }
+
+  html[lang="ru"] .hero-tomorrow {
+    width: 100%;
+    max-width: 100%;
+    margin: 8px 0 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  html[lang="ru"] .ru-pilot-hero,
+  html[lang="ru"] .ru-pilot-hero-inner,
+  html[lang="ru"] .ru-pilot-hero-copy,
+  html[lang="ru"] .ru-thematic-hero-art,
+  html[lang="ru"] .ru-hero-art-core {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  html[lang="ru"] .ru-pilot-hero-inner {
+    grid-template-columns: minmax(0,1fr);
+    gap: 18px;
+    justify-items: stretch;
+    text-align: left;
+    padding-block: 38px 32px;
+  }
+
+  html[lang="ru"] .ru-pilot-hero-copy,
+  html[lang="ru"] .ru-pilot-hero h1,
+  html[lang="ru"] .ru-pilot-lead {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: 0;
+    text-align: left;
+  }
+
+  html[lang="ru"] .ru-thematic-hero-art {
+    justify-self: start;
+    place-items: start;
+    min-height: 96px;
+  }
+
+  html[lang="ru"] .ru-hero-art-core {
+    place-items: start;
+  }
+
+  html[lang="ru"] .ru-products-hero-icons {
+    width: 100%;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+}
