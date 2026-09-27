@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { PageIntro } from "@/components/page-intro";
 import { RuProductAuthorityPage } from "@/components/ru-product-authority-page";
 import { getProductAuthorityPage, type ProductAuthorityKey } from "@/lib/content/product-authority-pages-v31";
-import { localePath, type Locale } from "@/lib/i18n";
+import { isPilotLocale, localePath, type Locale } from "@/lib/i18n";
 
 function cell(value: string) {
   const [title, ...rest] = value.split("\n");
@@ -13,7 +13,7 @@ function cell(value: string) {
 export function ProductAuthorityPage({ locale, pageKey }: { locale: Locale; pageKey: ProductAuthorityKey }) {
   const page = getProductAuthorityPage(locale, pageKey);
   if (!page) notFound();
-  if (locale === "ru") return <RuProductAuthorityPage pageKey={pageKey} />;
+  if (isPilotLocale(locale)) return <RuProductAuthorityPage locale={locale} pageKey={pageKey} />;
   return (
     <>
       <PageIntro title={page.title} lead={page.lead} />
