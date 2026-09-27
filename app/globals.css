@@ -5358,3 +5358,82 @@ html[lang="ru"] .ru-plus-card h2 {
     margin: 0 auto;
   }
 }
+
+
+/* RU MOBILE INNER PAGES — FINAL CENTERING REPAIR */
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-pilot-hero {
+    overflow: hidden;
+  }
+
+  html[lang="ru"] .wrap.ru-pilot-hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    text-align: center;
+  }
+
+  html[lang="ru"] .ru-pilot-hero-copy {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  html[lang="ru"] .ru-pilot-hero h1 {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 18px;
+    font-size: clamp(28px, 7.8vw, 32px);
+    line-height: 1.10;
+    text-align: center;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+    text-wrap: balance;
+  }
+
+  html[lang="ru"] .ru-pilot-hero--platform h1,
+  html[lang="ru"] .ru-pilot-hero--company h1 {
+    font-size: clamp(27px, 7.4vw, 30px);
+  }
+
+  html[lang="ru"] .ru-pilot-lead {
+    width: min(100%, 40ch);
+    max-width: 40ch;
+    margin: 0 auto;
+    text-align: center;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+  }
+
+  html[lang="ru"] .ru-thematic-hero-art {
+    width: 100%;
+    max-width: 100%;
+    justify-self: center;
+    place-items: center;
+  }
+
+  html[lang="ru"] .ru-hero-art-core {
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  html[lang="ru"] .ru-hero-founder-icon,
+  html[lang="ru"] .ru-company-mark,
+  html[lang="ru"] .ru-research-mark {
+    margin-inline: auto;
+  }
+
+  html[lang="ru"] .ru-products-hero-icons {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+    justify-content: center;
+    gap: 14px;
+    transform: none;
+  }
+}
