@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { PageIntro } from "@/components/page-intro";
 import { RuPilotHero } from "@/components/ru-pilot-hero";
 import { getCopy } from "@/lib/content/copy";
-import { isLocale, locales, localePath } from "@/lib/i18n";
+import { isLocale, isPilotLocale, locales, localePath } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -25,7 +25,7 @@ export default async function InsightPage({ params }: { params: Promise<{ locale
   const item = copy.insightItems.find((entry) => entry[0] === slug);
   if (!item) notFound();
 
-  if (locale === "ru") {
+  if (isPilotLocale(locale)) {
     return (
       <>
         <RuPilotHero kind={slug === "traceability" ? "technology" : "trust"} title={item[1]} lead={item[2]} />
