@@ -5437,3 +5437,53 @@ html[lang="ru"] .ru-plus-card h2 {
     transform: none;
   }
 }
+
+
+/* RU MOBILE AZEVSM PLUS — CARD WIDTH CLOSURE */
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-plus-grid {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  html[lang="ru"] .ru-plus-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  html[lang="ru"] .ru-plus-card-head {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    gap: 12px;
+  }
+
+  html[lang="ru"] .ru-plus-card-head .ru-plus-icon {
+    width: 54px;
+    height: 54px;
+    flex: 0 0 54px;
+  }
+
+  html[lang="ru"] .ru-plus-card h2 {
+    min-width: 0;
+    max-width: 100%;
+    font-size: 20px;
+    line-height: 1.22;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+  }
+
+  html[lang="ru"] .ru-plus-card p {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+  }
+}
