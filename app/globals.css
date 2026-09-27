@@ -5554,40 +5554,20 @@ html[lang="ru"] .ru-platform-hero-icon {
 }
 
 
-/* RU DESKTOP HOME HERO — RIGHT AXIS FINAL */
-@media (min-width: 1025px) {
+
+/* RU HOME HERO — CORRECTED SINGLE AXIS */
+/* Applies to desktop/tablet layouts only. Mobile <=680px remains untouched. */
+@media (min-width: 681px) {
   html[lang="ru"] .hero-panel {
-    transform: translate(48px, -18px);
-  }
-
-  html[lang="ru"] .hero-panel > .logo-mark,
-  html[lang="ru"] .hero-panel .hero-brand,
-  html[lang="ru"] .hero-panel .hero-rule,
-  html[lang="ru"] .hero-panel .hero-words,
-  html[lang="ru"] .hero-panel .hero-tomorrow {
-    margin-inline: auto;
-    align-self: center;
-  }
-
-  html[lang="ru"] .hero-panel .hero-brand,
-  html[lang="ru"] .hero-panel .hero-words,
-  html[lang="ru"] .hero-panel .hero-tomorrow {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-
-/* RU DESKTOP HOME HERO — SINGLE PHYSICAL AXIS */
-@media (min-width: 1025px) {
-  html[lang="ru"] .hero-panel {
-    width: 320px;
+    width: min(100%, 320px);
     max-width: 320px;
-    transform: translate(48px, -18px);
+    justify-self: end !important;
+    margin-inline: 0 !important;
+    transform: translateY(-18px) !important;
   }
 
   html[lang="ru"] .hero-panel-axis {
-    width: 320px;
+    width: 100%;
     max-width: 320px;
     display: flex;
     flex-direction: column;
@@ -5614,7 +5594,34 @@ html[lang="ru"] .ru-platform-hero-icon {
   }
 
   html[lang="ru"] .hero-panel-axis > .hero-words {
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding-inline: 0 !important;
+    white-space: normal;
+  }
+
+  html[lang="ru"] .hero-panel-axis > .hero-words > span {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (min-width: 681px) and (max-width: 1024px) {
+  html[lang="ru"] .hero-panel,
+  html[lang="ru"] .hero-panel-axis {
+    width: 280px;
+    max-width: 280px;
+  }
+
+  html[lang="ru"] .hero-panel-axis > .hero-words {
+    font-size: 15px;
+    letter-spacing: .24em;
+    line-height: 1.82;
+  }
+
+  html[lang="ru"] .hero-panel-axis > .hero-tomorrow {
+    max-width: 280px;
   }
 }

@@ -50,7 +50,7 @@ export function Hero({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
               <Logo variant="mark" title={copy.logoTitle} size={100} />
               <p className="hero-brand"><strong>Azevsm</strong><span>Systems</span></p>
               <hr className="hero-rule" />
-              <p className="hero-words">ДОКАЗАТЕЛЬСТВА\nАНАЛИЗ\nДОВЕРИЕ</p>
+              <p className="hero-words"><span>ДОКАЗАТЕЛЬСТВА</span><span>АНАЛИЗ</span><span>ДОВЕРИЕ</span></p>
               <p className="hero-tomorrow">{renderRuThesis(copy.thesisSub)}</p>
             </div>
           ) : (
