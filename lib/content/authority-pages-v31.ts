@@ -419,7 +419,24 @@ const pages: Record<AuthorityLocale, Record<AuthorityPageKey, AuthorityPage>> = 
   },
 };
 
+function normalizePilotAuthorityPage(page: AuthorityPage, key: AuthorityPageKey): AuthorityPage {
+  if (key !== "resultSystem") return page;
+  const blocks = page.blocks.map((block) => {
+    if (block.type !== "table" || !block.header) return block;
+    return {
+      type: "table" as const,
+      header: false,
+      rows: block.rows.slice(1).map((row) => [
+        `${row[0] ?? ""}\n${row[1] ?? ""}`,
+        `${row[2] ?? ""}\n${row[3] ?? ""}`,
+      ]),
+    };
+  });
+  return { ...page, blocks };
+}
+
 export function getAuthorityPage(locale: Locale, key: AuthorityPageKey): AuthorityPage | null {
   if (!isAuthorityLocale(locale)) return null;
-  return pages[locale][key];
+  const page = pages[locale][key];
+  return locale === "ru" ? page : normalizePilotAuthorityPage(page, key);
 }
