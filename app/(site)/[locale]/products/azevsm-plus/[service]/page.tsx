@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { PageIntro } from "@/components/page-intro";
 import { getCopy } from "@/lib/content/copy";
 import { publicServices, serviceBySlug } from "@/lib/content/services";
-import { isLocale, locales, localePath } from "@/lib/i18n";
+import { isLocale, isPilotLocale, locales, localePath } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -25,6 +25,7 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
   if (!service || !publicServices(locale).some((item) => item.slug === slug)) notFound();
   const copy = getCopy(locale);
   const body = copy.serviceTemplate;
+  const pilotLocale = isPilotLocale(locale);
   return (
     <>
       <PageIntro title={service.labels[locale]} lead={service.summary[locale]} />
@@ -39,8 +40,8 @@ export default async function ServicePage({ params }: { params: Promise<{ locale
           <article><h2>{copy.traceability}</h2><p>{body.trust}</p></article>
           <p className="note">{copy.tiers}</p>
           <div className="next-actions">
-            {locale !== "ru" ? <Link className="btn btn-primary" href={localePath(locale, "/contact")}>{copy.contact}</Link> : null}
-            <Link className={locale === "ru" ? "btn btn-primary" : "btn btn-ghost"} href={localePath(locale, "/products/azevsm-plus")}>{copy.plusTitle}</Link>
+            {!pilotLocale ? <Link className="btn btn-primary" href={localePath(locale, "/contact")}>{copy.contact}</Link> : null}
+            <Link className={pilotLocale ? "btn btn-primary" : "btn btn-ghost"} href={localePath(locale, "/products/azevsm-plus")}>{copy.plusTitle}</Link>
           </div>
         </div>
       </section>
