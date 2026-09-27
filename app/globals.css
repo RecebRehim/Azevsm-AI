@@ -5677,3 +5677,89 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-hero-icon {
     text-align: center;
   }
 }
+
+
+/* PILOT MENU — RIGHT DROPDOWN FINAL */
+@media (max-width: 1180px) {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .header-inner {
+    position: relative;
+    overflow: visible;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .header-inner.is-open {
+    position: relative !important;
+    inset: auto !important;
+    top: auto !important;
+    height: 64px !important;
+    min-height: 64px !important;
+    padding: 0 !important;
+    flex-wrap: nowrap !important;
+    background: #ffffff !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .header-inner.is-open .nav-main {
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    right: 0 !important;
+    left: auto !important;
+    width: min(320px, calc(100vw - 28px)) !important;
+    min-width: 0 !important;
+    max-width: calc(100vw - 28px) !important;
+    flex: none !important;
+    flex-basis: auto !important;
+    order: initial !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: 10px 12px !important;
+    background: #ffffff !important;
+    border: 1px solid #d5dee6 !important;
+    border-radius: 14px !important;
+    box-shadow: 0 18px 42px rgba(15, 34, 58, .18) !important;
+    z-index: 120;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .header-inner.is-open .nav-main a {
+    width: 100%;
+    height: auto !important;
+    min-height: 42px;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    padding: 11px 10px !important;
+    color: #23364d;
+    background: #ffffff;
+    border-radius: 8px;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .header-inner.is-open .nav-main a:hover {
+    background: #f3f7fa;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .header-inner.is-open .nav-main a[aria-current="page"]::after {
+    left: 10px;
+    right: 10px;
+    top: auto;
+    bottom: 5px;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .header-inner.is-open .header-utilities {
+    display: none !important;
+  }
+}
+
+@media (max-width: 680px) {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .header-inner.is-open {
+    height: 60px !important;
+    min-height: 60px !important;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .header-inner.is-open .nav-main {
+    top: calc(100% + 6px) !important;
+  }
+}
