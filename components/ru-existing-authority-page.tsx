@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { RuPilotActions, RuPilotBlocks } from "@/components/ru-pilot-blocks";
 import { RuPilotHero, type RuPilotHeroKind } from "@/components/ru-pilot-hero";
 import { getExistingAuthorityPage, type ExistingAuthorityPageKey } from "@/lib/content/existing-authority-pages-v31";
+import type { Locale } from "@/lib/i18n";
 
 const kind: Record<ExistingAuthorityPageKey, RuPilotHeroKind> = {
   technology: "technology",
@@ -10,8 +11,8 @@ const kind: Record<ExistingAuthorityPageKey, RuPilotHeroKind> = {
   company: "company",
 };
 
-export function RuExistingAuthorityPage({ pageKey }: { pageKey: ExistingAuthorityPageKey }) {
-  const page = getExistingAuthorityPage("ru", pageKey);
+export function RuExistingAuthorityPage({ locale, pageKey }: { locale: Locale; pageKey: ExistingAuthorityPageKey }) {
+  const page = getExistingAuthorityPage(locale, pageKey);
   if (!page) notFound();
 
   const actions: typeof page.actions = [];
@@ -23,7 +24,7 @@ export function RuExistingAuthorityPage({ pageKey }: { pageKey: ExistingAuthorit
       <section className="section-tight ru-authority-section">
         <div className="wrap ru-pilot-prose">
           <RuPilotBlocks blocks={page.blocks} />
-          <RuPilotActions actions={actions} />
+          <RuPilotActions actions={actions} locale={locale} />
         </div>
       </section>
     </>
