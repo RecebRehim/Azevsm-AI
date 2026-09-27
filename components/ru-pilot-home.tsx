@@ -4,18 +4,18 @@ import { RuHomeFoundationIcon, RuHomeProductIcon, RuHomeWhyIcon } from "@/compon
 import { RuPilotBlocks } from "@/components/ru-pilot-blocks";
 import type { SiteCopy } from "@/lib/content/copy";
 import { getProductAuthorityPage } from "@/lib/content/product-authority-pages-v31";
-import { localePath } from "@/lib/i18n";
+import { localePath, type Locale } from "@/lib/i18n";
 import { platformEntryUrl } from "@/lib/platform";
 
-export function RuPilotHome({ copy }: { copy: SiteCopy }) {
-  const platform = getProductAuthorityPage("ru", "platform");
-  const moveStart = platform?.blocks.findIndex((block) => block.type === "heading" && block.text === "Проблема, которую решает AzevsmAI") ?? -1;
+export function RuPilotHome({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
+  const platform = getProductAuthorityPage(locale, "platform");
+  const moveStart = platform?.blocks.findIndex((block, index) => index > 0 && block.type === "heading") ?? -1;
   const movedBlocks = platform && moveStart >= 0 ? platform.blocks.slice(moveStart) : [];
   const entry = platformEntryUrl();
 
   return (
     <>
-      <Hero locale="ru" copy={copy} />
+      <Hero locale={locale} copy={copy} />
 
       <section className="ru-home-transfer">
         <div className="wrap ru-pilot-prose">
@@ -30,11 +30,11 @@ export function RuPilotHome({ copy }: { copy: SiteCopy }) {
               <p className="kicker">{copy.homeProductsKicker}</p>
               <h2>{copy.homeProductsTitle}</h2>
             </div>
-            <Link className="text-link" href={localePath("ru", "/products")}>{copy.viewAll}</Link>
+            <Link className="text-link" href={localePath(locale, "/products")}>{copy.viewAll}</Link>
           </div>
           <div className="product-row">
             {copy.homeProducts.map(([title, body, href], index) => (
-              <Link className="line-card" key={title} href={localePath("ru", href)}>
+              <Link className="line-card" key={title} href={localePath(locale, href)}>
                 <span className="product-icon ru-home-product-icon"><RuHomeProductIcon index={index} /></span>
                 <span><h3>{title}</h3><p>{body}</p></span>
                 <svg className="icon line-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
@@ -51,7 +51,7 @@ export function RuPilotHome({ copy }: { copy: SiteCopy }) {
               <p className="kicker">{copy.homeTechKicker}</p>
               <h2>{copy.homeTechTitle}</h2>
             </div>
-            <Link className="text-link" href={localePath("ru", "/technology")}>{copy.learnMore}</Link>
+            <Link className="text-link" href={localePath(locale, "/technology")}>{copy.learnMore}</Link>
           </div>
           <div className="foundation-row">
             {copy.homeTech.slice(0, 3).map(([title, body], index) => (
@@ -82,9 +82,9 @@ export function RuPilotHome({ copy }: { copy: SiteCopy }) {
       <section className="ru-home-nav-strip">
         <div className="wrap">
           <div className="cta-row ru-home-nav-actions">
-            <Link className="btn btn-primary" href={localePath("ru", "/platform")}>{copy.explore}</Link>
-            <Link className="btn btn-ghost" href={localePath("ru", "/technology")}>{copy.ourTechnology}</Link>
-            <a className="btn btn-ghost" href={entry ?? localePath("ru", "/enter")}>{copy.enterPlatform}</a>
+            <Link className="btn btn-primary" href={localePath(locale, "/platform")}>{copy.explore}</Link>
+            <Link className="btn btn-ghost" href={localePath(locale, "/technology")}>{copy.ourTechnology}</Link>
+            <a className="btn btn-ghost" href={entry ?? localePath(locale, "/enter")}>{copy.enterPlatform}</a>
           </div>
         </div>
       </section>
@@ -97,7 +97,7 @@ export function RuPilotHome({ copy }: { copy: SiteCopy }) {
             <p>{copy.companyLead}</p>
           </div>
           <div className="cta-row home-close-actions">
-            <Link className="btn btn-on-dark" href={localePath("ru", "/company")}>{copy.nav.company}</Link>
+            <Link className="btn btn-on-dark" href={localePath(locale, "/company")}>{copy.nav.company}</Link>
           </div>
         </div>
       </section>
