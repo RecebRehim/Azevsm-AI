@@ -12,6 +12,17 @@ function renderRuThesis(text: string) {
   return <>{text.slice(0, index)}<span className="ru-nowrap-term">{term}</span>{text.slice(index + term.length)}</>;
 }
 
+function renderRuHeroTitle(text: string) {
+  const protectedWord = "Институциональный";
+  if (!text.startsWith(protectedWord)) return text;
+  return (
+    <>
+      <span className="ru-nowrap-term">{protectedWord}</span>
+      {text.slice(protectedWord.length)}
+    </>
+  );
+}
+
 export function Hero({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
   const entry = platformEntryUrl();
   return (
@@ -20,7 +31,7 @@ export function Hero({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
       <div className="hero-scrim" />
       <div className="wrap hero-grid">
         <div className="hero-copy">
-          <h1>{copy.heroTitle}</h1>
+          <h1>{locale === "ru" ? renderRuHeroTitle(copy.heroTitle) : copy.heroTitle}</h1>
           <p className="hero-lead">{copy.heroLead}</p>
           {locale !== "ru" ? (
             <div className="cta-row">

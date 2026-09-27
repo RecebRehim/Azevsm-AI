@@ -5159,3 +5159,137 @@ html[lang="ru"] .ru-plus-card h2 {
     line-height: 1.55;
   }
 }
+
+
+/* RU MOBILE — Founder QA alignment/typography closure.
+   Desktop is already accepted; this block is mobile-only. */
+@media (max-width: 680px) {
+  /* Main hero: protect the first word and keep the right composition on one center axis. */
+  html[lang="ru"] .hero h1 {
+    font-size: clamp(28px, 7.8vw, 34px);
+    line-height: 1.08;
+    text-align: left;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
+
+  html[lang="ru"] .hero-panel {
+    justify-self: center;
+    width: min(100%, 300px);
+    max-width: 300px;
+    margin: 0 auto;
+    align-items: center;
+    text-align: center;
+  }
+
+  html[lang="ru"] .hero-panel > .logo,
+  html[lang="ru"] .hero-panel > svg,
+  html[lang="ru"] .hero-brand,
+  html[lang="ru"] .hero-rule,
+  html[lang="ru"] .hero-words,
+  html[lang="ru"] .hero-tomorrow {
+    align-self: center;
+  }
+
+  html[lang="ru"] .hero-words,
+  html[lang="ru"] .hero-tomorrow {
+    width: 100%;
+    max-width: 300px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  /* Home transfer: restore the approved 24px mobile gutter and calm the scale. */
+  html[lang="ru"] .ru-home-transfer > .wrap.ru-pilot-prose {
+    width: calc(100% - 48px) !important;
+    max-width: calc(100% - 48px);
+    margin-inline: auto !important;
+    box-sizing: border-box;
+  }
+
+  html[lang="ru"] .ru-home-transfer .ru-pilot-blocks > h2,
+  html[lang="ru"] .ru-home-transfer .ru-pilot-blocks > p {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  html[lang="ru"] .ru-home-transfer .ru-pilot-blocks > h2 {
+    font-size: clamp(28px, 7.6vw, 32px);
+    line-height: 1.14;
+    text-align: center;
+  }
+
+  html[lang="ru"] .ru-home-transfer .ru-pilot-blocks > p {
+    font-size: 16px;
+    line-height: 1.62;
+    text-align: left;
+  }
+
+  /* Mobile heading system: section headings are centered. */
+  html[lang="ru"] .ru-home-products .band-head,
+  html[lang="ru"] .ru-home-tech .band-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+  }
+
+  html[lang="ru"] .ru-home-products .band-head > div,
+  html[lang="ru"] .ru-home-tech .band-head > div {
+    width: 100%;
+    text-align: center;
+  }
+
+  html[lang="ru"] .ru-home-products .band-head .kicker,
+  html[lang="ru"] .ru-home-tech .band-head .kicker,
+  html[lang="ru"] .ru-home-why > .wrap > .kicker {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  html[lang="ru"] .ru-home-products .band-head h2,
+  html[lang="ru"] .ru-home-tech .band-head h2,
+  html[lang="ru"] .ru-home-company h2 {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+    font-size: clamp(28px, 7.6vw, 32px);
+    line-height: 1.14;
+    text-align: center;
+  }
+
+  html[lang="ru"] .ru-home-products .band-head .text-link,
+  html[lang="ru"] .ru-home-tech .band-head .text-link {
+    align-self: center;
+    justify-self: center;
+  }
+
+  html[lang="ru"] .ru-home-products .product-row,
+  html[lang="ru"] .ru-home-tech .foundation-row {
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  html[lang="ru"] .ru-scenario-section > h2,
+  html[lang="ru"] .ru-platform-repro > h2 {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+    text-align: center;
+    font-size: clamp(28px, 7.6vw, 32px);
+    line-height: 1.14;
+  }
+
+  html[lang="ru"] .ru-scenario-section > p,
+  html[lang="ru"] .ru-platform-repro > p {
+    margin-inline: auto;
+    text-align: center;
+  }
+}
