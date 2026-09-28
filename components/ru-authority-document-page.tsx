@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { RuPilotActions, RuPilotBlocks } from "@/components/ru-pilot-blocks";
 import { RuPilotHero } from "@/components/ru-pilot-hero";
+import { V4ResultSystem } from "@/components/v4-clarity";
 import { getAuthorityPage, type AuthorityPageKey } from "@/lib/content/authority-pages-v31";
 import type { Locale } from "@/lib/i18n";
 
@@ -14,6 +15,15 @@ export function RuAuthorityDocumentPage({ locale, pageKey }: { locale: Locale; p
     pageKey === "resultSystem"
       ? page.actions.filter((action) => action.href === "/products")
       : [];
+
+  if (pageKey === "resultSystem") {
+    return (
+      <>
+        <RuPilotHero kind={kind} title={page.title} lead={page.lead} topics={topics} />
+        <V4ResultSystem locale={locale} page={page} />
+      </>
+    );
+  }
 
   return (
     <>
