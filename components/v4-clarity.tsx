@@ -155,7 +155,18 @@ export function V4ResultSystem({ locale, page }: { locale: Locale; page: Authori
   const sectionHeading = before.find((block) => block.type === "heading");
   const intro = before.find((block) => block.type === "p");
   const rows = table?.type === "table" ? (table.header ? table.rows.slice(1) : table.rows) : [];
-  const resultItems = rows.flatMap((row) => row.map(splitCell)).filter((item) => item.title);
+  const resultItems =
+    table?.type === "table" && table.header
+      ? rows.flatMap((row) => {
+          const items: { title: string; body: string }[] = [];
+          for (let index = 0; index < row.length; index += 2) {
+            const title = row[index]?.trim();
+            const body = row[index + 1]?.trim() ?? "";
+            if (title) items.push({ title, body });
+          }
+          return items;
+        })
+      : rows.flatMap((row) => row.map(splitCell)).filter((item) => item.title);
 
   const visualIndices = [1, 6, 3, 2];
   const previews = visualIndices
