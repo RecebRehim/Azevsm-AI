@@ -5776,3 +5776,66 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-hero-icon {
     box-sizing: border-box;
   }
 }
+
+
+/* PILOT HOME PRODUCT CARDS — CENTERED SYMMETRY TEST
+   Scope: homepage product cards only. Grid widths/breakpoints remain unchanged. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .line-card {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  justify-items: center;
+  align-items: start;
+  text-align: center;
+  gap: 10px;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .line-card > .ru-home-product-icon {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: center;
+  margin: 0 auto 4px;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .line-card > span:nth-child(2) {
+  grid-column: 1;
+  grid-row: 2;
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .line-card h3,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .line-card p {
+  width: 100%;
+  margin-inline: auto;
+  text-align: center;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .line-card p {
+  max-width: 34ch;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .line-card > .line-go {
+  grid-column: 1;
+  grid-row: 3;
+  justify-self: center;
+  align-self: end;
+  margin-top: 2px;
+}
+
+@media (min-width: 681px) {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .line-card {
+    min-height: 220px;
+    padding: 22px 22px 18px;
+  }
+}
+
+@media (max-width: 680px) {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .line-card {
+    min-height: 0;
+    padding: 20px 18px 18px;
+  }
+}
