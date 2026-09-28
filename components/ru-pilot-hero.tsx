@@ -13,6 +13,10 @@ export type RuPilotHeroKind =
   | "company"
   | "result"
   | "validation"
+  | "difference"
+  | "index-field"
+  | "data-security"
+  | "legal-compliance"
   | "insights";
 
 const singleIcon: Partial<Record<RuPilotHeroKind, FounderIconName>> = {
@@ -24,6 +28,10 @@ const singleIcon: Partial<Record<RuPilotHeroKind, FounderIconName>> = {
   trust: "structured-evidence",
   validation: "trusted-results",
   result: "analytical-models",
+  difference: "analytical-models",
+  "index-field": "azevsm-index",
+  "data-security": "structured-evidence",
+  "legal-compliance": "trusted-results",
 };
 
 function renderProtectedTechnologyName(text: string) {

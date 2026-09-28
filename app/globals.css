@@ -6130,3 +6130,60 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-why {
   letter-spacing: .04em;
   color: var(--navy);
 }
+
+
+/* WEBSITE-V4 RU AUTHORITY HERO COMPLETION */
+/* The remaining RU authority pages use the same thematic hero family.
+   These fields intentionally reuse the established icon language instead of
+   creating decorative dashboard-like imagery. */
+.ru-pilot-hero--difference::before {
+  background:
+    linear-gradient(154deg, transparent 0 61%, rgba(30,74,138,.10) 61.2% 62%, transparent 62.2%),
+    radial-gradient(circle at 84% 45%, rgba(181,207,222,.76), transparent 27%),
+    linear-gradient(138deg, #f7fafb, #e5eef3);
+}
+.ru-pilot-hero--index-field::before {
+  background:
+    linear-gradient(160deg, transparent 0 63%, rgba(177,143,72,.14) 63.2% 64%, transparent 64.2%),
+    repeating-linear-gradient(90deg, transparent 0 48px, rgba(29,70,112,.045) 49px 50px),
+    radial-gradient(circle at 84% 45%, rgba(182,207,222,.76), transparent 27%);
+}
+.ru-pilot-hero--data-security::before {
+  background:
+    repeating-radial-gradient(circle at 84% 45%, rgba(28,70,112,.05) 0 1px, transparent 2px 35px),
+    radial-gradient(circle at 84% 45%, rgba(180,205,220,.77), transparent 27%),
+    linear-gradient(138deg, #f7fafb, #e6eef3);
+}
+.ru-pilot-hero--legal-compliance::before {
+  background:
+    linear-gradient(120deg, transparent 0 64%, rgba(30,74,138,.09) 64.2% 65%, transparent 65.2%),
+    radial-gradient(circle at 84% 45%, rgba(184,207,220,.74), transparent 27%),
+    linear-gradient(140deg, #f8fafb, #e6eef3);
+}
+
+/* On RU mobile, keep the visual anchor close to the lead so the top block
+   reads as one composed unit rather than text followed by dead space. */
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-pilot-hero--difference .ru-pilot-hero-inner,
+  html[lang="ru"] .ru-pilot-hero--index-field .ru-pilot-hero-inner,
+  html[lang="ru"] .ru-pilot-hero--data-security .ru-pilot-hero-inner,
+  html[lang="ru"] .ru-pilot-hero--legal-compliance .ru-pilot-hero-inner {
+    gap: 16px;
+    padding-block: 38px 30px;
+  }
+
+  html[lang="ru"] .ru-pilot-hero--difference .ru-thematic-hero-art,
+  html[lang="ru"] .ru-pilot-hero--index-field .ru-thematic-hero-art,
+  html[lang="ru"] .ru-pilot-hero--data-security .ru-thematic-hero-art,
+  html[lang="ru"] .ru-pilot-hero--legal-compliance .ru-thematic-hero-art {
+    min-height: 108px;
+  }
+
+  html[lang="ru"] .ru-pilot-hero--difference .ru-hero-founder-icon,
+  html[lang="ru"] .ru-pilot-hero--index-field .ru-hero-founder-icon,
+  html[lang="ru"] .ru-pilot-hero--data-security .ru-hero-founder-icon,
+  html[lang="ru"] .ru-pilot-hero--legal-compliance .ru-hero-founder-icon {
+    width: 104px;
+    height: 104px;
+  }
+}

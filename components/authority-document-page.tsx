@@ -14,7 +14,14 @@ export function AuthorityDocumentPage({ locale, pageKey }: { locale: Locale; pag
   const page = getAuthorityPage(locale, pageKey);
   if (!page) notFound();
   const pilotLocale = isPilotLocale(locale);
-  if (pilotLocale && (pageKey === "resultSystem" || pageKey === "validation")) return <RuAuthorityDocumentPage locale={locale} pageKey={pageKey} />;
+
+  // RU is the visual acceptance master for website-v4.
+  // Keep the already accepted EN/AZ pilot handling for result/validation,
+  // but route all RU authority pages through the same visual hero system.
+  if (locale === "ru" || (pilotLocale && (pageKey === "resultSystem" || pageKey === "validation"))) {
+    return <RuAuthorityDocumentPage locale={locale} pageKey={pageKey} />;
+  }
+
   const actions = pilotLocale ? page.actions.filter((action) => action.href !== "/contact") : page.actions;
 
   return (

@@ -1,15 +1,24 @@
 import { notFound } from "next/navigation";
 import { RuPilotActions, RuPilotBlocks } from "@/components/ru-pilot-blocks";
-import { RuPilotHero } from "@/components/ru-pilot-hero";
+import { RuPilotHero, type RuPilotHeroKind } from "@/components/ru-pilot-hero";
 import { V4ResultSystem } from "@/components/v4-clarity";
 import { getAuthorityPage, type AuthorityPageKey } from "@/lib/content/authority-pages-v31";
 import type { Locale } from "@/lib/i18n";
+
+const heroKind: Record<AuthorityPageKey, RuPilotHeroKind> = {
+  resultSystem: "result",
+  difference: "difference",
+  indexField: "index-field",
+  validation: "validation",
+  dataSecurity: "data-security",
+  legalCompliance: "legal-compliance",
+};
 
 export function RuAuthorityDocumentPage({ locale, pageKey }: { locale: Locale; pageKey: AuthorityPageKey }) {
   const page = getAuthorityPage(locale, pageKey);
   if (!page) notFound();
 
-  const kind = pageKey === "validation" ? "validation" : "result";
+  const kind = heroKind[pageKey];
   const topics = page.blocks.flatMap((block) => block.type === "heading" ? [block.text] : []).slice(0, 3);
   const actions =
     pageKey === "resultSystem"
