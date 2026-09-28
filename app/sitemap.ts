@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { locales, localePath } from "@/lib/i18n";
+import { localeMeta, locales, localePath } from "@/lib/i18n";
 import { publicServices } from "@/lib/content/services";
 import { siteUrl } from "@/lib/site";
 import { isAuthorityLocale } from "@/lib/content/authority-pages-v31";
@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       if (locale === "ru" && path === "/contact") continue;
       entries.push({
         url: new URL(localePath(locale, path), site).toString(),
-        alternates: { languages: Object.fromEntries(locales.map((item) => [item, new URL(localePath(item, path), site).toString()])) },
+        alternates: { languages: Object.fromEntries(locales.map((item) => [localeMeta[item].hreflang, new URL(localePath(item, path), site).toString()])) },
       });
     }
     if (isAuthorityLocale(locale)) {

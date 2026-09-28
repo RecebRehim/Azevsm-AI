@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { isLocale } from "@/lib/i18n";
+import { isLocale, isSiteLocale } from "@/lib/i18n";
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -10,6 +10,9 @@ export function middleware(request: NextRequest) {
   }
   const segment = pathname.split("/").filter(Boolean)[0];
   if (!segment) {
+    return NextResponse.redirect(new URL("/en", request.url));
+  }
+  if (!isSiteLocale(segment)) {
     return NextResponse.redirect(new URL("/en", request.url));
   }
   if (!isLocale(segment)) {

@@ -62,8 +62,12 @@ export function isSiteLocale(value: string): value is SiteLocale {
   return siteLocales.includes(value as SiteLocale);
 }
 
-export function isLocale(value: string): value is Locale {
+export function isContentLocale(value: string): value is Locale {
   return contentLocales.includes(value as Locale);
+}
+
+export function isLocale(value: string): value is Locale {
+  return isContentLocale(value);
 }
 
 export function isPilotLocale(locale: Locale) {

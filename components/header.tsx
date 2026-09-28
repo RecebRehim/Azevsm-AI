@@ -6,7 +6,7 @@ import { useState } from "react";
 import { LanguageMenu } from "@/components/language-menu";
 import { Logo } from "@/components/logo";
 import type { SiteCopy } from "@/lib/content/copy";
-import { isPilotLocale, localeMeta, localePath, swapLocale, type Locale } from "@/lib/i18n";
+import { isContentLocale, isPilotLocale, localeMeta, localePath, siteLocales, swapLocale, type Locale } from "@/lib/i18n";
 import { platformEntryUrl } from "@/lib/platform";
 
 export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?: string }) {
@@ -72,19 +72,8 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
 }
 
 
-const ruDirectLanguages: Locale[] = ["ru", "en", "az"];
-const ruAdditionalLanguages = [
-  { code: "AR", name: "Arabic" },
-  { code: "ZH", name: "Chinese (Simplified)" },
-  { code: "TR", name: "Turkish" },
-  { code: "TK", name: "Turkmen" },
-  { code: "UZ", name: "Uzbek" },
-  { code: "KY", name: "Kyrgyz" },
-  { code: "KK", name: "Kazakh" },
-  { code: "DE", name: "German" },
-  { code: "IT", name: "Italian" },
-  { code: "FR", name: "French" },
-] as const;
+const ruDirectLanguages: readonly Locale[] = ["ru", "en", "az"];
+const ruAdditionalLanguages = siteLocales.filter((item) => !ruDirectLanguages.includes(item as Locale));
 
 function RuLanguageAccess({ path, locale, label }: { path: string; locale: Locale; label: string }) {
   const moreLabel = locale === "ru" ? "Языки" : locale === "az" ? "Dillər" : "Languages";
@@ -109,12 +98,28 @@ function RuLanguageAccess({ path, locale, label }: { path: string; locale: Local
       <details className="ru-language-more">
         <summary>{moreLabel}</summary>
         <div className="ru-language-panel" aria-label={moreLabel}>
-          {ruAdditionalLanguages.map((item) => (
-            <div className="ru-language-pending" key={item.code}>
-              <span>{item.code}</span>
-              <span>{item.name}</span>
-            </div>
-          ))}
+          {ruAdditionalLanguages.map((item) => {
+            const meta = localeMeta[item];
+            if (isContentLocale(item)) {
+              return (
+                <Link
+                  key={item}
+                  href={swapLocale(path, item)}
+                  hrefLang={meta.hreflang}
+                  lang={meta.htmlLang}
+                >
+                  <span>{meta.label}</span>
+                  <span>{meta.name}</span>
+                </Link>
+              );
+            }
+            return (
+              <div className="ru-language-pending" key={item} aria-disabled="true">
+                <span>{meta.label}</span>
+                <span>{meta.name}</span>
+              </div>
+            );
+          })}
         </div>
       </details>
     </div>

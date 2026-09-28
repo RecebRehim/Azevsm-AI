@@ -3,9 +3,7 @@
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { Flag } from "@/components/flag";
-import { localeMeta, swapLocale, type Locale } from "@/lib/i18n";
-
-const languageOrder: Locale[] = ["en", "az", "ru", "ar", "zh"];
+import { isContentLocale, localeMeta, siteLocales, swapLocale, type Locale } from "@/lib/i18n";
 
 export function LanguageMenu({ locale, path, label }: { locale: Locale; path: string; label: string }) {
   const [open, setOpen] = useState(false);
@@ -45,8 +43,16 @@ export function LanguageMenu({ locale, path, label }: { locale: Locale; path: st
       </button>
       {open ? (
         <div className="menu-panel" id={menuId} role="menu" aria-label={label}>
-          {languageOrder.map((item) => {
+          {siteLocales.map((item) => {
             const meta = localeMeta[item];
+            if (!isContentLocale(item)) {
+              return (
+                <div className="menu-language-pending" key={item} role="menuitem" aria-disabled="true">
+                  <span className="menu-language-code">{meta.label}</span>
+                  <span>{meta.name}</span>
+                </div>
+              );
+            }
             return (
               <Link
                 key={item}
