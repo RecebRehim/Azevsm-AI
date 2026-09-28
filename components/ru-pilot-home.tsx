@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Hero } from "@/components/hero";
 import { RuHomeFoundationIcon, RuHomeProductIcon, RuHomeWhyIcon } from "@/components/ru-line-icons";
 import { RuPilotBlocks } from "@/components/ru-pilot-blocks";
+import { V4HomeClarity, V4ProductAction } from "@/components/v4-clarity";
 import type { SiteCopy } from "@/lib/content/copy";
 import { getProductAuthorityPage } from "@/lib/content/product-authority-pages-v31";
 import { localePath, type Locale } from "@/lib/i18n";
@@ -23,6 +24,8 @@ export function RuPilotHome({ locale, copy }: { locale: Locale; copy: SiteCopy }
         </div>
       </section>
 
+      <V4HomeClarity locale={locale} />
+
       <section className="band ru-home-products">
         <div className="wrap">
           <div className="band-head">
@@ -36,7 +39,7 @@ export function RuPilotHome({ locale, copy }: { locale: Locale; copy: SiteCopy }
             {copy.homeProducts.map(([title, body, href], index) => (
               <Link className="line-card" key={title} href={localePath(locale, href)}>
                 <span className="product-icon ru-home-product-icon"><RuHomeProductIcon index={index} /></span>
-                <span><h3>{title}</h3><p>{body}</p></span>
+                <span><h3>{title}</h3><p>{body}</p><V4ProductAction locale={locale} /></span>
                 <svg className="icon line-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
               </Link>
             ))}
