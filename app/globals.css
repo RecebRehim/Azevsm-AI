@@ -5776,3 +5776,334 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-hero-icon {
     box-sizing: border-box;
   }
 }
+
+
+/* WEBSITE V4 — CLARITY + RESULT MATERIALIZATION */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-section-head {
+  width: min(100%, 920px);
+  margin: 0 auto 26px;
+  text-align: center;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-section-head .kicker {
+  justify-content: center;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-section-head h2 {
+  margin: 0 auto;
+  max-width: 18ch;
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1.12;
+  color: var(--navy);
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-section-head > p:last-child:not(.kicker) {
+  margin: 14px auto 0;
+  max-width: 760px;
+  color: var(--slate);
+  font-size: 16px;
+  line-height: 1.62;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-home-clarity {
+  padding: 58px 0 66px;
+  background: #ffffff;
+  border-top: 1px solid #e4ebf0;
+  border-bottom: 1px solid #e4ebf0;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  position: relative;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card {
+  position: relative;
+  min-width: 0;
+  min-height: 250px;
+  padding: 24px 24px 22px;
+  border: 1px solid #dce5ec;
+  border-radius: 18px;
+  background: #f8fafb;
+  text-align: center;
+  box-shadow: 0 10px 28px rgba(11, 19, 32, .045);
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  inset-inline-end: -15px;
+  top: 50%;
+  z-index: 2;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 1px solid #d7e0e8;
+  border-radius: 999px;
+  background: #fff;
+  color: #1e4a8a;
+  font-weight: 700;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-index {
+  position: absolute;
+  top: 16px;
+  inset-inline-start: 18px;
+  color: #9aa8b5;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-icon,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-icon {
+  display: grid;
+  place-items: center;
+  margin: 10px auto 14px;
+  width: 68px;
+  height: 68px;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-icon svg,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: #1e4a8a;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card h3,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-card h3,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-card h3 {
+  margin: 0 0 9px;
+  color: var(--navy);
+  font-size: 19px;
+  line-height: 1.28;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card p,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-card p,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-card p {
+  margin: 0;
+  color: var(--slate);
+  font-size: 14px;
+  line-height: 1.55;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 11px;
+  color: #1e4a8a;
+  font-size: 13px;
+  font-weight: 700;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .line-card .line-go {
+  opacity: .4;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-intro {
+  padding: 54px 0 64px;
+  background: #fff;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-intro-copy {
+  width: min(100%, 900px);
+  margin: 0 auto 34px;
+  text-align: center;
+  color: #4f5f70;
+  font-size: 17px;
+  line-height: 1.66;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-card {
+  min-width: 0;
+  min-height: 220px;
+  padding: 22px 20px;
+  border: 1px solid #dce5ec;
+  border-radius: 16px;
+  background: #f8fafb;
+  text-align: center;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-icon {
+  width: 58px;
+  height: 58px;
+  margin-top: 0;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-system-band {
+  padding: 40px 0;
+  background: #11223a;
+  color: #fff;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-system-band-inner {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: 42px;
+  align-items: center;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-system-band .kicker {
+  color: #c9d5e1;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-system-band h2 {
+  margin: 8px 0 0;
+  color: #fff;
+  font-size: clamp(28px, 2.7vw, 38px);
+  line-height: 1.15;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-system-band p {
+  margin: 0;
+  color: #e1e8ee;
+  font-size: 16px;
+  line-height: 1.68;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-previews {
+  padding: 62px 0 72px;
+  background: #f3f6f8;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-card {
+  display: grid;
+  grid-template-columns: minmax(180px, .8fr) minmax(0, 1.2fr);
+  gap: 22px;
+  align-items: center;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid #d8e2e9;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(11, 19, 32, .045);
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  width: calc(50% - 10px);
+  justify-self: center;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-frame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid #cfdbe4;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #f8fafb, #edf2f5);
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-bar {
+  height: 18%;
+  border-bottom: 1px solid #d8e1e8;
+  background: #fff;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-body {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-body span {
+  display: block;
+  height: 8px;
+  border-radius: 6px;
+  background: #d9e3e9;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-body span:nth-child(2) { width: 72%; }
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-body span:nth-child(3) { width: 48%; }
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-seal {
+  position: absolute;
+  inset-inline-end: 12px;
+  bottom: 10px;
+  color: #b08b3f;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-copy small {
+  display: block;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #e6edf2;
+  color: #8794a0;
+  font-size: 12px;
+  line-height: 1.45;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-why {
+  padding-top: 50px;
+  background: #fff;
+}
+
+@media (max-width: 1024px) {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-card {
+    grid-template-columns: minmax(150px, .75fr) minmax(0, 1.25fr);
+  }
+}
+
+@media (max-width: 680px) {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-home-clarity,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-intro,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-previews {
+    padding-block: 42px 50px;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-section-head {
+    margin-bottom: 22px;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-section-head h2 {
+    max-width: 100%;
+    font-size: clamp(27px, 7.4vw, 31px);
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-grid,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-grid,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-grid,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-system-band-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card {
+    min-height: 0;
+    padding: 22px 20px;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card:not(:last-child)::after {
+    content: "↓";
+    top: auto;
+    bottom: -15px;
+    inset-inline-end: 50%;
+    transform: translateX(50%);
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-card {
+    min-height: 0;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-system-band {
+    padding: 34px 0 38px;
+    text-align: center;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-system-band-inner {
+    gap: 16px;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-system-band h2 {
+    font-size: 28px;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-card,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-card:last-child:nth-child(odd) {
+    width: 100%;
+    grid-column: auto;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-frame {
+    max-width: 320px;
+    width: 100%;
+    margin-inline: auto;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-copy {
+    text-align: center;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-card-action {
+    justify-content: center;
+  }
+}
