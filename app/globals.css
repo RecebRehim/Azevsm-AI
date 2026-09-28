@@ -6187,3 +6187,116 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-why {
     height: 104px;
   }
 }
+
+
+/* WEBSITE-V4 RU LEGAL STAGE 1 PILOT */
+.ru-pilot-hero--privacy::before {
+  background:
+    repeating-radial-gradient(circle at 84% 45%, rgba(28,70,112,.05) 0 1px, transparent 2px 35px),
+    radial-gradient(circle at 84% 45%, rgba(181,207,221,.78), transparent 27%),
+    linear-gradient(138deg, #f7fafb, #e5eef3);
+}
+.ru-pilot-hero--terms::before {
+  background:
+    linear-gradient(120deg, transparent 0 64%, rgba(30,74,138,.09) 64.2% 65%, transparent 65.2%),
+    radial-gradient(circle at 84% 45%, rgba(184,207,220,.75), transparent 27%),
+    linear-gradient(140deg, #f8fafb, #e6eef3);
+}
+.ru-legal-stage1-inner {
+  width: min(100%, 980px);
+  margin-inline: auto;
+}
+.ru-legal-stage1-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 36px;
+  padding: 14px 18px;
+  border: 1px solid rgba(177,143,72,.32);
+  border-radius: 16px;
+  background: rgba(255,250,239,.82);
+  color: #5e5139;
+  font-size: 13px;
+  letter-spacing: .02em;
+}
+.ru-legal-stage1-status strong { color: #293f5c; }
+.ru-legal-section {
+  padding: clamp(26px, 3vw, 38px) 0;
+  border-top: 1px solid rgba(126,151,171,.22);
+}
+.ru-legal-section:first-of-type { border-top: 0; }
+.ru-legal-section h2 {
+  max-width: 26ch;
+  margin: 0 0 18px;
+  color: #132c4a;
+  font-size: clamp(25px, 2.5vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -.02em;
+  text-wrap: balance;
+}
+.ru-legal-section p,
+.ru-legal-section li {
+  color: #536171;
+  font-size: clamp(16px, 1.15vw, 18px);
+  line-height: 1.72;
+}
+.ru-legal-section p {
+  margin: 0 0 16px;
+}
+.ru-legal-section p:last-child { margin-bottom: 0; }
+.ru-legal-section ul {
+  margin: 8px 0 18px;
+  padding-left: 24px;
+}
+.ru-legal-section li + li { margin-top: 8px; }
+.ru-legal-note {
+  margin-top: 22px;
+  padding: 20px 22px;
+  border: 1px solid rgba(177,143,72,.28);
+  border-radius: 18px;
+  background: rgba(255,250,239,.70);
+}
+.ru-legal-note strong {
+  display: block;
+  margin-bottom: 9px;
+  color: #6c5831;
+  font-size: 12px;
+  letter-spacing: .08em;
+}
+.ru-legal-note p { margin: 0; }
+
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-pilot-hero--privacy .ru-pilot-hero-inner,
+  html[lang="ru"] .ru-pilot-hero--terms .ru-pilot-hero-inner {
+    gap: 16px;
+    padding-block: 38px 30px;
+  }
+  html[lang="ru"] .ru-pilot-hero--privacy .ru-thematic-hero-art,
+  html[lang="ru"] .ru-pilot-hero--terms .ru-thematic-hero-art {
+    min-height: 108px;
+  }
+  html[lang="ru"] .ru-pilot-hero--privacy .ru-hero-founder-icon,
+  html[lang="ru"] .ru-pilot-hero--terms .ru-hero-founder-icon {
+    width: 104px;
+    height: 104px;
+  }
+  .ru-legal-stage1 { padding-top: 36px; }
+  .ru-legal-stage1-status {
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 24px;
+    font-size: 12px;
+  }
+  .ru-legal-section { padding-block: 24px; }
+  .ru-legal-section h2 {
+    max-width: 100%;
+    font-size: clamp(24px, 7vw, 31px);
+  }
+  .ru-legal-section p,
+  .ru-legal-section li {
+    font-size: 16px;
+    line-height: 1.66;
+  }
+}
