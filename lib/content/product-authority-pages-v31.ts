@@ -86,9 +86,9 @@ const pages: Record<"en" | "az" | "ru", Record<ProductAuthorityKey, AuthorityPag
             ],
             [
               "Proprietary methodology",
-              "Assessment rules and analytical boundaries are defined by Azevsm Systems’ proprietary scientific-technical methodology and the applicable product, not by the unrestricted opinion of an individual operator.",
+              "Assessment rules and analytical boundaries are defined by the proprietary scientific-technical methodology and the applicable product, not by the unrestricted opinion of an individual operator.",
               "Product mathematics",
-              "The result is formed by AzeVSM AI — Azevsm Systems’ proprietary VSM-class AI technology — within the applicable product and its product mathematics."
+              "The result is formed by AzeVSM AI — a proprietary VSM-class AI technology purpose-built for AzevsmAI — within the applicable product and its product mathematics."
             ],
             [
               "Reproducible result",
@@ -481,9 +481,9 @@ const pages: Record<"en" | "az" | "ru", Record<ProductAuthorityKey, AuthorityPag
             ],
             [
               "Öz metodologiyası",
-              "Qiymətləndirmə qaydaları və analitik sərhədlər icraçının sərbəst rəyi ilə deyil, Azevsm Systems-in öz elmi-texniki metodologiyası və tətbiq olunan məhsul ilə müəyyən edilir.",
+              "Qiymətləndirmə qaydaları və analitik sərhədlər icraçının sərbəst rəyi ilə deyil, proprietar elmi-texniki metodologiya və tətbiq olunan məhsul ilə müəyyən edilir.",
               "Məhsul riyaziyyatı",
-              "Nəticə AzeVSM AI — Azevsm Systems-in VSM sinifli öz süni intellekt texnologiyası — vasitəsilə, tətbiq olunan məhsul və onun məhsul riyaziyyatı çərçivəsində formalaşdırılır."
+              "Nəticə AzeVSM AI — AzevsmAI üçün xüsusi hazırlanmış VSM sinifli proprietar süni intellekt texnologiyası — vasitəsilə, tətbiq olunan məhsul və onun məhsul riyaziyyatı çərçivəsində formalaşdırılır."
             ],
             [
               "Təkrarlana bilən nəticə",
@@ -853,8 +853,8 @@ const pages: Record<"en" | "az" | "ru", Record<ProductAuthorityKey, AuthorityPag
               "Структурированная модель\nОбъект рассматривается не как набор файлов, а как связанная аналитическая структура."
             ],
             [
-              "Собственная методология\nПравила оценки и аналитические границы задаются собственной научно-технической методологией Azevsm Systems и применимым продуктом, а не свободным мнением исполнителя.",
-              "Продуктовая математика\nРезультат формируется AzeVSM AI — собственной технологией искусственного интеллекта Azevsm Systems класса VSM — в рамках применимого продукта и его продуктовой математики."
+              "Проприетарная методология\nПравила оценки и аналитические границы задаются проприетарной научно-технической методологией и применимым продуктом, а не свободным мнением исполнителя.",
+              "Продуктовая математика\nРезультат формируется AzeVSM AI — проприетарной технологией искусственного интеллекта класса VSM, специально разработанной для AzevsmAI, — в рамках применимого продукта и его продуктовой математики."
             ],
             [
               "Воспроизводимый результат\nОдин и тот же подтвержденный вход и одна и та же версия правил должны вести к одному результату.",
