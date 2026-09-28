@@ -6300,3 +6300,39 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-why {
     line-height: 1.66;
   }
 }
+
+
+/* WEBSITE-V4 RU SIMPLE HERO COMPLETION */
+.ru-pilot-hero--cookies::before,
+.ru-pilot-hero--security::before,
+.ru-pilot-hero--accessibility::before,
+.ru-pilot-hero--enter::before {
+  background:
+    radial-gradient(circle at 84% 45%, rgba(181,207,221,.76), transparent 27%),
+    linear-gradient(138deg, #f7fafb, #e6eef3);
+}
+
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-pilot-hero--cookies .ru-pilot-hero-inner,
+  html[lang="ru"] .ru-pilot-hero--security .ru-pilot-hero-inner,
+  html[lang="ru"] .ru-pilot-hero--accessibility .ru-pilot-hero-inner,
+  html[lang="ru"] .ru-pilot-hero--enter .ru-pilot-hero-inner {
+    gap: 16px;
+    padding-block: 38px 30px;
+  }
+
+  html[lang="ru"] .ru-pilot-hero--cookies .ru-thematic-hero-art,
+  html[lang="ru"] .ru-pilot-hero--security .ru-thematic-hero-art,
+  html[lang="ru"] .ru-pilot-hero--accessibility .ru-thematic-hero-art,
+  html[lang="ru"] .ru-pilot-hero--enter .ru-thematic-hero-art {
+    min-height: 108px;
+  }
+
+  html[lang="ru"] .ru-pilot-hero--cookies .ru-hero-founder-icon,
+  html[lang="ru"] .ru-pilot-hero--security .ru-hero-founder-icon,
+  html[lang="ru"] .ru-pilot-hero--accessibility .ru-hero-founder-icon,
+  html[lang="ru"] .ru-pilot-hero--enter .ru-hero-founder-icon {
+    width: 104px;
+    height: 104px;
+  }
+}

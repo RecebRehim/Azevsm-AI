@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { PageIntro } from "@/components/page-intro";
 import { RuLegalStage1Page } from "@/components/ru-legal-stage1-page";
+import { RuPilotHero } from "@/components/ru-pilot-hero";
 import { getCopy, type SiteCopy } from "@/lib/content/copy";
 import { getRuWebsiteLegalStage1 } from "@/lib/content/legal-ru-stage1";
 import { isLocale, locales } from "@/lib/i18n";
@@ -51,6 +52,26 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
   const copy = getCopy(locale);
   const item = legal(copy, slug);
   if (!item) notFound();
+
+  if (locale === "ru") {
+    const kind =
+      slug === "cookies" ? "cookies" :
+      slug === "security" ? "security" :
+      slug === "accessibility" ? "accessibility" :
+      "legal-compliance";
+    return (
+      <>
+        <RuPilotHero kind={kind} title={item[0]} lead={copy.legalUpdated} />
+        <section className="section-tight ru-authority-section">
+          <div className="wrap ru-pilot-prose">
+            <div className="ru-pilot-blocks">
+              {item[1].map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            </div>
+          </div>
+        </section>
+      </>
+    );
+  }
 
   return (
     <>

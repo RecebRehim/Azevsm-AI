@@ -19,6 +19,10 @@ export type RuPilotHeroKind =
   | "legal-compliance"
   | "privacy"
   | "terms"
+  | "cookies"
+  | "security"
+  | "accessibility"
+  | "enter"
   | "insights";
 
 const singleIcon: Partial<Record<RuPilotHeroKind, FounderIconName>> = {
@@ -36,6 +40,10 @@ const singleIcon: Partial<Record<RuPilotHeroKind, FounderIconName>> = {
   "legal-compliance": "trusted-results",
   privacy: "structured-evidence",
   terms: "trusted-results",
+  cookies: "structured-evidence",
+  security: "trusted-results",
+  accessibility: "white-box",
+  enter: "platform-structure",
 };
 
 function renderProtectedTechnologyName(text: string) {

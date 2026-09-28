@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { PageIntro } from "@/components/page-intro";
+import { RuPilotHero } from "@/components/ru-pilot-hero";
 import { getCopy } from "@/lib/content/copy";
 import { isLocale } from "@/lib/i18n";
 import { platformEntryUrl } from "@/lib/platform";
@@ -16,6 +17,24 @@ export default async function EnterPage({ params }: { params: Promise<{ locale: 
   if (!isLocale(locale)) notFound();
   const copy = getCopy(locale);
   const entry = platformEntryUrl();
+
+  if (locale === "ru") {
+    return (
+      <>
+        <RuPilotHero kind="enter" title={copy.enterTitle} lead={entry ? copy.enterReady : copy.enterMissing} />
+        {entry ? (
+          <section className="section-tight ru-authority-section">
+            <div className="wrap ru-pilot-prose">
+              <div className="next-actions ru-pilot-actions">
+                <a className="btn btn-primary" href={entry} rel="noreferrer">{copy.enter}</a>
+              </div>
+            </div>
+          </section>
+        ) : null}
+      </>
+    );
+  }
+
   return (
     <>
       <PageIntro title={copy.enterTitle} lead={entry ? copy.enterReady : copy.enterMissing} />
