@@ -6336,3 +6336,232 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-why {
     height: 104px;
   }
 }
+
+
+/* WEBSITE-V4 RU PILOT VISUAL CONSISTENCY PASS — 2026-09-29 */
+
+/* Homepage desktop/tablet: bring hero copy and brand rail closer onto one axis. */
+@media (min-width: 681px) {
+  html[lang="ru"] .hero-grid {
+    width: min(1120px, calc(100% - 72px));
+    grid-template-columns: minmax(0, 1.12fr) minmax(250px, .78fr);
+    gap: clamp(22px, 3vw, 42px);
+    margin-inline: auto;
+  }
+  html[lang="ru"] .hero-copy {
+    max-width: 680px;
+    justify-self: end;
+  }
+  html[lang="ru"] .hero-panel {
+    justify-self: start !important;
+    margin-inline: 0 !important;
+  }
+}
+
+/* Platform hero icon visible in desktop-view/tablet widths as well. */
+html[lang="ru"] .ru-pilot-hero--platform .ru-platform-hero-icon {
+  display: inline-grid !important;
+  width: clamp(112px, 14vw, 164px);
+  height: clamp(112px, 14vw, 164px);
+  margin-inline: auto;
+  filter: drop-shadow(0 18px 30px rgba(24,58,91,.12));
+}
+
+/* One icon language: navy line work with gold accents. */
+html[lang="ru"] .v4-icon-gold { stroke: #c5a059 !important; }
+html[lang="ru"] .v4-flow-icon svg,
+html[lang="ru"] .v4-result-icon svg { stroke-width: 2.45; }
+
+/* Home product cards: icon -> breathing room -> copy. */
+html[lang="ru"] .ru-home-products .line-card {
+  grid-template-columns: auto minmax(0,1fr) auto;
+  column-gap: 24px;
+}
+html[lang="ru"] .ru-home-products .ru-home-product-icon {
+  margin-inline-end: 2px;
+}
+
+/* Product cards: prevent icon/text collision and dead space. */
+html[lang="ru"] .ru-product-card {
+  grid-template-columns: 82px minmax(0,1fr) auto;
+  gap: 22px;
+  align-items: center;
+  min-height: 0;
+  padding: 22px 24px;
+}
+html[lang="ru"] .ru-product-card-icon {
+  width: 76px;
+  height: 76px;
+}
+html[lang="ru"] .ru-product-card h2 { margin-top: 0; }
+
+/* Platform scenario cards get the same left-icon anatomy. */
+html[lang="ru"] .ru-scenario-card {
+  grid-template-columns: 62px minmax(0,1fr) auto;
+  gap: 10px 18px;
+  align-items: center;
+  min-height: 0;
+  padding: 20px 22px;
+}
+html[lang="ru"] .ru-scenario-icon {
+  width: 56px;
+  height: 56px;
+}
+html[lang="ru"] .ru-scenario-card-copy {
+  min-width: 0;
+  display: grid;
+  gap: 7px;
+}
+html[lang="ru"] .ru-scenario-card-copy strong {
+  color: #15284b;
+  font-size: 19px;
+  line-height: 1.3;
+}
+html[lang="ru"] .ru-scenario-card-copy span {
+  color: #536171;
+  font-size: 15px;
+  line-height: 1.55;
+}
+html[lang="ru"] .ru-scenario-card > i {
+  grid-column: 3;
+  align-self: center;
+}
+
+/* Reproducibility: quieter heading and compact symmetric cards. */
+html[lang="ru"] .ru-platform-repro { padding: 30px; }
+html[lang="ru"] .ru-platform-repro > h2 {
+  max-width: 27ch;
+  font-size: clamp(28px, 2.35vw, 36px);
+  line-height: 1.16;
+}
+html[lang="ru"] .ru-repro-grid {
+  width: min(100%, 1000px);
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 14px;
+  margin-inline: auto;
+}
+html[lang="ru"] .ru-repro-grid article {
+  display: grid;
+  grid-template-columns: 54px minmax(0,1fr);
+  grid-template-rows: auto auto auto;
+  gap: 3px 14px;
+  align-items: start;
+  min-height: 0;
+  padding: 18px 20px;
+}
+html[lang="ru"] .ru-repro-grid article:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  width: calc(50% - 7px);
+  justify-self: center;
+}
+html[lang="ru"] .ru-repro-icon {
+  grid-column: 1;
+  grid-row: 1 / 4;
+  width: 48px;
+  height: 48px;
+  align-self: center;
+}
+html[lang="ru"] .ru-repro-index,
+html[lang="ru"] .ru-repro-grid article h3,
+html[lang="ru"] .ru-repro-grid article p { grid-column: 2; }
+html[lang="ru"] .ru-repro-index {
+  color: #9a793d;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .10em;
+}
+html[lang="ru"] .ru-repro-grid article h3 {
+  margin: 2px 0 5px;
+  font-size: 19px;
+  line-height: 1.25;
+}
+html[lang="ru"] .ru-repro-grid article p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+/* White Box / Trust / Company / Technology: add visual anchors and reduce emptiness. */
+html[lang="ru"] .ru-pilot-blocks > h2.ru-pilot-heading-icon {
+  width: min(100%, 940px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+html[lang="ru"] .ru-section-heading-icon {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+}
+html[lang="ru"] .ru-existing-section--whiteBox,
+html[lang="ru"] .ru-existing-section--trust {
+  padding-block: 42px 58px;
+}
+html[lang="ru"] .ru-existing-section--whiteBox .ru-pilot-blocks > h2,
+html[lang="ru"] .ru-existing-section--trust .ru-pilot-blocks > h2 {
+  margin-top: 34px;
+  padding-top: 18px;
+}
+html[lang="ru"] .ru-existing-section--whiteBox .ru-pilot-blocks > p,
+html[lang="ru"] .ru-existing-section--trust .ru-pilot-blocks > p {
+  width: min(100%, 940px);
+}
+
+/* Result-system mobile cards: compact horizontal icon/text anatomy. */
+@media (max-width: 680px) {
+  html[lang="ru"] .v4-result-card {
+    display: grid;
+    grid-template-columns: 64px minmax(0,1fr);
+    grid-template-rows: auto auto;
+    column-gap: 18px;
+    row-gap: 5px;
+    align-items: center;
+    padding: 20px 22px;
+    text-align: left;
+  }
+  html[lang="ru"] .v4-result-icon {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    width: 58px;
+    height: 58px;
+    margin: 0;
+  }
+  html[lang="ru"] .v4-result-card h3,
+  html[lang="ru"] .v4-result-card p { grid-column: 2; }
+
+  html[lang="ru"] .ru-home-products .line-card { column-gap: 20px; }
+
+  html[lang="ru"] .ru-product-card {
+    grid-template-columns: 72px minmax(0,1fr) auto;
+    gap: 18px;
+    padding: 18px 20px;
+  }
+  html[lang="ru"] .ru-product-card-icon {
+    width: 66px;
+    height: 66px;
+  }
+
+  html[lang="ru"] .ru-scenario-card {
+    grid-template-columns: 54px minmax(0,1fr) auto;
+    gap: 8px 14px;
+    padding: 18px;
+  }
+  html[lang="ru"] .ru-scenario-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  html[lang="ru"] .ru-repro-grid { grid-template-columns: 1fr; }
+  html[lang="ru"] .ru-repro-grid article:last-child:nth-child(odd) {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  html[lang="ru"] .ru-pilot-blocks > h2.ru-pilot-heading-icon { gap: 12px; }
+  html[lang="ru"] .ru-section-heading-icon {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+  }
+}
