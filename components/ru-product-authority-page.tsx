@@ -28,13 +28,6 @@ const scenarioRoutes = [
 const productIcons: FounderIconName[] = ["azevsm-index", "azevsm-institutional-index", "azevsm-plus"];
 const scenarioIcons: FounderIconName[] = ["azevsm-index","azevsm-index","azevsm-plus","azevsm-institutional-index","azevsm-institutional-index"];
 const reproIcons: FounderIconName[] = ["trusted-results","structured-evidence","white-box","platform-structure","structured-evidence"];
-const institutionalHeadingIcons: FounderIconName[] = [
-  "azevsm-institutional-index",
-  "analytical-models",
-  "platform-structure",
-  "structured-evidence",
-  "trusted-results",
-];
 const plusIcons: RuPlusServiceIconName[] = [
   "budget",
   "investment",
@@ -196,10 +189,7 @@ export function RuProductAuthorityPage({ locale, pageKey }: { locale: Locale; pa
       <RuPilotHero kind={heroKind[pageKey]} title={page.title} lead={page.lead} topics={heroTopics} />
       <section className={`section-tight ru-product-authority-section ru-product-authority-section--${pageKey}`}>
         <div className="wrap ru-pilot-prose">
-          <RuPilotBlocks
-            blocks={page.blocks}
-            headingIcons={pageKey === "institutional" ? institutionalHeadingIcons : []}
-          />
+          <RuPilotBlocks blocks={page.blocks} />
           <RuPilotActions actions={page.actions} locale={locale} />
         </div>
       </section>
