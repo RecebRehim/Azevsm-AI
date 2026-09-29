@@ -63,7 +63,11 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
       "legal-compliance";
     return (
       <>
-        <RuPilotHero kind={kind} title={item[0]} lead={copy.legalUpdated} />
+        <RuPilotHero
+          kind={kind}
+          title={item[0]}
+          lead={slug === "security" ? "Информация о безопасности и обработке публичных обращений на корпоративном сайте Azevsm Systems." : copy.legalUpdated}
+        />
         <section className="section-tight ru-authority-section">
           <div className="wrap ru-pilot-prose">
             <div className="ru-pilot-blocks">
