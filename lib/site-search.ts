@@ -188,10 +188,15 @@ export function buildSiteSearchIndex(locale: Locale): SiteSearchDocument[] {
       docs.push({
         href: localePath(locale, `/legal/${slug}`),
         title: legal.title,
-        description: legal.sections[0]?.paragraphs[0] ?? "",
+        description: legal.sections[0]?.paragraphs?.[0] ?? "",
         text: [
           legal.title,
-          ...legal.sections.flatMap((section) => [section.heading, ...section.paragraphs]),
+          ...legal.sections.flatMap((section) => [
+            section.heading,
+            ...(section.paragraphs ?? []),
+            ...(section.list ?? []),
+            ...(section.note ? [section.note.title, section.note.body] : []),
+          ]),
         ].join(" "),
       });
     }
