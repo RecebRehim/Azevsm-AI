@@ -6769,3 +6769,110 @@ html[lang="ru"] .ru-pilot-note--icon p {
     height: 42px;
   }
 }
+
+
+/* WEBSITE-V4 RU MOBILE / ICON / TABLE RECONCILIATION — 2026-09-29 */
+
+/* Keep semantic section icons attached to the heading, not floating at the page edge. */
+html[lang="ru"] .ru-pilot-blocks > h2.ru-pilot-heading-icon {
+  width: fit-content;
+  max-width: min(100%, 900px);
+  margin-inline: auto;
+  justify-content: flex-start;
+  gap: 14px;
+}
+html[lang="ru"] .ru-pilot-blocks > h2.ru-pilot-heading-icon > span {
+  display: block;
+  max-width: 25ch;
+  white-space: pre-line;
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* Home AZEVSM SECURE: full-width mobile reading flow. */
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-home-secure-card {
+    display: block;
+    width: 100%;
+    padding: 22px 20px 24px;
+    overflow: hidden;
+  }
+  html[lang="ru"] .ru-home-secure-icon {
+    display: block;
+    width: 62px;
+    height: 62px;
+    margin: 0 auto 12px;
+  }
+  html[lang="ru"] .ru-home-secure-copy {
+    width: 100%;
+    min-width: 0;
+    display: grid;
+    gap: 12px;
+  }
+  html[lang="ru"] .ru-home-secure-copy .kicker,
+  html[lang="ru"] .ru-home-secure-copy h2 {
+    width: 100%;
+    max-width: none;
+    text-align: center;
+  }
+  html[lang="ru"] .ru-home-secure-copy h2 {
+    font-size: 28px;
+    line-height: 1.16;
+  }
+  html[lang="ru"] .ru-home-secure-copy p,
+  html[lang="ru"] .ru-home-secure-copy .text-link {
+    width: 100%;
+    max-width: none;
+    grid-column: auto;
+  }
+  html[lang="ru"] .ru-home-secure-copy .text-link {
+    justify-self: center;
+  }
+
+  /* Explicitly reveal that wide tables continue horizontally. */
+  html[lang="ru"] .ru-pilot-table-shell {
+    width: 100%;
+    position: relative;
+  }
+  html[lang="ru"] .ru-pilot-table-scroll-hint {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    width: 100%;
+    margin: 0 0 8px;
+    padding-right: 4px;
+    color: #6b7785;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .02em;
+  }
+  html[lang="ru"] .ru-pilot-table-scroll-hint span {
+    color: #9a793d;
+    font-size: 18px;
+    line-height: 1;
+  }
+  html[lang="ru"] .ru-pilot-table-wrap {
+    margin-top: 0;
+    box-shadow:
+      inset -20px 0 20px -22px rgba(18,42,76,.45),
+      0 10px 28px rgba(15,34,58,.05);
+  }
+
+  /* Long icon headings keep one visual axis on mobile. */
+  html[lang="ru"] .ru-pilot-blocks > h2.ru-pilot-heading-icon {
+    width: fit-content;
+    max-width: calc(100% - 8px);
+    gap: 12px;
+  }
+  html[lang="ru"] .ru-pilot-blocks > h2.ru-pilot-heading-icon > span {
+    max-width: min(23ch, calc(100vw - 120px));
+  }
+}
+
+/* Table hint is mobile-only. */
+@media (min-width: 681px) {
+  .ru-pilot-table-scroll-hint {
+    display: none;
+  }
+}
