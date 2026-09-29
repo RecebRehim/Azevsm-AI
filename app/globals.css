@@ -6633,3 +6633,94 @@ html[lang="ru"] .ru-home-secure-copy .text-link {
     grid-column: 1 / -1;
   }
 }
+
+
+/* WEBSITE-V4 RU SCREENSHOT QA PASS — 2026-09-29 */
+
+/* Difference page: remove excessive blank space and center the result-logic table heading. */
+@media (min-width: 681px) {
+  html[lang="ru"] .ru-authority-section--difference {
+    padding-top: 48px !important;
+  }
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-blocks > p:first-child {
+    margin-top: 0;
+  }
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-wrap:first-of-type th:nth-child(2) {
+    text-align: center;
+  }
+}
+
+/* Mobile home brand thesis: exactly three centered lines, no punctuation-driven wrapping. */
+html[lang="ru"] .hero-panel-axis > .hero-tomorrow {
+  white-space: pre-line;
+  text-align: center !important;
+}
+@media (max-width: 680px) {
+  html[lang="ru"] .hero-panel-axis > .hero-tomorrow {
+    width: 100%;
+    max-width: 300px;
+    line-height: 1.45;
+  }
+}
+
+/* Result-system mobile intro: normal rectangular reading block instead of a centered taper. */
+@media (max-width: 680px) {
+  html[lang="ru"] .v4-result-intro-copy {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    text-align: left;
+  }
+}
+
+/* Desktop home hero: move both columns inward/right for a more symmetric composition. */
+@media (min-width: 681px) {
+  html[lang="ru"] .hero-grid {
+    width: min(1080px, calc(100% - 96px));
+    grid-template-columns: minmax(0, 1.08fr) minmax(250px, .92fr);
+    gap: clamp(30px, 4vw, 52px);
+  }
+  html[lang="ru"] .hero-copy {
+    justify-self: end;
+  }
+  html[lang="ru"] .hero-panel {
+    justify-self: center !important;
+    transform: translateX(10px);
+  }
+}
+
+/* Company and research heroes: raise the mark slightly without changing layout. */
+@media (min-width: 681px) {
+  html[lang="ru"] .ru-pilot-hero--company .ru-company-mark,
+  html[lang="ru"] .ru-pilot-hero--insights .ru-research-mark {
+    transform: translateY(-10px);
+  }
+}
+
+/* Index Field: icons sit with headings in the same blue/gold visual language. */
+html[lang="ru"] .ru-authority-section--indexField .ru-pilot-blocks > h2.ru-pilot-heading-icon {
+  margin-top: 34px;
+}
+html[lang="ru"] .ru-authority-section--indexField .ru-section-heading-icon {
+  width: 46px;
+  height: 46px;
+  flex-basis: 46px;
+}
+
+/* Legal pages no longer reserve space for internal Stage 1 status. */
+html[lang="ru"] .ru-legal-stage1 {
+  padding-top: 44px;
+}
+
+/* Keep Support fully inside desktop viewport, including browser desktop emulation. */
+@media (min-width: 681px) {
+  html[lang="ru"] .ru-assistant-launch {
+    right: max(30px, env(safe-area-inset-right)) !important;
+    bottom: max(24px, env(safe-area-inset-bottom)) !important;
+    max-width: calc(100vw - 60px);
+  }
+  html[lang="ru"] .assistant-panel {
+    right: max(30px, env(safe-area-inset-right)) !important;
+    bottom: 82px !important;
+  }
+}
