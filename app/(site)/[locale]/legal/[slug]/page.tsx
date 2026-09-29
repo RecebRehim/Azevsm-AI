@@ -1,10 +1,12 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageIntro } from "@/components/page-intro";
 import { RuLegalStage1Page } from "@/components/ru-legal-stage1-page";
 import { RuPilotHero } from "@/components/ru-pilot-hero";
 import { getCopy, type SiteCopy } from "@/lib/content/copy";
 import { getRuWebsiteLegalStage1 } from "@/lib/content/legal-ru-stage1";
-import { isLocale, locales } from "@/lib/i18n";
+import { isLocale, locales, localePath } from "@/lib/i18n";
+import { platformEntryUrl } from "@/lib/platform";
 import { pageMetadata } from "@/lib/seo";
 
 const slugs = ["privacy", "terms", "cookies", "security", "accessibility"] as const;
@@ -66,6 +68,11 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
           <div className="wrap ru-pilot-prose">
             <div className="ru-pilot-blocks">
               {item[1].map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              {slug === "security" ? (
+                <div className="cta-row">
+                  <Link className="btn btn-primary" href={platformEntryUrl() ?? localePath(locale, "/enter")}>Перейти в AzevsmAI</Link>
+                </div>
+              ) : null}
             </div>
           </div>
         </section>
