@@ -6724,3 +6724,48 @@ html[lang="ru"] .ru-legal-stage1 {
     bottom: 82px !important;
   }
 }
+
+
+/* WEBSITE-V4 RU AUTHORITY ICON COMPLETION — 2026-09-29 */
+html[lang="ru"] .ru-authority-section .ru-pilot-heading-icon {
+  margin-top: 34px;
+}
+html[lang="ru"] .ru-authority-section .ru-section-heading-icon {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+}
+html[lang="ru"] .ru-pilot-note--icon {
+  display: grid;
+  grid-template-columns: 54px minmax(0,1fr);
+  gap: 16px;
+  align-items: center;
+}
+html[lang="ru"] .ru-note-icon {
+  width: 50px;
+  height: 50px;
+}
+html[lang="ru"] .ru-pilot-note--icon h3 {
+  margin-top: 0;
+}
+html[lang="ru"] .ru-pilot-note--icon p {
+  margin-bottom: 0;
+}
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-authority-section .ru-pilot-heading-icon {
+    gap: 12px;
+  }
+  html[lang="ru"] .ru-authority-section .ru-section-heading-icon {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+  }
+  html[lang="ru"] .ru-pilot-note--icon {
+    grid-template-columns: 46px minmax(0,1fr);
+    gap: 12px;
+  }
+  html[lang="ru"] .ru-note-icon {
+    width: 42px;
+    height: 42px;
+  }
+}
