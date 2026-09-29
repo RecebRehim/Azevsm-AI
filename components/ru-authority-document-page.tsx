@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { RuPilotActions, RuPilotBlocks } from "@/components/ru-pilot-blocks";
 import { RuPilotHero, type RuPilotHeroKind } from "@/components/ru-pilot-hero";
-import type { FounderIconName } from "@/components/founder-icon";
 import { V4ResultSystem } from "@/components/v4-clarity";
 import { getAuthorityPage, type AuthorityPageKey } from "@/lib/content/authority-pages-v31";
 import type { Locale } from "@/lib/i18n";
@@ -15,15 +14,7 @@ const heroKind: Record<AuthorityPageKey, RuPilotHeroKind> = {
   legalCompliance: "legal-compliance",
 };
 
-const headingIcons: Partial<Record<AuthorityPageKey, FounderIconName[]>> = {
-  difference: ["analytical-models", "trusted-results"],
-  indexField: ["azevsm-index", "structured-evidence", "analytical-models", "trusted-results", "platform-structure"],
-  validation: ["trusted-results", "structured-evidence", "white-box"],
-  dataSecurity: ["structured-evidence", "trusted-results", "platform-structure", "plus-financial-resilience"],
-  legalCompliance: ["trusted-results", "platform-structure", "methodology-ontology", "structured-evidence"],
-};
-
-const noteIcons: Partial<Record<AuthorityPageKey, FounderIconName[]>> = {
+const noteIcons: Partial<Record<AuthorityPageKey, import("@/components/founder-icon").FounderIconName[]>> = {
   dataSecurity: ["trusted-results"],
 };
 
@@ -54,7 +45,6 @@ export function RuAuthorityDocumentPage({ locale, pageKey }: { locale: Locale; p
         <div className="wrap ru-pilot-prose">
           <RuPilotBlocks
             blocks={page.blocks}
-            headingIcons={headingIcons[pageKey] ?? []}
             noteIcons={noteIcons[pageKey] ?? []}
           />
           <RuPilotActions actions={actions} locale={locale} />
