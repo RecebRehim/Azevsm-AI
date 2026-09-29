@@ -49,20 +49,25 @@ export function RuPilotBlocks({
           const header = block.header ? block.rows[0] : null;
           const rows = block.header ? block.rows.slice(1) : block.rows;
           return (
-            <div className="ru-pilot-table-wrap" key={index}>
-              <table className="data">
-                {header ? <thead><tr>{header.map((value, cellIndex) => <th key={cellIndex}>{value}</th>)}</tr></thead> : null}
-                <tbody>
-                  {rows.map((row, rowIndex) => (
-                    <tr key={rowIndex}>
-                      {row.map((value, cellIndex) => {
-                        const item = splitCell(value);
-                        return <td key={cellIndex}>{item.body ? <><strong>{item.title}</strong><br />{item.body}</> : value}</td>;
-                      })}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="ru-pilot-table-shell" key={index}>
+              <div className="ru-pilot-table-scroll-hint" aria-hidden="true">
+                Таблица продолжается вправо <span>→</span>
+              </div>
+              <div className="ru-pilot-table-wrap">
+                <table className="data">
+                  {header ? <thead><tr>{header.map((value, cellIndex) => <th key={cellIndex}>{value}</th>)}</tr></thead> : null}
+                  <tbody>
+                    {rows.map((row, rowIndex) => (
+                      <tr key={rowIndex}>
+                        {row.map((value, cellIndex) => {
+                          const item = splitCell(value);
+                          return <td key={cellIndex}>{item.body ? <><strong>{item.title}</strong><br />{item.body}</> : value}</td>;
+                        })}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           );
         }
