@@ -7138,3 +7138,20 @@ html[lang="ru"] .ru-product-authority-section--institutional .ru-section-heading
     flex: 0 0 40px !important;
   }
 }
+
+
+/* WEBSITE-V4 PILOT HEADER SEARCH ORDER — 2026-09-30 */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .wordmark {
+  order: 1;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .ru-language-access {
+  order: 2;
+  margin-inline-start: auto;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .site-search-trigger {
+  order: 3;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .menu-toggle {
+  order: 4 !important;
+  margin-inline-start: 0;
+}
