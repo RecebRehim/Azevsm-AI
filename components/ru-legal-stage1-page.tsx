@@ -12,14 +12,16 @@ export function RuLegalStage1Page({
 
   return (
     <>
-      <RuPilotHero kind={kind} title={document.title} lead="Принятый источник содержания для русской пилотной реализации." topics={topics} />
+      <RuPilotHero
+        kind={kind}
+        title={document.title}
+        lead={kind === "privacy"
+          ? "Информация о том, как публичный корпоративный сайт Azevsm Systems обрабатывает данные посетителей."
+          : "Правила использования публичного корпоративного сайта Azevsm Systems."}
+        topics={topics}
+      />
       <section className="section-tight ru-authority-section ru-legal-stage1">
         <div className="wrap ru-legal-stage1-inner">
-          <div className="ru-legal-stage1-status" role="note">
-            <strong>STAGE 1 = ACCEPTED / CLOSED</strong>
-            <span>PUBLICATION READY = NO</span>
-          </div>
-
           {document.sections.map((section) => (
             <section className="ru-legal-section" key={section.heading}>
               <h2>{section.heading}</h2>
