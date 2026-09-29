@@ -22,6 +22,12 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
     { href: "/technology", label: copy.nav.technology },
     { href: "/white-box", label: copy.nav.whitebox },
     { href: "/trust", label: copy.nav.trust },
+    ...(locale === "ru"
+      ? [
+          { href: "/data-security", label: "Безопасность данных" },
+          { href: "/legal-compliance", label: "Право и комплаенс" },
+        ]
+      : []),
     { href: "/company", label: copy.nav.company },
   ];
 
