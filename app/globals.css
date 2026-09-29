@@ -7155,3 +7155,202 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .menu-toggl
   order: 4 !important;
   margin-inline-start: 0;
 }
+
+
+/* WEBSITE-V5 CORPORATE VISUAL SYSTEM — 2026-09-30 */
+
+/* Internal page hero: image first, icon second. */
+html[lang="ru"] .ru-pilot-hero .ru-thematic-hero-art {
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  border-radius: 26px;
+  border: 1px solid rgba(92,118,140,.18);
+  background:
+    linear-gradient(180deg, rgba(11,34,59,.04), rgba(11,34,59,.24)),
+    url("/hero-office.jpg") center/cover no-repeat;
+  box-shadow: 0 24px 58px rgba(18,45,74,.12);
+}
+
+html[lang="ru"] .ru-pilot-hero .ru-hero-art-core {
+  position: absolute;
+  inset: auto auto 20px 20px;
+  width: 74px;
+  height: 74px;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.88);
+  border: 1px solid rgba(255,255,255,.68);
+  box-shadow: 0 12px 28px rgba(10,34,58,.14);
+  backdrop-filter: blur(10px);
+  z-index: 2;
+}
+
+html[lang="ru"] .ru-pilot-hero .ru-hero-founder-icon,
+html[lang="ru"] .ru-pilot-hero .ru-platform-hero-icon {
+  width: 54px !important;
+  height: 54px !important;
+  margin: 0 !important;
+  filter: none !important;
+}
+
+html[lang="ru"] .ru-pilot-hero .ru-company-mark,
+html[lang="ru"] .ru-pilot-hero .ru-research-mark {
+  width: 54px !important;
+  height: 54px !important;
+  aspect-ratio: auto;
+  margin: 0 !important;
+  transform: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+html[lang="ru"] .ru-pilot-hero .ru-company-mark img,
+html[lang="ru"] .ru-pilot-hero .ru-research-mark img {
+  width: 54px !important;
+  height: 54px !important;
+  object-fit: contain;
+}
+
+html[lang="ru"] .ru-pilot-hero .ru-products-hero-icons {
+  gap: 2px !important;
+}
+html[lang="ru"] .ru-pilot-hero .ru-products-hero-icons .founder-icon {
+  width: 30px !important;
+  height: 30px !important;
+  transform: none !important;
+}
+
+/* Topic labels stay readable but secondary to the visual. */
+html[lang="ru"] .ru-pilot-hero .ru-hero-topic-grid {
+  position: absolute;
+  left: 108px;
+  right: 18px;
+  bottom: 18px;
+  width: auto;
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 24px rgba(10,34,58,.10);
+}
+html[lang="ru"] .ru-pilot-hero .ru-hero-topic {
+  min-height: 0;
+  padding: 6px 0;
+  border-top: 0;
+  border-bottom: 1px solid rgba(85,110,131,.12);
+  font-size: 12px;
+}
+html[lang="ru"] .ru-pilot-hero .ru-hero-topic:last-child {
+  border-bottom: 0;
+}
+
+/* Regular section headings return to typography-led presentation. */
+html[lang="ru"] .ru-authority-section .ru-pilot-blocks > h2,
+html[lang="ru"] .ru-existing-section .ru-pilot-blocks > h2,
+html[lang="ru"] .ru-product-authority-section .ru-pilot-blocks > h2 {
+  width: min(100%, 900px);
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* Secure stays branded, but no longer reads as a giant icon card. */
+html[lang="ru"] .ru-home-secure-card {
+  position: relative;
+  overflow: hidden;
+  grid-template-columns: minmax(0,1fr) 280px;
+  min-height: 320px;
+}
+html[lang="ru"] .ru-home-secure-card::after {
+  content: "";
+  grid-column: 2;
+  grid-row: 1;
+  align-self: stretch;
+  justify-self: stretch;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(12,39,67,.06), rgba(12,39,67,.22)),
+    url("/hero-office.jpg") 62% center/cover no-repeat;
+}
+html[lang="ru"] .ru-home-secure-icon {
+  position: absolute;
+  right: 34px;
+  bottom: 28px;
+  width: 64px !important;
+  height: 64px !important;
+  z-index: 2;
+  padding: 10px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.90);
+  box-shadow: 0 10px 24px rgba(10,34,58,.12);
+}
+html[lang="ru"] .ru-home-secure-copy {
+  grid-column: 1;
+  grid-row: 1;
+  padding-right: 12px;
+  align-self: center;
+}
+
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-pilot-hero .ru-thematic-hero-art {
+    min-height: 220px;
+    border-radius: 20px;
+  }
+  html[lang="ru"] .ru-pilot-hero .ru-hero-art-core {
+    left: 14px;
+    bottom: 14px;
+    width: 58px;
+    height: 58px;
+    padding: 8px;
+    border-radius: 14px;
+  }
+  html[lang="ru"] .ru-pilot-hero .ru-hero-founder-icon,
+  html[lang="ru"] .ru-pilot-hero .ru-platform-hero-icon,
+  html[lang="ru"] .ru-pilot-hero .ru-company-mark,
+  html[lang="ru"] .ru-pilot-hero .ru-research-mark {
+    width: 42px !important;
+    height: 42px !important;
+  }
+  html[lang="ru"] .ru-pilot-hero .ru-hero-topic-grid {
+    left: 82px;
+    right: 12px;
+    bottom: 12px;
+    padding: 8px 10px;
+  }
+  html[lang="ru"] .ru-pilot-hero .ru-hero-topic {
+    grid-template-columns: 26px minmax(0,1fr);
+    gap: 8px;
+    font-size: 10.5px;
+  }
+
+  html[lang="ru"] .ru-home-secure-card {
+    display: block;
+    min-height: 0;
+    padding: 0;
+  }
+  html[lang="ru"] .ru-home-secure-card::after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 180px;
+    border-radius: 0;
+    background:
+      linear-gradient(180deg, rgba(12,39,67,.04), rgba(12,39,67,.20)),
+      url("/hero-office.jpg") 62% center/cover no-repeat;
+  }
+  html[lang="ru"] .ru-home-secure-copy {
+    padding: 22px 20px 24px;
+  }
+  html[lang="ru"] .ru-home-secure-icon {
+    right: 18px;
+    top: 126px;
+    bottom: auto;
+    width: 52px !important;
+    height: 52px !important;
+    padding: 8px;
+  }
+}
