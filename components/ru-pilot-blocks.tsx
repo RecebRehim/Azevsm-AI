@@ -48,11 +48,16 @@ export function RuPilotBlocks({
         if (block.type === "table") {
           const header = block.header ? block.rows[0] : null;
           const rows = block.header ? block.rows.slice(1) : block.rows;
+          const showScrollHint =
+            header?.[0] === "Подход" &&
+            header?.[1] === "Сильная сторона категории";
           return (
-            <div className="ru-pilot-table-shell" key={index}>
-              <div className="ru-pilot-table-scroll-hint" aria-hidden="true">
-                Таблица продолжается вправо <span>→</span>
-              </div>
+            <div className={`ru-pilot-table-shell${showScrollHint ? " ru-pilot-table-shell--scroll-hint" : ""}`} key={index}>
+              {showScrollHint ? (
+                <div className="ru-pilot-table-scroll-hint" aria-hidden="true">
+                  Таблица продолжается вправо <span>→</span>
+                </div>
+              ) : null}
               <div className="ru-pilot-table-wrap">
                 <table className="data">
                   {header ? <thead><tr>{header.map((value, cellIndex) => <th key={cellIndex}>{value}</th>)}</tr></thead> : null}
