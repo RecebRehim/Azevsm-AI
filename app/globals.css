@@ -7101,3 +7101,40 @@ html[lang="ru"] .ru-pilot-blocks > h2.ru-pilot-heading-icon > span {
     hyphens: none !important;
   }
 }
+
+
+/* WEBSITE-V4 RU INSTITUTIONAL SECTION ICON SIZE FIX — 2026-09-29 */
+html[lang="ru"] .ru-product-authority-section--institutional .ru-pilot-blocks > h2.ru-pilot-heading-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 14px !important;
+  width: fit-content !important;
+  max-width: min(100%, 920px) !important;
+  margin-inline: auto !important;
+}
+html[lang="ru"] .ru-product-authority-section--institutional .ru-section-heading-icon {
+  width: 46px !important;
+  height: 46px !important;
+  min-width: 46px !important;
+  max-width: 46px !important;
+  flex: 0 0 46px !important;
+}
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-product-authority-section--institutional .ru-pilot-blocks > h2.ru-pilot-heading-icon {
+    display: grid !important;
+    grid-template-columns: 40px minmax(0,1fr) !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+  }
+  html[lang="ru"] .ru-product-authority-section--institutional .ru-section-heading-icon {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
+    flex: 0 0 40px !important;
+  }
+}
