@@ -89,23 +89,23 @@ function ui(locale: Locale): PilotUi {
 
 function FlowIcon({ index }: { index: number }) {
   const paths = [
-    <g key="evidence"><path d="M15 12h26l8 8v32H15zM41 12v9h8M22 30h20M22 37h16M22 44h12" /><circle cx="18" cy="16" r="4" /></g>,
-    <g key="system"><circle cx="32" cy="32" r="8" /><circle cx="12" cy="20" r="4" /><circle cx="52" cy="20" r="4" /><circle cx="12" cy="44" r="4" /><circle cx="52" cy="44" r="4" /><path d="M19 24l7 5M45 24l-7 5M19 40l7-5M45 40l-7-5" /></g>,
-    <g key="result"><path d="M10 48h44M14 43V29h8v14M28 43V19h8v24M42 43V25h8v18" /><path d="M15 15l8 5 9-9 8 5 10-8" /></g>,
+    <g key="evidence"><path d="M15 12h26l8 8v32H15zM41 12v9h8M22 30h20M22 37h16M22 44h12" /><circle className="v4-icon-gold" cx="18" cy="16" r="4" /></g>,
+    <g key="system"><circle className="v4-icon-gold" cx="32" cy="32" r="8" /><circle cx="12" cy="20" r="4" /><circle cx="52" cy="20" r="4" /><circle cx="12" cy="44" r="4" /><circle cx="52" cy="44" r="4" /><path d="M19 24l7 5M45 24l-7 5M19 40l7-5M45 40l-7-5" /></g>,
+    <g key="result"><path d="M10 48h44M14 43V29h8v14M28 43V19h8v24M42 43V25h8v18" /><path className="v4-icon-gold" d="M15 15l8 5 9-9 8 5 10-8" /></g>,
   ];
   return <svg viewBox="0 0 64 64" aria-hidden="true">{paths[index]}</svg>;
 }
 
 function ResultIcon({ index }: { index: number }) {
   const icons = [
-    <g key="fixed"><path d="M16 12h30v40H16zM22 22h18M22 30h18M22 38h12" /><path d="M37 43l4 4 8-10" /></g>,
+    <g key="fixed"><path d="M16 12h30v40H16zM22 22h18M22 30h18M22 38h12" /><path className="v4-icon-gold" d="M37 43l4 4 8-10" /></g>,
     <g key="report"><path d="M16 10h24l8 8v36H16zM40 10v9h8M22 29h20M22 36h16M22 43h12" /></g>,
     <g key="brief"><path d="M12 18h40v30H12zM18 25h28M18 32h18M18 39h22" /></g>,
-    <g key="dossier"><path d="M10 18h18l5 6h21v28H10z" /><circle cx="40" cy="36" r="7" /><path d="M45 41l6 6" /></g>,
-    <g key="passport"><path d="M17 10h30v44H17zM24 22h16M24 29h16M24 36h10" /><circle cx="38" cy="44" r="5" /></g>,
+    <g key="dossier"><path d="M10 18h18l5 6h21v28H10z" /><circle className="v4-icon-gold" cx="40" cy="36" r="7" /><path className="v4-icon-gold" d="M45 41l6 6" /></g>,
+    <g key="passport"><path d="M17 10h30v44H17zM24 22h16M24 29h16M24 36h10" /><circle className="v4-icon-gold" cx="38" cy="44" r="5" /></g>,
     <g key="navigator"><path d="M10 18h44v28H10zM18 26h12v12H18zM35 26h11M35 33h11M18 42h28" /></g>,
     <g key="model"><path d="M32 8l15 8v16l-15 8-15-8V16zM32 24l15-8M32 24v16M32 24l-15-8" /><path d="M18 43h28" /></g>,
-    <g key="whitebox"><path d="M14 14h36v36H14zM14 26h36M26 14v36" /><path d="M32 37l4 4 8-9" /></g>,
+    <g key="whitebox"><path d="M14 14h36v36H14zM14 26h36M26 14v36" /><path className="v4-icon-gold" d="M32 37l4 4 8-9" /></g>,
   ];
   return <svg viewBox="0 0 64 64" aria-hidden="true">{icons[index] ?? icons[0]}</svg>;
 }
