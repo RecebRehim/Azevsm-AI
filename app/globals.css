@@ -6876,3 +6876,40 @@ html[lang="ru"] .ru-pilot-blocks > h2.ru-pilot-heading-icon > span {
     display: none;
   }
 }
+
+
+/* RU MOBILE TYPOGRAPHY STANDARD */
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-authority-section .ru-pilot-blocks > h2,
+  html[lang="ru"] .ru-existing-section .ru-pilot-blocks > h2,
+  html[lang="ru"] .ru-pilot-prose .ru-pilot-blocks > h2 {
+    font-size: 28px !important;
+    line-height: 1.16 !important;
+    font-weight: 500;
+  }
+  html[lang="ru"] .ru-authority-section .ru-pilot-blocks > p,
+  html[lang="ru"] .ru-existing-section .ru-pilot-blocks > p,
+  html[lang="ru"] .ru-pilot-prose .ru-pilot-blocks > p,
+  html[lang="ru"] .ru-authority-section .ru-pilot-blocks > ul li,
+  html[lang="ru"] .ru-existing-section .ru-pilot-blocks > ul li,
+  html[lang="ru"] .ru-pilot-prose .ru-pilot-blocks > ul li,
+  html[lang="ru"] .ru-insights-list li {
+    font-size: 16px !important;
+    line-height: 1.62 !important;
+  }
+  html[lang="ru"] .ru-section-heading-icon {
+    width: 40px !important;
+    height: 40px !important;
+    flex: 0 0 40px !important;
+  }
+  html[lang="ru"] .ru-pilot-blocks > h2.ru-pilot-heading-icon {
+    gap: 10px !important;
+    max-width: calc(100% - 12px) !important;
+  }
+  html[lang="ru"] .ru-pilot-blocks > h2.ru-pilot-heading-icon > span {
+    max-width: min(22ch, calc(100vw - 108px)) !important;
+  }
+  html[lang="ru"] .ru-insights-list {
+    padding: 20px 22px 20px 38px;
+  }
+}
