@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Hero } from "@/components/hero";
+import { FounderIcon } from "@/components/founder-icon";
 import { RuHomeFoundationIcon, RuHomeProductIcon, RuHomeWhyIcon } from "@/components/ru-line-icons";
 import { RuPilotBlocks } from "@/components/ru-pilot-blocks";
 import { V4HomeClarity, V4ProductAction } from "@/components/v4-clarity";
@@ -64,6 +65,21 @@ export function RuPilotHome({ locale, copy }: { locale: Locale; copy: SiteCopy }
                 <p>{body}</p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="ru-home-secure">
+        <div className="wrap">
+          <div className="ru-home-secure-card">
+            <FounderIcon name="trusted-results" className="ru-home-secure-icon" />
+            <div className="ru-home-secure-copy">
+              <p className="kicker">AZEVSM SECURE</p>
+              <h2>Конфиденциальная обработка без постоянного хранения исходных материалов</h2>
+              <p>AzevsmAI включает режим AZEVSM SECURE для работы с чувствительными и конфиденциальными материалами. Исходные материалы и рабочее содержимое обрабатываются во временном защищённом контуре без постоянного хранения в AzevsmAI.</p>
+              <p>AZEVSM SECURE сохраняет применимую логику выбранного продукта и систему результатов AzevsmAI.</p>
+              <Link className="text-link" href={localePath(locale, "/data-security#azevsm-secure")}>Подробнее об AZEVSM SECURE</Link>
+            </div>
           </div>
         </div>
       </section>
