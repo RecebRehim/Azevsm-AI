@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FounderIcon, type FounderIconName } from "@/components/founder-icon";
 import type { AuthorityPage } from "@/lib/content/authority-pages-v31";
 import { localePath, type Locale } from "@/lib/i18n";
 
@@ -7,11 +8,26 @@ function splitCell(value: string) {
   return { title, body: rest.join("\n") };
 }
 
-export function RuPilotBlocks({ blocks }: { blocks: AuthorityPage["blocks"] }) {
+export function RuPilotBlocks({
+  blocks,
+  headingIcons = [],
+}: {
+  blocks: AuthorityPage["blocks"];
+  headingIcons?: FounderIconName[];
+}) {
+  let headingIndex = 0;
   return (
     <div className="ru-pilot-blocks">
       {blocks.map((block, index) => {
-        if (block.type === "heading") return <h2 id={block.id} key={index}>{block.text}</h2>;
+        if (block.type === "heading") {
+          const icon = headingIcons[headingIndex++];
+          return (
+            <h2 className={icon ? "ru-pilot-heading-icon" : undefined} id={block.id} key={index}>
+              {icon ? <FounderIcon name={icon} className="ru-section-heading-icon" /> : null}
+              <span>{block.text}</span>
+            </h2>
+          );
+        }
         if (block.type === "p") return <p key={index} style={{ whiteSpace: "pre-line" }}>{block.text}</p>;
         if (block.type === "list") return <ul key={index}>{block.items.map((item) => <li key={item}>{item}</li>)}</ul>;
         if (block.type === "note") return <article className="card ru-pilot-note" key={index}><h3>{block.title}</h3><p>{block.body}</p></article>;
