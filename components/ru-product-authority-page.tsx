@@ -26,6 +26,8 @@ const scenarioRoutes = [
 ] as const;
 
 const productIcons: FounderIconName[] = ["azevsm-index", "azevsm-institutional-index", "azevsm-plus"];
+const scenarioIcons: FounderIconName[] = ["azevsm-index","azevsm-index","azevsm-plus","azevsm-institutional-index","azevsm-institutional-index"];
+const reproIcons: FounderIconName[] = ["trusted-results","structured-evidence","white-box","platform-structure","structured-evidence"];
 const plusIcons: RuPlusServiceIconName[] = [
   "budget",
   "investment",
@@ -73,8 +75,11 @@ export function RuProductAuthorityPage({ locale, pageKey }: { locale: Locale; pa
                   const href = scenarioRoutes[index];
                   return href ? (
                     <Link className="ru-scenario-card" href={localePath(locale, href)} key={item.title}>
-                      <strong>{item.title}</strong>
-                      <span>{item.body}</span>
+                      <FounderIcon name={scenarioIcons[index]} className="ru-scenario-icon" />
+                      <div className="ru-scenario-card-copy">
+                        <strong>{item.title}</strong>
+                        <span>{item.body}</span>
+                      </div>
                       <i aria-hidden="true">→</i>
                     </Link>
                   ) : null;
@@ -87,7 +92,8 @@ export function RuProductAuthorityPage({ locale, pageKey }: { locale: Locale; pa
               <div className="ru-repro-grid">
                 {copy.standardPoints.map(([title, body], index) => (
                   <article key={title}>
-                    <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                    <FounderIcon name={reproIcons[index]} className="ru-repro-icon" />
+                    <span className="ru-repro-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                     <h3>{title}</h3>
                     <p>{body}</p>
                   </article>
