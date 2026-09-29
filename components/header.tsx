@@ -29,6 +29,7 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
         ]
       : []),
     { href: "/company", label: copy.nav.company },
+    { href: "/search", label: locale === "ru" ? "Поиск" : locale === "az" ? "Axtarış" : locale === "en" ? "Search" : locale === "ar" ? "بحث" : "搜索" },
   ];
 
   return (
@@ -40,6 +41,14 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
             <strong>Azevsm</strong>
             <span>Systems</span>
           </span>
+        </Link>
+        <Link
+          className="site-search-trigger"
+          href={localePath(locale, "/search")}
+          aria-label={locale === "ru" ? "Поиск по сайту" : locale === "az" ? "Saytda axtarış" : locale === "en" ? "Search the site" : locale === "ar" ? "البحث في الموقع" : "站内搜索"}
+          onClick={close}
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
         </Link>
         <button className="menu-toggle" type="button" aria-expanded={open} aria-controls="site-nav" onClick={() => setOpen((value) => !value)}>
           {locale === "az" ? copy.menu : open ? copy.close : copy.menu}
