@@ -6565,3 +6565,71 @@ html[lang="ru"] .ru-existing-section--trust .ru-pilot-blocks > p {
     flex-basis: 44px;
   }
 }
+
+
+/* WEBSITE-V4 RU AZEVSM SECURE HOME BLOCK — 2026-09-29 */
+html[lang="ru"] .ru-home-secure {
+  padding: 34px 0 46px;
+  background: #f6f8fb;
+}
+html[lang="ru"] .ru-home-secure-card {
+  display: grid;
+  grid-template-columns: 96px minmax(0,1fr);
+  gap: 24px;
+  align-items: center;
+  padding: 28px 32px;
+  border: 1px solid rgba(30,74,138,.14);
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 18px 42px rgba(20,42,78,.07);
+}
+html[lang="ru"] .ru-home-secure-icon {
+  width: 88px;
+  height: 88px;
+}
+html[lang="ru"] .ru-home-secure-copy {
+  display: grid;
+  gap: 10px;
+}
+html[lang="ru"] .ru-home-secure-copy .kicker {
+  margin: 0;
+}
+html[lang="ru"] .ru-home-secure-copy h2 {
+  margin: 0;
+  max-width: 760px;
+  font-size: clamp(28px, 2.7vw, 42px);
+  line-height: 1.12;
+}
+html[lang="ru"] .ru-home-secure-copy p {
+  margin: 0;
+  max-width: 900px;
+  color: #536171;
+  line-height: 1.62;
+}
+html[lang="ru"] .ru-home-secure-copy .text-link {
+  width: fit-content;
+  margin-top: 4px;
+}
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-home-secure {
+    padding: 24px 0 32px;
+  }
+  html[lang="ru"] .ru-home-secure-card {
+    grid-template-columns: 68px minmax(0,1fr);
+    gap: 16px;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  html[lang="ru"] .ru-home-secure-icon {
+    width: 62px;
+    height: 62px;
+    align-self: start;
+  }
+  html[lang="ru"] .ru-home-secure-copy h2 {
+    font-size: 28px;
+  }
+  html[lang="ru"] .ru-home-secure-copy p,
+  html[lang="ru"] .ru-home-secure-copy .text-link {
+    grid-column: 1 / -1;
+  }
+}
