@@ -7067,3 +7067,37 @@ html[lang="ru"] .ru-pilot-blocks > h2.ru-pilot-heading-icon > span {
     font-size: 19px;
   }
 }
+
+
+/* WEBSITE-V4 RU MOBILE LONG HEADING FIX — 2026-09-29 */
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-pilot-blocks > h2.ru-pilot-heading-icon {
+    display: grid !important;
+    grid-template-columns: 40px minmax(0, 1fr) !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+    padding-inline: 0 !important;
+    gap: 10px !important;
+    box-sizing: border-box;
+    font-size: 27px !important;
+    line-height: 1.15 !important;
+  }
+  html[lang="ru"] .ru-pilot-blocks > h2.ru-pilot-heading-icon > .ru-section-heading-icon {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
+  }
+  html[lang="ru"] .ru-pilot-blocks > h2.ru-pilot-heading-icon > span {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    text-align: center !important;
+    white-space: pre-line !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
+}
