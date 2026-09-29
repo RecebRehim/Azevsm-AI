@@ -11,11 +11,14 @@ function splitCell(value: string) {
 export function RuPilotBlocks({
   blocks,
   headingIcons = [],
+  noteIcons = [],
 }: {
   blocks: AuthorityPage["blocks"];
   headingIcons?: FounderIconName[];
+  noteIcons?: FounderIconName[];
 }) {
   let headingIndex = 0;
+  let noteIndex = 0;
   return (
     <div className="ru-pilot-blocks">
       {blocks.map((block, index) => {
@@ -30,7 +33,18 @@ export function RuPilotBlocks({
         }
         if (block.type === "p") return <p key={index} style={{ whiteSpace: "pre-line" }}>{block.text}</p>;
         if (block.type === "list") return <ul key={index}>{block.items.map((item) => <li key={item}>{item}</li>)}</ul>;
-        if (block.type === "note") return <article className="card ru-pilot-note" key={index}><h3>{block.title}</h3><p>{block.body}</p></article>;
+        if (block.type === "note") {
+          const icon = noteIcons[noteIndex++];
+          return (
+            <article className={`card ru-pilot-note${icon ? " ru-pilot-note--icon" : ""}`} key={index}>
+              {icon ? <FounderIcon name={icon} className="ru-note-icon" /> : null}
+              <div>
+                <h3>{block.title}</h3>
+                <p>{block.body}</p>
+              </div>
+            </article>
+          );
+        }
         if (block.type === "table") {
           const header = block.header ? block.rows[0] : null;
           const rows = block.header ? block.rows.slice(1) : block.rows;
