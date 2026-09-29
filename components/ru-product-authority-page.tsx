@@ -194,7 +194,7 @@ export function RuProductAuthorityPage({ locale, pageKey }: { locale: Locale; pa
   return (
     <>
       <RuPilotHero kind={heroKind[pageKey]} title={page.title} lead={page.lead} topics={heroTopics} />
-      <section className="section-tight">
+      <section className={`section-tight ru-product-authority-section ru-product-authority-section--${pageKey}`}>
         <div className="wrap ru-pilot-prose">
           <RuPilotBlocks
             blocks={page.blocks}
