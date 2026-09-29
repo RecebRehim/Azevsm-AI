@@ -16,7 +16,15 @@ const heroKind: Record<AuthorityPageKey, RuPilotHeroKind> = {
 };
 
 const headingIcons: Partial<Record<AuthorityPageKey, FounderIconName[]>> = {
+  difference: ["analytical-models", "trusted-results"],
   indexField: ["azevsm-index", "structured-evidence", "analytical-models", "trusted-results", "platform-structure"],
+  validation: ["trusted-results", "structured-evidence", "white-box"],
+  dataSecurity: ["structured-evidence", "trusted-results", "platform-structure", "plus-financial-resilience"],
+  legalCompliance: ["trusted-results", "platform-structure", "methodology-ontology", "structured-evidence"],
+};
+
+const noteIcons: Partial<Record<AuthorityPageKey, FounderIconName[]>> = {
+  dataSecurity: ["trusted-results"],
 };
 
 export function RuAuthorityDocumentPage({ locale, pageKey }: { locale: Locale; pageKey: AuthorityPageKey }) {
@@ -44,7 +52,11 @@ export function RuAuthorityDocumentPage({ locale, pageKey }: { locale: Locale; p
       <RuPilotHero kind={kind} title={page.title} lead={page.lead} topics={topics} />
       <section className={`section-tight ru-authority-section ru-authority-section--${pageKey}`}>
         <div className="wrap ru-pilot-prose">
-          <RuPilotBlocks blocks={page.blocks} headingIcons={headingIcons[pageKey] ?? []} />
+          <RuPilotBlocks
+            blocks={page.blocks}
+            headingIcons={headingIcons[pageKey] ?? []}
+            noteIcons={noteIcons[pageKey] ?? []}
+          />
           <RuPilotActions actions={actions} locale={locale} />
         </div>
       </section>
