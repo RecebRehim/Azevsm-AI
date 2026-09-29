@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { Assistant } from "@/components/assistant";
 import { CookieBanner } from "@/components/cookie-banner";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
@@ -34,7 +33,6 @@ export default async function LocaleLayout({
       <main id="content">{children}</main>
       <Footer locale={locale} copy={copy} />
       <CookieBanner locale={locale} copy={copy} />
-      <Assistant locale={locale} copy={copy} />
     </div>
   );
 }
