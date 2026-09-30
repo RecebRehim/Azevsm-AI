@@ -1150,3 +1150,20 @@
     height: 34px !important;
   }
 }
+
+
+/* RU V5 HERO REPAIR — STEP 5 / REMOVE TALL-VIEWPORT STRETCH */
+@media (min-width: 861px) {
+  .hero {
+    min-height: clamp(600px, 60.8vw, 934px) !important;
+  }
+  .hero > .shell {
+    min-height: clamp(518px, 55.5vw, 852px) !important;
+  }
+  .heroLandscape {
+    background-position: center bottom !important;
+  }
+  .heroFoot {
+    margin-top: auto !important;
+  }
+}
