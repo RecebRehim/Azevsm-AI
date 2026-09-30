@@ -7158,641 +7158,1114 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .menu-toggl
 
 
 /* WEBSITE-V5 CORPORATE VISUAL SYSTEM — 2026-09-30 */
-/* CONTENT / SEMANTICS / ROUTES ARE UNCHANGED. VISUAL LAYER ONLY. */
+/* Premium institutional corporate deep-tech visual layer. Content, semantics and routes unchanged. */
 
 :root {
-  --v5-navy: #102846;
-  --v5-blue: #315f8b;
-  --v5-blue-soft: rgba(49,95,139,.18);
-  --v5-gold: #9b793d;
-  --v5-line: rgba(86,119,145,.22);
-  --v5-paper: #f7fafc;
-  --v5-ice: #e8f0f4;
+  --v5-ink: #081a2f;
+  --v5-navy: #0c2340;
+  --v5-blue: #1c4e80;
+  --v5-paper: #f6f8fa;
+  --v5-mist: #e9eef2;
+  --v5-line: rgba(35, 58, 82, .16);
+  --v5-gold: #a7894f;
+  --v5-white: #ffffff;
 }
 
-/* Main home hero: one quiet corporate-technological field behind the existing mark stack. */
-html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  padding: 24px 22px 22px;
-  border: 1px solid rgba(87,118,143,.18);
-  border-radius: 28px;
-  background:
-    radial-gradient(circle at 78% 18%, rgba(49,95,139,.14), transparent 30%),
-    radial-gradient(circle at 24% 84%, rgba(155,121,61,.10), transparent 26%),
-    linear-gradient(145deg, rgba(255,255,255,.92), rgba(232,240,244,.78));
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.88),
-    0 22px 54px rgba(17,43,70,.09);
+/* ---------- HOME HERO: FULL-BLEED CORPORATE MEDIA ---------- */
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero {
+  min-height: clamp(560px, 74vh, 760px);
+  background: var(--v5-ink);
 }
-html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel::before {
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero::after {
+  display: none;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-photo {
+  filter: saturate(.76) contrast(1.03);
+  transform: scale(1.01);
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-scrim {
+  background:
+    linear-gradient(90deg,
+      rgba(6, 20, 37, .94) 0%,
+      rgba(6, 20, 37, .88) 34%,
+      rgba(6, 20, 37, .54) 58%,
+      rgba(6, 20, 37, .18) 78%,
+      rgba(6, 20, 37, .08) 100%);
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image:
-    linear-gradient(rgba(49,95,139,.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(49,95,139,.035) 1px, transparent 1px);
-  background-size: 34px 34px;
-  mask-image: linear-gradient(150deg, rgba(0,0,0,.65), transparent 76%);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.03), transparent 28%),
+    linear-gradient(90deg, transparent 0 66%, rgba(167,137,79,.11) 66.15% 66.35%, transparent 66.5%);
 }
 
-/* Inner-page hero: visual-first field, no generic stock photography. */
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-thematic-hero-art {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  width: min(100%, 540px);
-  min-height: 330px;
-  justify-self: end;
-  border: 1px solid rgba(86,119,145,.22);
-  border-radius: 28px;
-  background:
-    radial-gradient(circle at 78% 26%, rgba(62,105,144,.16), transparent 28%),
-    linear-gradient(145deg, rgba(255,255,255,.94), rgba(230,239,244,.78));
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.9),
-    0 24px 58px rgba(18,45,74,.10);
-}
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-thematic-hero-art::before,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-thematic-hero-art::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-thematic-hero-art::before {
-  background-image:
-    linear-gradient(rgba(49,95,139,.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(49,95,139,.035) 1px, transparent 1px);
-  background-size: 34px 34px;
-  mask-image: linear-gradient(180deg, rgba(0,0,0,.78), transparent 84%);
-}
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-thematic-hero-art::after {
-  inset: 28px;
-  border: 1px solid rgba(49,95,139,.10);
-  border-radius: 22px;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(49,95,139,.11) 0 4px, transparent 5px),
-    radial-gradient(circle at 52% 58%, rgba(155,121,61,.16) 0 4px, transparent 5px),
-    radial-gradient(circle at 82% 34%, rgba(49,95,139,.12) 0 4px, transparent 5px),
-    linear-gradient(145deg, transparent 0 46%, rgba(49,95,139,.08) 46.3% 46.8%, transparent 47.1%);
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-grid {
+  width: min(1240px, calc(100% - 72px));
+  min-height: clamp(560px, 74vh, 760px);
+  grid-template-columns: minmax(0, 1.06fr) minmax(270px, .64fr);
+  gap: clamp(48px, 7vw, 112px);
+  padding: clamp(72px, 8vw, 110px) 0;
 }
 
-/* Small functional mark only; it no longer drives the hero. */
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-hero-art-core {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
-  z-index: 3;
-  width: 70px;
-  height: 70px;
-  min-height: 0;
-  display: grid;
-  place-items: center;
-  padding: 10px;
-  border: 1px solid rgba(255,255,255,.72);
-  border-radius: 18px;
-  background: rgba(255,255,255,.90);
-  box-shadow: 0 12px 28px rgba(10,34,58,.12);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-copy {
+  max-width: 760px;
+  align-self: center;
 }
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-hero-founder-icon,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-platform-hero-icon {
-  width: 50px !important;
-  height: 50px !important;
-  margin: 0 !important;
-  filter: none !important;
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero h1 {
+  max-width: 13.5ch;
+  margin-bottom: 24px;
+  color: #fff;
+  font-size: clamp(48px, 5vw, 74px);
+  line-height: 1.01;
+  font-weight: 620;
+  letter-spacing: -.045em;
+  text-shadow: 0 2px 22px rgba(0,0,0,.14);
 }
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-company-mark,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-research-mark {
-  width: 50px !important;
-  height: 50px !important;
-  aspect-ratio: auto;
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-lead {
+  max-width: 56ch;
+  color: rgba(255,255,255,.82);
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.65;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel {
+  width: min(100%, 320px) !important;
+  max-width: 320px !important;
   margin: 0 !important;
+  padding: 0 !important;
+  justify-self: end !important;
+  align-self: center;
   transform: none !important;
+  color: #fff;
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
 }
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-company-mark img,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-research-mark img {
-  width: 50px !important;
-  height: 50px !important;
-  object-fit: contain;
-}
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-products-hero-icons {
-  gap: 2px !important;
-}
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-products-hero-icons .founder-icon {
-  width: 28px !important;
-  height: 28px !important;
-  transform: none !important;
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis {
+  width: 100%;
+  max-width: 320px;
+  padding: 28px 0;
+  border-top: 1px solid rgba(255,255,255,.38);
+  border-bottom: 1px solid rgba(255,255,255,.22);
 }
 
-/* Existing page headings may appear as a secondary rail; the visual remains primary. */
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-hero-topic-grid {
-  position: absolute;
-  left: 104px;
-  right: 18px;
-  bottom: 18px;
-  z-index: 3;
-  width: auto;
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-brand strong,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-brand span,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-tomorrow {
+  color: #fff !important;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-words {
+  color: #d9e7f2 !important;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-rule {
+  background: #c4a668;
+}
+
+/* ---------- INNER HERO: ONE FULL-WIDTH DEEP-TECH FIELD ---------- */
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   margin: 0;
-  padding: 9px 12px;
-  border: 1px solid rgba(255,255,255,.58);
-  border-radius: 16px;
-  background: rgba(255,255,255,.88);
-  box-shadow: 0 10px 24px rgba(10,34,58,.09);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-}
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-hero-topic {
-  min-height: 0;
-  padding: 6px 0;
-  border-top: 0;
-  border-bottom: 1px solid rgba(85,110,131,.12);
-  font-size: 12px;
-}
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-hero-topic:last-child {
-  border-bottom: 0;
-}
-
-/* PLATFORM — controlled movement and structured connections. */
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--platform .ru-thematic-hero-art {
-  background:
-    radial-gradient(circle at 20% 28%, rgba(49,95,139,.15), transparent 22%),
-    radial-gradient(circle at 82% 72%, rgba(49,95,139,.11), transparent 24%),
-    linear-gradient(145deg, #f8fbfc, #e6eef3);
-}
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--platform .ru-thematic-hero-art::after {
-  inset: 34px 36px 82px;
+  padding: 0;
   border: 0;
   border-radius: 0;
   background:
-    radial-gradient(circle at 10% 52%, #315f8b 0 4px, transparent 5px),
-    radial-gradient(circle at 48% 30%, #9b793d 0 4px, transparent 5px),
-    radial-gradient(circle at 76% 60%, #315f8b 0 4px, transparent 5px),
-    radial-gradient(circle at 92% 22%, #315f8b 0 4px, transparent 5px),
-    linear-gradient(16deg, transparent 0 31%, rgba(49,95,139,.22) 31.3% 31.8%, transparent 32.1%),
-    linear-gradient(160deg, transparent 0 48%, rgba(49,95,139,.18) 48.3% 48.8%, transparent 49.1%);
+    radial-gradient(ellipse at 83% 28%, rgba(92,133,168,.34), transparent 30%),
+    radial-gradient(ellipse at 70% 86%, rgba(167,137,79,.10), transparent 24%),
+    linear-gradient(118deg, #071a30 0%, #0c2744 58%, #123653 100%);
+  box-shadow: none;
 }
 
-/* PRODUCTS — three distinct product anchors remain small and functional. */
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--products .ru-thematic-hero-art {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
   background:
-    radial-gradient(circle at 24% 34%, rgba(49,95,139,.16), transparent 20%),
-    radial-gradient(circle at 52% 58%, rgba(155,121,61,.12), transparent 18%),
-    radial-gradient(circle at 82% 30%, rgba(49,95,139,.12), transparent 20%),
-    linear-gradient(145deg, #f8fbfc, #e7eff3);
+    linear-gradient(90deg, rgba(255,255,255,.025) 0 1px, transparent 1px) 76% 0 / 160px 100% no-repeat,
+    linear-gradient(180deg, transparent 0 18%, rgba(255,255,255,.045) 18.15% 18.32%, transparent 18.5%);
 }
 
-/* AZEVSM INDEX — field, clustering and structured comparison without invented scores. */
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--index .ru-thematic-hero-art,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--index-field .ru-thematic-hero-art {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero::after {
+  content: "";
+  position: absolute;
+  width: min(48vw, 720px);
+  aspect-ratio: 1.65;
+  right: -8vw;
+  top: 50%;
+  z-index: 0;
+  transform: translateY(-50%) rotate(-8deg);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 46% 54% 58% 42% / 48% 40% 60% 52%;
   background:
-    radial-gradient(circle at 68% 36%, rgba(49,95,139,.16), transparent 24%),
-    radial-gradient(circle at 36% 68%, rgba(155,121,61,.11), transparent 20%),
-    linear-gradient(145deg, #f8fbfc, #e6eef3);
-}
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--index .ru-thematic-hero-art::after,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--index-field .ru-thematic-hero-art::after {
-  inset: 30px 34px 84px;
-  border: 0;
-  border-radius: 0;
-  background-image:
-    radial-gradient(circle, rgba(49,95,139,.58) 0 3px, transparent 4px),
-    radial-gradient(circle, rgba(155,121,61,.52) 0 3px, transparent 4px);
-  background-position: 0 0, 18px 18px;
-  background-size: 36px 36px;
-  mask-image: radial-gradient(ellipse at 58% 46%, #000 0 52%, transparent 78%);
-}
-
-/* INSTITUTIONAL / IIT 4D — four linked analytical dimensions, no calculation logic exposed. */
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--institutional .ru-thematic-hero-art {
-  background:
-    radial-gradient(circle at 28% 30%, rgba(49,95,139,.14), transparent 18%),
-    radial-gradient(circle at 72% 30%, rgba(49,95,139,.12), transparent 18%),
-    radial-gradient(circle at 28% 70%, rgba(155,121,61,.10), transparent 18%),
-    radial-gradient(circle at 72% 70%, rgba(49,95,139,.10), transparent 18%),
-    linear-gradient(145deg, #f8fbfc, #e6eef3);
-}
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--institutional .ru-thematic-hero-art::after {
-  inset: 42px 50px 90px;
-  border: 0;
-  border-radius: 0;
-  background:
-    radial-gradient(circle at 25% 28%, transparent 0 26px, rgba(49,95,139,.30) 27px 28px, transparent 29px),
-    radial-gradient(circle at 75% 28%, transparent 0 26px, rgba(49,95,139,.24) 27px 28px, transparent 29px),
-    radial-gradient(circle at 25% 74%, transparent 0 26px, rgba(155,121,61,.28) 27px 28px, transparent 29px),
-    radial-gradient(circle at 75% 74%, transparent 0 26px, rgba(49,95,139,.20) 27px 28px, transparent 29px),
-    linear-gradient(45deg, transparent 49.5%, rgba(49,95,139,.13) 49.8% 50.2%, transparent 50.5%),
-    linear-gradient(-45deg, transparent 49.5%, rgba(49,95,139,.13) 49.8% 50.2%, transparent 50.5%);
-}
-
-/* AZEVSM PLUS — restrained system field; seven service icons stay in the service cards below. */
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--plus .ru-thematic-hero-art {
-  background:
-    radial-gradient(circle at 76% 24%, rgba(49,95,139,.15), transparent 22%),
-    radial-gradient(circle at 28% 72%, rgba(155,121,61,.12), transparent 22%),
-    linear-gradient(145deg, #f9fbfc, #e7eff3);
-}
-
-/* TECHNOLOGY — scientific / graph-like structure, not an internal architecture diagram. */
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--technology .ru-thematic-hero-art,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--insights .ru-thematic-hero-art {
-  background:
-    radial-gradient(circle at 68% 34%, rgba(49,95,139,.16), transparent 24%),
-    radial-gradient(circle at 30% 74%, rgba(155,121,61,.09), transparent 18%),
-    linear-gradient(145deg, #f8fbfc, #e5eef3);
-}
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--technology .ru-thematic-hero-art::after,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--insights .ru-thematic-hero-art::after {
-  inset: 32px 34px 84px;
-  border: 0;
-  border-radius: 0;
-  background:
-    radial-gradient(circle at 12% 64%, rgba(49,95,139,.62) 0 4px, transparent 5px),
-    radial-gradient(circle at 38% 24%, rgba(49,95,139,.54) 0 4px, transparent 5px),
-    radial-gradient(circle at 58% 62%, rgba(155,121,61,.56) 0 4px, transparent 5px),
-    radial-gradient(circle at 84% 30%, rgba(49,95,139,.55) 0 4px, transparent 5px),
-    linear-gradient(24deg, transparent 0 32%, rgba(49,95,139,.18) 32.2% 32.7%, transparent 33%),
-    linear-gradient(154deg, transparent 0 48%, rgba(49,95,139,.14) 48.2% 48.7%, transparent 49%);
-}
-
-/* WHITE BOX — result → evidence base → permitted explanation as an abstract three-part motif. */
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--whitebox .ru-thematic-hero-art {
-  background:
-    linear-gradient(90deg,
-      rgba(49,95,139,.08) 0 30%,
-      transparent 30% 35%,
-      rgba(155,121,61,.07) 35% 65%,
-      transparent 65% 70%,
-      rgba(49,95,139,.06) 70% 100%),
-    linear-gradient(145deg, #fbfcfd, #e8f0f4);
-}
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--whitebox .ru-thematic-hero-art::after {
-  inset: 48px 42px 92px;
-  border: 0;
-  border-radius: 0;
-  background:
-    linear-gradient(90deg,
-      transparent 0 29%,
-      rgba(49,95,139,.22) 29.4% 29.8%,
-      transparent 30.2% 64%,
-      rgba(155,121,61,.22) 64.4% 64.8%,
-      transparent 65.2%);
-}
-
-/* TRUST / VALIDATION — traceable evidence trail. */
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--trust .ru-thematic-hero-art,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--validation .ru-thematic-hero-art,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--result .ru-thematic-hero-art {
-  background:
-    radial-gradient(circle at 76% 26%, rgba(49,95,139,.14), transparent 22%),
-    linear-gradient(145deg, #f8fbfc, #e6eef3);
-}
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--trust .ru-thematic-hero-art::after,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--validation .ru-thematic-hero-art::after,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--result .ru-thematic-hero-art::after {
-  inset: 38px 42px 88px;
-  border: 0;
-  border-radius: 0;
-  background:
-    radial-gradient(circle at 8% 58%, #315f8b 0 4px, transparent 5px),
-    radial-gradient(circle at 36% 40%, #315f8b 0 4px, transparent 5px),
-    radial-gradient(circle at 64% 62%, #9b793d 0 4px, transparent 5px),
-    radial-gradient(circle at 92% 34%, #315f8b 0 4px, transparent 5px),
-    linear-gradient(18deg, transparent 0 47%, rgba(49,95,139,.22) 47.3% 47.8%, transparent 48.1%);
-}
-
-/* DIFFERENCE — two analytical fields with a controlled shared boundary. */
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--difference .ru-thematic-hero-art {
-  background:
-    linear-gradient(90deg, rgba(49,95,139,.08) 0 48.8%, rgba(155,121,61,.18) 49.2% 50.8%, rgba(49,95,139,.035) 51.2% 100%),
-    linear-gradient(145deg, #f9fbfc, #e8f0f4);
-}
-
-/* DATA SECURITY / SECURE — isolated processing boundary, not an internal system diagram. */
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--data-security .ru-thematic-hero-art,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--security .ru-thematic-hero-art,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--privacy .ru-thematic-hero-art {
-  background:
-    radial-gradient(circle at 50% 46%, rgba(49,95,139,.13), transparent 34%),
-    linear-gradient(145deg, #f8fbfc, #e4edf2);
-}
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--data-security .ru-thematic-hero-art::after,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--security .ru-thematic-hero-art::after,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--privacy .ru-thematic-hero-art::after {
-  inset: 38px 54px 94px;
-  border: 1px solid rgba(49,95,139,.28);
-  border-radius: 34px;
+    linear-gradient(138deg, rgba(255,255,255,.16), rgba(255,255,255,.025) 48%, rgba(151,186,211,.13));
   box-shadow:
-    inset 0 0 0 14px rgba(255,255,255,.46),
-    inset 0 0 0 15px rgba(49,95,139,.07);
-  background:
-    radial-gradient(circle at 50% 50%, rgba(49,95,139,.10), transparent 44%);
+    inset 0 0 80px rgba(255,255,255,.035),
+    0 60px 120px rgba(0,0,0,.20);
+  filter: blur(.1px);
 }
 
-/* LEGAL / TERMS / COOKIES / ACCESSIBILITY / ENTER — strict corporate minimalism. */
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--legal-compliance .ru-thematic-hero-art,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--terms .ru-thematic-hero-art,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--cookies .ru-thematic-hero-art,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--accessibility .ru-thematic-hero-art,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--enter .ru-thematic-hero-art {
-  min-height: 270px;
-  background:
-    linear-gradient(90deg, transparent 0 20%, rgba(49,95,139,.07) 20.2% 20.5%, transparent 20.7% 79%, rgba(155,121,61,.08) 79.2% 79.5%, transparent 79.7%),
-    linear-gradient(145deg, #fbfcfd, #edf3f6);
-  box-shadow: 0 18px 44px rgba(18,45,74,.07);
-}
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--legal-compliance .ru-thematic-hero-art::after,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--terms .ru-thematic-hero-art::after,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--cookies .ru-thematic-hero-art::after,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--accessibility .ru-thematic-hero-art::after,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--enter .ru-thematic-hero-art::after {
-  inset: 48px 54px 84px;
-  border: 0;
-  border-top: 1px solid rgba(49,95,139,.16);
-  border-bottom: 1px solid rgba(49,95,139,.11);
-  border-radius: 0;
-  background: none;
-}
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--legal-compliance .ru-hero-topic-grid,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--terms .ru-hero-topic-grid,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--cookies .ru-hero-topic-grid,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--accessibility .ru-hero-topic-grid {
-  display: none;
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: min(1240px, calc(100% - 72px));
+  min-height: 500px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, .72fr);
+  gap: clamp(48px, 7vw, 104px);
+  align-items: center;
+  padding: clamp(72px, 7vw, 98px) 0;
 }
 
-/* COMPANY — research-and-technology identity, deliberately avoiding office/handshake imagery. */
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--company .ru-thematic-hero-art {
-  background:
-    radial-gradient(circle at 72% 28%, rgba(49,95,139,.15), transparent 22%),
-    radial-gradient(circle at 26% 74%, rgba(155,121,61,.09), transparent 18%),
-    linear-gradient(145deg, #f8fbfc, #e5eef3);
-}
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--company .ru-thematic-hero-art::after {
-  inset: 34px 38px 88px;
-  border: 0;
-  border-radius: 0;
-  background:
-    linear-gradient(24deg, transparent 0 33%, rgba(49,95,139,.15) 33.2% 33.7%, transparent 34%),
-    linear-gradient(156deg, transparent 0 52%, rgba(155,121,61,.13) 52.2% 52.7%, transparent 53%),
-    radial-gradient(circle at 18% 66%, rgba(49,95,139,.50) 0 4px, transparent 5px),
-    radial-gradient(circle at 46% 36%, rgba(49,95,139,.48) 0 4px, transparent 5px),
-    radial-gradient(circle at 78% 56%, rgba(155,121,61,.50) 0 4px, transparent 5px);
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-copy {
+  max-width: 760px;
 }
 
-/* Ordinary content headings are typography-led; decorative heading icons stay removed. */
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-authority-section .ru-pilot-blocks > h2,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-existing-section .ru-pilot-blocks > h2,
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-product-authority-section .ru-pilot-blocks > h2 {
-  width: min(100%, 900px);
-  margin-inline: auto;
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero h1 {
+  max-width: 15ch;
+  margin: 0 0 22px;
+  color: #fff;
+  font-size: clamp(46px, 4.5vw, 68px);
+  line-height: 1.02;
+  font-weight: 620;
+  letter-spacing: -.043em;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-lead {
+  max-width: 60ch;
+  margin: 0;
+  color: rgba(238,245,250,.82);
+  font-size: clamp(17px, 1.3vw, 20px);
+  line-height: 1.66;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-thematic-hero-art {
+  position: relative;
+  width: 100%;
+  min-height: 330px;
+  justify-self: stretch;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-thematic-hero-art::before {
+  content: "";
+  position: absolute;
+  inset: 6% 0 6% 8%;
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: 44% 56% 48% 52% / 58% 42% 58% 42%;
+  background:
+    linear-gradient(132deg, rgba(255,255,255,.13), rgba(255,255,255,.025) 52%, rgba(107,154,189,.12));
+  transform: rotate(7deg);
+  box-shadow: inset 0 0 56px rgba(255,255,255,.025);
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-thematic-hero-art::after {
+  content: "";
+  position: absolute;
+  width: 58%;
+  height: 62%;
+  right: 0;
+  top: 11%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 40% 42%, rgba(255,255,255,.22), rgba(123,166,197,.08) 42%, transparent 72%);
+  filter: blur(8px);
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-art-core,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-hero-topic-grid {
+  display: none !important;
+}
+
+/* Product family: warmer metallic accent without becoming an infographic. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--products,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--index,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--institutional,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--plus,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--index-field {
+  background:
+    radial-gradient(ellipse at 83% 24%, rgba(96,140,177,.32), transparent 30%),
+    radial-gradient(ellipse at 77% 88%, rgba(178,146,83,.16), transparent 24%),
+    linear-gradient(118deg, #081a2f 0%, #0d2947 58%, #173c58 100%);
+}
+
+/* Security: denser, more isolated visual field. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--data-security,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--security,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--privacy {
+  background:
+    radial-gradient(ellipse at 82% 36%, rgba(76,117,151,.23), transparent 28%),
+    linear-gradient(118deg, #061626 0%, #0a2038 60%, #102d46 100%);
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--data-security .ru-thematic-hero-art::before,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--security .ru-thematic-hero-art::before,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--privacy .ru-thematic-hero-art::before {
+  inset: 12% 8% 12% 18%;
+  border-radius: 28px;
+  transform: rotate(-4deg);
+  box-shadow:
+    inset 0 0 0 14px rgba(255,255,255,.025),
+    inset 0 0 0 15px rgba(255,255,255,.075),
+    inset 0 0 90px rgba(91,142,180,.07);
+}
+
+/* Legal / compliance: institutional light treatment, minimal decoration. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--legal-compliance,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--terms,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--cookies,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--accessibility {
+  background: linear-gradient(135deg, #f7f9fa, #edf2f5);
+  border-bottom: 1px solid rgba(35,58,82,.12);
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--legal-compliance::after,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--terms::after,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--cookies::after,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--accessibility::after {
+  opacity: .22;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--legal-compliance h1,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--terms h1,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--cookies h1,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--accessibility h1 {
+  color: var(--v5-navy);
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--legal-compliance .ru-pilot-lead,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--terms .ru-pilot-lead,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--cookies .ru-pilot-lead,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--accessibility .ru-pilot-lead {
+  color: #4e5e6c;
+}
+
+/* ---------- GLOBAL EDITORIAL RHYTHM ---------- */
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) body {
+  background: #fff;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight {
+  padding-top: clamp(64px, 7vw, 96px);
+  padding-bottom: clamp(78px, 8vw, 112px);
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-prose {
+  width: min(100%, 1120px);
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > h2,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-prose > h2,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-section > h2,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-repro > h2 {
+  width: min(100%, 920px);
+  margin: 68px auto 20px;
+  padding-top: 0;
+  border-top: 0;
+  color: var(--v5-navy);
+  font-size: clamp(32px, 3.1vw, 46px);
+  line-height: 1.08;
+  font-weight: 580;
+  letter-spacing: -.035em;
   text-align: center;
 }
 
-/* "What AzevsmAI does": one shared high-level flow instead of three separate infographic cards. */
-html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-grid {
-  overflow: hidden;
-  gap: 0;
-  border: 1px solid rgba(86,119,145,.20);
-  border-radius: 24px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.94), rgba(237,244,248,.78));
-  box-shadow: 0 16px 38px rgba(18,45,74,.065);
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > h2:first-child,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-section > h2:first-child {
+  margin-top: 0;
 }
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > p,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-section > p,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-repro > p,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-intro {
+  width: min(100%, 860px);
+  margin: 0 auto 24px;
+  color: #465666;
+  font-size: 17px;
+  line-height: 1.76;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > ul {
+  width: min(100%, 900px);
+  margin: 26px auto 34px;
+  padding: 26px 30px 26px 48px;
+  border: 0;
+  border-left: 2px solid rgba(167,137,79,.48);
+  border-radius: 0;
+  background: #f7f9fa;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-table-wrap {
+  margin: 30px 0 42px;
+  border: 1px solid rgba(35,58,82,.14);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: none;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-note {
+  width: min(100%, 920px);
+  margin: 30px auto 42px;
+  border-radius: 16px;
+  box-shadow: none;
+}
+
+/* ---------- HOME: LARGE BANDS, FEWER CARDS ---------- */
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-transfer {
+  padding: clamp(76px, 8vw, 112px) 0;
+  background: #fff;
+  border-bottom: 1px solid #e7ebee;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-transfer .ru-pilot-blocks > h2 {
+  max-width: 22ch;
+  font-size: clamp(36px, 3.8vw, 54px);
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-home-clarity {
+  padding: clamp(78px, 8vw, 108px) 0 !important;
+  background: #f4f6f8 !important;
+  border: 0 !important;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-section-head {
+  margin-bottom: 42px;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-section-head h2 {
+  max-width: 20ch;
+  color: var(--v5-navy);
+  font-size: clamp(36px, 3.8vw, 52px);
+  font-weight: 580;
+  letter-spacing: -.035em;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-grid {
+  gap: 0;
+  border-top: 1px solid rgba(35,58,82,.20);
+  border-bottom: 1px solid rgba(35,58,82,.14);
+  background: transparent;
+  box-shadow: none;
+}
+
 html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card {
-  min-height: 220px;
+  min-height: 240px;
+  padding: 34px 30px 32px;
   border: 0;
   border-radius: 0;
   background: transparent;
   box-shadow: none;
-}
-html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card + .v4-flow-card {
-  border-inline-start: 1px solid rgba(86,119,145,.16);
-}
-html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-icon {
-  width: 50px;
-  height: 50px;
-  margin: 18px auto 16px;
+  text-align: left;
 }
 
-/* Technology foundation: one system field; individual items are no longer icon-first cards. */
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .foundation-row {
-  position: relative;
-  overflow: hidden;
-  padding: 18px;
-  border: 1px solid rgba(86,119,145,.20);
-  border-radius: 24px;
-  background:
-    linear-gradient(rgba(49,95,139,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(49,95,139,.03) 1px, transparent 1px),
-    linear-gradient(145deg, rgba(255,255,255,.94), rgba(233,241,245,.80));
-  background-size: 34px 34px, 34px 34px, auto;
-  box-shadow: 0 16px 38px rgba(18,45,74,.06);
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card + .v4-flow-card {
+  border-left: 1px solid rgba(35,58,82,.14);
 }
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .foundation-row > * {
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card:not(:last-child)::after {
+  display: none;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-index {
+  position: static;
+  display: block;
+  margin-bottom: 34px;
+  color: var(--v5-gold);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-icon {
+  display: none;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card h3 {
+  margin-bottom: 14px;
+  color: var(--v5-navy);
+  font-size: 22px;
+  font-weight: 650;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card p {
+  color: #566574;
+  font-size: 15.5px;
+  line-height: 1.68;
+}
+
+/* Products remain icon-enabled because icons distinguish products. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products {
+  padding: clamp(82px, 8vw, 112px) 0;
+  background: #fff;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .band-head {
+  margin-bottom: 38px;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .product-row {
+  gap: 16px;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .line-card {
+  min-height: 260px;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  align-content: start;
+  gap: 18px;
+  padding: 30px 28px;
+  border: 1px solid rgba(35,58,82,.14);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: none;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .line-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(28,78,128,.28);
+  box-shadow: 0 18px 42px rgba(12,35,64,.08);
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-product-icon {
+  width: 64px !important;
+  height: 64px !important;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .line-go {
+  justify-self: end;
+  align-self: end;
+}
+
+/* Technology: one common deep-tech visual field; individual decorative icons disappear. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech {
   position: relative;
-  z-index: 1;
-  border-color: transparent !important;
-  background: rgba(255,255,255,.54) !important;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(88px, 9vw, 126px) 0;
+  background:
+    radial-gradient(ellipse at 88% 20%, rgba(83,132,169,.23), transparent 29%),
+    linear-gradient(118deg, #071a30, #0d2b49 70%, #153955);
+  color: #fff;
+  border: 0;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: min(46vw, 620px);
+  aspect-ratio: 1.7;
+  right: -8vw;
+  bottom: -16%;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255,255,255,.11), rgba(255,255,255,.02));
+  transform: rotate(-12deg);
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .band-head h2,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .kicker,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .text-link {
+  color: #fff;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .foundation-row {
+  margin-top: 34px;
+  padding: 0;
+  gap: 0;
+  border: 0;
+  border-top: 1px solid rgba(255,255,255,.20);
+  border-bottom: 1px solid rgba(255,255,255,.14);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .foundation-row article {
+  min-height: 240px;
+  padding: 34px 28px;
+  border: 0;
+  border-radius: 0;
+  background: transparent !important;
   box-shadow: none !important;
 }
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech-icon {
-  width: 48px !important;
-  height: 48px !important;
-  margin-bottom: 12px !important;
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .foundation-row article + article {
+  border-left: 1px solid rgba(255,255,255,.14);
 }
 
-/* AZEVSM SECURE on home: protected contour / isolated processing boundary. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech-icon {
+  display: none !important;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .foundation-row h3 {
+  margin-bottom: 14px;
+  color: #fff;
+  font-size: 23px;
+  font-weight: 620;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .foundation-row p {
+  color: rgba(235,243,249,.76);
+  font-size: 15.5px;
+  line-height: 1.68;
+}
+
+/* Secure: one controlled protected visual field, not another icon card. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure {
+  padding: clamp(76px, 8vw, 108px) 0;
+  background: #eef2f5;
+}
+
 html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-card {
   position: relative;
   overflow: hidden;
-  grid-template-columns: minmax(0,1fr) 290px;
-  min-height: 310px;
+  min-height: 420px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 24px 58px rgba(9,29,49,.08);
 }
+
 html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-card::after {
   content: "";
   grid-column: 2;
   grid-row: 1;
-  align-self: stretch;
-  justify-self: stretch;
-  margin: 2px;
-  border: 1px solid rgba(49,95,139,.22);
-  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
   background:
-    radial-gradient(circle at 50% 48%, rgba(49,95,139,.12), transparent 36%),
-    linear-gradient(rgba(49,95,139,.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(49,95,139,.04) 1px, transparent 1px),
-    linear-gradient(145deg, #f8fbfc, #e4edf2);
-  background-size: auto, 30px 30px, 30px 30px, auto;
+    radial-gradient(ellipse at 52% 42%, rgba(112,159,194,.22), transparent 36%),
+    linear-gradient(140deg, #07192d, #10314e);
   box-shadow:
-    inset 0 0 0 14px rgba(255,255,255,.45),
-    inset 0 0 0 15px rgba(49,95,139,.07);
+    inset 0 0 0 24px rgba(255,255,255,.025),
+    inset 0 0 0 25px rgba(255,255,255,.08);
 }
-html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-icon {
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-card::before {
+  content: "";
   position: absolute;
-  right: 36px;
-  bottom: 30px;
+  right: 8%;
+  top: 15%;
+  width: 28%;
+  aspect-ratio: 1;
   z-index: 2;
-  width: 58px !important;
-  height: 58px !important;
-  padding: 9px;
-  border: 1px solid rgba(255,255,255,.72);
-  border-radius: 16px;
-  background: rgba(255,255,255,.90);
-  box-shadow: 0 10px 24px rgba(10,34,58,.11);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 32px;
+  transform: rotate(10deg);
+  background: linear-gradient(145deg, rgba(255,255,255,.11), rgba(255,255,255,.015));
 }
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-icon {
+  display: none !important;
+}
+
 html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-copy {
   grid-column: 1;
   grid-row: 1;
   align-self: center;
-  padding-right: 14px;
+  padding: clamp(38px, 5vw, 64px);
 }
 
-/* Keep functional product/category icons compact and consistent. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-copy h2 {
+  max-width: 17ch;
+  font-size: clamp(34px, 3.4vw, 48px);
+  line-height: 1.08;
+  font-weight: 580;
+  letter-spacing: -.035em;
+}
+
+/* Why: plain institutional proof points, no decorative icon row. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-why {
+  padding: clamp(76px, 8vw, 108px) 0;
+  background: #fff;
+  border-top: 0;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-why .why-row {
+  gap: 0;
+  margin-top: 34px;
+  border-top: 1px solid rgba(35,58,82,.16);
+  border-bottom: 1px solid rgba(35,58,82,.12);
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-why .why-row article {
+  min-height: 210px;
+  padding: 32px 28px;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  box-shadow: none;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-why .why-row article + article {
+  border-left: 1px solid rgba(35,58,82,.13);
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-why-icon {
+  display: none !important;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-nav-strip {
+  padding: 42px 0 54px;
+  background: #f5f7f8;
+  border-top: 1px solid #e7ebee;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-company {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(84px, 9vw, 128px) 0;
+  background:
+    radial-gradient(ellipse at 86% 24%, rgba(76,123,160,.22), transparent 28%),
+    linear-gradient(120deg, #07182b, #0d2a47);
+}
+
+/* ---------- FUNCTIONAL CARDS ---------- */
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-products-grid {
+  gap: 16px;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-product-card,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-card,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card {
+  border: 1px solid rgba(35,58,82,.14);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: none;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-product-card {
+  min-height: 250px;
+  padding: 28px;
+}
+
 html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-product-card-icon {
-  width: 72px;
-  height: 72px;
+  width: 68px;
+  height: 68px;
 }
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-card {
+  min-height: 170px;
+  grid-template-columns: 54px minmax(0,1fr) auto;
+  align-items: center;
+  padding: 24px;
+}
+
 html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-icon {
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
 }
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-card span {
+  grid-column: 2;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-card i {
+  grid-column: 3;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card {
+  padding: 28px;
+}
+
 html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-icon {
-  width: 58px;
-  height: 58px;
-  flex-basis: 58px;
+  width: 56px;
+  height: 56px;
+  flex-basis: 56px;
+  border: 0;
+  border-radius: 12px;
+  background: #f1f5f7;
 }
 
-/* Tablet */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-repro {
+  margin-top: 76px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-repro-grid {
+  gap: 0;
+  margin-top: 34px;
+  border-top: 1px solid rgba(35,58,82,.15);
+  border-bottom: 1px solid rgba(35,58,82,.12);
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-repro-grid article {
+  min-height: 210px;
+  padding: 28px 22px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-repro-grid article + article {
+  border-left: 1px solid rgba(35,58,82,.12);
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-repro-icon {
+  display: none !important;
+}
+
+/* ---------- RESULT SYSTEM ---------- */
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-intro,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-previews,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-why {
+  background: #fff;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-grid {
+  gap: 12px;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-card {
+  min-height: 210px;
+  padding: 24px 22px;
+  border: 1px solid rgba(35,58,82,.13);
+  border-radius: 14px;
+  background: #fff;
+  text-align: left;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-icon {
+  width: 42px;
+  height: 42px;
+  margin: 0 0 18px;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-system-band {
+  padding: 58px 0;
+  background: #0a223b;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-card {
+  border: 1px solid rgba(35,58,82,.13);
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+/* ---------- TABLET ---------- */
+
 @media (min-width: 681px) and (max-width: 1024px) {
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-thematic-hero-art {
-    min-height: 280px;
-    border-radius: 24px;
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-grid,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-inner {
+    width: min(100% - 48px, 960px);
   }
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-hero-topic-grid {
-    left: 92px;
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-grid {
+    grid-template-columns: minmax(0, 1fr) 250px;
+    gap: 36px;
   }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero h1 {
+    font-size: clamp(42px, 5.7vw, 58px);
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-inner {
+    min-height: 430px;
+    grid-template-columns: minmax(0,1fr) minmax(280px,.7fr);
+    gap: 36px;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero h1 {
+    font-size: clamp(40px, 5.5vw, 54px);
+  }
+
   html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-card {
-    grid-template-columns: minmax(0,1fr) 240px;
+    grid-template-columns: minmax(0,1fr) 280px;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .line-card {
+    min-height: 230px;
   }
 }
 
-/* Mobile: visuals remain secondary to reading and never force overflow. */
+/* ---------- MOBILE ---------- */
+
 @media (max-width: 680px) {
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel {
-    width: min(100%, 300px) !important;
-    max-width: 300px !important;
-    padding: 18px 16px;
-    border-radius: 22px;
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero {
+    min-height: 0;
   }
 
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-thematic-hero-art {
-    width: min(100%, 360px);
-    min-height: 190px;
-    justify-self: center;
-    border-radius: 20px;
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-scrim {
+    background:
+      linear-gradient(180deg,
+        rgba(6,20,37,.92) 0%,
+        rgba(6,20,37,.84) 48%,
+        rgba(6,20,37,.55) 78%,
+        rgba(6,20,37,.38) 100%);
   }
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-thematic-hero-art::after {
-    inset: 20px 22px 68px;
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-grid {
+    width: calc(100% - 40px);
+    min-height: 0;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 54px 0 58px;
+    text-align: left;
   }
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-hero-art-core {
-    left: 14px;
-    bottom: 14px;
-    width: 54px;
-    height: 54px;
-    padding: 7px;
-    border-radius: 14px;
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-copy {
+    text-align: left;
   }
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-hero-founder-icon,
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-platform-hero-icon,
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-company-mark,
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-research-mark {
-    width: 40px !important;
-    height: 40px !important;
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero h1 {
+    max-width: 100%;
+    margin-inline: 0;
+    font-size: clamp(38px, 11vw, 50px);
+    line-height: 1.02;
+    text-align: left;
   }
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-company-mark img,
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-research-mark img {
-    width: 40px !important;
-    height: 40px !important;
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-lead {
+    width: 100%;
+    max-width: 36ch;
+    margin-inline: 0;
+    color: rgba(255,255,255,.82);
+    text-align: left;
   }
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-products-hero-icons .founder-icon {
-    width: 23px !important;
-    height: 23px !important;
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    width: min(100%, 290px) !important;
+    max-width: 290px !important;
+    justify-self: center !important;
   }
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-hero-topic-grid {
-    display: none !important;
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis {
+    max-width: 290px;
+    padding: 24px 0;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-inner {
+    width: calc(100% - 40px);
+    min-height: 0;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 54px 0 44px;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-copy {
+    width: 100%;
+    text-align: left;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero h1 {
+    max-width: 100%;
+    margin-inline: 0;
+    font-size: clamp(36px, 10.5vw, 48px);
+    line-height: 1.02;
+    text-align: left;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-lead {
+    width: 100%;
+    max-width: 36ch;
+    margin-inline: 0;
+    font-size: 16px;
+    line-height: 1.62;
+    text-align: left;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-thematic-hero-art {
+    min-height: 120px;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero::after {
+    width: 92vw;
+    right: -42vw;
+    opacity: .72;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight {
+    padding-top: 54px;
+    padding-bottom: 72px;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-prose > h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-section > h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-repro > h2 {
+    width: 100%;
+    margin: 52px auto 18px;
+    font-size: clamp(29px, 8.2vw, 36px);
+    line-height: 1.08;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-blocks > p,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-section > p,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-repro > p,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-intro {
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.68;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-transfer,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-home-clarity,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-why {
+    padding-top: 58px !important;
+    padding-bottom: 66px !important;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-section-head h2,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-transfer .ru-pilot-blocks > h2 {
+    font-size: clamp(30px, 8.8vw, 38px);
   }
 
   html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-grid {
     grid-template-columns: 1fr;
-    border-radius: 20px;
   }
+
   html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card {
     min-height: 0;
-    padding: 20px 18px;
+    padding: 26px 18px;
   }
+
   html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card + .v4-flow-card {
-    border-inline-start: 0;
-    border-top: 1px solid rgba(86,119,145,.16);
+    border-left: 0;
+    border-top: 1px solid rgba(35,58,82,.14);
   }
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-icon {
-    width: 44px;
-    height: 44px;
-    margin: 12px auto 12px;
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-index {
+    margin-bottom: 18px;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .product-row {
+    grid-template-columns: 1fr;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-products .line-card {
+    min-height: 0;
+    padding: 24px 22px;
   }
 
   html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .foundation-row {
-    padding: 12px;
-    border-radius: 20px;
+    grid-template-columns: 1fr;
   }
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech-icon {
-    width: 42px !important;
-    height: 42px !important;
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .foundation-row article {
+    min-height: 0;
+    padding: 26px 18px;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .foundation-row article + article {
+    border-left: 0;
+    border-top: 1px solid rgba(255,255,255,.14);
   }
 
   html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-card {
-    display: block;
     min-height: 0;
-    padding: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    border-radius: 18px;
   }
+
   html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-card::after {
     display: block;
     width: 100%;
-    height: 156px;
-    margin: 0;
-    border-radius: 0;
-  }
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-copy {
-    padding: 22px 20px 24px;
-  }
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-icon {
-    right: 18px;
-    top: 104px;
-    bottom: auto;
-    width: 48px !important;
-    height: 48px !important;
-    padding: 7px;
+    height: 190px;
   }
 
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-product-card-icon {
-    width: 62px;
-    height: 62px;
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-card::before {
+    right: 18%;
+    top: 42px;
+    width: 42%;
   }
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-icon {
-    width: 46px;
-    height: 46px;
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-copy {
+    padding: 26px 22px 30px;
   }
-  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-icon {
-    width: 52px;
-    height: 52px;
-    flex-basis: 52px;
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-copy h2 {
+    max-width: none;
+    font-size: 31px;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-why .why-row {
+    grid-template-columns: 1fr;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-why .why-row article {
+    min-height: 0;
+    padding: 26px 18px;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-why .why-row article + article {
+    border-left: 0;
+    border-top: 1px solid rgba(35,58,82,.13);
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-product-card {
+    min-height: 0;
+    grid-template-columns: 62px minmax(0,1fr);
+    padding: 22px;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-card {
+    min-height: 0;
+    grid-template-columns: 46px minmax(0,1fr) auto;
+    padding: 20px 18px;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-grid,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-repro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-repro-grid article {
+    min-height: 0;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-repro-grid article + article {
+    border-left: 0;
+    border-top: 1px solid rgba(35,58,82,.12);
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-card {
+    min-height: 0;
   }
 }
