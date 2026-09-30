@@ -9040,3 +9040,203 @@ html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
     border-top: 1px solid rgba(255,255,255,.11);
   }
 }
+
+
+/* RU CORPORATE HOME — ACCEPTED COMPOSITION CORRECTION 2026-09-30 */
+html[lang="ru"] .ru-corporate-gateway {
+  min-height: auto !important;
+  align-items: flex-start !important;
+}
+html[lang="ru"] .ru-gateway-inner {
+  width: min(calc(100% - 56px), 1240px) !important;
+  padding: 40px 0 38px !important;
+}
+html[lang="ru"] .ru-gateway-copy {
+  width: min(100%, 1120px) !important;
+}
+html[lang="ru"] .ru-gateway-copy h1 {
+  max-width: 20ch !important;
+  font-size: clamp(44px,4.15vw,64px) !important;
+  line-height: 1.04 !important;
+}
+html[lang="ru"] .ru-gateway-lead {
+  width: min(100%,1040px) !important;
+  margin-top: 20px !important;
+  font-size: 15.5px !important;
+  line-height: 1.62 !important;
+}
+html[lang="ru"] .ru-gateway-primary {
+  grid-template-columns: repeat(auto-fit,minmax(330px,1fr)) !important;
+  gap: 14px !important;
+  margin-top: 30px !important;
+}
+html[lang="ru"] .ru-gateway-card {
+  min-height: 168px !important;
+  grid-template-columns: 86px minmax(0,1fr) 26px !important;
+  gap: 22px !important;
+  padding: 24px 24px !important;
+}
+html[lang="ru"] .ru-gateway-card-icon .founder-icon {
+  width: 84px !important;
+  height: 84px !important;
+  padding: 8px !important;
+}
+html[lang="ru"] .ru-gateway-card-copy strong {
+  font-size: 24px !important;
+}
+html[lang="ru"] .ru-gateway-card-copy span {
+  font-size: 14px !important;
+  line-height: 1.48 !important;
+}
+html[lang="ru"] .ru-gateway-secondary {
+  margin-top: 20px !important;
+}
+html[lang="ru"] .ru-gateway-secondary-link {
+  min-height: 96px !important;
+  padding: 18px 20px !important;
+}
+html[lang="ru"] .ru-gateway-bottom {
+  margin-top: 20px !important;
+}
+html[lang="ru"] .ru-corporate-home-header .wordmark img {
+  width: 40px !important;
+  height: auto !important;
+}
+html[lang="ru"] .ru-corporate-home-header .wordmark strong {
+  font-size: 17px !important;
+}
+html[lang="ru"] .ru-corporate-home-header .wordmark-text > span {
+  font-size: 10px !important;
+  letter-spacing: .11em !important;
+}
+
+@media (max-width: 980px) {
+  html[lang="ru"] .ru-gateway-inner {
+    width: min(calc(100% - 36px),860px) !important;
+    padding: 30px 0 34px !important;
+  }
+  html[lang="ru"] .ru-gateway-copy h1 {
+    font-size: clamp(36px,7vw,52px) !important;
+    max-width: 18ch !important;
+  }
+  html[lang="ru"] .ru-gateway-lead {
+    max-width: 720px !important;
+    font-size: 14.5px !important;
+  }
+  html[lang="ru"] .ru-gateway-primary {
+    grid-template-columns: 1fr !important;
+    gap: 11px !important;
+    margin-top: 26px !important;
+  }
+  html[lang="ru"] .ru-gateway-card {
+    min-height: 126px !important;
+    grid-template-columns: 74px minmax(0,1fr) 24px !important;
+    padding: 18px 18px !important;
+  }
+  html[lang="ru"] .ru-gateway-card-icon .founder-icon {
+    width: 70px !important;
+    height: 70px !important;
+  }
+  html[lang="ru"] .ru-gateway-card-copy strong {
+    font-size: 20px !important;
+  }
+  html[lang="ru"] .ru-gateway-secondary {
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  }
+  html[lang="ru"] .ru-gateway-secondary-link {
+    min-height: 92px !important;
+  }
+  html[lang="ru"] .ru-gateway-bottom {
+    margin-top: 18px !important;
+  }
+}
+
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-gateway-inner {
+    width: calc(100% - 28px) !important;
+    padding: 22px 0 28px !important;
+  }
+  html[lang="ru"] .ru-gateway-eyebrow {
+    margin-bottom: 12px !important;
+  }
+  html[lang="ru"] .ru-gateway-copy h1 {
+    max-width: 100% !important;
+    font-size: clamp(32px,8.9vw,40px) !important;
+    line-height: 1.08 !important;
+  }
+  html[lang="ru"] .ru-gateway-lead {
+    margin-top: 16px !important;
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+  html[lang="ru"] .ru-gateway-primary {
+    margin-top: 22px !important;
+  }
+  html[lang="ru"] .ru-gateway-card {
+    width: 100% !important;
+    min-height: 118px !important;
+    grid-template-columns: 66px minmax(0,1fr) 22px !important;
+    gap: 14px !important;
+    padding: 16px 16px !important;
+  }
+  html[lang="ru"] .ru-gateway-card-icon .founder-icon {
+    width: 64px !important;
+    height: 64px !important;
+    padding: 5px !important;
+  }
+  html[lang="ru"] .ru-gateway-card-copy strong {
+    font-size: 19px !important;
+  }
+  html[lang="ru"] .ru-gateway-card-copy span {
+    font-size: 12.5px !important;
+    line-height: 1.4 !important;
+  }
+  html[lang="ru"] .ru-gateway-secondary {
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+    margin-top: 14px !important;
+  }
+  html[lang="ru"] .ru-gateway-secondary-link {
+    min-height: 96px !important;
+    padding: 14px 10px !important;
+  }
+  html[lang="ru"] .ru-gateway-secondary-link strong {
+    font-size: 13.5px !important;
+  }
+  html[lang="ru"] .ru-gateway-secondary-link small {
+    font-size: 11px !important;
+  }
+  html[lang="ru"] .ru-gateway-bottom {
+    margin-top: 16px !important;
+  }
+  html[lang="ru"] .ru-gateway-proof {
+    margin-bottom: 2px !important;
+  }
+  html[lang="ru"] .ru-gateway-actions {
+    gap: 9px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark img {
+    width: 34px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark strong {
+    font-size: 15px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark-text > span {
+    font-size: 8.5px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  html[lang="ru"] .ru-gateway-secondary {
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  }
+  html[lang="ru"] .ru-gateway-secondary-link {
+    grid-template-columns: 32px minmax(0,1fr) !important;
+    gap: 8px !important;
+    min-height: 92px !important;
+    padding: 12px 8px !important;
+  }
+  html[lang="ru"] .ru-gateway-secondary-icon .founder-icon {
+    width: 32px !important;
+    height: 32px !important;
+  }
+}
