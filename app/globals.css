@@ -7158,49 +7158,120 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .menu-toggl
 
 
 /* WEBSITE-V5 CORPORATE VISUAL SYSTEM — 2026-09-30 */
+/* CONTENT / SEMANTICS / ROUTES ARE UNCHANGED. VISUAL LAYER ONLY. */
 
-/* Internal page hero: image first, icon second. */
-html[lang="ru"] .ru-pilot-hero .ru-thematic-hero-art {
-  position: relative;
-  overflow: hidden;
-  min-height: 300px;
-  border-radius: 26px;
-  border: 1px solid rgba(92,118,140,.18);
-  background:
-    linear-gradient(180deg, rgba(11,34,59,.04), rgba(11,34,59,.24)),
-    url("/hero-office.jpg") center/cover no-repeat;
-  box-shadow: 0 24px 58px rgba(18,45,74,.12);
+:root {
+  --v5-navy: #102846;
+  --v5-blue: #315f8b;
+  --v5-blue-soft: rgba(49,95,139,.18);
+  --v5-gold: #9b793d;
+  --v5-line: rgba(86,119,145,.22);
+  --v5-paper: #f7fafc;
+  --v5-ice: #e8f0f4;
 }
 
-html[lang="ru"] .ru-pilot-hero .ru-hero-art-core {
+/* Main home hero: one quiet corporate-technological field behind the existing mark stack. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 24px 22px 22px;
+  border: 1px solid rgba(87,118,143,.18);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(49,95,139,.14), transparent 30%),
+    radial-gradient(circle at 24% 84%, rgba(155,121,61,.10), transparent 26%),
+    linear-gradient(145deg, rgba(255,255,255,.92), rgba(232,240,244,.78));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.88),
+    0 22px 54px rgba(17,43,70,.09);
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel::before {
+  content: "";
   position: absolute;
-  inset: auto auto 20px 20px;
-  width: 74px;
-  height: 74px;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(49,95,139,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(49,95,139,.035) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(150deg, rgba(0,0,0,.65), transparent 76%);
+}
+
+/* Inner-page hero: visual-first field, no generic stock photography. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-thematic-hero-art {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: min(100%, 540px);
+  min-height: 330px;
+  justify-self: end;
+  border: 1px solid rgba(86,119,145,.22);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 78% 26%, rgba(62,105,144,.16), transparent 28%),
+    linear-gradient(145deg, rgba(255,255,255,.94), rgba(230,239,244,.78));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.9),
+    0 24px 58px rgba(18,45,74,.10);
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-thematic-hero-art::before,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-thematic-hero-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-thematic-hero-art::before {
+  background-image:
+    linear-gradient(rgba(49,95,139,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(49,95,139,.035) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,.78), transparent 84%);
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-thematic-hero-art::after {
+  inset: 28px;
+  border: 1px solid rgba(49,95,139,.10);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(49,95,139,.11) 0 4px, transparent 5px),
+    radial-gradient(circle at 52% 58%, rgba(155,121,61,.16) 0 4px, transparent 5px),
+    radial-gradient(circle at 82% 34%, rgba(49,95,139,.12) 0 4px, transparent 5px),
+    linear-gradient(145deg, transparent 0 46%, rgba(49,95,139,.08) 46.3% 46.8%, transparent 47.1%);
+}
+
+/* Small functional mark only; it no longer drives the hero. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-hero-art-core {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  z-index: 3;
+  width: 70px;
+  height: 70px;
   min-height: 0;
   display: grid;
   place-items: center;
   padding: 10px;
+  border: 1px solid rgba(255,255,255,.72);
   border-radius: 18px;
-  background: rgba(255,255,255,.88);
-  border: 1px solid rgba(255,255,255,.68);
-  box-shadow: 0 12px 28px rgba(10,34,58,.14);
+  background: rgba(255,255,255,.90);
+  box-shadow: 0 12px 28px rgba(10,34,58,.12);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  z-index: 2;
 }
-
-html[lang="ru"] .ru-pilot-hero .ru-hero-founder-icon,
-html[lang="ru"] .ru-pilot-hero .ru-platform-hero-icon {
-  width: 54px !important;
-  height: 54px !important;
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-hero-founder-icon,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-platform-hero-icon {
+  width: 50px !important;
+  height: 50px !important;
   margin: 0 !important;
   filter: none !important;
 }
-
-html[lang="ru"] .ru-pilot-hero .ru-company-mark,
-html[lang="ru"] .ru-pilot-hero .ru-research-mark {
-  width: 54px !important;
-  height: 54px !important;
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-company-mark,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-research-mark {
+  width: 50px !important;
+  height: 50px !important;
   aspect-ratio: auto;
   margin: 0 !important;
   transform: none !important;
@@ -7208,149 +7279,520 @@ html[lang="ru"] .ru-pilot-hero .ru-research-mark {
   border: 0 !important;
   box-shadow: none !important;
 }
-html[lang="ru"] .ru-pilot-hero .ru-company-mark img,
-html[lang="ru"] .ru-pilot-hero .ru-research-mark img {
-  width: 54px !important;
-  height: 54px !important;
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-company-mark img,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-research-mark img {
+  width: 50px !important;
+  height: 50px !important;
   object-fit: contain;
 }
-
-html[lang="ru"] .ru-pilot-hero .ru-products-hero-icons {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-products-hero-icons {
   gap: 2px !important;
 }
-html[lang="ru"] .ru-pilot-hero .ru-products-hero-icons .founder-icon {
-  width: 30px !important;
-  height: 30px !important;
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-products-hero-icons .founder-icon {
+  width: 28px !important;
+  height: 28px !important;
   transform: none !important;
 }
 
-/* Topic labels stay readable but secondary to the visual. */
-html[lang="ru"] .ru-pilot-hero .ru-hero-topic-grid {
+/* Existing page headings may appear as a secondary rail; the visual remains primary. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-hero-topic-grid {
   position: absolute;
-  left: 108px;
+  left: 104px;
   right: 18px;
   bottom: 18px;
+  z-index: 3;
   width: auto;
   margin: 0;
-  padding: 10px 12px;
+  padding: 9px 12px;
+  border: 1px solid rgba(255,255,255,.58);
   border-radius: 16px;
   background: rgba(255,255,255,.88);
+  box-shadow: 0 10px 24px rgba(10,34,58,.09);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  box-shadow: 0 10px 24px rgba(10,34,58,.10);
 }
-html[lang="ru"] .ru-pilot-hero .ru-hero-topic {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-hero-topic {
   min-height: 0;
   padding: 6px 0;
   border-top: 0;
   border-bottom: 1px solid rgba(85,110,131,.12);
   font-size: 12px;
 }
-html[lang="ru"] .ru-pilot-hero .ru-hero-topic:last-child {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-hero-topic:last-child {
   border-bottom: 0;
 }
 
-/* Regular section headings return to typography-led presentation. */
-html[lang="ru"] .ru-authority-section .ru-pilot-blocks > h2,
-html[lang="ru"] .ru-existing-section .ru-pilot-blocks > h2,
-html[lang="ru"] .ru-product-authority-section .ru-pilot-blocks > h2 {
+/* PLATFORM — controlled movement and structured connections. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--platform .ru-thematic-hero-art {
+  background:
+    radial-gradient(circle at 20% 28%, rgba(49,95,139,.15), transparent 22%),
+    radial-gradient(circle at 82% 72%, rgba(49,95,139,.11), transparent 24%),
+    linear-gradient(145deg, #f8fbfc, #e6eef3);
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--platform .ru-thematic-hero-art::after {
+  inset: 34px 36px 82px;
+  border: 0;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 10% 52%, #315f8b 0 4px, transparent 5px),
+    radial-gradient(circle at 48% 30%, #9b793d 0 4px, transparent 5px),
+    radial-gradient(circle at 76% 60%, #315f8b 0 4px, transparent 5px),
+    radial-gradient(circle at 92% 22%, #315f8b 0 4px, transparent 5px),
+    linear-gradient(16deg, transparent 0 31%, rgba(49,95,139,.22) 31.3% 31.8%, transparent 32.1%),
+    linear-gradient(160deg, transparent 0 48%, rgba(49,95,139,.18) 48.3% 48.8%, transparent 49.1%);
+}
+
+/* PRODUCTS — three distinct product anchors remain small and functional. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--products .ru-thematic-hero-art {
+  background:
+    radial-gradient(circle at 24% 34%, rgba(49,95,139,.16), transparent 20%),
+    radial-gradient(circle at 52% 58%, rgba(155,121,61,.12), transparent 18%),
+    radial-gradient(circle at 82% 30%, rgba(49,95,139,.12), transparent 20%),
+    linear-gradient(145deg, #f8fbfc, #e7eff3);
+}
+
+/* AZEVSM INDEX — field, clustering and structured comparison without invented scores. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--index .ru-thematic-hero-art,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--index-field .ru-thematic-hero-art {
+  background:
+    radial-gradient(circle at 68% 36%, rgba(49,95,139,.16), transparent 24%),
+    radial-gradient(circle at 36% 68%, rgba(155,121,61,.11), transparent 20%),
+    linear-gradient(145deg, #f8fbfc, #e6eef3);
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--index .ru-thematic-hero-art::after,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--index-field .ru-thematic-hero-art::after {
+  inset: 30px 34px 84px;
+  border: 0;
+  border-radius: 0;
+  background-image:
+    radial-gradient(circle, rgba(49,95,139,.58) 0 3px, transparent 4px),
+    radial-gradient(circle, rgba(155,121,61,.52) 0 3px, transparent 4px);
+  background-position: 0 0, 18px 18px;
+  background-size: 36px 36px;
+  mask-image: radial-gradient(ellipse at 58% 46%, #000 0 52%, transparent 78%);
+}
+
+/* INSTITUTIONAL / IIT 4D — four linked analytical dimensions, no calculation logic exposed. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--institutional .ru-thematic-hero-art {
+  background:
+    radial-gradient(circle at 28% 30%, rgba(49,95,139,.14), transparent 18%),
+    radial-gradient(circle at 72% 30%, rgba(49,95,139,.12), transparent 18%),
+    radial-gradient(circle at 28% 70%, rgba(155,121,61,.10), transparent 18%),
+    radial-gradient(circle at 72% 70%, rgba(49,95,139,.10), transparent 18%),
+    linear-gradient(145deg, #f8fbfc, #e6eef3);
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--institutional .ru-thematic-hero-art::after {
+  inset: 42px 50px 90px;
+  border: 0;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 25% 28%, transparent 0 26px, rgba(49,95,139,.30) 27px 28px, transparent 29px),
+    radial-gradient(circle at 75% 28%, transparent 0 26px, rgba(49,95,139,.24) 27px 28px, transparent 29px),
+    radial-gradient(circle at 25% 74%, transparent 0 26px, rgba(155,121,61,.28) 27px 28px, transparent 29px),
+    radial-gradient(circle at 75% 74%, transparent 0 26px, rgba(49,95,139,.20) 27px 28px, transparent 29px),
+    linear-gradient(45deg, transparent 49.5%, rgba(49,95,139,.13) 49.8% 50.2%, transparent 50.5%),
+    linear-gradient(-45deg, transparent 49.5%, rgba(49,95,139,.13) 49.8% 50.2%, transparent 50.5%);
+}
+
+/* AZEVSM PLUS — restrained system field; seven service icons stay in the service cards below. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--plus .ru-thematic-hero-art {
+  background:
+    radial-gradient(circle at 76% 24%, rgba(49,95,139,.15), transparent 22%),
+    radial-gradient(circle at 28% 72%, rgba(155,121,61,.12), transparent 22%),
+    linear-gradient(145deg, #f9fbfc, #e7eff3);
+}
+
+/* TECHNOLOGY — scientific / graph-like structure, not an internal architecture diagram. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--technology .ru-thematic-hero-art,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--insights .ru-thematic-hero-art {
+  background:
+    radial-gradient(circle at 68% 34%, rgba(49,95,139,.16), transparent 24%),
+    radial-gradient(circle at 30% 74%, rgba(155,121,61,.09), transparent 18%),
+    linear-gradient(145deg, #f8fbfc, #e5eef3);
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--technology .ru-thematic-hero-art::after,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--insights .ru-thematic-hero-art::after {
+  inset: 32px 34px 84px;
+  border: 0;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 12% 64%, rgba(49,95,139,.62) 0 4px, transparent 5px),
+    radial-gradient(circle at 38% 24%, rgba(49,95,139,.54) 0 4px, transparent 5px),
+    radial-gradient(circle at 58% 62%, rgba(155,121,61,.56) 0 4px, transparent 5px),
+    radial-gradient(circle at 84% 30%, rgba(49,95,139,.55) 0 4px, transparent 5px),
+    linear-gradient(24deg, transparent 0 32%, rgba(49,95,139,.18) 32.2% 32.7%, transparent 33%),
+    linear-gradient(154deg, transparent 0 48%, rgba(49,95,139,.14) 48.2% 48.7%, transparent 49%);
+}
+
+/* WHITE BOX — result → evidence base → permitted explanation as an abstract three-part motif. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--whitebox .ru-thematic-hero-art {
+  background:
+    linear-gradient(90deg,
+      rgba(49,95,139,.08) 0 30%,
+      transparent 30% 35%,
+      rgba(155,121,61,.07) 35% 65%,
+      transparent 65% 70%,
+      rgba(49,95,139,.06) 70% 100%),
+    linear-gradient(145deg, #fbfcfd, #e8f0f4);
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--whitebox .ru-thematic-hero-art::after {
+  inset: 48px 42px 92px;
+  border: 0;
+  border-radius: 0;
+  background:
+    linear-gradient(90deg,
+      transparent 0 29%,
+      rgba(49,95,139,.22) 29.4% 29.8%,
+      transparent 30.2% 64%,
+      rgba(155,121,61,.22) 64.4% 64.8%,
+      transparent 65.2%);
+}
+
+/* TRUST / VALIDATION — traceable evidence trail. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--trust .ru-thematic-hero-art,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--validation .ru-thematic-hero-art,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--result .ru-thematic-hero-art {
+  background:
+    radial-gradient(circle at 76% 26%, rgba(49,95,139,.14), transparent 22%),
+    linear-gradient(145deg, #f8fbfc, #e6eef3);
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--trust .ru-thematic-hero-art::after,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--validation .ru-thematic-hero-art::after,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--result .ru-thematic-hero-art::after {
+  inset: 38px 42px 88px;
+  border: 0;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 8% 58%, #315f8b 0 4px, transparent 5px),
+    radial-gradient(circle at 36% 40%, #315f8b 0 4px, transparent 5px),
+    radial-gradient(circle at 64% 62%, #9b793d 0 4px, transparent 5px),
+    radial-gradient(circle at 92% 34%, #315f8b 0 4px, transparent 5px),
+    linear-gradient(18deg, transparent 0 47%, rgba(49,95,139,.22) 47.3% 47.8%, transparent 48.1%);
+}
+
+/* DIFFERENCE — two analytical fields with a controlled shared boundary. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--difference .ru-thematic-hero-art {
+  background:
+    linear-gradient(90deg, rgba(49,95,139,.08) 0 48.8%, rgba(155,121,61,.18) 49.2% 50.8%, rgba(49,95,139,.035) 51.2% 100%),
+    linear-gradient(145deg, #f9fbfc, #e8f0f4);
+}
+
+/* DATA SECURITY / SECURE — isolated processing boundary, not an internal system diagram. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--data-security .ru-thematic-hero-art,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--security .ru-thematic-hero-art,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--privacy .ru-thematic-hero-art {
+  background:
+    radial-gradient(circle at 50% 46%, rgba(49,95,139,.13), transparent 34%),
+    linear-gradient(145deg, #f8fbfc, #e4edf2);
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--data-security .ru-thematic-hero-art::after,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--security .ru-thematic-hero-art::after,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--privacy .ru-thematic-hero-art::after {
+  inset: 38px 54px 94px;
+  border: 1px solid rgba(49,95,139,.28);
+  border-radius: 34px;
+  box-shadow:
+    inset 0 0 0 14px rgba(255,255,255,.46),
+    inset 0 0 0 15px rgba(49,95,139,.07);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(49,95,139,.10), transparent 44%);
+}
+
+/* LEGAL / TERMS / COOKIES / ACCESSIBILITY / ENTER — strict corporate minimalism. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--legal-compliance .ru-thematic-hero-art,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--terms .ru-thematic-hero-art,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--cookies .ru-thematic-hero-art,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--accessibility .ru-thematic-hero-art,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--enter .ru-thematic-hero-art {
+  min-height: 270px;
+  background:
+    linear-gradient(90deg, transparent 0 20%, rgba(49,95,139,.07) 20.2% 20.5%, transparent 20.7% 79%, rgba(155,121,61,.08) 79.2% 79.5%, transparent 79.7%),
+    linear-gradient(145deg, #fbfcfd, #edf3f6);
+  box-shadow: 0 18px 44px rgba(18,45,74,.07);
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--legal-compliance .ru-thematic-hero-art::after,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--terms .ru-thematic-hero-art::after,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--cookies .ru-thematic-hero-art::after,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--accessibility .ru-thematic-hero-art::after,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--enter .ru-thematic-hero-art::after {
+  inset: 48px 54px 84px;
+  border: 0;
+  border-top: 1px solid rgba(49,95,139,.16);
+  border-bottom: 1px solid rgba(49,95,139,.11);
+  border-radius: 0;
+  background: none;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--legal-compliance .ru-hero-topic-grid,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--terms .ru-hero-topic-grid,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--cookies .ru-hero-topic-grid,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--accessibility .ru-hero-topic-grid {
+  display: none;
+}
+
+/* COMPANY — research-and-technology identity, deliberately avoiding office/handshake imagery. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--company .ru-thematic-hero-art {
+  background:
+    radial-gradient(circle at 72% 28%, rgba(49,95,139,.15), transparent 22%),
+    radial-gradient(circle at 26% 74%, rgba(155,121,61,.09), transparent 18%),
+    linear-gradient(145deg, #f8fbfc, #e5eef3);
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--company .ru-thematic-hero-art::after {
+  inset: 34px 38px 88px;
+  border: 0;
+  border-radius: 0;
+  background:
+    linear-gradient(24deg, transparent 0 33%, rgba(49,95,139,.15) 33.2% 33.7%, transparent 34%),
+    linear-gradient(156deg, transparent 0 52%, rgba(155,121,61,.13) 52.2% 52.7%, transparent 53%),
+    radial-gradient(circle at 18% 66%, rgba(49,95,139,.50) 0 4px, transparent 5px),
+    radial-gradient(circle at 46% 36%, rgba(49,95,139,.48) 0 4px, transparent 5px),
+    radial-gradient(circle at 78% 56%, rgba(155,121,61,.50) 0 4px, transparent 5px);
+}
+
+/* Ordinary content headings are typography-led; decorative heading icons stay removed. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-authority-section .ru-pilot-blocks > h2,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-existing-section .ru-pilot-blocks > h2,
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-product-authority-section .ru-pilot-blocks > h2 {
   width: min(100%, 900px);
   margin-inline: auto;
   text-align: center;
 }
 
-/* Secure stays branded, but no longer reads as a giant icon card. */
-html[lang="ru"] .ru-home-secure-card {
+/* "What AzevsmAI does": one shared high-level flow instead of three separate infographic cards. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-grid {
+  overflow: hidden;
+  gap: 0;
+  border: 1px solid rgba(86,119,145,.20);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.94), rgba(237,244,248,.78));
+  box-shadow: 0 16px 38px rgba(18,45,74,.065);
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card {
+  min-height: 220px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card + .v4-flow-card {
+  border-inline-start: 1px solid rgba(86,119,145,.16);
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-icon {
+  width: 50px;
+  height: 50px;
+  margin: 18px auto 16px;
+}
+
+/* Technology foundation: one system field; individual items are no longer icon-first cards. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .foundation-row {
   position: relative;
   overflow: hidden;
-  grid-template-columns: minmax(0,1fr) 280px;
-  min-height: 320px;
+  padding: 18px;
+  border: 1px solid rgba(86,119,145,.20);
+  border-radius: 24px;
+  background:
+    linear-gradient(rgba(49,95,139,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(49,95,139,.03) 1px, transparent 1px),
+    linear-gradient(145deg, rgba(255,255,255,.94), rgba(233,241,245,.80));
+  background-size: 34px 34px, 34px 34px, auto;
+  box-shadow: 0 16px 38px rgba(18,45,74,.06);
 }
-html[lang="ru"] .ru-home-secure-card::after {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .foundation-row > * {
+  position: relative;
+  z-index: 1;
+  border-color: transparent !important;
+  background: rgba(255,255,255,.54) !important;
+  box-shadow: none !important;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech-icon {
+  width: 48px !important;
+  height: 48px !important;
+  margin-bottom: 12px !important;
+}
+
+/* AZEVSM SECURE on home: protected contour / isolated processing boundary. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-card {
+  position: relative;
+  overflow: hidden;
+  grid-template-columns: minmax(0,1fr) 290px;
+  min-height: 310px;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-card::after {
   content: "";
   grid-column: 2;
   grid-row: 1;
   align-self: stretch;
   justify-self: stretch;
-  border-radius: 18px;
+  margin: 2px;
+  border: 1px solid rgba(49,95,139,.22);
+  border-radius: 20px;
   background:
-    linear-gradient(180deg, rgba(12,39,67,.06), rgba(12,39,67,.22)),
-    url("/hero-office.jpg") 62% center/cover no-repeat;
+    radial-gradient(circle at 50% 48%, rgba(49,95,139,.12), transparent 36%),
+    linear-gradient(rgba(49,95,139,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(49,95,139,.04) 1px, transparent 1px),
+    linear-gradient(145deg, #f8fbfc, #e4edf2);
+  background-size: auto, 30px 30px, 30px 30px, auto;
+  box-shadow:
+    inset 0 0 0 14px rgba(255,255,255,.45),
+    inset 0 0 0 15px rgba(49,95,139,.07);
 }
-html[lang="ru"] .ru-home-secure-icon {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-icon {
   position: absolute;
-  right: 34px;
-  bottom: 28px;
-  width: 64px !important;
-  height: 64px !important;
+  right: 36px;
+  bottom: 30px;
   z-index: 2;
-  padding: 10px;
+  width: 58px !important;
+  height: 58px !important;
+  padding: 9px;
+  border: 1px solid rgba(255,255,255,.72);
   border-radius: 16px;
   background: rgba(255,255,255,.90);
-  box-shadow: 0 10px 24px rgba(10,34,58,.12);
+  box-shadow: 0 10px 24px rgba(10,34,58,.11);
 }
-html[lang="ru"] .ru-home-secure-copy {
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-copy {
   grid-column: 1;
   grid-row: 1;
-  padding-right: 12px;
   align-self: center;
+  padding-right: 14px;
 }
 
+/* Keep functional product/category icons compact and consistent. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-product-card-icon {
+  width: 72px;
+  height: 72px;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-icon {
+  width: 52px;
+  height: 52px;
+}
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-icon {
+  width: 58px;
+  height: 58px;
+  flex-basis: 58px;
+}
+
+/* Tablet */
+@media (min-width: 681px) and (max-width: 1024px) {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-thematic-hero-art {
+    min-height: 280px;
+    border-radius: 24px;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-hero-topic-grid {
+    left: 92px;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-card {
+    grid-template-columns: minmax(0,1fr) 240px;
+  }
+}
+
+/* Mobile: visuals remain secondary to reading and never force overflow. */
 @media (max-width: 680px) {
-  html[lang="ru"] .ru-pilot-hero .ru-thematic-hero-art {
-    min-height: 220px;
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel {
+    width: min(100%, 300px) !important;
+    max-width: 300px !important;
+    padding: 18px 16px;
+    border-radius: 22px;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-thematic-hero-art {
+    width: min(100%, 360px);
+    min-height: 190px;
+    justify-self: center;
     border-radius: 20px;
   }
-  html[lang="ru"] .ru-pilot-hero .ru-hero-art-core {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-thematic-hero-art::after {
+    inset: 20px 22px 68px;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-hero-art-core {
     left: 14px;
     bottom: 14px;
-    width: 58px;
-    height: 58px;
-    padding: 8px;
+    width: 54px;
+    height: 54px;
+    padding: 7px;
     border-radius: 14px;
   }
-  html[lang="ru"] .ru-pilot-hero .ru-hero-founder-icon,
-  html[lang="ru"] .ru-pilot-hero .ru-platform-hero-icon,
-  html[lang="ru"] .ru-pilot-hero .ru-company-mark,
-  html[lang="ru"] .ru-pilot-hero .ru-research-mark {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-hero-founder-icon,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-platform-hero-icon,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-company-mark,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-research-mark {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-company-mark img,
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-research-mark img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-products-hero-icons .founder-icon {
+    width: 23px !important;
+    height: 23px !important;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero .ru-hero-topic-grid {
+    display: none !important;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-grid {
+    grid-template-columns: 1fr;
+    border-radius: 20px;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card {
+    min-height: 0;
+    padding: 20px 18px;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card + .v4-flow-card {
+    border-inline-start: 0;
+    border-top: 1px solid rgba(86,119,145,.16);
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-icon {
+    width: 44px;
+    height: 44px;
+    margin: 12px auto 12px;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .foundation-row {
+    padding: 12px;
+    border-radius: 20px;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech-icon {
     width: 42px !important;
     height: 42px !important;
   }
-  html[lang="ru"] .ru-pilot-hero .ru-hero-topic-grid {
-    left: 82px;
-    right: 12px;
-    bottom: 12px;
-    padding: 8px 10px;
-  }
-  html[lang="ru"] .ru-pilot-hero .ru-hero-topic {
-    grid-template-columns: 26px minmax(0,1fr);
-    gap: 8px;
-    font-size: 10.5px;
-  }
 
-  html[lang="ru"] .ru-home-secure-card {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-card {
     display: block;
     min-height: 0;
     padding: 0;
   }
-  html[lang="ru"] .ru-home-secure-card::after {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-card::after {
     display: block;
-    content: "";
     width: 100%;
-    height: 180px;
+    height: 156px;
+    margin: 0;
     border-radius: 0;
-    background:
-      linear-gradient(180deg, rgba(12,39,67,.04), rgba(12,39,67,.20)),
-      url("/hero-office.jpg") 62% center/cover no-repeat;
   }
-  html[lang="ru"] .ru-home-secure-copy {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-copy {
     padding: 22px 20px 24px;
   }
-  html[lang="ru"] .ru-home-secure-icon {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-secure-icon {
     right: 18px;
-    top: 126px;
+    top: 104px;
     bottom: auto;
-    width: 52px !important;
-    height: 52px !important;
-    padding: 8px;
+    width: 48px !important;
+    height: 48px !important;
+    padding: 7px;
+  }
+
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-product-card-icon {
+    width: 62px;
+    height: 62px;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-icon {
+    width: 46px;
+    height: 46px;
+  }
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-icon {
+    width: 52px;
+    height: 52px;
+    flex-basis: 52px;
   }
 }
