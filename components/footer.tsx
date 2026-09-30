@@ -11,8 +11,9 @@ import { authorityRouteLabels, isAuthorityLocale } from "@/lib/content/authority
 export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?: string }) {
   const path = usePathname() || `/${locale}`;
   const pilotLocale = isPilotLocale(locale);
+  const v5RuHome = locale === "ru" && (path === "/ru" || path === "/ru/");
   return (
-    <footer className="site-footer">
+    <footer className={v5RuHome ? "site-footer site-footer-v5-home" : "site-footer"}>
       <div className="wrap">
         <div className="footer-grid">
           <div>

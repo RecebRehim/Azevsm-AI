@@ -9922,3 +9922,42 @@ html[lang="ru"] .shell:has(.ru-corporate-home-header) > main {
     text-wrap: balance;
   }
 }
+
+
+/* WEBSITE-V5 RU HOME FOOTER — COMPACT LOWER NAV 2026-09-30 */
+.site-footer-v5-home {
+  padding: 36px 0 22px !important;
+}
+.site-footer-v5-home .footer-grid {
+  grid-template-columns: 1.18fr repeat(4,minmax(0,1fr)) !important;
+  gap: 20px !important;
+  align-items: start;
+}
+.site-footer-v5-home .footer-brand {
+  margin-bottom: 9px;
+}
+.site-footer-v5-home h2 {
+  margin-bottom: 9px !important;
+}
+.site-footer-v5-home ul {
+  gap: 5px !important;
+}
+.site-footer-v5-home .footer-base {
+  margin-top: 24px !important;
+  padding-top: 13px !important;
+}
+@media (max-width: 680px) {
+  .site-footer-v5-home {
+    padding: 34px 0 22px !important;
+  }
+  .site-footer-v5-home .footer-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+    gap: 24px 18px !important;
+  }
+  .site-footer-v5-home .footer-grid > :first-child {
+    grid-column: 1 / -1 !important;
+  }
+  .site-footer-v5-home .footer-base {
+    margin-top: 22px !important;
+  }
+}
