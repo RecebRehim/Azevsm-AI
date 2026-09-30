@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 import type { AuthorityPage } from "@/lib/content/authority-pages-v31";
 import type { SiteCopy } from "@/lib/content/copy";
 import { getProductAuthorityPage } from "@/lib/content/product-authority-pages-v31";
@@ -223,6 +226,7 @@ const resultPath = [
 ] as const;
 
 export function RuV5Home({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
+  const [detailsOpen, setDetailsOpen] = useState(false);
   const platform = getProductAuthorityPage(locale, "platform");
   const moveStart = platform?.blocks.findIndex((block, index) => index > 0 && block.type === "heading") ?? -1;
   const blocks = platform && moveStart >= 0 ? platform.blocks.slice(moveStart) : [];
@@ -290,13 +294,13 @@ export function RuV5Home({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
             <p className={styles.proof}>{copy.heroWords.split("\n").map((word) => <span key={word}>{word}</span>)}</p>
             <div className={styles.heroActions}>
               <a className={styles.enter} href={entry ?? localePath(locale, "/enter")}>{copy.enter}<span aria-hidden="true">→</span></a>
-              <a className={styles.more} href="#ru-v5-content">{copy.learnMore}<span aria-hidden="true">↓</span></a>
+              <button className={styles.more} type="button" aria-expanded={detailsOpen} aria-controls="ru-v5-content" onClick={() => setDetailsOpen((value) => !value)}>{copy.learnMore}<span aria-hidden="true">{detailsOpen ? "↑" : "↓"}</span></button>
             </div>
           </div>
         </div>
       </section>
 
-      <div id="ru-v5-content" className={styles.content}>
+      <div id="ru-v5-content" className={`${styles.content}${detailsOpen ? ` ${styles.contentOpen}` : ""}`} hidden={!detailsOpen}>
         {audience.length ? (
           <section className={styles.section}>
             <div className={styles.shell}>
