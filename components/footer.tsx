@@ -31,53 +31,49 @@ export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
               <p>{copy.footerAbout}</p>
             </div>
 
-            <div className="v5-footer-columns">
-              <div className="v5-footer-column">
-                <div className="v5-footer-group">
-                  <h2>{copy.footerNav}</h2>
-                  <ul>
-                    <li><Link href={localePath(locale, "/platform")}>{copy.nav.platform}</Link></li>
-                    <li><Link href={localePath(locale, "/technology")}>{copy.nav.technology}</Link></li>
-                    <li><Link href={localePath(locale, "/white-box")}>{copy.nav.whitebox}</Link></li>
-                    <li><Link href={localePath(locale, "/trust")}>{copy.nav.trust}</Link></li>
-                    <li><Link href={localePath(locale, "/result-system")}>{authorityRouteLabels.ru.resultSystem}</Link></li>
-                    <li><Link href={localePath(locale, "/how-azevsmai-is-different")}>{authorityRouteLabels.ru.difference}</Link></li>
-                    <li><Link href={localePath(locale, "/index-field-investor-ecosystem")}>{authorityRouteLabels.ru.indexField}</Link></li>
-                  </ul>
-                </div>
-
-                <div className="v5-footer-group">
-                  <h2>{copy.footerCompany}</h2>
-                  <ul>
-                    <li><Link href={localePath(locale, "/company")}>{copy.nav.company}</Link></li>
-                    <li><Link href={localePath(locale, "/insights")}>{copy.insightsLink}</Link></li>
-                    <li><Link href={localePath(locale, "/legal/accessibility")}>{copy.accessibility}</Link></li>
-                  </ul>
-                </div>
+            <div className="v5-footer-grid4">
+              <div className="v5-footer-group">
+                <h2>{copy.footerNav}</h2>
+                <ul>
+                  <li><Link href={localePath(locale, "/platform")}>{copy.nav.platform}</Link></li>
+                  <li><Link href={localePath(locale, "/technology")}>{copy.nav.technology}</Link></li>
+                  <li><Link href={localePath(locale, "/white-box")}>{copy.nav.whitebox}</Link></li>
+                  <li><Link href={localePath(locale, "/trust")}>{copy.nav.trust}</Link></li>
+                  <li><Link href={localePath(locale, "/how-azevsmai-is-different")}>{authorityRouteLabels.ru.difference}</Link></li>
+                </ul>
               </div>
 
-              <div className="v5-footer-column">
-                <div className="v5-footer-group">
-                  <h2>{copy.footerTrust}</h2>
-                  <ul>
-                    <li><Link href={localePath(locale, "/legal/privacy")}>{copy.privacy}</Link></li>
-                    <li><Link href={localePath(locale, "/legal/terms")}>{copy.terms}</Link></li>
-                    <li><Link href={localePath(locale, "/legal/cookies")}>{copy.cookies}</Link></li>
-                    <li><Link href={localePath(locale, "/legal/security")}>{copy.security}</Link></li>
-                    <li><Link href={localePath(locale, "/validation-reproducibility")}>{authorityRouteLabels.ru.validation}</Link></li>
-                    <li><Link href={localePath(locale, "/data-security")}>{authorityRouteLabels.ru.dataSecurity}</Link></li>
-                    <li><Link href={localePath(locale, "/legal-compliance")}>{authorityRouteLabels.ru.legalCompliance}</Link></li>
-                  </ul>
-                </div>
+              <div className="v5-footer-group">
+                <h2>{copy.footerProducts}</h2>
+                <ul>
+                  <li><Link href={localePath(locale, "/products/azevsm-index")}>Azevsm Index</Link></li>
+                  <li><Link href={localePath(locale, "/products/azevsm-institutional-index")}>Azevsm Institutional Index</Link></li>
+                  <li><Link href={localePath(locale, "/products/azevsm-plus")}>Azevsm Plus</Link></li>
+                  <li><Link href={localePath(locale, "/result-system")}>{authorityRouteLabels.ru.resultSystem}</Link></li>
+                  <li><Link href={localePath(locale, "/index-field-investor-ecosystem")}>{authorityRouteLabels.ru.indexField}</Link></li>
+                </ul>
+              </div>
 
-                <div className="v5-footer-group">
-                  <h2>{copy.footerProducts}</h2>
-                  <ul>
-                    <li><Link href={localePath(locale, "/products/azevsm-index")}>Azevsm Index</Link></li>
-                    <li><Link href={localePath(locale, "/products/azevsm-institutional-index")}>Azevsm Institutional Index</Link></li>
-                    <li><Link href={localePath(locale, "/products/azevsm-plus")}>Azevsm Plus</Link></li>
-                  </ul>
-                </div>
+              <div className="v5-footer-group">
+                <h2>{copy.footerCompany}</h2>
+                <ul>
+                  <li><Link href={localePath(locale, "/company")}>{copy.nav.company}</Link></li>
+                  <li><Link href={localePath(locale, "/insights")}>{copy.insightsLink}</Link></li>
+                  <li><Link href={localePath(locale, "/legal/accessibility")}>{copy.accessibility}</Link></li>
+                  <li><Link href={localePath(locale, "/legal/terms")}>{copy.terms}</Link></li>
+                  <li><Link href={localePath(locale, "/legal/cookies")}>{copy.cookies}</Link></li>
+                </ul>
+              </div>
+
+              <div className="v5-footer-group">
+                <h2>{copy.footerTrust}</h2>
+                <ul>
+                  <li><Link href={localePath(locale, "/legal/privacy")}>{copy.privacy}</Link></li>
+                  <li><Link href={localePath(locale, "/legal/security")}>{copy.security}</Link></li>
+                  <li><Link href={localePath(locale, "/validation-reproducibility")}>{authorityRouteLabels.ru.validation}</Link></li>
+                  <li><Link href={localePath(locale, "/data-security")}>{authorityRouteLabels.ru.dataSecurity}</Link></li>
+                  <li><Link href={localePath(locale, "/legal-compliance")}>{authorityRouteLabels.ru.legalCompliance}</Link></li>
+                </ul>
               </div>
             </div>
           </>
