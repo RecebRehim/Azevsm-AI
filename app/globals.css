@@ -9771,3 +9771,122 @@ html[lang="ru"] .ru-corporate-home-header .header-utilities .btn-primary {
     padding: 14px 16px 18px !important;
   }
 }
+
+
+/* RU V5 HERO REPAIR — STEP 1 / DESKTOP HEADER GATE */
+@media (min-width: 861px) {
+  html[lang="ru"] .ru-corporate-home-header {
+    height: 82px !important;
+    min-height: 82px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .header-inner,
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
+    position: relative !important;
+    inset: auto !important;
+    width: min(calc(100% - 40px), 1420px) !important;
+    height: 82px !important;
+    min-height: 82px !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: clamp(14px,1.35vw,24px) !important;
+    background: rgba(2,12,23,.985) !important;
+    box-shadow: none !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark {
+    order: 1 !important;
+    flex: 0 0 auto !important;
+    gap: 10px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark .logo,
+  html[lang="ru"] .ru-corporate-home-header .wordmark img {
+    width: 43px !important;
+    height: 43px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark strong,
+  html[lang="ru"] .ru-corporate-home-header .wordmark-text > span {
+    font-size: clamp(16px,1.45vw,20px) !important;
+    color: #f6f8fa !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .nav-main {
+    order: 2 !important;
+    position: static !important;
+    display: flex !important;
+    flex: 1 1 auto !important;
+    align-self: stretch !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(12px,1.3vw,24px) !important;
+    transform: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .nav-main > .ru-home-nav-link {
+    width: auto !important;
+    min-height: 0 !important;
+    height: 100% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: rgba(244,247,250,.82) !important;
+    font-size: clamp(11px,.92vw,13px) !important;
+    white-space: nowrap !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .nav-main a[href$="/legal-compliance"] {
+    display: none !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-home-nav-icon,
+  html[lang="ru"] .ru-corporate-home-header .ru-home-nav-chevron,
+  html[lang="ru"] .ru-corporate-home-header .ru-home-mobile-enter,
+  html[lang="ru"] .ru-corporate-home-header .ru-home-mobile-locales {
+    display: none !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact {
+    order: 3 !important;
+    grid-column: auto !important;
+    margin: 0 !important;
+    padding-left: 26px !important;
+    flex: 0 0 auto !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-primary-locales {
+    display: flex !important;
+    gap: 0 !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more {
+    display: none !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-primary-locales a {
+    min-width: 26px !important;
+    min-height: 34px !important;
+    padding: 0 4px !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: rgba(244,247,250,.72) !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .header-utilities {
+    order: 4 !important;
+    display: flex !important;
+    margin-inline-start: 0 !important;
+    padding-left: 14px !important;
+    flex: 0 0 auto !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .header-utilities .btn-primary {
+    min-width: 148px !important;
+    min-height: 40px !important;
+    padding: 0 14px !important;
+    font-size: 12px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .menu-toggle {
+    display: none !important;
+  }
+}
