@@ -32,6 +32,9 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
     { href: "/company", label: copy.nav.company },
     { href: "/search", label: locale === "ru" ? "Поиск" : locale === "az" ? "Axtarış" : locale === "en" ? "Search" : locale === "ar" ? "بحث" : "搜索" },
   ];
+  const visibleLinks = corporateHome
+    ? links.filter((item) => ["/platform", "/products", "/technology", "/trust", "/data-security", "/company"].includes(item.href))
+    : links;
 
   return (
     <header className={`site-header${pilotLocale ? " ru-pilot-site-header" : ""}${corporateHome ? " ru-corporate-home-header" : ""}`}>
@@ -52,13 +55,20 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
         </Link>
         <button className="menu-toggle" type="button" aria-expanded={open} aria-controls="site-nav" onClick={() => setOpen((value) => !value)}>
-          {locale === "az" ? copy.menu : open ? copy.close : copy.menu}
+          {corporateHome ? (
+            <>
+              <span className="sr-only">{open ? copy.close : copy.menu}</span>
+              <svg className="ru-home-menu-icon" viewBox="0 0 28 28" aria-hidden="true">
+                {open ? <path d="M6 6l16 16M22 6 6 22" /> : <path d="M4 7h20M4 14h20M4 21h20" />}
+              </svg>
+            </>
+          ) : locale === "az" ? copy.menu : open ? copy.close : copy.menu}
         </button>
         <nav id="site-nav" className="nav-main" aria-label={copy.footerNav}>
           <Link href={localePath(locale)} aria-current={path === `/${locale}` ? "page" : undefined} onClick={close}>
             {copy.nav.home}
           </Link>
-          {links.map((item) => (
+          {visibleLinks.map((item) => (
             <Link
               key={item.href}
               href={localePath(locale, item.href)}
@@ -69,7 +79,7 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
             </Link>
           ))}
         </nav>
-        {pilotLocale ? <RuLanguageAccess path={path} locale={locale} label={copy.language} /> : null}
+        {pilotLocale ? <RuLanguageAccess path={path} locale={locale} label={copy.language} compact={corporateHome} /> : null}
         <div className="header-utilities">
           {!pilotLocale ? <LanguageMenu locale={locale} path={path} label={copy.language} /> : null}
           {!pilotLocale ? (
@@ -91,10 +101,10 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
 const ruDirectLanguages: readonly Locale[] = ["ru", "en", "az"];
 const ruAdditionalLanguages = siteLocales.filter((item) => !ruDirectLanguages.includes(item as Locale));
 
-function RuLanguageAccess({ path, locale, label }: { path: string; locale: Locale; label: string }) {
-  const moreLabel = locale === "ru" ? "Языки" : locale === "az" ? "Dillər" : "Languages";
+function RuLanguageAccess({ path, locale, label, compact = false }: { path: string; locale: Locale; label: string; compact?: boolean }) {
+  const moreLabel = compact ? locale.toUpperCase() : locale === "ru" ? "Языки" : locale === "az" ? "Dillər" : "Languages";
   return (
-    <div className="ru-language-access">
+    <div className={`ru-language-access${compact ? " ru-language-access--compact" : ""}`}>
       <nav className="ru-primary-locales" aria-label={label}>
         {ruDirectLanguages.map((item) => {
           const meta = localeMeta[item];

@@ -9240,3 +9240,122 @@ html[lang="ru"] .ru-corporate-home-header .wordmark-text > span {
     height: 32px !important;
   }
 }
+
+
+/* RU V5 ACCEPTED HEADER — 2026-09-30 */
+html[lang="ru"] .ru-corporate-home-header {
+  min-height: 76px;
+  background: rgba(3,15,28,.965) !important;
+  border-bottom: 1px solid rgba(255,255,255,.10) !important;
+  box-shadow: none !important;
+}
+html[lang="ru"] .ru-corporate-home-header .header-inner {
+  min-height: 76px;
+  width: min(calc(100% - 42px), 1380px);
+}
+html[lang="ru"] .ru-corporate-home-header .wordmark {
+  gap: 12px;
+}
+html[lang="ru"] .ru-corporate-home-header .wordmark .logo,
+html[lang="ru"] .ru-corporate-home-header .wordmark img {
+  width: 46px !important;
+  height: 46px !important;
+}
+html[lang="ru"] .ru-corporate-home-header .wordmark strong {
+  color: #f7f9fb !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  letter-spacing: -.02em !important;
+}
+html[lang="ru"] .ru-corporate-home-header .wordmark-text > span {
+  color: #d9aa53 !important;
+  font-size: 9px !important;
+  letter-spacing: .22em !important;
+  text-transform: uppercase;
+}
+html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
+  display: none !important;
+}
+html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-primary-locales {
+  display: none !important;
+}
+html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary {
+  min-width: 48px;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #f4f7fa !important;
+  border: 0 !important;
+  background: transparent !important;
+  font-size: 13px;
+}
+html[lang="ru"] .ru-corporate-home-header .nav-main {
+  gap: clamp(18px,2vw,30px);
+}
+html[lang="ru"] .ru-corporate-home-header .nav-main a {
+  color: rgba(244,247,250,.82) !important;
+  font-size: 13px;
+}
+html[lang="ru"] .ru-corporate-home-header .header-utilities .btn-primary {
+  min-height: 42px;
+  color: #f9f1e2 !important;
+  border: 1px solid rgba(222,177,92,.64) !important;
+  background: rgba(4,17,31,.30) !important;
+}
+html[lang="ru"] .ru-corporate-home-header .menu-toggle {
+  border: 0 !important;
+  background: transparent !important;
+}
+html[lang="ru"] .ru-corporate-home-header .ru-home-menu-icon {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: #f3f6f9;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+}
+@media (max-width: 900px) {
+  html[lang="ru"] .ru-corporate-home-header .header-inner {
+    width: calc(100% - 28px);
+  }
+  html[lang="ru"] .ru-corporate-home-header .header-utilities {
+    display: none !important;
+  }
+}
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-corporate-home-header {
+    min-height: 68px;
+  }
+  html[lang="ru"] .ru-corporate-home-header .header-inner {
+    min-height: 68px;
+    grid-template-columns: auto 1fr auto auto !important;
+    gap: 9px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark {
+    min-width: 0;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark .logo,
+  html[lang="ru"] .ru-corporate-home-header .wordmark img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark strong {
+    font-size: 16px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark-text > span {
+    font-size: 8px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact {
+    grid-column: 3 !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .menu-toggle {
+    grid-column: 4 !important;
+    width: 38px !important;
+    height: 38px !important;
+    padding: 4px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .nav-main {
+    grid-column: 1 / -1 !important;
+  }
+}
