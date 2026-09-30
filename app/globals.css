@@ -9892,9 +9892,8 @@ html[lang="ru"] .ru-corporate-home-header .header-utilities .btn-primary {
 }
 
 
-/* RU V5 HOME — DESKTOP CLOSED-DETAILS BACKGROUND FIX */
-@media (min-width: 861px) {
-  html[lang="ru"] body:has(.ru-corporate-home-header) > .shell > main {
-    background: #020b16;
-  }
+/* RU V5 HOME — CLOSED DETAILS MUST NOT RESERVE EMPTY MAIN SPACE */
+html[lang="ru"] .shell:has(.ru-corporate-home-header) > main {
+  flex: 0 0 auto;
+  background: transparent;
 }
