@@ -1190,3 +1190,125 @@
     text-wrap: balance;
   }
 }
+
+
+/* RU V5 DETAILS REPAIR — STEP 8 / COLLAPSED DEFAULT + READABLE EXPANDED CONTENT */
+.more {
+  font: inherit;
+  cursor: pointer;
+}
+.content[hidden] {
+  display: none !important;
+}
+.contentOpen {
+  display: block;
+  padding: 24px 0 54px;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(41,88,132,.18), transparent 28rem),
+    radial-gradient(circle at 88% 12%, rgba(198,150,66,.10), transparent 24rem),
+    linear-gradient(180deg,#06192c 0%,#08213a 48%,#061727 100%);
+}
+.contentOpen .section,
+.contentOpen .companySection {
+  padding: 20px 0;
+  border-top: 0;
+}
+.contentOpen .section > .shell,
+.contentOpen .companySection > .shell {
+  width: min(calc(100% - 40px),1180px);
+  padding: clamp(34px,4vw,58px);
+  border-radius: 22px;
+  background: rgba(255,255,255,.98);
+  box-shadow: 0 22px 70px rgba(0,0,0,.14);
+}
+.contentOpen .sectionHead,
+.contentOpen .featureCopy,
+.contentOpen .companyGrid {
+  color: #172230;
+}
+.contentOpen .sectionHead h2,
+.contentOpen .companyGrid h2,
+.contentOpen .secureCopy h2,
+.contentOpen .featureCopy h2,
+.contentOpen .compactCard h3,
+.contentOpen .authorityCard h3,
+.contentOpen .resultCard h3,
+.contentOpen .productCard h3,
+.contentOpen .whyCard h3 {
+  color: #172230;
+}
+.contentOpen .sectionHead > p:not(.kicker),
+.contentOpen .featureCopy > p:not(.kicker),
+.contentOpen .compactCard p,
+.contentOpen .authorityCard p,
+.contentOpen .resultCard p,
+.contentOpen .productCard p,
+.contentOpen .whyCard p,
+.contentOpen .secureCopy p,
+.contentOpen .companyGrid p {
+  color: #3f4d5c;
+}
+.contentOpen .kicker,
+.contentOpen .index,
+.contentOpen .productNumber,
+.contentOpen .productAction,
+.contentOpen .inlineLink {
+  color: #9a7436;
+}
+.contentOpen .visualFrame,
+.contentOpen .compactCard,
+.contentOpen .authorityCard,
+.contentOpen .resultCard,
+.contentOpen .productCard,
+.contentOpen .whyCard,
+.contentOpen .secureCard {
+  border-color: rgba(37,62,88,.14);
+  background: linear-gradient(145deg,rgba(247,249,251,.98),rgba(236,242,246,.86));
+  box-shadow: none;
+}
+.contentOpen .techVisualSvg {
+  border-radius: 18px;
+  background: #0a2138;
+}
+.contentOpen .outlineButton,
+.contentOpen .enter {
+  color: #17304d;
+  border-color: rgba(167,129,62,.45);
+  background: #fff;
+}
+.contentOpen .routePanel {
+  border-color: rgba(37,62,88,.16);
+}
+.contentOpen .routePanel a {
+  color: #17304d;
+}
+.contentOpen .routePanel a + a {
+  border-color: rgba(37,62,88,.14);
+}
+@media (max-width: 680px) {
+  .contentOpen {
+    padding: 14px 0 34px;
+  }
+  .contentOpen .section,
+  .contentOpen .companySection {
+    padding: 10px 0;
+  }
+  .contentOpen .section > .shell,
+  .contentOpen .companySection > .shell {
+    width: calc(100% - 18px);
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+  .contentOpen .sectionHead > p:not(.kicker),
+  .contentOpen .featureCopy > p:not(.kicker),
+  .contentOpen .compactCard p,
+  .contentOpen .authorityCard p,
+  .contentOpen .resultCard p,
+  .contentOpen .productCard p,
+  .contentOpen .whyCard p,
+  .contentOpen .secureCopy p,
+  .contentOpen .companyGrid p {
+    font-size: 14px;
+    line-height: 1.62;
+  }
+}
