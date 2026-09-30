@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { PagePhotoBand } from "@/components/page-photo-band";
 import { RuPilotActions, RuPilotBlocks } from "@/components/ru-pilot-blocks";
 import type { AuthorityPage } from "@/lib/content/authority-pages-v31";
+import { pageInternalPhotos } from "@/lib/content/page-photos";
 import { localePath, type Locale } from "@/lib/i18n";
 
 type PilotUi = {
@@ -181,6 +183,7 @@ export function V4ResultSystem({ locale, page }: { locale: Locale; page: Authori
       <section className="v4-result-intro">
         <div className="wrap">
           {intro?.type === "p" ? <p className="v4-result-intro-copy">{intro.text}</p> : null}
+          <PagePhotoBand src={pageInternalPhotos.resultSystem} className="page-photo-band--result" />
           <div className="v4-section-head">
             <p className="kicker">{sectionHeading?.type === "heading" ? sectionHeading.text : copy.previewKicker}</p>
           </div>

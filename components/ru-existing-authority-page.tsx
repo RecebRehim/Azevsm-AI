@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
+import { PagePhotoBand } from "@/components/page-photo-band";
 import { RuPilotActions, RuPilotBlocks } from "@/components/ru-pilot-blocks";
 import { RuPilotHero, type RuPilotHeroKind } from "@/components/ru-pilot-hero";
 import { getExistingAuthorityPage, type ExistingAuthorityPageKey } from "@/lib/content/existing-authority-pages-v31";
+import { pageInternalPhotos } from "@/lib/content/page-photos";
 import type { Locale } from "@/lib/i18n";
 
 const kind: Record<ExistingAuthorityPageKey, RuPilotHeroKind> = {
@@ -23,6 +25,9 @@ export function RuExistingAuthorityPage({ locale, pageKey }: { locale: Locale; p
       <RuPilotHero kind={kind[pageKey]} title={page.title} lead={page.lead} topics={topics} />
       <section className={`section-tight ru-authority-section ru-existing-section ru-existing-section--${pageKey}`}>
         <div className="wrap ru-pilot-prose">
+          {pageKey === "technology" ? (
+            <PagePhotoBand src={pageInternalPhotos.technologyAlt} className="page-photo-band--technology-alt" />
+          ) : null}
           <RuPilotBlocks blocks={page.blocks} />
           <RuPilotActions actions={actions} locale={locale} />
         </div>

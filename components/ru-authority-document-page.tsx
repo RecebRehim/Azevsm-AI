@@ -1,8 +1,10 @@
 import { notFound } from "next/navigation";
+import { PagePhotoBand } from "@/components/page-photo-band";
 import { RuPilotActions, RuPilotBlocks } from "@/components/ru-pilot-blocks";
 import { RuPilotHero, type RuPilotHeroKind } from "@/components/ru-pilot-hero";
 import { V4ResultSystem } from "@/components/v4-clarity";
 import { getAuthorityPage, type AuthorityPageKey } from "@/lib/content/authority-pages-v31";
+import { pageInternalPhotos } from "@/lib/content/page-photos";
 import type { Locale } from "@/lib/i18n";
 
 const heroKind: Record<AuthorityPageKey, RuPilotHeroKind> = {
@@ -43,6 +45,9 @@ export function RuAuthorityDocumentPage({ locale, pageKey }: { locale: Locale; p
       <RuPilotHero kind={kind} title={page.title} lead={page.lead} topics={topics} />
       <section className={`section-tight ru-authority-section ru-authority-section--${pageKey}`}>
         <div className="wrap ru-pilot-prose">
+          {pageKey === "dataSecurity" ? (
+            <PagePhotoBand src={pageInternalPhotos.dataSecurityServers} className="page-photo-band--servers" />
+          ) : null}
           <RuPilotBlocks
             blocks={page.blocks}
             noteIcons={noteIcons[pageKey] ?? []}

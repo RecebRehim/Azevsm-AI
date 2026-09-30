@@ -10254,3 +10254,75 @@ html[lang="ru"] .shell:has(.ru-corporate-home-header) > main {
 html[lang="ru"] .shell:has(.ru-corporate-home-header) > .site-footer-v5-home {
   flex: 0 0 auto !important;
 }
+
+/* WEBSITE-V6 — PEXELS CANDIDATE PAGE PHOTOS 2026-09-30 */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--photo::after {
+  display: none;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-thematic-hero-art--photo {
+  min-height: 310px;
+  align-self: stretch;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-thematic-hero-art--photo::before,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-thematic-hero-art--photo::after {
+  display: none !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-hero-photo-frame {
+  position: relative;
+  width: 100%;
+  min-height: 310px;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 22px;
+  box-shadow: 0 28px 70px rgba(0,0,0,.22);
+  background: rgba(255,255,255,.04);
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-hero-photo {
+  object-fit: cover;
+  object-position: center center;
+  filter: saturate(.86) contrast(1.03);
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--company.ru-pilot-hero--photo .ru-hero-art-core,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--company.ru-pilot-hero--photo .ru-company-mark {
+  display: none !important;
+}
+
+html:is([lang="ru"],[lang="en"],[lang="az"]) .page-photo-band {
+  width: min(100%,920px);
+  margin: 0 auto 42px;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .page-photo-band-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--v5-line, rgba(118,146,167,.22));
+  border-radius: 18px;
+  background: #eef2f5;
+  box-shadow: 0 18px 48px rgba(7,24,43,.08);
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .page-photo-band-image {
+  object-fit: cover;
+  object-position: center center;
+  filter: saturate(.9) contrast(1.02);
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .page-photo-band--servers .page-photo-band-frame,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .page-photo-band--technology-alt .page-photo-band-frame {
+  aspect-ratio: 21 / 9;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .page-photo-band--result {
+  margin-top: 28px;
+  margin-bottom: 36px;
+}
+
+@media (max-width: 900px) {
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-hero-photo-frame {
+    min-height: 220px;
+    border-radius: 16px;
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .page-photo-band--servers .page-photo-band-frame,
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .page-photo-band--technology-alt .page-photo-band-frame {
+    aspect-ratio: 16 / 9;
+  }
+}
