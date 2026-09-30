@@ -1357,3 +1357,26 @@
     background-size: cover !important;
   }
 }
+
+
+/* RU V5 HERO — EXACT USER BACKGROUNDS 2026-09-30 */
+.heroLandscape {
+  background-image: url("/ru-v5-hero-bg-desktop.webp") !important;
+  background-position: center bottom !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+.heroLandscape::before {
+  background: linear-gradient(180deg, rgba(1,8,16,.06) 0%, rgba(1,8,16,.015) 46%, rgba(1,8,16,.045) 100%) !important;
+}
+.heroLandscape::after {
+  content: none !important;
+  display: none !important;
+}
+@media (max-width: 860px) {
+  .heroLandscape {
+    background-image: url("/ru-v5-hero-bg-mobile.webp") !important;
+    background-position: center bottom !important;
+    background-size: cover !important;
+  }
+}
