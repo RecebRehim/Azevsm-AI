@@ -28,7 +28,7 @@ export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
                   <span>Systems</span>
                 </span>
               </div>
-              <p>{copy.footerAbout}</p>
+              <p>Оператор AzevsmAI.</p>
             </div>
 
             <div className="v5-footer-grid4">
