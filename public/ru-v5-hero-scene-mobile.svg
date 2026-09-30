@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1536" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#020a14"/><stop offset=".40" stop-color="#07192c"/><stop offset=".70" stop-color="#0d2a45"/><stop offset="1" stop-color="#102d47"/>
+  </linearGradient>
+  <radialGradient id="sun" cx=".92" cy=".71" r=".34">
+    <stop offset="0" stop-color="#fff0bd" stop-opacity=".98"/><stop offset=".08" stop-color="#f0c26e" stop-opacity=".84"/><stop offset=".22" stop-color="#bd8745" stop-opacity=".42"/><stop offset=".52" stop-color="#6a7280" stop-opacity=".13"/><stop offset="1" stop-color="#061426" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="blue" cx=".70" cy=".34" r=".55">
+    <stop offset="0" stop-color="#4676a5" stop-opacity=".18"/><stop offset="1" stop-color="#04111e" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#9f652a"/><stop offset=".48" stop-color="#efbd66"/><stop offset=".72" stop-color="#fff1bd"/><stop offset="1" stop-color="#a36a2e"/>
+  </linearGradient>
+  <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#1e4a6a"/><stop offset=".52" stop-color="#0b2b45"/><stop offset="1" stop-color="#041521"/>
+  </linearGradient>
+  <linearGradient id="stone" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#1c3a54"/><stop offset=".40" stop-color="#0d2438"/><stop offset=".74" stop-color="#071521"/><stop offset="1" stop-color="#020912"/>
+  </linearGradient>
+  <filter id="blur18"><feGaussianBlur stdDeviation="18"/></filter>
+  <filter id="blur5"><feGaussianBlur stdDeviation="5"/></filter>
+  <pattern id="lights" width="22" height="16" patternUnits="userSpaceOnUse">
+    <circle cx="4" cy="5" r=".85" fill="#f5c66f" opacity=".65"/><circle cx="14" cy="12" r=".7" fill="#ffd995" opacity=".50"/><circle cx="20" cy="3" r=".55" fill="#dba54d" opacity=".40"/>
+  </pattern>
+</defs>
+<rect width="1024" height="1536" fill="url(#sky)"/>
+<rect width="1024" height="1536" fill="url(#blue)"/>
+<rect width="1024" height="1536" fill="url(#sun)"/>
+
+<!-- vertical/mobile arc architecture from accepted reference -->
+<path d="M-210 190 C72 520 346 652 646 620 C822 601 944 531 1090 426" fill="none" stroke="#79a7cd" stroke-opacity=".12" stroke-width="1.5"/>
+<path d="M-202 210 C74 536 350 654 649 625 C834 607 964 528 1106 412" fill="none" stroke="url(#gold)" stroke-opacity=".92" stroke-width="1.8"/>
+<path d="M-200 212 C76 538 352 656 650 627 C836 608 966 530 1108 414" fill="none" stroke="#e6b35b" stroke-opacity=".14" stroke-width="10" filter="url(#blur18)"/>
+<path d="M545 -90 C812 35 989 245 1075 561" fill="none" stroke="#6f9fc8" stroke-opacity=".12" stroke-width="1.4"/>
+<path d="M663 -55 C872 94 1001 288 1062 580" fill="none" stroke="url(#gold)" stroke-opacity=".76" stroke-width="1.5"/>
+<path d="M665 -52 C874 96 1003 292 1065 582" fill="none" stroke="#e8b25d" stroke-opacity=".11" stroke-width="10" filter="url(#blur18)"/>
+
+<!-- lower scene -->
+<ellipse cx="913" cy="1045" rx="260" ry="100" fill="#dc9f4b" opacity=".07" filter="url(#blur18)"/>
+<path d="M0 1004 L88 956 L159 989 L247 925 L329 973 L421 907 L512 964 L604 906 L699 958 L794 895 L878 944 L955 892 L1024 922 L1024 1536 L0 1536Z" fill="#102e49"/>
+<path d="M0 1075 L97 1018 L191 1052 L291 991 L383 1044 L481 990 L576 1049 L675 992 L771 1048 L868 994 L953 1044 L1024 1008 L1024 1536 L0 1536Z" fill="#0a2238"/>
+<path d="M0 1148 L117 1096 L228 1129 L342 1084 L459 1135 L570 1093 L687 1139 L804 1098 L919 1140 L1024 1110 L1024 1536 L0 1536Z" fill="#051722"/>
+
+<path d="M126 1145 C374 1118 654 1114 1024 1082 L1024 1327 C747 1336 438 1329 171 1292Z" fill="url(#water)" opacity=".91"/>
+<path d="M170 1156 C452 1128 708 1124 999 1102 L999 1248 C733 1262 463 1259 197 1233Z" fill="url(#lights)" opacity=".82"/>
+<path d="M262 1193 C535 1161 749 1147 986 1129" fill="none" stroke="#e6b058" stroke-opacity=".42" stroke-width="1.2"/>
+<path d="M576 1231 C726 1198 850 1174 990 1158" fill="none" stroke="#ffd88f" stroke-opacity=".26" stroke-width="1"/>
+<circle cx="946" cy="1037" r="7" fill="#fff2c7"/>
+<circle cx="946" cy="1037" r="30" fill="#eeb962" opacity=".20" filter="url(#blur18)"/>
+
+<!-- mountain foreground + terrace -->
+<path d="M0 1087 L116 1027 L215 1075 L324 1041 L455 1105 L558 1072 L684 1138 L0 1216Z" fill="#020b13"/>
+<path d="M0 1274 L486 1235 L701 1307 L639 1536 L0 1536Z" fill="url(#stone)"/>
+<path d="M0 1293 L483 1251 L681 1311" fill="none" stroke="#bacad6" stroke-opacity=".48" stroke-width="1.5"/>
+<path d="M0 1365 L552 1318 L726 1370" fill="none" stroke="#36566f" stroke-opacity=".66" stroke-width="1.4"/>
+<path d="M0 1450 L603 1397 L759 1437" fill="none" stroke="#1b3a53" stroke-opacity=".68" stroke-width="1.5"/>
+<path d="M476 1252 L690 1312" fill="none" stroke="#d5a352" stroke-opacity=".34" stroke-width="1.3"/>
+
+<!-- readable upper field -->
+<rect width="1024" height="850" fill="#010811" opacity=".08"/>
+</svg>
