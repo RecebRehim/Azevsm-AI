@@ -9,6 +9,59 @@ import type { SiteCopy } from "@/lib/content/copy";
 import { isContentLocale, isPilotLocale, localeMeta, localePath, siteLocales, swapLocale, type Locale } from "@/lib/i18n";
 import { platformEntryUrl } from "@/lib/platform";
 
+
+function CorporateHomeNavIcon({ href }: { href: string }) {
+  return (
+    <svg className="ru-home-nav-icon" viewBox="0 0 56 56" aria-hidden="true">
+      {href === "/platform" ? (
+        <g fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round">
+          <path d="M8 16 28 6l20 10-20 10Z" />
+          <path d="M8 25l20-10 20 10-20 10Z" opacity=".82" />
+          <path d="M8 34l20-10 20 10-20 10Z" opacity=".62" />
+        </g>
+      ) : null}
+      {href === "/products" ? (
+        <g fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round">
+          <path d="M8 45V33h7v12ZM19 45V26h7v19ZM30 45V18h7v27ZM41 45V10h7v35Z" />
+          <path d="M6 47h44" opacity=".65" />
+        </g>
+      ) : null}
+      {href === "/technology" ? (
+        <g fill="none" stroke="currentColor" strokeWidth="1.55">
+          <circle cx="28" cy="28" r="19" />
+          <ellipse cx="28" cy="28" rx="9" ry="19" transform="rotate(23 28 28)" />
+          <ellipse cx="28" cy="28" rx="19" ry="7.5" transform="rotate(-18 28 28)" />
+        </g>
+      ) : null}
+      {href === "/trust" ? (
+        <g fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M28 6 45 13v14c0 11-6 19-17 24-11-5-17-13-17-24V13Z" />
+          <path d="m20 28 6 6 11-14" />
+        </g>
+      ) : null}
+      {href === "/data-security" ? (
+        <g fill="none" stroke="currentColor" strokeWidth="1.8">
+          <ellipse cx="28" cy="13" rx="15" ry="6" />
+          <path d="M13 13v28c0 4 7 7 15 7s15-3 15-7V13M13 24c0 4 7 7 15 7s15-3 15-7M13 35c0 4 7 7 15 7s15-3 15-7" />
+        </g>
+      ) : null}
+      {href === "/legal-compliance" ? (
+        <g fill="none" stroke="currentColor" strokeWidth="1.65" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M28 7v39M16 14h24M28 7l-7 7M28 7l7 7M14 16 7 29h14Zm28 0-7 13h14ZM15 47h26" />
+        </g>
+      ) : null}
+      {href === "/company" ? (
+        <g fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round">
+          <circle cx="28" cy="18" r="7" />
+          <circle cx="14" cy="24" r="5" />
+          <circle cx="42" cy="24" r="5" />
+          <path d="M16 46c0-9 5-15 12-15s12 6 12 15M3 45c0-7 4-12 11-12 4 0 7 1 9 4M53 45c0-7-4-12-11-12-4 0-7 1-9 4" />
+        </g>
+      ) : null}
+    </svg>
+  );
+}
+
 export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?: string }) {
   const path = usePathname() || `/${locale}`;
   const pilotLocale = isPilotLocale(locale);
@@ -33,7 +86,7 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
     { href: "/search", label: locale === "ru" ? "Поиск" : locale === "az" ? "Axtarış" : locale === "en" ? "Search" : locale === "ar" ? "بحث" : "搜索" },
   ];
   const visibleLinks = corporateHome
-    ? links.filter((item) => ["/platform", "/products", "/technology", "/trust", "/data-security", "/company"].includes(item.href))
+    ? links.filter((item) => ["/platform", "/products", "/technology", "/trust", "/data-security", "/legal-compliance", "/company"].includes(item.href))
     : links;
 
   return (
@@ -65,19 +118,48 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
           ) : locale === "az" ? copy.menu : open ? copy.close : copy.menu}
         </button>
         <nav id="site-nav" className="nav-main" aria-label={copy.footerNav}>
-          <Link href={localePath(locale)} aria-current={path === `/${locale}` ? "page" : undefined} onClick={close}>
-            {copy.nav.home}
-          </Link>
+          {!corporateHome ? (
+            <Link href={localePath(locale)} aria-current={path === `/${locale}` ? "page" : undefined} onClick={close}>
+              {copy.nav.home}
+            </Link>
+          ) : null}
           {visibleLinks.map((item) => (
             <Link
+              className={corporateHome ? "ru-home-nav-link" : undefined}
               key={item.href}
               href={localePath(locale, item.href)}
               aria-current={path === `/${locale}${item.href}` || path.startsWith(`/${locale}${item.href}/`) ? "page" : undefined}
               onClick={close}
             >
-              {item.label}
+              {corporateHome ? <CorporateHomeNavIcon href={item.href} /> : null}
+              <span className={corporateHome ? "ru-home-nav-label" : undefined}>{item.label}</span>
+              {corporateHome ? <span className="ru-home-nav-chevron" aria-hidden="true">›</span> : null}
             </Link>
           ))}
+          {corporateHome ? (
+            <>
+              <a className="ru-home-mobile-enter" href={enterHref} onClick={close} {...(entry ? { rel: "noreferrer" } : {})}>
+                <span>{copy.enter}</span><span aria-hidden="true">→</span>
+              </a>
+              <div className="ru-home-mobile-locales" aria-label={copy.language}>
+                {(["ru", "en", "az"] as const).map((item) => {
+                  const meta = localeMeta[item];
+                  return (
+                    <Link
+                      key={item}
+                      href={swapLocale(path, item)}
+                      hrefLang={meta.hreflang}
+                      lang={meta.htmlLang}
+                      aria-current={item === locale ? "true" : undefined}
+                      onClick={close}
+                    >
+                      {item.toUpperCase()}
+                    </Link>
+                  );
+                })}
+              </div>
+            </>
+          ) : null}
         </nav>
         {pilotLocale ? <RuLanguageAccess path={path} locale={locale} label={copy.language} compact={corporateHome} /> : null}
         <div className="header-utilities">
