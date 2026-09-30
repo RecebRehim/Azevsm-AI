@@ -10022,3 +10022,84 @@ html[lang="ru"] .shell:has(.ru-corporate-home-header) > main {
     font-size: 12px;
   }
 }
+
+
+/* WEBSITE-V5 RU HOME FOOTER — FIX HOME DETECTION VISUAL + NO WHITE CANVAS 2026-09-30 */
+html:has(.site-footer-v5-home),
+body:has(.site-footer-v5-home) {
+  background: #081827 !important;
+}
+.site-footer-v5-home .wrap {
+  width: min(calc(100% - 48px), 1180px);
+  margin-inline: auto;
+}
+.site-footer-v5-home .v5-footer-intro {
+  max-width: 620px !important;
+  margin: 0 auto 32px !important;
+  text-align: center !important;
+}
+.site-footer-v5-home .v5-footer-intro .footer-brand {
+  justify-content: center !important;
+  margin: 0 auto 10px !important;
+}
+.site-footer-v5-home .v5-footer-intro p {
+  max-width: 620px !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+.site-footer-v5-home .v5-footer-columns {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important;
+  gap: clamp(48px, 7vw, 96px) !important;
+  max-width: 1040px !important;
+  margin: 0 auto !important;
+}
+.site-footer-v5-home .v5-footer-column {
+  display: grid !important;
+  grid-template-rows: auto auto !important;
+  align-content: start !important;
+  gap: 24px !important;
+}
+.site-footer-v5-home .v5-footer-group {
+  min-width: 0 !important;
+}
+.site-footer-v5-home .v5-footer-group h2 {
+  margin: 0 0 8px !important;
+}
+.site-footer-v5-home .v5-footer-group ul {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 5px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.site-footer-v5-home .v5-footer-group li {
+  margin: 0 !important;
+  min-width: 0 !important;
+}
+.site-footer-v5-home .v5-footer-group a {
+  line-height: 1.35 !important;
+}
+.site-footer-v5-home .footer-base {
+  max-width: 1040px !important;
+  margin: 26px auto 0 !important;
+  padding-top: 13px !important;
+}
+@media (max-width: 680px) {
+  .site-footer-v5-home .wrap {
+    width: min(calc(100% - 32px), 1180px);
+  }
+  .site-footer-v5-home .v5-footer-intro {
+    margin-bottom: 26px !important;
+  }
+  .site-footer-v5-home .v5-footer-columns {
+    gap: 22px !important;
+  }
+  .site-footer-v5-home .v5-footer-column {
+    gap: 20px !important;
+  }
+  .site-footer-v5-home .v5-footer-group h2,
+  .site-footer-v5-home .v5-footer-group a {
+    font-size: 11px !important;
+  }
+}
