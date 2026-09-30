@@ -9897,3 +9897,28 @@ html[lang="ru"] .shell:has(.ru-corporate-home-header) > main {
   flex: 0 0 auto;
   background: transparent;
 }
+
+
+/* WEBSITE-V5 RU MOBILE PLATFORM HERO — LONG TITLE WIDTH CLOSURE */
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-pilot-hero--platform .ru-pilot-hero-copy {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+  html[lang="ru"] .ru-pilot-hero--platform h1 {
+    width: 100%;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+    box-sizing: border-box;
+    font-size: clamp(27px, 7.2vw, 30px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -.028em !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+    text-wrap: balance;
+  }
+}
