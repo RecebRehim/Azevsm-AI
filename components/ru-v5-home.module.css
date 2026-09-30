@@ -1167,3 +1167,26 @@
     margin-top: auto !important;
   }
 }
+
+
+/* RU V5 MOBILE REPAIR — STEP 6 / TITLE OVERFLOW */
+@media (max-width: 680px) {
+  .heroCopy {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .heroCopy h1 {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 3px;
+    box-sizing: border-box;
+    font-size: clamp(25px,6.65vw,30px) !important;
+    line-height: 1.09 !important;
+    letter-spacing: -.012em !important;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+    text-wrap: balance;
+  }
+}
