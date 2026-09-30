@@ -1380,3 +1380,30 @@
     background-size: cover !important;
   }
 }
+
+
+/* RU V5 HERO — EXACT BACKGROUND FILE REPAIR 2026-09-30 */
+.hero {
+  background: transparent !important;
+}
+.heroLandscape {
+  opacity: 1 !important;
+  background-image: url("/ru-v5-hero-bg-desktop.webp") !important;
+  background-position: center bottom !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+.heroLandscape::before,
+.heroLandscape::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+@media (max-width: 860px) {
+  .heroLandscape {
+    opacity: 1 !important;
+    background-image: url("/ru-v5-hero-bg-mobile.webp") !important;
+    background-position: center bottom !important;
+    background-size: cover !important;
+  }
+}
