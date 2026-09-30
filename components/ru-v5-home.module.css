@@ -1347,3 +1347,13 @@
     grid-template-columns: 36px minmax(0,1fr) 15px !important;
   }
 }
+
+
+/* RU V5 HERO BACKGROUNDS — ACCEPTED DESKTOP + MOBILE SCENES */
+@media (max-width: 860px) {
+  .heroLandscape {
+    background-image: url("/ru-v5-hero-scene-mobile.svg") !important;
+    background-position: center bottom !important;
+    background-size: cover !important;
+  }
+}
