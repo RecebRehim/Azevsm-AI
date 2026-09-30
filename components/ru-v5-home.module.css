@@ -1320,3 +1320,30 @@
   font-weight: 410 !important;
   text-shadow: 0 1px 18px rgba(0,0,0,.12);
 }
+
+
+/* RU V5 SECONDARY NAV — LINK ARROWS */
+.secondaryCard {
+  grid-template-columns: 58px minmax(0,1fr) 18px;
+}
+.secondaryArrow {
+  align-self: center;
+  justify-self: end;
+  color: #e4b968;
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 1;
+}
+@media (max-width: 860px) {
+  .secondaryCard {
+    grid-template-columns: 40px minmax(0,1fr) 16px !important;
+  }
+  .secondaryArrow {
+    font-size: 18px;
+  }
+}
+@media (max-width: 430px) {
+  .secondaryCard {
+    grid-template-columns: 36px minmax(0,1fr) 15px !important;
+  }
+}
