@@ -1022,3 +1022,131 @@
     backdrop-filter: blur(7px);
   }
 }
+
+
+/* RU V5 HERO REPAIR — STEP 4 / MOBILE COMPOSITION GATE */
+@media (max-width: 860px) {
+  .hero {
+    min-height: auto;
+    padding: 34px 0 28px;
+  }
+  .hero > .shell {
+    min-height: 0;
+    display: block;
+  }
+  .heroLandscape {
+    background-size: auto 100%;
+    background-position: 61% bottom;
+  }
+  .heroCopy {
+    width: 100%;
+  }
+  .brand {
+    margin-bottom: 13px;
+    font-size: 9.5px;
+    letter-spacing: .37em;
+  }
+  .heroCopy h1 {
+    max-width: 100%;
+    font-size: clamp(30px,8.2vw,40px);
+    line-height: 1.075;
+    letter-spacing: .004em;
+  }
+  .heroLead {
+    width: min(100%, 620px);
+    margin-top: 15px;
+    font-size: 12.6px;
+    line-height: 1.49;
+  }
+  .primaryGrid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin-top: 26px !important;
+  }
+  .primaryCard {
+    min-height: 128px !important;
+    grid-template-columns: 80px minmax(0,1fr) 21px !important;
+    gap: 13px !important;
+    padding: 16px 15px !important;
+    border-radius: 10px !important;
+  }
+  .primaryIcon {
+    width: 76px !important;
+    height: 76px !important;
+  }
+  .primaryText strong {
+    margin-bottom: 5px !important;
+    font-size: 19px !important;
+  }
+  .primaryText span {
+    font-size: 11.7px !important;
+    line-height: 1.38 !important;
+  }
+  .secondaryGrid {
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+    margin-top: 14px !important;
+  }
+  .secondaryCard {
+    min-height: 100px !important;
+    grid-template-columns: 40px minmax(0,1fr) !important;
+    gap: 10px !important;
+    padding: 13px 11px !important;
+  }
+  .secondaryIcon {
+    width: 38px !important;
+    height: 38px !important;
+  }
+  .secondaryCard strong {
+    font-size: 13px !important;
+  }
+  .secondaryCard small {
+    font-size: 10px !important;
+  }
+  .heroFoot {
+    margin-top: 16px !important;
+    padding-top: 0 !important;
+  }
+  .heroActions {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 13px !important;
+  }
+  .heroActions .enter {
+    min-height: 50px !important;
+    display: inline-flex !important;
+    justify-content: space-between !important;
+  }
+  .more {
+    width: auto !important;
+    justify-self: center !important;
+  }
+}
+@media (max-width: 430px) {
+  .shell {
+    width: calc(100% - 24px);
+  }
+  .hero {
+    padding-top: 30px;
+  }
+  .heroCopy h1 {
+    font-size: clamp(28px,8.45vw,36px);
+  }
+  .primaryCard {
+    grid-template-columns: 74px minmax(0,1fr) 20px !important;
+    gap: 11px !important;
+    padding-inline: 13px !important;
+  }
+  .primaryIcon {
+    width: 70px !important;
+    height: 70px !important;
+  }
+  .secondaryCard {
+    grid-template-columns: 36px minmax(0,1fr) !important;
+    padding-inline: 9px !important;
+  }
+  .secondaryIcon {
+    width: 34px !important;
+    height: 34px !important;
+  }
+}
