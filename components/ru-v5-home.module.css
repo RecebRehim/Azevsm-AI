@@ -988,3 +988,37 @@
     justify-self: auto !important;
   }
 }
+
+
+/* RU V5 HERO REPAIR — STEP 3 / BACKGROUND SCENE GATE */
+.heroLandscape::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 94% 69%, rgba(255,229,174,.38) 0 1.2%, rgba(226,170,79,.22) 4%, rgba(226,170,79,.08) 10%, transparent 24%),
+    radial-gradient(ellipse at 76% 77%, rgba(64,115,161,.15), transparent 36%),
+    linear-gradient(180deg, transparent 0 58%, rgba(6,22,37,.04) 58% 72%, rgba(1,8,15,.14) 100%);
+  mix-blend-mode: screen;
+  opacity: .72;
+}
+@media (min-width: 861px) {
+  .heroLandscape {
+    background-position: center 72%;
+    background-size: cover;
+  }
+  .heroLandscape::before {
+    background:
+      linear-gradient(180deg,rgba(1,8,16,.06) 0%,rgba(2,12,23,.01) 38%,rgba(2,10,18,.03) 66%,rgba(1,7,13,.14) 100%),
+      radial-gradient(ellipse at 49% 8%,rgba(38,89,139,.10),transparent 47%);
+  }
+  .heroLandscape::after {
+    opacity: .9;
+  }
+  .primaryCard,
+  .secondaryGrid {
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+  }
+}
