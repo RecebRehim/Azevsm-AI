@@ -9,6 +9,122 @@ import { getProductAuthorityPage } from "@/lib/content/product-authority-pages-v
 import { localePath, type Locale } from "@/lib/i18n";
 import { platformEntryUrl } from "@/lib/platform";
 
+
+function RuCorporateGateway({
+  locale,
+  copy,
+  entry,
+}: {
+  locale: Locale;
+  copy: SiteCopy;
+  entry: string | null;
+}) {
+  const primary = [
+    {
+      href: "/platform",
+      title: copy.nav.platform,
+      body: copy.thesis,
+      icon: "platform-structure" as const,
+    },
+    {
+      href: "/products",
+      title: copy.nav.products,
+      body: copy.homeProductsTitle,
+      icon: "analytical-models" as const,
+    },
+    {
+      href: "/technology",
+      title: copy.nav.technology,
+      body: copy.techLead,
+      icon: "azevsm-ai" as const,
+    },
+  ];
+
+  const secondary = [
+    {
+      href: "/trust",
+      title: copy.nav.trust,
+      body: copy.trustTitle,
+      icon: "structured-evidence" as const,
+    },
+    {
+      href: "/data-security",
+      title: "Безопасность данных",
+      body: "AZEVSM SECURE",
+      icon: "trusted-results" as const,
+    },
+    {
+      href: "/legal-compliance",
+      title: "Право и комплаенс",
+      body: "",
+      icon: "plus-governance" as const,
+    },
+    {
+      href: "/company",
+      title: copy.nav.company,
+      body: copy.companyTitle,
+      icon: "methodology-ontology" as const,
+    },
+  ];
+
+  return (
+    <section className="ru-corporate-gateway" aria-labelledby="ru-corporate-gateway-title">
+      <span className="ru-gateway-orbit ru-gateway-orbit-a" aria-hidden="true" />
+      <span className="ru-gateway-orbit ru-gateway-orbit-b" aria-hidden="true" />
+      <div className="wrap ru-gateway-inner">
+        <div className="ru-gateway-copy">
+          <p className="ru-gateway-eyebrow">Azevsm Systems</p>
+          <h1 id="ru-corporate-gateway-title">{copy.heroTitle}</h1>
+          <p className="ru-gateway-lead">{copy.heroLead}</p>
+        </div>
+
+        <nav className="ru-gateway-primary" aria-label="Основные разделы">
+          {primary.map((item) => (
+            <Link className="ru-gateway-card" href={localePath(locale, item.href)} key={item.href}>
+              <span className="ru-gateway-card-icon"><FounderIcon name={item.icon} /></span>
+              <span className="ru-gateway-card-copy">
+                <strong>{item.title}</strong>
+                <span>{item.body}</span>
+              </span>
+              <svg className="ru-gateway-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </Link>
+          ))}
+        </nav>
+
+        <nav className="ru-gateway-secondary" aria-label="Дополнительные разделы">
+          {secondary.map((item) => (
+            <Link className="ru-gateway-secondary-link" href={localePath(locale, item.href)} key={item.href}>
+              <span className="ru-gateway-secondary-icon"><FounderIcon name={item.icon} /></span>
+              <span>
+                <strong>{item.title}</strong>
+                {item.body ? <small>{item.body}</small> : null}
+              </span>
+            </Link>
+          ))}
+        </nav>
+
+        <div className="ru-gateway-bottom">
+          <p className="ru-gateway-proof">
+            {copy.heroWords.split("\n").map((word) => <span key={word}>{word}</span>)}
+          </p>
+          <div className="ru-gateway-actions">
+            <a className="ru-gateway-enter" href={entry ?? localePath(locale, "/enter")}>
+              {copy.enter}
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+            <a className="ru-gateway-scroll" href="#ru-home-content">
+              {copy.learnMore}
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v15M6 13l6 6 6-6" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function RuPilotHome({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
   const platform = getProductAuthorityPage(locale, "platform");
   const moveStart = platform?.blocks.findIndex((block, index) => index > 0 && block.type === "heading") ?? -1;
@@ -17,9 +133,9 @@ export function RuPilotHome({ locale, copy }: { locale: Locale; copy: SiteCopy }
 
   return (
     <>
-      <Hero locale={locale} copy={copy} />
+      {locale === "ru" ? <RuCorporateGateway locale={locale} copy={copy} entry={entry} /> : <Hero locale={locale} copy={copy} />}
 
-      <section className="ru-home-transfer">
+      <section id="ru-home-content" className="ru-home-transfer">
         <div className="wrap ru-pilot-prose">
           <RuPilotBlocks blocks={movedBlocks} />
         </div>

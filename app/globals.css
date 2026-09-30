@@ -8576,3 +8576,467 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .site-footer a {
     padding: 18px 18px;
   }
 }
+
+
+/* RU CORPORATE HOME GATEWAY PILOT — 2026-09-30 */
+html[lang="ru"] .ru-corporate-gateway {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: calc(100svh - 72px);
+  display: flex;
+  align-items: center;
+  color: #f7f9fb;
+  background:
+    radial-gradient(circle at 86% 78%, rgba(198,160,89,.24), transparent 21%),
+    radial-gradient(circle at 74% 22%, rgba(80,126,170,.18), transparent 28%),
+    linear-gradient(126deg, #031120 0%, #071b31 43%, #0d2b49 74%, #071624 100%);
+  border-bottom: 1px solid rgba(197,160,89,.24);
+}
+html[lang="ru"] .ru-corporate-gateway::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background:
+    linear-gradient(115deg, transparent 0 44%, rgba(255,255,255,.026) 44.2% 44.7%, transparent 45%),
+    linear-gradient(20deg, transparent 0 68%, rgba(255,255,255,.018) 68.2% 68.7%, transparent 69%);
+  pointer-events: none;
+}
+html[lang="ru"] .ru-corporate-gateway::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -18%;
+  bottom: -42%;
+  width: 76vw;
+  max-width: 1120px;
+  aspect-ratio: 1.7;
+  border: 1px solid rgba(219,181,104,.34);
+  border-radius: 50%;
+  transform: rotate(-12deg);
+  box-shadow:
+    0 0 44px rgba(204,166,90,.08),
+    inset 0 0 80px rgba(255,255,255,.018);
+  pointer-events: none;
+}
+html[lang="ru"] .ru-gateway-orbit {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  border: 1px solid rgba(221,184,107,.30);
+  border-radius: 50%;
+  pointer-events: none;
+}
+html[lang="ru"] .ru-gateway-orbit-a {
+  width: 92vw;
+  max-width: 1420px;
+  aspect-ratio: 2.35;
+  left: -34vw;
+  top: 17%;
+  transform: rotate(18deg);
+}
+html[lang="ru"] .ru-gateway-orbit-b {
+  width: 72vw;
+  max-width: 1080px;
+  aspect-ratio: 1.85;
+  right: -27vw;
+  top: 3%;
+  transform: rotate(-28deg);
+  opacity: .72;
+}
+html[lang="ru"] .ru-gateway-inner {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - 56px), 1240px);
+  padding: clamp(64px, 7vw, 96px) 0 42px;
+}
+html[lang="ru"] .ru-gateway-copy {
+  width: min(100%, 1060px);
+  margin: 0 auto;
+  text-align: center;
+}
+html[lang="ru"] .ru-gateway-eyebrow {
+  margin: 0 0 19px;
+  color: rgba(231,235,241,.62);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .46em;
+  text-transform: uppercase;
+}
+html[lang="ru"] .ru-gateway-copy h1 {
+  max-width: 18ch;
+  margin: 0 auto;
+  color: #fff;
+  font-size: clamp(45px, 4.6vw, 70px);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -.042em;
+  text-wrap: balance;
+}
+html[lang="ru"] .ru-gateway-lead {
+  width: min(100%, 930px);
+  margin: 25px auto 0;
+  color: rgba(234,240,246,.72);
+  font-size: 16px;
+  line-height: 1.72;
+  text-wrap: pretty;
+}
+html[lang="ru"] .ru-gateway-primary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 14px;
+  margin-top: clamp(38px, 4.5vw, 60px);
+}
+html[lang="ru"] .ru-gateway-card {
+  min-height: 190px;
+  display: grid;
+  grid-template-columns: 74px minmax(0,1fr) 26px;
+  align-items: center;
+  gap: 22px;
+  padding: 27px 26px;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(216,177,98,.42);
+  border-radius: 14px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.065), rgba(255,255,255,.018)),
+    rgba(4,18,34,.44);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+  -webkit-backdrop-filter: blur(9px);
+  backdrop-filter: blur(9px);
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+html[lang="ru"] .ru-gateway-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(234,196,119,.72);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.085), rgba(255,255,255,.025)),
+    rgba(5,22,41,.58);
+}
+html[lang="ru"] .ru-gateway-card-icon,
+html[lang="ru"] .ru-gateway-secondary-icon {
+  display: grid;
+  place-items: center;
+}
+html[lang="ru"] .ru-gateway-card-icon .founder-icon {
+  width: 74px;
+  height: 74px;
+  padding: 10px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+html[lang="ru"] .ru-gateway-card-icon .founder-icon svg,
+html[lang="ru"] .ru-gateway-secondary-icon .founder-icon svg {
+  filter: saturate(.92) brightness(1.28);
+}
+html[lang="ru"] .ru-gateway-card-copy {
+  min-width: 0;
+  display: block;
+}
+html[lang="ru"] .ru-gateway-card-copy strong {
+  display: block;
+  margin-bottom: 9px;
+  color: #fff;
+  font-size: 23px;
+  font-weight: 560;
+  letter-spacing: -.02em;
+}
+html[lang="ru"] .ru-gateway-card-copy span {
+  display: block;
+  color: rgba(231,238,244,.69);
+  font-size: 14px;
+  line-height: 1.5;
+}
+html[lang="ru"] .ru-gateway-arrow,
+html[lang="ru"] .ru-gateway-enter svg,
+html[lang="ru"] .ru-gateway-scroll svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: #ddb66d;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+html[lang="ru"] .ru-gateway-secondary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  margin-top: 26px;
+  border-top: 1px solid rgba(255,255,255,.14);
+  border-bottom: 1px solid rgba(255,255,255,.11);
+}
+html[lang="ru"] .ru-gateway-secondary-link {
+  min-height: 112px;
+  display: grid;
+  grid-template-columns: 48px minmax(0,1fr);
+  align-items: center;
+  gap: 14px;
+  padding: 22px 24px;
+  color: #fff;
+  text-decoration: none;
+}
+html[lang="ru"] .ru-gateway-secondary-link + .ru-gateway-secondary-link {
+  border-left: 1px solid rgba(255,255,255,.11);
+}
+html[lang="ru"] .ru-gateway-secondary-icon .founder-icon {
+  width: 48px;
+  height: 48px;
+  padding: 4px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+html[lang="ru"] .ru-gateway-secondary-link strong {
+  display: block;
+  color: #f6f8fb;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+html[lang="ru"] .ru-gateway-secondary-link small {
+  display: block;
+  margin-top: 6px;
+  color: rgba(227,235,242,.59);
+  font-size: 12.5px;
+  line-height: 1.35;
+}
+html[lang="ru"] .ru-gateway-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin-top: 28px;
+}
+html[lang="ru"] .ru-gateway-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px 22px;
+  margin: 0;
+  color: rgba(235,241,246,.64);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .17em;
+}
+html[lang="ru"] .ru-gateway-proof span {
+  position: relative;
+}
+html[lang="ru"] .ru-gateway-proof span + span::before {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  left: -13px;
+  top: 50%;
+  border-radius: 50%;
+  background: #caa55d;
+}
+html[lang="ru"] .ru-gateway-actions {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+html[lang="ru"] .ru-gateway-enter,
+html[lang="ru"] .ru-gateway-scroll {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 17px;
+  color: #f5f7fa;
+  text-decoration: none;
+  border: 1px solid rgba(215,177,100,.54);
+  border-radius: 9px;
+  background: rgba(4,18,33,.42);
+}
+html[lang="ru"] .ru-gateway-scroll {
+  color: rgba(237,242,247,.70);
+  border-color: rgba(255,255,255,.13);
+}
+
+/* The home header becomes part of the gateway, but only on the Russian pilot homepage. */
+html[lang="ru"] .ru-corporate-home-header {
+  background: rgba(3,15,28,.96);
+  border-bottom-color: rgba(255,255,255,.11);
+  box-shadow: none;
+}
+html[lang="ru"] .ru-corporate-home-header .wordmark strong,
+html[lang="ru"] .ru-corporate-home-header .nav-main a,
+html[lang="ru"] .ru-corporate-home-header .menu-toggle,
+html[lang="ru"] .ru-corporate-home-header .ru-primary-locales a,
+html[lang="ru"] .ru-corporate-home-header .ru-language-more summary {
+  color: #f4f7fa;
+}
+html[lang="ru"] .ru-corporate-home-header .wordmark-text > span {
+  color: rgba(222,183,105,.82);
+}
+html[lang="ru"] .ru-corporate-home-header .site-search-trigger,
+html[lang="ru"] .ru-corporate-home-header .menu-toggle,
+html[lang="ru"] .ru-corporate-home-header .ru-primary-locales a,
+html[lang="ru"] .ru-corporate-home-header .ru-language-more summary {
+  border-color: rgba(255,255,255,.14);
+  background: rgba(255,255,255,.025);
+}
+html[lang="ru"] .ru-corporate-home-header .site-search-trigger svg {
+  stroke: #f4f7fa;
+}
+html[lang="ru"] .ru-corporate-home-header .header-utilities .btn-primary {
+  color: #f7f2e8;
+  border-color: rgba(215,177,100,.55);
+  background: rgba(7,25,44,.42);
+  box-shadow: none;
+}
+html[lang="ru"] .ru-corporate-home-header .nav-main a[aria-current="page"]::after {
+  background: #caa45e;
+}
+html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
+  background: #06172a;
+}
+
+@media (max-width: 920px) {
+  html[lang="ru"] .ru-gateway-inner {
+    width: min(calc(100% - 38px), 860px);
+  }
+  html[lang="ru"] .ru-gateway-primary {
+    grid-template-columns: 1fr;
+  }
+  html[lang="ru"] .ru-gateway-card {
+    min-height: 132px;
+  }
+  html[lang="ru"] .ru-gateway-secondary {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+  html[lang="ru"] .ru-gateway-secondary-link:nth-child(3) {
+    border-left: 0;
+    border-top: 1px solid rgba(255,255,255,.11);
+  }
+  html[lang="ru"] .ru-gateway-secondary-link:nth-child(4) {
+    border-top: 1px solid rgba(255,255,255,.11);
+  }
+  html[lang="ru"] .ru-gateway-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-corporate-gateway {
+    min-height: 0;
+  }
+  html[lang="ru"] .ru-gateway-inner {
+    width: calc(100% - 32px);
+    padding: 44px 0 34px;
+  }
+  html[lang="ru"] .ru-gateway-eyebrow {
+    margin-bottom: 15px;
+    font-size: 10px;
+    letter-spacing: .36em;
+  }
+  html[lang="ru"] .ru-gateway-copy h1 {
+    max-width: 100%;
+    font-size: clamp(34px, 9.6vw, 44px);
+    line-height: 1.08;
+    letter-spacing: -.035em;
+  }
+  html[lang="ru"] .ru-gateway-lead {
+    margin-top: 20px;
+    font-size: 15px;
+    line-height: 1.62;
+  }
+  html[lang="ru"] .ru-gateway-primary {
+    gap: 10px;
+    margin-top: 34px;
+  }
+  html[lang="ru"] .ru-gateway-card {
+    min-height: 0;
+    grid-template-columns: 60px minmax(0,1fr) 22px;
+    gap: 14px;
+    padding: 19px 17px;
+    border-radius: 12px;
+  }
+  html[lang="ru"] .ru-gateway-card-icon .founder-icon {
+    width: 58px;
+    height: 58px;
+    padding: 7px;
+  }
+  html[lang="ru"] .ru-gateway-card-copy strong {
+    margin-bottom: 5px;
+    font-size: 19px;
+  }
+  html[lang="ru"] .ru-gateway-card-copy span {
+    font-size: 12.8px;
+    line-height: 1.42;
+  }
+  html[lang="ru"] .ru-gateway-secondary {
+    margin-top: 18px;
+  }
+  html[lang="ru"] .ru-gateway-secondary-link {
+    min-height: 112px;
+    grid-template-columns: 38px minmax(0,1fr);
+    gap: 10px;
+    padding: 17px 12px;
+  }
+  html[lang="ru"] .ru-gateway-secondary-icon .founder-icon {
+    width: 38px;
+    height: 38px;
+  }
+  html[lang="ru"] .ru-gateway-secondary-link strong {
+    font-size: 14px;
+  }
+  html[lang="ru"] .ru-gateway-secondary-link small {
+    font-size: 11.5px;
+  }
+  html[lang="ru"] .ru-gateway-proof {
+    gap: 10px 18px;
+    font-size: 10px;
+  }
+  html[lang="ru"] .ru-gateway-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  html[lang="ru"] .ru-gateway-enter,
+  html[lang="ru"] .ru-gateway-scroll {
+    justify-content: space-between;
+    min-height: 48px;
+  }
+  html[lang="ru"] .ru-gateway-orbit-a {
+    width: 150vw;
+    left: -92vw;
+    top: 18%;
+  }
+  html[lang="ru"] .ru-gateway-orbit-b {
+    width: 126vw;
+    right: -77vw;
+    top: 5%;
+  }
+  html[lang="ru"] .ru-corporate-gateway::after {
+    width: 150vw;
+    right: -93vw;
+    bottom: -12%;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark-text {
+    display: flex !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark strong {
+    font-size: 14px;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark-text > span {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 390px) {
+  html[lang="ru"] .ru-gateway-secondary {
+    grid-template-columns: 1fr;
+  }
+  html[lang="ru"] .ru-gateway-secondary-link + .ru-gateway-secondary-link,
+  html[lang="ru"] .ru-gateway-secondary-link:nth-child(3),
+  html[lang="ru"] .ru-gateway-secondary-link:nth-child(4) {
+    border-left: 0;
+    border-top: 1px solid rgba(255,255,255,.11);
+  }
+}

@@ -12,6 +12,7 @@ import { platformEntryUrl } from "@/lib/platform";
 export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?: string }) {
   const path = usePathname() || `/${locale}`;
   const pilotLocale = isPilotLocale(locale);
+  const corporateHome = locale === "ru" && path === "/ru";
   const [open, setOpen] = useState(false);
   const entry = platformEntryUrl();
   const enterHref = entry ?? localePath(locale, "/enter");
@@ -33,7 +34,7 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
   ];
 
   return (
-    <header className={`site-header${pilotLocale ? " ru-pilot-site-header" : ""}`}>
+    <header className={`site-header${pilotLocale ? " ru-pilot-site-header" : ""}${corporateHome ? " ru-corporate-home-header" : ""}`}>
       <div className={`wrap header-inner${open ? " is-open" : ""}`}>
         <Link className="wordmark" href={localePath(locale)} onClick={close}>
           <Logo variant="mark" title={copy.logoTitle} />
