@@ -8451,3 +8451,43 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-card > i {
     height: 42px !important;
   }
 }
+
+
+/* WEBSITE-V5 LEGAL COMPLIANCE HERO HARMONY — 2026-09-30 */
+/* Targeted repair: the compliance hero must remain in the same premium deep-tech family. */
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--legal-compliance {
+  background:
+    radial-gradient(ellipse at 84% 30%, rgba(92,133,168,.20), transparent 28%),
+    linear-gradient(118deg, #07182b 0%, #0a223b 62%, #12344f 100%) !important;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--legal-compliance::after {
+  opacity: .62 !important;
+  border-color: rgba(255,255,255,.08);
+  background: linear-gradient(138deg, rgba(255,255,255,.08), rgba(255,255,255,.012) 52%, rgba(112,153,184,.08));
+  box-shadow: inset 0 0 70px rgba(255,255,255,.02);
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--legal-compliance h1 {
+  color: #fff !important;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--legal-compliance .ru-pilot-lead {
+  color: rgba(237,244,249,.78) !important;
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--legal-compliance .ru-thematic-hero-art::before {
+  border-color: rgba(255,255,255,.08);
+  background: linear-gradient(132deg, rgba(255,255,255,.07), rgba(255,255,255,.012) 54%, rgba(107,154,189,.07));
+}
+
+html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--legal-compliance .ru-thematic-hero-art::after {
+  opacity: .5;
+}
+
+@media (max-width: 680px) {
+  html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero--legal-compliance .ru-thematic-hero-art {
+    min-height: 72px;
+  }
+}
