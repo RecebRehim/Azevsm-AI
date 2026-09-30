@@ -70,4 +70,23 @@
 <rect width="1536" height="1024" fill="url(#sky)" opacity=".04"/>
 <rect width="1536" height="180" fill="#010811" opacity=".12"/>
 <rect width="1536" height="1024" fill="none" stroke="#000" stroke-opacity=".08" stroke-width="24"/>
+
+<!-- REFERENCE LANDSCAPE EMPHASIS: city/water raised into visible hero field -->
+<g id="reference-landscape-emphasis">
+  <ellipse cx="1395" cy="620" rx="300" ry="110" fill="#e5a94f" opacity=".10" filter="url(#g2)"/>
+  <path d="M0 585 L82 548 L162 570 L247 523 L328 560 L412 517 L498 559 L583 519 L668 562 L754 522 L842 561 L932 516 L1020 554 L1110 509 L1196 548 L1288 500 L1382 544 L1469 493 L1536 520 L1536 820 L0 820Z" fill="#143653" opacity=".96"/>
+  <path d="M0 628 L108 584 L201 612 L307 572 L404 610 L503 570 L603 616 L701 576 L803 619 L905 580 L1012 616 L1120 575 L1218 613 L1328 570 L1431 612 L1536 575 L1536 840 L0 840Z" fill="#0b263e" opacity=".96"/>
+  <path d="M170 640 C455 616 817 610 1536 562 L1536 795 C1194 812 803 818 201 770Z" fill="url(#water)" opacity=".94"/>
+  <path d="M212 647 C511 620 871 615 1516 579 L1516 711 C1150 729 738 734 239 698Z" fill="url(#lights)" opacity=".98"/>
+  <path d="M287 672 C607 643 968 637 1498 602" fill="none" stroke="#f0bb62" stroke-opacity=".58" stroke-width="1.5"/>
+  <path d="M675 714 C934 674 1176 641 1488 620" fill="none" stroke="#ffe09a" stroke-opacity=".34" stroke-width="1.15"/>
+  <circle cx="1450" cy="575" r="8.2" fill="#fff0bf"/>
+  <circle cx="1450" cy="575" r="42" fill="#efbd69" opacity=".26" filter="url(#g2)"/>
+  <path d="M0 663 L112 612 L214 649 L331 614 L458 666 L563 636 L691 700 L0 783Z" fill="#020b13" opacity=".98"/>
+  <path d="M0 768 L520 744 L718 795 L657 1024 L0 1024Z" fill="url(#stone)"/>
+  <path d="M0 781 L516 758 L691 800" fill="none" stroke="#c0cfda" stroke-opacity=".52" stroke-width="1.6"/>
+  <path d="M0 837 L575 803 L742 846" fill="none" stroke="#3b5b74" stroke-opacity=".70" stroke-width="1.5"/>
+  <path d="M0 901 L613 862 L768 898" fill="none" stroke="#1d3e58" stroke-opacity=".72" stroke-width="1.6"/>
+  <path d="M506 758 L701 801" fill="none" stroke="#dfad5a" stroke-opacity=".40" stroke-width="1.45"/>
+</g>
 </svg>
