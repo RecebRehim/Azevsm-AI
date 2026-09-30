@@ -1316,7 +1316,7 @@
 
 /* RU V5 HERO — BRAND LABEL CONTRAST FIX */
 .brand {
-  color: rgba(245,248,251,.90) !important;
-  font-weight: 600 !important;
-  text-shadow: 0 1px 10px rgba(0,0,0,.22);
+  color: #f8fafc !important;
+  font-weight: 410 !important;
+  text-shadow: 0 1px 18px rgba(0,0,0,.12);
 }
