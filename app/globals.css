@@ -9890,3 +9890,11 @@ html[lang="ru"] .ru-corporate-home-header .header-utilities .btn-primary {
     display: none !important;
   }
 }
+
+
+/* RU V5 HOME — DESKTOP CLOSED-DETAILS BACKGROUND FIX */
+@media (min-width: 861px) {
+  html[lang="ru"] body:has(.ru-corporate-home-header) > .shell > main {
+    background: #020b16;
+  }
+}
