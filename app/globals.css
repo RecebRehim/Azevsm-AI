@@ -10223,3 +10223,17 @@ html[lang="ru"] .shell:has(.ru-corporate-home-header) > .site-footer-v5-home {
     font-size: 11px !important;
   }
 }
+
+
+/* WEBSITE-V5 RU HOME FOOTER — REMOVE FORCED EMPTY STRETCH 2026-09-30 */
+html[lang="ru"] .shell:has(.ru-corporate-home-header) > .site-footer-v5-home {
+  flex: 0 0 auto !important;
+  min-height: 0 !important;
+}
+.site-footer-v5-home > .wrap {
+  flex: 0 0 auto !important;
+}
+.site-footer-v5-home .footer-base {
+  margin: 22px auto 0 !important;
+  padding-top: 12px !important;
+}
