@@ -58,15 +58,6 @@ export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
 
               <div className="v5-footer-column">
                 <div className="v5-footer-group">
-                  <h2>{copy.footerProducts}</h2>
-                  <ul>
-                    <li><Link href={localePath(locale, "/products/azevsm-index")}>Azevsm Index</Link></li>
-                    <li><Link href={localePath(locale, "/products/azevsm-institutional-index")}>Azevsm Institutional Index</Link></li>
-                    <li><Link href={localePath(locale, "/products/azevsm-plus")}>Azevsm Plus</Link></li>
-                  </ul>
-                </div>
-
-                <div className="v5-footer-group">
                   <h2>{copy.footerTrust}</h2>
                   <ul>
                     <li><Link href={localePath(locale, "/legal/privacy")}>{copy.privacy}</Link></li>
@@ -76,6 +67,15 @@ export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
                     <li><Link href={localePath(locale, "/validation-reproducibility")}>{authorityRouteLabels.ru.validation}</Link></li>
                     <li><Link href={localePath(locale, "/data-security")}>{authorityRouteLabels.ru.dataSecurity}</Link></li>
                     <li><Link href={localePath(locale, "/legal-compliance")}>{authorityRouteLabels.ru.legalCompliance}</Link></li>
+                  </ul>
+                </div>
+
+                <div className="v5-footer-group">
+                  <h2>{copy.footerProducts}</h2>
+                  <ul>
+                    <li><Link href={localePath(locale, "/products/azevsm-index")}>Azevsm Index</Link></li>
+                    <li><Link href={localePath(locale, "/products/azevsm-institutional-index")}>Azevsm Institutional Index</Link></li>
+                    <li><Link href={localePath(locale, "/products/azevsm-plus")}>Azevsm Plus</Link></li>
                   </ul>
                 </div>
               </div>

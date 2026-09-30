@@ -10103,3 +10103,38 @@ body:has(.site-footer-v5-home) {
     font-size: 11px !important;
   }
 }
+
+
+/* WEBSITE-V5 RU HOME FOOTER — MIRRORED GROUPS + FULL VIEWPORT DARK 2026-09-30 */
+html[lang="ru"] .shell:has(.ru-corporate-home-header) {
+  min-height: 100dvh !important;
+  background: #081827 !important;
+}
+html[lang="ru"] body:has(.ru-corporate-home-header) {
+  min-height: 100dvh !important;
+  background: #081827 !important;
+}
+.site-footer-v5-home .v5-footer-columns {
+  width: min(100%, 900px) !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: clamp(56px, 8vw, 96px) !important;
+  justify-content: center !important;
+}
+.site-footer-v5-home .v5-footer-column {
+  width: min(100%, 360px) !important;
+}
+.site-footer-v5-home .v5-footer-column:first-child {
+  justify-self: end !important;
+}
+.site-footer-v5-home .v5-footer-column:last-child {
+  justify-self: start !important;
+}
+@media (max-width: 760px) {
+  .site-footer-v5-home .v5-footer-columns {
+    width: min(100%, 660px) !important;
+    gap: 36px !important;
+  }
+  .site-footer-v5-home .v5-footer-column {
+    width: min(100%, 290px) !important;
+  }
+}
