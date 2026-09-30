@@ -286,6 +286,7 @@ export function RuV5Home({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
               <Link className={styles.secondaryCard} href={localePath(locale, href)} key={href}>
                 <span className={styles.secondaryIcon}><V5Icon name={icon} /></span>
                 <span><strong>{title}</strong>{body ? <small>{body}</small> : null}</span>
+                <span className={styles.secondaryArrow} aria-hidden="true">→</span>
               </Link>
             ))}
           </nav>
