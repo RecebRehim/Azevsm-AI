@@ -886,3 +886,105 @@
     margin-top: 2px;
   }
 }
+
+
+/* RU V5 HERO REPAIR — STEP 2 / DESKTOP COMPOSITION GATE */
+@media (min-width: 861px) {
+  .hero {
+    min-height: calc(100svh - 82px);
+    padding: clamp(42px,4.2vw,58px) 0 24px;
+  }
+  .hero > .shell {
+    min-height: calc(100svh - 148px);
+    display: flex;
+    flex-direction: column;
+  }
+  .shell {
+    width: min(calc(100% - 40px), 1300px);
+  }
+  .heroCopy {
+    width: min(100%, 1120px);
+  }
+  .brand {
+    margin-bottom: 16px;
+    font-size: 11px;
+    letter-spacing: .46em;
+  }
+  .heroCopy h1 {
+    max-width: 1080px;
+    font-size: clamp(38px,4.05vw,60px);
+    line-height: 1.04;
+    font-weight: 410;
+    letter-spacing: .006em;
+  }
+  .heroLead {
+    width: min(100%, 1050px);
+    margin-top: 18px;
+    font-size: clamp(12px,.95vw,14px);
+    line-height: 1.45;
+  }
+  .primaryGrid {
+    grid-template-columns: repeat(3,minmax(0,1fr)) !important;
+    gap: 14px !important;
+    margin-top: clamp(28px,2.5vw,36px) !important;
+  }
+  .primaryCard {
+    min-height: clamp(164px,15vw,194px) !important;
+    grid-template-columns: clamp(86px,8vw,112px) minmax(0,1fr) 22px !important;
+    gap: clamp(14px,1.4vw,20px) !important;
+    padding: clamp(19px,1.8vw,25px) !important;
+  }
+  .primaryIcon {
+    width: clamp(84px,7.8vw,108px) !important;
+    height: clamp(84px,7.8vw,108px) !important;
+  }
+  .primaryText strong {
+    font-size: clamp(19px,1.65vw,24px) !important;
+  }
+  .primaryText span {
+    font-size: clamp(11.5px,.92vw,13.5px) !important;
+  }
+  .secondaryGrid {
+    grid-template-columns: repeat(4,minmax(0,1fr)) !important;
+    margin-top: 20px !important;
+  }
+  .secondaryCard {
+    min-height: clamp(90px,8.2vw,106px) !important;
+    grid-template-columns: clamp(44px,4vw,58px) minmax(0,1fr) !important;
+    gap: 12px !important;
+    padding: 15px clamp(14px,1.5vw,22px) !important;
+    border-top: 0 !important;
+  }
+  .secondaryCard:nth-child(3),
+  .secondaryCard:nth-child(4) {
+    border-top: 0 !important;
+  }
+  .secondaryCard:nth-child(3) {
+    border-left: 1px solid rgba(219,229,238,.18) !important;
+  }
+  .secondaryIcon {
+    width: clamp(42px,3.9vw,54px) !important;
+    height: clamp(42px,3.9vw,54px) !important;
+  }
+  .secondaryCard strong {
+    font-size: clamp(13px,1.05vw,15.5px) !important;
+  }
+  .secondaryCard small {
+    font-size: clamp(10px,.78vw,11.5px) !important;
+  }
+  .heroFoot {
+    margin-top: auto !important;
+    padding-top: 16px !important;
+  }
+  .heroActions .enter {
+    display: none !important;
+  }
+  .heroActions {
+    width: auto !important;
+    display: flex !important;
+  }
+  .more {
+    width: auto !important;
+    justify-self: auto !important;
+  }
+}
