@@ -238,3 +238,298 @@
   .companyGrid { grid-template-columns:1fr; align-items:start; }
   .companyGrid .enter { width:100%; }
 }
+
+/* RU V5 HERO — ACCEPTED VISUAL 1:1 TARGET 2026-09-30 */
+.hero {
+  isolation: isolate;
+  min-height: calc(100svh - 76px);
+  align-items: flex-start;
+  padding: 54px 0 30px;
+  overflow: hidden;
+  background: #03111f;
+}
+.heroLandscape {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  height: 100%;
+  opacity: 1;
+  background-image: url("data:image/svg+xml,%0A%20%20%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201536%20950%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%0A%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%3ClinearGradient%20id%3D%22sky%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23020b16%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22.38%22%20stop-color%3D%22%2306182b%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22.68%22%20stop-color%3D%22%230b2945%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23102b43%22%2F%3E%0A%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3CradialGradient%20id%3D%22sunset%22%20cx%3D%22.91%22%20cy%3D%22.64%22%20r%3D%22.37%22%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23f6d598%22%20stop-opacity%3D%22.92%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22.18%22%20stop-color%3D%22%23d8a254%22%20stop-opacity%3D%22.55%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22.48%22%20stop-color%3D%22%236c6e7f%22%20stop-opacity%3D%22.16%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2306182b%22%20stop-opacity%3D%220%22%2F%3E%0A%20%20%20%20%20%20%3C%2FradialGradient%3E%0A%20%20%20%20%20%20%3ClinearGradient%20id%3D%22lake%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23183d5d%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22.55%22%20stop-color%3D%22%23092038%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23020b14%22%2F%3E%0A%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3ClinearGradient%20id%3D%22terrace%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2317344f%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22.48%22%20stop-color%3D%22%23071728%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23020a13%22%2F%3E%0A%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3Cfilter%20id%3D%22glow%22%3E%3CfeGaussianBlur%20stdDeviation%3D%225%22%20result%3D%22b%22%2F%3E%3CfeMerge%3E%3CfeMergeNode%20in%3D%22b%22%2F%3E%3CfeMergeNode%20in%3D%22SourceGraphic%22%2F%3E%3C%2FfeMerge%3E%3C%2Ffilter%3E%0A%20%20%20%20%20%20%3Cfilter%20id%3D%22soft%22%3E%3CfeGaussianBlur%20stdDeviation%3D%2218%22%2F%3E%3C%2Ffilter%3E%0A%20%20%20%20%3C%2Fdefs%3E%0A%0A%20%20%20%20%3Crect%20width%3D%221536%22%20height%3D%22950%22%20fill%3D%22url(%23sky)%22%2F%3E%0A%20%20%20%20%3Crect%20width%3D%221536%22%20height%3D%22950%22%20fill%3D%22url(%23sunset)%22%2F%3E%0A%0A%20%20%20%20%3Cpath%20d%3D%22M-180%20480%20C210%2060%20840%20-100%201710%20260%22%20fill%3D%22none%22%20stroke%3D%22%2323649c%22%20stroke-opacity%3D%22.22%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M-130%20535%20C280%2040%20970%20-30%201670%20310%22%20fill%3D%22none%22%20stroke%3D%22%23d9a34d%22%20stroke-opacity%3D%22.82%22%20stroke-width%3D%222%22%20filter%3D%22url(%23glow)%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M-120%20540%20C290%2046%20980%20-22%201675%20315%22%20fill%3D%22none%22%20stroke%3D%22%23f2c979%22%20stroke-opacity%3D%22.28%22%20stroke-width%3D%227%22%20filter%3D%22url(%23soft)%22%2F%3E%0A%0A%20%20%20%20%3Cpath%20d%3D%22M0%20668%20L118%20590%20L212%20640%20L326%20540%20L424%20625%20L548%20526%20L674%20620%20L792%20550%20L910%20628%20L1048%20522%20L1160%20602%20L1280%20505%20L1395%20586%20L1536%20486%20L1536%20950%20L0%20950Z%22%20fill%3D%22%2307192a%22%20opacity%3D%22.9%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0%20714%20L160%20628%20L290%20678%20L438%20602%20L574%20683%20L716%20610%20L842%20690%20L986%20622%20L1120%20688%20L1268%20610%20L1400%20680%20L1536%20596%20L1536%20950%20L0%20950Z%22%20fill%3D%22%23061522%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0%20748%20L132%20690%20L270%20731%20L410%20671%20L560%20738%20L702%20684%20L850%20742%20L1010%20687%20L1160%20742%20L1328%20690%20L1536%20730%20L1536%20950%20L0%20950Z%22%20fill%3D%22%2304111d%22%2F%3E%0A%0A%20%20%20%20%3Cpath%20d%3D%22M360%20690%20C720%20645%201100%20646%201536%20635%20L1536%20950%20L310%20950Z%22%20fill%3D%22url(%23lake)%22%20opacity%3D%22.88%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M515%20744%20C770%20713%201030%20710%201450%20676%22%20fill%3D%22none%22%20stroke%3D%22%233e6f96%22%20stroke-opacity%3D%22.34%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M630%20778%20C930%20742%201190%20730%201518%20708%22%20fill%3D%22none%22%20stroke%3D%22%231d4d77%22%20stroke-opacity%3D%22.28%22%20stroke-width%3D%222%22%2F%3E%0A%0A%20%20%20%20%3Ccircle%20cx%3D%22515%22%20cy%3D%22735%22%20r%3D%222.2%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22540%22%20cy%3D%22742%22%20r%3D%221.8%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22565%22%20cy%3D%22730%22%20r%3D%221.6%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22590%22%20cy%3D%22748%22%20r%3D%222.1%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22612%22%20cy%3D%22736%22%20r%3D%221.5%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22636%22%20cy%3D%22744%22%20r%3D%221.8%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22662%22%20cy%3D%22730%22%20r%3D%222%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22690%22%20cy%3D%22740%22%20r%3D%221.7%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22716%22%20cy%3D%22726%22%20r%3D%222%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22742%22%20cy%3D%22738%22%20r%3D%221.5%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22770%22%20cy%3D%22721%22%20r%3D%222.2%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22796%22%20cy%3D%22734%22%20r%3D%221.7%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22824%22%20cy%3D%22720%22%20r%3D%222%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22850%22%20cy%3D%22728%22%20r%3D%221.5%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22878%22%20cy%3D%22712%22%20r%3D%222.2%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22905%22%20cy%3D%22724%22%20r%3D%221.6%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22934%22%20cy%3D%22708%22%20r%3D%222.1%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22962%22%20cy%3D%22719%22%20r%3D%221.8%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%22990%22%20cy%3D%22702%22%20r%3D%222.1%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%221020%22%20cy%3D%22714%22%20r%3D%221.7%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%221048%22%20cy%3D%22700%22%20r%3D%222.2%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%221076%22%20cy%3D%22710%22%20r%3D%221.8%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%221105%22%20cy%3D%22694%22%20r%3D%222.2%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%221134%22%20cy%3D%22705%22%20r%3D%221.6%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%221164%22%20cy%3D%22690%22%20r%3D%222.1%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%221194%22%20cy%3D%22699%22%20r%3D%221.8%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%221222%22%20cy%3D%22683%22%20r%3D%222.2%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%221250%22%20cy%3D%22694%22%20r%3D%221.6%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%221280%22%20cy%3D%22680%22%20r%3D%222.1%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%221310%22%20cy%3D%22688%22%20r%3D%221.8%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%221340%22%20cy%3D%22674%22%20r%3D%222.2%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%221372%22%20cy%3D%22685%22%20r%3D%221.7%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%3Ccircle%20cx%3D%221402%22%20cy%3D%22671%22%20r%3D%222.1%22%20fill%3D%22%23eec56f%22%20opacity%3D%22.9%22%2F%3E%0A%20%20%20%20%3Cg%20filter%3D%22url(%23glow)%22%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M520%20748%20C850%20710%201090%20713%201505%20682%22%20fill%3D%22none%22%20stroke%3D%22%23d9a14a%22%20stroke-opacity%3D%22.55%22%20stroke-width%3D%221.5%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M980%20754%20C1115%20730%201240%20716%201418%20702%22%20fill%3D%22none%22%20stroke%3D%22%23f0c66e%22%20stroke-opacity%3D%22.46%22%20stroke-width%3D%221%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%0A%20%20%20%20%3Cpath%20d%3D%22M0%20778%20L550%20760%20L740%20816%20L690%20950%20L0%20950Z%22%20fill%3D%22url(%23terrace)%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0%20790%20L548%20772%20L690%20813%22%20fill%3D%22none%22%20stroke%3D%22%236d8ca5%22%20stroke-opacity%3D%22.42%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0%20858%20L648%20824%20L780%20866%22%20fill%3D%22none%22%20stroke%3D%22%2324435f%22%20stroke-opacity%3D%22.48%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0%20915%20L610%20886%20L760%20918%22%20fill%3D%22none%22%20stroke%3D%22%2316334f%22%20stroke-opacity%3D%22.62%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M508%20775%20L741%20817%22%20fill%3D%22none%22%20stroke%3D%22%23d5a24f%22%20stroke-opacity%3D%22.28%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0%20777%20L545%20760%22%20fill%3D%22none%22%20stroke%3D%22%23d5b274%22%20stroke-opacity%3D%22.22%22%20stroke-width%3D%221.5%22%2F%3E%0A%0A%20%20%20%20%3Ccircle%20cx%3D%221450%22%20cy%3D%22606%22%20r%3D%228%22%20fill%3D%22%23f7ddae%22%20opacity%3D%22.95%22%20filter%3D%22url(%23glow)%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%221448%22%20cy%3D%22610%22%20rx%3D%22150%22%20ry%3D%2276%22%20fill%3D%22%23e6aa50%22%20opacity%3D%22.10%22%20filter%3D%22url(%23soft)%22%2F%3E%0A%0A%20%20%20%20%3Crect%20y%3D%220%22%20width%3D%221536%22%20height%3D%22290%22%20fill%3D%22%23020b16%22%20opacity%3D%22.18%22%2F%3E%0A%20%20%20%20%3Crect%20y%3D%22610%22%20width%3D%221536%22%20height%3D%22340%22%20fill%3D%22%2302101d%22%20opacity%3D%22.12%22%2F%3E%0A%20%20%3C%2Fsvg%3E");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+.heroLandscape::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(2,11,22,.12) 0%, rgba(2,11,22,.03) 42%, rgba(2,11,22,.04) 72%, rgba(2,11,22,.15) 100%),
+    radial-gradient(circle at 50% 10%, rgba(18,52,83,.12), transparent 46%);
+  pointer-events: none;
+}
+.horizonLine,
+.cityGlow {
+  display: none;
+}
+.hero > .shell {
+  position: relative;
+  z-index: 2;
+}
+.heroCopy {
+  width: min(100%, 1120px);
+}
+.brand {
+  margin-bottom: 18px;
+  color: rgba(236,241,246,.58);
+  font-size: 12px;
+  letter-spacing: .46em;
+}
+.heroCopy h1 {
+  max-width: 19.5ch;
+  font-size: clamp(48px,4.65vw,72px);
+  line-height: 1.02;
+  font-weight: 500;
+  letter-spacing: -.042em;
+}
+.heroLead {
+  width: min(100%, 1040px);
+  margin-top: 22px;
+  color: rgba(235,240,245,.72);
+  font-size: 16px;
+  line-height: 1.58;
+}
+.primaryGrid {
+  margin-top: 38px;
+  gap: 14px;
+}
+.primaryCard {
+  min-height: 198px;
+  grid-template-columns: 112px minmax(0,1fr) 26px;
+  gap: 20px;
+  padding: 26px 26px;
+  border-color: rgba(215,225,235,.46);
+  border-radius: 14px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018)),
+    rgba(3,14,27,.46);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.055),
+    0 12px 32px rgba(0,0,0,.12);
+  backdrop-filter: blur(11px);
+}
+.primaryIcon {
+  width: 108px;
+  height: 108px;
+}
+.primaryText strong {
+  margin-bottom: 9px;
+  font-size: 25px;
+  font-weight: 540;
+}
+.primaryText span {
+  color: rgba(234,239,244,.72);
+  font-size: 14px;
+  line-height: 1.48;
+}
+.secondaryGrid {
+  margin-top: 28px;
+  background: rgba(3,14,27,.24);
+  border-top-color: rgba(215,225,235,.21);
+  border-bottom-color: rgba(215,225,235,.14);
+  backdrop-filter: blur(9px);
+}
+.secondaryCard {
+  min-height: 112px;
+  grid-template-columns: 64px minmax(0,1fr);
+  gap: 16px;
+  padding: 19px 24px;
+}
+.secondaryIcon {
+  width: 60px;
+  height: 60px;
+}
+.secondaryCard strong {
+  font-size: 17px;
+  font-weight: 560;
+}
+.secondaryCard small {
+  margin-top: 6px;
+  font-size: 12.5px;
+}
+.heroFoot {
+  justify-content: center;
+  margin-top: 26px;
+}
+.heroFoot .proof,
+.heroActions .enter {
+  display: none;
+}
+.heroActions {
+  display: flex;
+  justify-content: center;
+}
+.more {
+  min-height: auto;
+  flex-direction: column;
+  gap: 7px;
+  padding: 0;
+  color: rgba(241,245,248,.82);
+  border: 0;
+  background: transparent;
+  font-size: 12px;
+}
+.more span {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  order: -1;
+  border: 1px solid rgba(241,245,248,.68);
+  border-radius: 50%;
+  color: #f1f5f8;
+  font-size: 17px;
+}
+.more::after {
+  content: "↓";
+  margin-top: -3px;
+  color: rgba(241,245,248,.72);
+  font-size: 20px;
+  line-height: 1;
+}
+@media (max-width: 980px) {
+  .hero {
+    min-height: auto;
+    padding: 38px 0 32px;
+  }
+  .heroCopy h1 {
+    max-width: 19ch;
+    font-size: clamp(38px,6.6vw,56px);
+  }
+  .heroLead {
+    max-width: 760px;
+    font-size: 14.5px;
+  }
+  .primaryGrid {
+    grid-template-columns: 1fr;
+    gap: 11px;
+    margin-top: 30px;
+  }
+  .primaryCard {
+    min-height: 142px;
+    grid-template-columns: 88px minmax(0,1fr) 24px;
+    padding: 20px 20px;
+  }
+  .primaryIcon {
+    width: 84px;
+    height: 84px;
+  }
+  .secondaryGrid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    margin-top: 18px;
+  }
+  .secondaryCard {
+    min-height: 104px;
+  }
+  .heroFoot {
+    margin-top: 22px;
+  }
+  .heroActions .enter {
+    display: inline-flex;
+  }
+  .heroActions {
+    width: min(100%, 520px);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .more {
+    width: auto;
+  }
+}
+@media (max-width: 680px) {
+  .hero {
+    padding: 30px 0 30px;
+  }
+  .heroLandscape {
+    background-size: auto 100%;
+    background-position: 61% bottom;
+  }
+  .heroLandscape::before {
+    background:
+      linear-gradient(180deg, rgba(2,11,22,.18) 0%, rgba(2,11,22,.03) 48%, rgba(2,11,22,.06) 76%, rgba(2,11,22,.18) 100%);
+  }
+  .brand {
+    margin-bottom: 14px;
+    font-size: 9.5px;
+    letter-spacing: .35em;
+  }
+  .heroCopy h1 {
+    max-width: 100%;
+    font-size: clamp(32px,8.7vw,40px);
+    line-height: 1.08;
+  }
+  .heroLead {
+    margin-top: 16px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .primaryGrid {
+    margin-top: 26px;
+  }
+  .primaryCard {
+    min-height: 128px;
+    grid-template-columns: 80px minmax(0,1fr) 22px;
+    gap: 14px;
+    padding: 17px 16px;
+    border-radius: 13px;
+  }
+  .primaryIcon {
+    width: 76px;
+    height: 76px;
+  }
+  .primaryText strong {
+    margin-bottom: 5px;
+    font-size: 19px;
+  }
+  .primaryText span {
+    font-size: 12px;
+    line-height: 1.38;
+  }
+  .secondaryGrid {
+    margin-top: 14px;
+  }
+  .secondaryCard {
+    min-height: 102px;
+    grid-template-columns: 40px minmax(0,1fr);
+    gap: 10px;
+    padding: 14px 12px;
+  }
+  .secondaryIcon {
+    width: 38px;
+    height: 38px;
+  }
+  .secondaryCard strong {
+    font-size: 13.5px;
+  }
+  .secondaryCard small {
+    font-size: 10.5px;
+  }
+  .heroFoot {
+    align-items: stretch;
+    margin-top: 18px;
+  }
+  .heroActions {
+    width: 100%;
+  }
+  .heroActions .enter {
+    min-height: 50px;
+    display: inline-flex;
+    justify-content: space-between;
+  }
+  .more {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+}
