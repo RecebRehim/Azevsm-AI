@@ -9359,3 +9359,127 @@ html[lang="ru"] .ru-corporate-home-header .ru-home-menu-icon {
     grid-column: 1 / -1 !important;
   }
 }
+
+
+/* RU V5 HEADER TARGETED FIX — DARK MENU + RU/EN/AZ DESKTOP 2026-09-30 */
+
+/* Desktop: restore the three direct language choices on the V5 home header. */
+@media (min-width: 901px) {
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-primary-locales {
+    display: flex !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary {
+    display: none !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .ru-primary-locales a {
+    min-width: 34px;
+    min-height: 38px;
+    padding: 0 8px;
+    color: rgba(244,247,250,.78) !important;
+    border: 0 !important;
+    background: transparent !important;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .04em;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .ru-primary-locales a[aria-current="true"] {
+    color: #f7f9fb !important;
+  }
+}
+
+/* Tablet/mobile: keep the accepted compact RU selector. */
+@media (max-width: 900px) {
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-primary-locales {
+    display: none !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary {
+    display: inline-flex !important;
+  }
+}
+
+/* Override the old white pilot dropdown only on the RU V5 homepage. */
+@media (max-width: 1180px) {
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
+    position: relative !important;
+    inset: auto !important;
+    top: auto !important;
+    height: auto !important;
+    min-height: 68px !important;
+    padding: 0 !important;
+    flex-wrap: nowrap !important;
+    background: rgba(3,15,28,.985) !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open .nav-main {
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    right: 0 !important;
+    left: auto !important;
+    width: min(360px, calc(100vw - 28px)) !important;
+    min-width: 0 !important;
+    max-width: calc(100vw - 28px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: 10px 12px !important;
+    background:
+      linear-gradient(180deg, rgba(7,27,49,.98), rgba(3,15,28,.99)) !important;
+    border: 1px solid rgba(220,180,101,.34) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 22px 54px rgba(0,0,0,.42) !important;
+    z-index: 140 !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open .nav-main a {
+    width: 100% !important;
+    min-height: 46px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 11px 12px !important;
+    color: rgba(244,247,250,.88) !important;
+    background: transparent !important;
+    border-radius: 8px !important;
+    font-size: 15px !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open .nav-main a:hover {
+    color: #ffffff !important;
+    background: rgba(255,255,255,.055) !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open .nav-main a[aria-current="page"] {
+    color: #ffffff !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open .nav-main a[aria-current="page"]::after {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 5px !important;
+    background: #d8ad60 !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open .header-utilities {
+    display: none !important;
+  }
+}
+
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
+    min-height: 68px !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open .nav-main {
+    top: calc(100% + 6px) !important;
+  }
+}
