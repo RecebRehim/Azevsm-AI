@@ -11746,8 +11746,8 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
   }
 }
 
-/* Difference page mobile: restore the branch-5 horizontal table behaviour.
-   Keep website-v7 dark surfaces; do not compress or truncate the original table. */
+/* Difference page mobile: branch-5 table behaviour, website-v7 dark skin.
+   Full source tables are preserved; the second table continues horizontally to the right. */
 @media (max-width: 680px) {
   html[lang="ru"] .ru-authority-section--difference,
   html[lang="ru"] .ru-authority-section--difference .wrap,
@@ -11758,8 +11758,7 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
     max-width: 100% !important;
   }
 
-  /* Branch 5 behaviour: the second/wide table explicitly tells the user it continues right. */
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell--scroll-hint .ru-pilot-table-scroll-hint {
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-scroll-hint {
     display: flex !important;
     align-items: center !important;
     justify-content: flex-end !important;
@@ -11772,14 +11771,14 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
     font-weight: 700 !important;
     letter-spacing: .02em !important;
   }
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell--scroll-hint .ru-pilot-table-scroll-hint span {
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-scroll-hint span {
     color: #e3b45e !important;
     font-size: 18px !important;
     line-height: 1 !important;
   }
 
-  /* Do not force the desktop table into the phone width.
-     Scroll inside the dark card exactly as the branch-5 mobile table did. */
+  /* Branch 5 geometry: wrapper scrolls; table itself keeps its natural 100% layout.
+     Cell minimum width makes only genuinely-wide tables continue horizontally. */
   html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-wrap {
     width: 100% !important;
     max-width: 100% !important;
@@ -11791,49 +11790,37 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
     border: 1px solid rgba(213,226,239,.14) !important;
     border-radius: 14px !important;
     background: rgba(3,16,30,.22) !important;
-    box-shadow: inset -20px 0 20px -22px rgba(214,168,78,.30) !important;
+    box-shadow:
+      inset -20px 0 20px -22px rgba(214,168,78,.30),
+      0 10px 28px rgba(0,0,0,.08) !important;
+    direction: ltr !important;
     scrollbar-width: thin;
   }
 
   html[lang="ru"] .ru-authority-section--difference table.data {
-    display: table !important;
-    width: max-content !important;
+    width: 100% !important;
+    min-width: 100% !important;
     max-width: none !important;
     table-layout: auto !important;
     border-collapse: separate !important;
     border-spacing: 0 !important;
+    direction: ltr !important;
   }
 
-  /* First comparison table needs only two columns; second keeps all three desktop columns. */
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell:first-of-type table.data {
-    min-width: 620px !important;
-  }
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell--scroll-hint table.data {
-    min-width: 860px !important;
-  }
-
-  html[lang="ru"] .ru-authority-section--difference table.data thead {
-    display: table-header-group !important;
-  }
-  html[lang="ru"] .ru-authority-section--difference table.data tbody {
-    display: table-row-group !important;
-  }
-  html[lang="ru"] .ru-authority-section--difference table.data tr {
-    display: table-row !important;
-  }
   html[lang="ru"] .ru-authority-section--difference table.data th,
   html[lang="ru"] .ru-authority-section--difference table.data td {
-    display: table-cell !important;
     min-width: 150px !important;
+    width: auto !important;
     max-width: none !important;
     padding: 13px 14px !important;
     white-space: normal !important;
     overflow: visible !important;
-    overflow-wrap: break-word !important;
+    overflow-wrap: anywhere !important;
     word-break: normal !important;
     vertical-align: top !important;
     font-size: 14px !important;
     line-height: 1.5 !important;
+    text-align: left !important;
   }
   html[lang="ru"] .ru-authority-section--difference table.data th {
     color: #e3b45e !important;
