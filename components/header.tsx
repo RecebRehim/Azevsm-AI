@@ -14,27 +14,27 @@ import { platformEntryUrl } from "@/lib/platform";
 function CorporateHomeNavIcon({ href }: { href: string }) {
   return (
     <svg className="ru-home-nav-icon" viewBox="0 0 56 56" aria-hidden="true">
-      {href === "/platform" ? (
+      {href === "/platform" || href === "/result-system" ? (
         <g fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round">
           <path d="M8 16 28 6l20 10-20 10Z" />
           <path d="M8 25l20-10 20 10-20 10Z" opacity=".82" />
           <path d="M8 34l20-10 20 10-20 10Z" opacity=".62" />
         </g>
       ) : null}
-      {href === "/products" ? (
+      {href === "/products" || href === "/index-field-investor-ecosystem" ? (
         <g fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round">
           <path d="M8 45V33h7v12ZM19 45V26h7v19ZM30 45V18h7v27ZM41 45V10h7v35Z" />
           <path d="M6 47h44" opacity=".65" />
         </g>
       ) : null}
-      {href === "/technology" ? (
+      {href === "/technology" || href === "/how-azevsmai-is-different" ? (
         <g fill="none" stroke="currentColor" strokeWidth="1.55">
           <circle cx="28" cy="28" r="19" />
           <ellipse cx="28" cy="28" rx="9" ry="19" transform="rotate(23 28 28)" />
           <ellipse cx="28" cy="28" rx="19" ry="7.5" transform="rotate(-18 28 28)" />
         </g>
       ) : null}
-      {href === "/trust" ? (
+      {href === "/trust" || href === "/validation-reproducibility" ? (
         <g fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
           <path d="M28 6 45 13v14c0 11-6 19-17 24-11-5-17-13-17-24V13Z" />
           <path d="m20 28 6 6 11-14" />
