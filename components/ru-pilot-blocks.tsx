@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { FounderIcon, type FounderIconName } from "@/components/founder-icon";\nimport { RuPilotTableScroll } from "@/components/ru-pilot-table-scroll";
+import { FounderIcon, type FounderIconName } from "@/components/founder-icon";
+import { RuPilotTableScroll } from "@/components/ru-pilot-table-scroll";
 import type { AuthorityPage } from "@/lib/content/authority-pages-v31";
 import { localePath, type Locale } from "@/lib/i18n";
 
