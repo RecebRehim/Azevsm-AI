@@ -19,14 +19,11 @@ export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
         {v5Footer ? (
           <>
             <div className="v5-footer-intro">
-              <div className="footer-brand">
+              <div className="footer-brand v5-footer-brand">
                 <Logo variant="mark" title={copy.logoTitle} size={36} />
-                <span className="wordmark-text">
-                  <strong>Azevsm</strong>
-                  <span>Systems</span>
-                </span>
+                <span className="v5-footer-brand-name">Azevsm Systems</span>
               </div>
-              <p>Оператор AzevsmAI</p>
+              <p className="v5-footer-operator">Оператор AzevsmAI</p>
             </div>
 
             <div className="v5-footer-grid4">

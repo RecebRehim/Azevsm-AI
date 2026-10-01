@@ -11373,3 +11373,112 @@ html[lang="ru"] .ru-corporate-home-header .ru-language-more-label {
     font-size: 0 !important;
   }
 }
+
+
+/* WEBSITE-V7 SCREENSHOT CLOSURE BATCH 2026-10-01 */
+
+/* Footer brand identity: one centered company name, operator centered below. */
+.site-footer-v5-home .v5-footer-intro .v5-footer-brand {
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-inline: auto !important;
+}
+.site-footer-v5-home .v5-footer-brand-name {
+  display: inline-block !important;
+  color: #f4f7fa !important;
+  font-weight: 650 !important;
+  font-size: clamp(18px, 2vw, 22px) !important;
+  line-height: 1.15 !important;
+  white-space: nowrap !important;
+}
+.site-footer-v5-home .v5-footer-operator {
+  display: block !important;
+  width: 100% !important;
+  margin: 8px auto 0 !important;
+  text-align: center !important;
+}
+
+/* Language control: remove legacy mojibake glyph at every width and draw a CSS chevron. */
+html[lang="ru"] .ru-corporate-home-header .ru-language-more summary::after,
+html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary::after {
+  content: "" !important;
+  display: inline-block !important;
+  width: 6px !important;
+  height: 6px !important;
+  margin: -3px 0 0 2px !important;
+  border: 0 !important;
+  border-right: 1.5px solid rgba(244,247,250,.82) !important;
+  border-bottom: 1.5px solid rgba(244,247,250,.82) !important;
+  transform: rotate(45deg) !important;
+  font-size: 0 !important;
+}
+html[lang="ru"] .ru-corporate-home-header .ru-language-current-code {
+  display: none !important;
+}
+html[lang="ru"] .ru-corporate-home-header .ru-language-more-label {
+  display: inline !important;
+  white-space: nowrap !important;
+}
+
+/* Requested extra substantive routes live in the hamburger/compact menu without overcrowding wide desktop nav. */
+@media (min-width: 1241px) {
+  html[lang="ru"] .ru-corporate-home-header .nav-main > .ru-home-nav-link--extended {
+    display: none !important;
+  }
+}
+html[lang="ru"] .ru-corporate-home-header .header-inner.is-open .nav-main > .ru-home-nav-link--extended {
+  display: grid !important;
+}
+
+/* Dark authority cards: headings and supporting text must remain readable. */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-note h3,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-note h3,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section .ru-pilot-note h3,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-blocks h3 {
+  color: #f4f7fa !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-note p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-note p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section .ru-pilot-note p {
+  color: rgba(235,241,247,.84) !important;
+}
+
+/* Hero copy: stronger separation from bright image regions without changing copy/layout. */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--landscape .ru-pilot-hero-copy h1 {
+  color: #ffffff !important;
+  text-shadow: 0 3px 24px rgba(0,0,0,.82), 0 1px 4px rgba(0,0,0,.92) !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--landscape .ru-pilot-lead {
+  color: rgba(255,255,255,.96) !important;
+  text-shadow: 0 3px 22px rgba(0,0,0,.88), 0 1px 4px rgba(0,0,0,.94) !important;
+}
+
+/* RU privacy/terms: use the same dark institutional system as other authority pages, with readable legal text. */
+html[lang="ru"] .ru-legal-stage1.ru-authority-section {
+  background:
+    radial-gradient(ellipse at 18% 6%, rgba(54,112,168,.18), transparent 42rem),
+    radial-gradient(ellipse at 86% 14%, rgba(214,168,78,.10), transparent 36rem),
+    linear-gradient(180deg,#03111f 0%,#06182b 42%,#04131f 100%) !important;
+  color: #f4f7fa !important;
+}
+html[lang="ru"] .ru-legal-stage1.ru-authority-section > .ru-legal-stage1-inner {
+  border: 1px solid rgba(213,226,239,.16) !important;
+  border-radius: 16px !important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.02)),
+    rgba(4,18,34,.42) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06),0 20px 50px rgba(0,0,0,.22) !important;
+}
+html[lang="ru"] .ru-legal-stage1.ru-authority-section .ru-legal-section h2,
+html[lang="ru"] .ru-legal-stage1.ru-authority-section .ru-legal-note strong {
+  color: #f4f7fa !important;
+}
+html[lang="ru"] .ru-legal-stage1.ru-authority-section .ru-legal-section p,
+html[lang="ru"] .ru-legal-stage1.ru-authority-section .ru-legal-section li,
+html[lang="ru"] .ru-legal-stage1.ru-authority-section .ru-legal-note p {
+  color: rgba(235,241,247,.82) !important;
+}
+html[lang="ru"] .ru-legal-stage1.ru-authority-section .ru-legal-section {
+  border-color: rgba(213,226,239,.12) !important;
+}

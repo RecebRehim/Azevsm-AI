@@ -6,6 +6,7 @@ import { useState } from "react";
 import { LanguageMenu } from "@/components/language-menu";
 import { Logo } from "@/components/logo";
 import type { SiteCopy } from "@/lib/content/copy";
+import { authorityRouteLabels } from "@/lib/content/authority-pages-v31";
 import { isContentLocale, isPilotLocale, localeMeta, localePath, siteLocales, swapLocale, type Locale } from "@/lib/i18n";
 import { platformEntryUrl } from "@/lib/platform";
 
@@ -80,13 +81,35 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
       ? [
           { href: "/data-security", label: "Безопасность данных" },
           { href: "/legal-compliance", label: "Право и комплаенс" },
+          { href: "/validation-reproducibility", label: authorityRouteLabels.ru.validation },
+          { href: "/index-field-investor-ecosystem", label: authorityRouteLabels.ru.indexField },
+          { href: "/result-system", label: authorityRouteLabels.ru.resultSystem },
+          { href: "/how-azevsmai-is-different", label: authorityRouteLabels.ru.difference },
         ]
       : []),
     { href: "/company", label: copy.nav.company },
     { href: "/search", label: locale === "ru" ? "Поиск" : locale === "az" ? "Axtarış" : locale === "en" ? "Search" : locale === "ar" ? "بحث" : "搜索" },
   ];
+  const extendedCorporateLinks = new Set([
+    "/validation-reproducibility",
+    "/index-field-investor-ecosystem",
+    "/result-system",
+    "/how-azevsmai-is-different",
+  ]);
   const visibleLinks = corporateNav
-    ? links.filter((item) => ["/platform", "/products", "/technology", "/trust", "/data-security", "/legal-compliance", "/company"].includes(item.href))
+    ? links.filter((item) => [
+        "/platform",
+        "/products",
+        "/technology",
+        "/trust",
+        "/data-security",
+        "/legal-compliance",
+        "/validation-reproducibility",
+        "/index-field-investor-ecosystem",
+        "/result-system",
+        "/how-azevsmai-is-different",
+        "/company",
+      ].includes(item.href))
     : links;
 
   return (
@@ -125,7 +148,7 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
           ) : null}
           {visibleLinks.map((item) => (
             <Link
-              className={corporateNav ? "ru-home-nav-link" : undefined}
+              className={corporateNav ? `ru-home-nav-link${extendedCorporateLinks.has(item.href) ? " ru-home-nav-link--extended" : ""}` : undefined}
               key={item.href}
               href={localePath(locale, item.href)}
               aria-current={path === `/${locale}${item.href}` || path.startsWith(`/${locale}${item.href}/`) ? "page" : undefined}
@@ -141,23 +164,6 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
               <a className="ru-home-mobile-enter" href={enterHref} onClick={close} {...(entry ? { rel: "noreferrer" } : {})}>
                 <span>{copy.enter}</span><span aria-hidden="true">→</span>
               </a>
-              <div className="ru-home-mobile-locales" aria-label={copy.language}>
-                {(["ru", "en", "az"] as const).map((item) => {
-                  const meta = localeMeta[item];
-                  return (
-                    <Link
-                      key={item}
-                      href={swapLocale(path, item)}
-                      hrefLang={meta.hreflang}
-                      lang={meta.htmlLang}
-                      aria-current={item === locale ? "true" : undefined}
-                      onClick={close}
-                    >
-                      {item.toUpperCase()}
-                    </Link>
-                  );
-                })}
-              </div>
             </>
           ) : null}
         </nav>
@@ -181,7 +187,7 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
 
 
 const ruDirectLanguages: readonly Locale[] = ["ru", "en", "az"];
-const ruAdditionalLanguages = siteLocales.filter((item) => !ruDirectLanguages.includes(item as Locale));
+const ruMenuLanguages = siteLocales;
 
 function RuLanguageAccess({ path, locale, label, compact = false }: { path: string; locale: Locale; label: string; compact?: boolean }) {
   const moreLabel = locale === "ru" ? "Языки" : locale === "az" ? "Dillər" : "Languages";
@@ -205,15 +211,10 @@ function RuLanguageAccess({ path, locale, label, compact = false }: { path: stri
       </nav>
       <details className="ru-language-more">
         <summary>
-          {compact ? (
-            <>
-              <span className="ru-language-current-code">{locale.toUpperCase()}</span>
-              <span className="ru-language-more-label">{moreLabel}</span>
-            </>
-          ) : moreLabel}
+          <span className="ru-language-more-label">{moreLabel}</span>
         </summary>
         <div className="ru-language-panel" aria-label={moreLabel}>
-          {ruAdditionalLanguages.map((item) => {
+          {ruMenuLanguages.map((item) => {
             const meta = localeMeta[item];
             if (isContentLocale(item)) {
               return (

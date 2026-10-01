@@ -23,6 +23,10 @@ export const pageLandscapeBackgrounds = {
   terms: "legal",
   cookies: "legal",
   security: "data-security",
+  privacy: "data-security",
+  accessibility: "trust",
+  difference: "technology",
+  "index-field": "index",
 } as const;
 
 export type PageLandscapeKind = keyof typeof pageLandscapeBackgrounds;
