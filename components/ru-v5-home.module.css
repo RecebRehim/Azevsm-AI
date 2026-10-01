@@ -1604,3 +1604,14 @@
     padding-bottom: 42px !important;
   }
 }
+
+
+/* WEBSITE-V7 HOME COMPANY-TO-FOOTER GAP CLOSURE 2026-10-01 */
+@media (min-width: 681px) {
+  .contentOpen {
+    padding-bottom: 18px !important;
+  }
+  .contentOpen .companySection {
+    padding-bottom: 0 !important;
+  }
+}
