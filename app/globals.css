@@ -11516,10 +11516,14 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
 
 /* WEBSITE-V7 USER SCREENSHOT CLOSURE 2026-10-01 */
 
-/* Footer micro-alignment requested from screenshot review. */
+/* Mobile footer: operator line is centered under the company NAME, not under logo+name as one unit. */
 @media (max-width: 680px) {
   html[lang="ru"] .site-footer-v5-home .v5-footer-intro {
-    transform: translateX(8px);
+    transform: none !important;
+  }
+  html[lang="ru"] .site-footer-v5-home .v5-footer-operator {
+    position: relative !important;
+    left: 23px !important;
   }
   html[lang="ru"] .site-footer-v5-home .footer-base {
     padding-left: 8px !important;
@@ -11527,41 +11531,72 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
   }
 }
 
-/* Phone header: RU / EN / AZ stay visible without the globe covering RU. */
+/* Phone header: full Azevsm Systems name + globe + RU/EN/AZ + language drawer + burger. */
 @media (max-width: 680px) {
   html[lang="ru"] .ru-corporate-home-header .header-inner,
   html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
-    grid-template-columns: auto minmax(0, 1fr) auto auto !important;
+    grid-template-columns: minmax(0, 1fr) auto auto !important;
     column-gap: 8px !important;
   }
+  html[lang="ru"] .ru-corporate-home-header .wordmark {
+    grid-column: 1 !important;
+    min-width: 0 !important;
+    gap: 6px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark .logo,
+  html[lang="ru"] .ru-corporate-home-header .wordmark img {
+    width: 36px !important;
+    height: 36px !important;
+    flex: 0 0 36px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark-text {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 4px !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark strong,
+  html[lang="ru"] .ru-corporate-home-header .wordmark-text > span {
+    display: inline !important;
+    color: #f5f7f9 !important;
+    font-size: clamp(13px, 3.55vw, 15px) !important;
+    line-height: 1 !important;
+    font-weight: 430 !important;
+    letter-spacing: -.025em !important;
+    text-transform: none !important;
+  }
   html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact {
-    grid-column: 3 !important;
+    grid-column: 2 !important;
     display: flex !important;
     align-items: center !important;
-    gap: 5px !important;
+    gap: 4px !important;
     padding-left: 0 !important;
+    margin-left: 2px !important;
     justify-self: end !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact::before {
     position: static !important;
     left: auto !important;
-    width: 18px !important;
-    height: 18px !important;
-    flex: 0 0 18px !important;
-    background-size: 18px 18px !important;
+    width: 17px !important;
+    height: 17px !important;
+    flex: 0 0 17px !important;
+    margin-right: 2px !important;
+    background-size: 17px 17px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-primary-locales {
     display: flex !important;
     align-items: center !important;
-    gap: 2px !important;
+    gap: 1px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-primary-locales a {
-    min-width: 24px !important;
-    min-height: 32px !important;
-    padding: 0 3px !important;
-    border-radius: 5px !important;
+    min-width: 20px !important;
+    min-height: 30px !important;
+    padding: 0 2px !important;
+    border-radius: 4px !important;
     background: transparent !important;
-    font-size: 10.5px !important;
+    font-size: 9.5px !important;
     line-height: 1 !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-primary-locales a[aria-current="true"] {
@@ -11569,12 +11604,88 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
     background: transparent !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary {
-    min-width: 70px !important;
-    min-height: 38px !important;
-    padding: 0 9px !important;
+    min-width: 58px !important;
+    min-height: 36px !important;
+    padding: 0 7px !important;
+    font-size: 11px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .menu-toggle {
+    grid-column: 3 !important;
+    width: 36px !important;
+    min-width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 3px !important;
+  }
+}
+@media (max-width: 380px) {
+  html[lang="ru"] .ru-corporate-home-header .header-inner,
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
+    width: calc(100% - 16px) !important;
+    column-gap: 6px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark .logo,
+  html[lang="ru"] .ru-corporate-home-header .wordmark img {
+    width: 33px !important;
+    height: 33px !important;
+    flex-basis: 33px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark strong,
+  html[lang="ru"] .ru-corporate-home-header .wordmark-text > span {
+    display: inline !important;
+    font-size: 12.5px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact::before {
+    width: 15px !important;
+    height: 15px !important;
+    flex-basis: 15px !important;
+    background-size: 15px 15px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-primary-locales a {
+    min-width: 18px !important;
+    padding-inline: 1px !important;
+    font-size: 9px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary {
+    min-width: 54px !important;
+    padding-inline: 6px !important;
+    font-size: 10.5px !important;
+  }
+}
+
+/* Compact desktop/tablet header: language controls stay at the RIGHT next to the burger. */
+@media (min-width: 681px) and (max-width: 1180px) {
+  html[lang="ru"] .ru-corporate-home-header .header-inner,
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) auto auto !important;
+    align-items: center !important;
+    column-gap: 12px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark {
+    grid-column: 1 !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .header-inner:not(.is-open) .nav-main {
+    display: none !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact {
+    grid-column: 3 !important;
+    justify-self: end !important;
+    margin-left: auto !important;
+    padding-left: 26px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-primary-locales {
+    display: flex !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more {
+    display: block !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .menu-toggle {
+    display: inline-flex !important;
     grid-column: 4 !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .header-utilities {
+    display: none !important;
   }
 }
 
@@ -11635,7 +11746,7 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
   }
 }
 
-/* Difference page mobile tables: readable stacked cards, no horizontal clipping. */
+/* Difference page mobile: preserve the DESKTOP table/card structure, only make it fit the phone. */
 @media (max-width: 680px) {
   html[lang="ru"] .ru-authority-section--difference,
   html[lang="ru"] .ru-authority-section--difference .wrap,
@@ -11650,84 +11761,63 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
     display: none !important;
   }
   html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-wrap {
-    overflow: visible !important;
-    margin: 22px 0 30px !important;
-    border: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
+    overflow: hidden !important;
+    margin: 20px 0 28px !important;
   }
   html[lang="ru"] .ru-authority-section--difference table.data {
-    display: block !important;
+    display: table !important;
     width: 100% !important;
     min-width: 0 !important;
     max-width: 100% !important;
-    table-layout: auto !important;
-    border-collapse: separate !important;
-    border-spacing: 0 !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
   }
   html[lang="ru"] .ru-authority-section--difference table.data thead {
-    display: none !important;
+    display: table-header-group !important;
   }
   html[lang="ru"] .ru-authority-section--difference table.data tbody {
-    display: grid !important;
-    width: 100% !important;
-    gap: 12px !important;
+    display: table-row-group !important;
   }
   html[lang="ru"] .ru-authority-section--difference table.data tr {
-    display: block !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    padding: 4px 0 !important;
-    overflow: hidden !important;
-    border: 1px solid rgba(213,226,239,.14) !important;
-    border-radius: 14px !important;
-    background: rgba(3,16,30,.30) !important;
+    display: table-row !important;
   }
+  html[lang="ru"] .ru-authority-section--difference table.data th,
   html[lang="ru"] .ru-authority-section--difference table.data td {
-    display: block !important;
-    width: 100% !important;
+    display: table-cell !important;
     min-width: 0 !important;
-    max-width: 100% !important;
-    padding: 12px 16px !important;
-    border: 0 !important;
-    color: rgba(235,241,247,.84) !important;
+    max-width: none !important;
+    padding: 10px 8px !important;
     white-space: normal !important;
-    overflow: visible !important;
-    overflow-wrap: break-word !important;
+    overflow: hidden !important;
+    overflow-wrap: anywhere !important;
     word-break: normal !important;
-    font-size: 15px !important;
-    line-height: 1.5 !important;
+    vertical-align: top !important;
+    font-size: clamp(10.5px, 2.9vw, 12px) !important;
+    line-height: 1.45 !important;
   }
-  html[lang="ru"] .ru-authority-section--difference table.data td:first-child {
+  html[lang="ru"] .ru-authority-section--difference table.data th {
     color: #e3b45e !important;
     font-weight: 700 !important;
   }
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell:first-of-type table.data td:nth-child(2)::before {
-    content: "Логика результата";
-    display: block;
-    margin-bottom: 6px;
-    color: #e3b45e;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .04em;
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell:first-of-type table.data th:first-child,
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell:first-of-type table.data td:first-child {
+    width: 31% !important;
   }
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell:first-of-type + .ru-pilot-table-shell table.data td:nth-child(2)::before {
-    content: "Сильная сторона категории";
-    display: block;
-    margin-bottom: 6px;
-    color: #e3b45e;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .04em;
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell:first-of-type table.data th:nth-child(2),
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell:first-of-type table.data td:nth-child(2) {
+    width: 69% !important;
   }
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell:first-of-type + .ru-pilot-table-shell table.data td:nth-child(3)::before {
-    content: "Что добавляет AzevsmAI";
-    display: block;
-    margin-bottom: 6px;
-    color: #e3b45e;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .04em;
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell + .ru-pilot-table-shell table.data th:nth-child(1),
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell + .ru-pilot-table-shell table.data td:nth-child(1) {
+    width: 27% !important;
+  }
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell + .ru-pilot-table-shell table.data th:nth-child(2),
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell + .ru-pilot-table-shell table.data td:nth-child(2) {
+    width: 31% !important;
+  }
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell + .ru-pilot-table-shell table.data th:nth-child(3),
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell + .ru-pilot-table-shell table.data td:nth-child(3) {
+    width: 42% !important;
   }
 }
 
