@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LanguageMenu } from "@/components/language-menu";
 import { Logo } from "@/components/logo";
 import type { SiteCopy } from "@/lib/content/copy";
@@ -71,6 +71,11 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
   const entry = platformEntryUrl();
   const enterHref = entry ?? localePath(locale, "/enter");
   const close = () => setOpen(false);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [path]);
+
   const links = [
     { href: "/platform", label: copy.nav.platform },
     { href: "/products", label: copy.nav.products },
@@ -167,7 +172,7 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
             </>
           ) : null}
         </nav>
-        {pilotLocale ? <RuLanguageAccess path={path} locale={locale} label={copy.language} compact={corporateNav} /> : null}
+        {pilotLocale ? <RuLanguageAccess key={path} path={path} locale={locale} label={copy.language} compact={corporateNav} onNavigate={close} /> : null}
         <div className="header-utilities">
           {!pilotLocale ? <LanguageMenu locale={locale} path={path} label={copy.language} /> : null}
           {!pilotLocale ? (
@@ -189,8 +194,25 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
 const ruDirectLanguages: readonly Locale[] = ["ru", "en", "az"];
 const ruMenuLanguages = siteLocales;
 
-function RuLanguageAccess({ path, locale, label, compact = false }: { path: string; locale: Locale; label: string; compact?: boolean }) {
+function RuLanguageAccess({
+  path,
+  locale,
+  label,
+  compact = false,
+  onNavigate,
+}: {
+  path: string;
+  locale: Locale;
+  label: string;
+  compact?: boolean;
+  onNavigate?: () => void;
+}) {
   const moreLabel = locale === "ru" ? "Языки" : locale === "az" ? "Dillər" : "Languages";
+  const detailsRef = useRef<HTMLDetailsElement>(null);
+  const closeLanguages = () => {
+    detailsRef.current?.removeAttribute("open");
+    onNavigate?.();
+  };
   return (
     <div className={`ru-language-access${compact ? " ru-language-access--compact" : ""}`}>
       <nav className="ru-primary-locales" aria-label={label}>
@@ -203,13 +225,14 @@ function RuLanguageAccess({ path, locale, label, compact = false }: { path: stri
               hrefLang={meta.hreflang}
               lang={meta.htmlLang}
               aria-current={item === locale ? "true" : undefined}
+              onClick={closeLanguages}
             >
               {item.toUpperCase()}
             </Link>
           );
         })}
       </nav>
-      <details className="ru-language-more">
+      <details className="ru-language-more" ref={detailsRef}>
         <summary>
           <span className="ru-language-more-label">{moreLabel}</span>
         </summary>
@@ -223,6 +246,7 @@ function RuLanguageAccess({ path, locale, label, compact = false }: { path: stri
                   href={swapLocale(path, item)}
                   hrefLang={meta.hreflang}
                   lang={meta.htmlLang}
+                  onClick={closeLanguages}
                 >
                   <span>{meta.label}</span>
                   <span>{meta.name}</span>
