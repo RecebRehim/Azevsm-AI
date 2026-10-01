@@ -11842,3 +11842,18 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--result {
     background-image: url("/page-bg/institutional-mobile.webp") !important;
   }
 }
+
+
+/* WEBSITE-V7 DIFFERENCE MOBILE — FIRST TABLE COLUMN BALANCE 2026-10-01 */
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-wrap:first-of-type table.data th:first-child,
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-wrap:first-of-type table.data td:first-child {
+    min-width: 136px !important;
+  }
+
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-wrap:first-of-type table.data th:nth-child(2),
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-wrap:first-of-type table.data td:nth-child(2) {
+    min-width: 146px !important;
+    padding-right: 20px !important;
+  }
+}
