@@ -11746,32 +11746,72 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
   }
 }
 
-/* Difference page mobile: preserve the DESKTOP table/card structure, only make it fit the phone. */
+/* Difference page mobile: restore the branch-5 horizontal table behaviour.
+   Keep website-v7 dark surfaces; do not compress or truncate the original table. */
 @media (max-width: 680px) {
   html[lang="ru"] .ru-authority-section--difference,
   html[lang="ru"] .ru-authority-section--difference .wrap,
   html[lang="ru"] .ru-authority-section--difference .ru-pilot-blocks,
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell,
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-wrap {
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell {
     min-width: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
   }
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-scroll-hint {
-    display: none !important;
+
+  /* Branch 5 behaviour: the second/wide table explicitly tells the user it continues right. */
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell--scroll-hint .ru-pilot-table-scroll-hint {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin: 0 0 8px !important;
+    padding-right: 4px !important;
+    color: rgba(229,236,243,.66) !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: .02em !important;
   }
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell--scroll-hint .ru-pilot-table-scroll-hint span {
+    color: #e3b45e !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+  }
+
+  /* Do not force the desktop table into the phone width.
+     Scroll inside the dark card exactly as the branch-5 mobile table did. */
   html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-wrap {
-    overflow: hidden !important;
-    margin: 20px 0 28px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin: 0 0 30px !important;
+    border: 1px solid rgba(213,226,239,.14) !important;
+    border-radius: 14px !important;
+    background: rgba(3,16,30,.22) !important;
+    box-shadow: inset -20px 0 20px -22px rgba(214,168,78,.30) !important;
+    scrollbar-width: thin;
   }
+
   html[lang="ru"] .ru-authority-section--difference table.data {
     display: table !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-    table-layout: fixed !important;
-    border-collapse: collapse !important;
+    width: max-content !important;
+    max-width: none !important;
+    table-layout: auto !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
   }
+
+  /* First comparison table needs only two columns; second keeps all three desktop columns. */
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell:first-of-type table.data {
+    min-width: 620px !important;
+  }
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell--scroll-hint table.data {
+    min-width: 860px !important;
+  }
+
   html[lang="ru"] .ru-authority-section--difference table.data thead {
     display: table-header-group !important;
   }
@@ -11784,40 +11824,25 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
   html[lang="ru"] .ru-authority-section--difference table.data th,
   html[lang="ru"] .ru-authority-section--difference table.data td {
     display: table-cell !important;
-    min-width: 0 !important;
+    min-width: 150px !important;
     max-width: none !important;
-    padding: 10px 8px !important;
+    padding: 13px 14px !important;
     white-space: normal !important;
-    overflow: hidden !important;
-    overflow-wrap: anywhere !important;
+    overflow: visible !important;
+    overflow-wrap: break-word !important;
     word-break: normal !important;
     vertical-align: top !important;
-    font-size: clamp(10.5px, 2.9vw, 12px) !important;
-    line-height: 1.45 !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
   }
   html[lang="ru"] .ru-authority-section--difference table.data th {
     color: #e3b45e !important;
+    background: rgba(3,16,30,.35) !important;
     font-weight: 700 !important;
   }
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell:first-of-type table.data th:first-child,
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell:first-of-type table.data td:first-child {
-    width: 31% !important;
-  }
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell:first-of-type table.data th:nth-child(2),
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell:first-of-type table.data td:nth-child(2) {
-    width: 69% !important;
-  }
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell + .ru-pilot-table-shell table.data th:nth-child(1),
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell + .ru-pilot-table-shell table.data td:nth-child(1) {
-    width: 27% !important;
-  }
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell + .ru-pilot-table-shell table.data th:nth-child(2),
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell + .ru-pilot-table-shell table.data td:nth-child(2) {
-    width: 31% !important;
-  }
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell + .ru-pilot-table-shell table.data th:nth-child(3),
-  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell + .ru-pilot-table-shell table.data td:nth-child(3) {
-    width: 42% !important;
+  html[lang="ru"] .ru-authority-section--difference table.data td {
+    color: rgba(229,236,243,.76) !important;
+    background: transparent !important;
   }
 }
 
