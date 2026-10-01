@@ -43,6 +43,8 @@ jobs:
         continue-on-error: true
       - name: Production build
         run: npm run build
+      - name: Prepare audit database path
+        run: mkdir -p data
       - name: Install browser audit dependency
         run: |
           npm install --no-save playwright@1.55.0
