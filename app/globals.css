@@ -11092,3 +11092,128 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section--prod
     font-size: 14.5px !important;
   }
 }
+
+
+/* WEBSITE-V7 AUDIT BATCH 1 — VERIFIED P1 RESPONSIVE FIXES 2026-10-01 */
+
+/* RU shared header: keep the compact/tablet header until full desktop nav actually fits. */
+@media (min-width: 861px) and (max-width: 1180px) {
+  html[lang="ru"] .ru-corporate-home-header {
+    height: 76px !important;
+    min-height: 76px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .header-inner,
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
+    position: relative !important;
+    width: min(calc(100% - 34px), 980px) !important;
+    height: 76px !important;
+    min-height: 76px !important;
+    display: grid !important;
+    grid-template-columns: auto 1fr auto auto !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .nav-main {
+    display: none !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .menu-toggle {
+    display: inline-flex !important;
+    grid-column: 4 !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open .nav-main {
+    display: flex !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .header-utilities {
+    display: none !important;
+  }
+}
+
+/* RU phone header: remove duplicate direct-locale row from the closed header. */
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-primary-locales {
+    display: none !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more {
+    display: block !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact {
+    grid-column: 3 !important;
+    padding-left: 24px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary {
+    min-width: 44px !important;
+    min-height: 40px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 6px !important;
+    color: rgba(244,247,250,.9) !important;
+    font-size: 13px !important;
+  }
+}
+
+/* Standard non-RU header: preserve compact navigation through the measured collision range. */
+@media (min-width: 1025px) and (max-width: 1240px) {
+  html:not([lang="ru"]) .nav-main {
+    display: none !important;
+  }
+  html:not([lang="ru"]) .menu-toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  html:not([lang="ru"]) .header-inner.is-open .nav-main {
+    display: flex !important;
+  }
+}
+
+/* Legal pages: legal-specific readable surface wins over the later dark authority theme. */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-legal-stage1.ru-authority-section {
+  background: #ffffff !important;
+  color: var(--v5-navy) !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-legal-stage1.ru-authority-section > .ru-legal-stage1-inner {
+  background: #ffffff !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-legal-stage1.ru-authority-section .ru-legal-section h2 {
+  color: var(--v5-navy) !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-legal-stage1.ru-authority-section .ru-legal-section p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-legal-stage1.ru-authority-section .ru-legal-section li {
+  color: var(--v5-copy) !important;
+}
+
+/* Studio: viewport-safe operational page; table may scroll internally, never the document. */
+.studio-governance {
+  width: min(100%, 980px) !important;
+  min-width: 0 !important;
+}
+.studio-governance > * {
+  max-width: 100%;
+}
+.studio-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.studio-table-wrap table.data {
+  min-width: 680px;
+}
+@media (max-width: 680px) {
+  .studio-governance {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  .studio-governance h1,
+  .studio-governance h2,
+  .studio-governance p,
+  .studio-governance ul {
+    max-width: 100% !important;
+    overflow-wrap: anywhere;
+  }
+}
