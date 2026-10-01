@@ -11345,3 +11345,31 @@ html[lang="ru"] .ru-corporate-home-header .ru-language-more-label {
     display: none !important;
   }
 }
+
+
+/* WEBSITE-V7 MOBILE LANGUAGE GLYPH FIX 2026-10-01 */
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary {
+    gap: 7px !important;
+    white-space: nowrap !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-current-code {
+    display: inline !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-more-label {
+    display: inline !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary::after {
+    content: "" !important;
+    display: inline-block !important;
+    width: 6px !important;
+    height: 6px !important;
+    margin: -3px 0 0 1px !important;
+    border-right: 1.5px solid rgba(244,247,250,.82) !important;
+    border-bottom: 1.5px solid rgba(244,247,250,.82) !important;
+    transform: rotate(45deg) !important;
+    font-size: 0 !important;
+  }
+}
