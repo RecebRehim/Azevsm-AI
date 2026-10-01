@@ -1,0 +1,69 @@
+name: UI Responsive Audit
+
+on:
+  push:
+    branches: [website-v7]
+    paths:
+      - ".github/workflows/ui-responsive-audit.yml"
+      - "scripts/ui-responsive-audit.mjs"
+      - "app/**"
+      - "components/**"
+      - "lib/**"
+      - "public/**"
+      - "package.json"
+      - "package-lock.json"
+  workflow_dispatch:
+
+jobs:
+  responsive-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      NEXT_PUBLIC_SITE_URL: http://127.0.0.1:3000
+      NEXT_PUBLIC_PLATFORM_URL: ""
+      PAYLOAD_SECRET: ui-audit-nonproduction-secret
+      DATABASE_URL: file:./data/ui-audit.db
+      AUDIT_BASE_URL: http://127.0.0.1:3000
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install project
+        run: npm ci
+      - name: Content gate
+        run: npm run check:content
+      - name: Lint
+        run: npm run lint
+        continue-on-error: true
+      - name: Production build
+        run: npm run build
+      - name: Install browser audit dependency
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Start production server
+        run: |
+          npm run start -- -H 127.0.0.1 -p 3000 > /tmp/azevsm-next.log 2>&1 &
+          echo $! > /tmp/azevsm-next.pid
+          for i in {1..60}; do
+            if curl -fsS http://127.0.0.1:3000/en >/dev/null; then exit 0; fi
+            sleep 2
+          done
+          cat /tmp/azevsm-next.log
+          exit 1
+      - name: Run viewport matrix
+        run: node scripts/ui-responsive-audit.mjs
+      - name: Save server log
+        if: always()
+        run: |
+          mkdir -p artifacts/ui-audit
+          cp /tmp/azevsm-next.log artifacts/ui-audit/server.log || true
+      - name: Upload audit artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-responsive-audit
+          path: artifacts/ui-audit
+          retention-days: 14
