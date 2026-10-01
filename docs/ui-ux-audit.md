@@ -313,3 +313,180 @@ No product/UI correction batch has started yet.
 **STOP — audit-first gate active.**
 
 No broad visual rewrite, CSS cleanup, responsive patch, accessibility modification or content change will be introduced until the initial rendered Phase 2 evidence is complete and findings are prioritized by actual impact.
+
+
+---
+
+## Phase 2 rendered responsive audit — completed baseline
+
+### Measured coverage
+
+Chromium rendered audit completed successfully on `website-v7`.
+
+- Discovered/tested routes: **160**
+- Required viewport sizes: **13**
+- Required route × viewport combinations: **2,080**
+- Raw harness PASS: **1,930**
+- Raw harness FAIL: **150**
+- Breakpoint probe: **144 additional rendered checks** across 16 intermediate widths and 9 representative routes.
+- Build / lint / content gate: **PASS**
+
+The 150 raw failures were manually triaged. Most are detector false positives or intentional states; they are not being converted into correction tasks merely because the harness marked them.
+
+### Raw-failure triage
+
+| Raw group | Count | Classification | Disposition |
+|---|---:|---|---|
+| Search pages: visually hidden `.sr-only` label has 1px client width | 65 | ALREADY COVERED / NO ACTION REQUIRED | Accessibility pattern is intentional; detector false positive |
+| EN/AZ/root home: decorative `.hero-photo` extends slightly beyond its clipping box while document width remains stable | 30 | ALREADY COVERED / NO ACTION REQUIRED | No page horizontal scroll; art-direction behavior |
+| RU/EN/AZ “how AzevsmAI is different”: wide data table inside `.ru-pilot-table-wrap` | 12 | ALREADY COVERED / NO ACTION REQUIRED | Wrapper has `overflow-x:auto` and mobile scroll hint; horizontal table interaction is intentional |
+| EN/AZ contact | 26 | REAL WATCH — SEO/route integrity | Page intentionally returns 404, but sitemap/metadata availability is inconsistent |
+| Payload `/admin` | 13 | BLOCKER — audit environment | Test DB had no `users` table; admin UI cannot be visually certified from this run |
+| `/studio` mobile | 4 | REAL WATCH — P1 | Genuine horizontal overflow / clipped operational UI |
+
+### Responsive findings
+
+#### UI-RESP-001 — RU shared header collides on phone widths
+
+- Page/component: shared RU corporate header; visible on `/ru`, company, legal, authority and other RU routes
+- Verified viewport: **390 × 844** screenshot; same shared header affects 360/375/430 widths
+- Category: responsive navigation
+- Severity: **P1 — High**
+- Classification: **REAL WATCH**
+- Observed: company wordmark, globe/language controls and menu control occupy the same horizontal region; text/icons visually collide.
+- Evidence: rendered Chromium baseline screenshot `mobile-390x844/ru.png` and `mobile-390x844/ru__company.png`.
+- Expected: one clean compact mobile header with non-overlapping wordmark, locale access and menu.
+- Likely root cause: multiple late RU V5 header layers keep direct RU/EN/AZ controls while also rendering compact/current-locale and menu controls.
+- Recommended correction: at phone widths show one compact locale control and menu; suppress redundant direct-locale row in the closed header.
+
+#### UI-RESP-002 — RU desktop-nav gate overlaps at 861–901 px
+
+- Page/component: shared RU corporate header
+- Verified viewports: **861 × 1000, 899 × 900, 900 × 900, 901 × 900**
+- Category: responsive navigation / breakpoint transition
+- Severity: **P1 — High**
+- Classification: **REAL WATCH**
+- Observed: wordmark overlaps “Платформа”; “Компания” overlaps RU locale control.
+- Evidence: breakpoint DOM overlap measurements. At 861 px, overlap areas measured 2,232 px² and 881 px².
+- Expected: tablet/compact navigation until there is enough room for full desktop navigation.
+- Likely root cause: a late `@media (min-width: 861px)` desktop gate overrides the pre-existing compact/tablet header behavior.
+- Recommended correction: align the desktop gate to the established tablet boundary instead of forcing full navigation at 861 px.
+
+#### UI-RESP-003 — Standard non-RU header overlap immediately above desktop breakpoint
+
+- Page/component: standard header (verified on EN)
+- Verified viewport: **1181 × 900**
+- Category: responsive navigation / breakpoint transition
+- Severity: **P1 — High**
+- Classification: **REAL WATCH**
+- Observed: “Search” and “Enter AzevsmAI” overlap; measured overlap area 1,410 px².
+- Expected: compact navigation should remain active until the desktop header fits without collision.
+- Likely root cause: desktop mode begins one pixel after the 1180 compact-header breakpoint while the available width is still insufficient.
+- Recommended correction: move the non-RU desktop activation point upward to a measured safe width; re-test around the new boundary.
+
+#### UI-RESP-004 — Studio is not usable on mobile
+
+- Page/component: `/studio`
+- Verified viewports: **430 × 932, 390 × 844, 375 × 812, 360 × 800**
+- Category: responsive operational UI
+- Severity: **P1 — High**
+- Classification: **REAL WATCH**
+- Observed: page has document-level horizontal scrolling. At 390 px, primary content is approximately 600 px wide; service table and claims content are clipped off-screen.
+- Evidence: harness `horizontalOverflow=true`; failure screenshots for all four mobile widths.
+- Expected: operational page content should fit the viewport; wide tables may scroll inside their own wrapper without making the whole page scroll.
+- Likely root cause: generic `.prose` / table content has desktop minimum geometry and the Studio page has no dedicated responsive wrapper.
+- Recommended correction: give Studio a bounded responsive content class and wrap the service table in an internal horizontal scroller.
+
+#### UI-A11Y-001 — Legal document body has severe low-contrast color mismatch
+
+- Page/component: RU legal privacy/terms content using `ru-legal-stage1 ru-authority-section`
+- Verified viewports: **1440 × 900 and 390 × 844**
+- Category: accessibility / readability / cascade
+- Severity: **P1 — High**
+- Classification: **REAL WATCH**
+- Observed: dark navy headings and muted dark body copy render over the later dark authority-section background and dark glass wrapper; text becomes very difficult to read.
+- Evidence: rendered screenshots `desktop-1440x900/ru__legal__privacy.png` and `mobile-390x844/ru__legal__privacy.png`.
+- Expected: legal body copy must maintain strong text/background contrast.
+- Root cause: later global authority-theme rules with `!important` override the earlier white legal section/wrapper backgrounds, while legal-specific text colors remain dark.
+- Recommended correction: explicitly exclude/override `.ru-legal-stage1` from the dark authority surface theme after the authority theme layer.
+
+### Route / SEO findings
+
+#### SEO-001 — hreflang advertises unavailable locale variants
+
+Status: **P2 / REAL WATCH**.
+
+Authority pages are physically available only in RU/EN/AZ, but the shared metadata helper builds alternates from all content locales. AR/ZH alternates can therefore point to non-existent route variants.
+
+#### SEO-002 — sitemap lists contact routes that intentionally return 404
+
+Status: **P2 / REAL WATCH**.
+
+Rendered audit confirmed `/en/contact` and `/az/contact` return 404 at all 13 required viewports. The contact page explicitly rejects pilot locales, while sitemap generation does not use the same availability rule.
+
+### Audit-environment blocker
+
+#### EXEC-001 — Payload admin cannot be certified in the current isolated audit DB
+
+- Route: `/admin`
+- Severity: not assigned as a production defect
+- Classification: **BLOCKER**
+- Observed: HTTP 500 in the audit environment.
+- Server evidence: SQLite error `no such table: users`.
+- Boundary: this proves the isolated audit database was not initialized; it does **not** prove production admin is broken.
+- Required closure: initialize a disposable Payload schema/data set and re-run admin at representative desktop/tablet/mobile widths.
+
+### Manual accessibility watches still open
+
+- `A11Y-W01`: language menu uses ARIA menu/menuitem semantics; arrow-key/roving-focus behavior requires manual keyboard verification.
+- `A11Y-W02`: assistant uses `role="dialog"`; focus entry, focus return and Escape behavior require manual verification.
+- `FORM-W01`: contact form validation/error recovery requires rendered interaction testing.
+
+---
+
+# Root-cause analysis
+
+1. **Late CSS cascade overrides earlier component intent — REAL WATCH.**  
+   The global stylesheet is 11k+ lines with many appended responsive/visual layers and more than 1,000 `!important` declarations. Confirmed consequences include the legal-surface contrast failure and conflicting RU header breakpoints. This is not a request for general CSS cleanup; only shared cascade causes tied to verified defects are correction targets.
+
+2. **Breakpoint ownership is inconsistent — REAL WATCH.**  
+   Base navigation switches at 1024, pilot behavior has an 1180 boundary, while a later RU layer forces desktop navigation at 861. Confirmed transition collisions occur because these gates compete.
+
+3. **Route availability is duplicated — REAL WATCH.**  
+   Page rendering, sitemap and metadata do not use one canonical availability contract, causing contact/alternate inconsistencies.
+
+4. **Operational Studio lacks its own responsive boundary — REAL WATCH.**  
+   Desktop content/table geometry is inherited without an internal table-scrolling contract.
+
+---
+
+# Prioritized implementation plan
+
+## Batch 1 — P1 shared responsive/readability defects
+
+1. Fix RU corporate header phone collision.
+2. Fix RU 861–901 breakpoint collision by reconciling the desktop gate with the established tablet boundary.
+3. Fix standard header transition above 1180.
+4. Restore legal-stage readable surface/contrast without altering legal content.
+5. Make Studio responsive and contain table overflow.
+
+Acceptance: re-run affected routes at exact failing dimensions plus adjacent breakpoint dimensions; do not mark PASS from source changes alone.
+
+## Batch 2 — route/SEO integrity
+
+1. Centralize route locale availability.
+2. Remove unavailable contact URLs from sitemap.
+3. Emit hreflang only for physical route variants.
+
+Acceptance: sitemap URLs must resolve; alternates must not point to deliberate 404s.
+
+## Batch 3 — accessibility interaction verification
+
+1. Keyboard test language selector.
+2. Focus-entry/return/Escape test assistant dialog.
+3. Contact validation/error-recovery test.
+4. Apply code corrections only where failures are reproduced.
+
+## Batch 4 — final regression
+
+Re-run all 160 discovered routes across the 13 required viewports, re-run breakpoint probes, then update final PASS/FAIL matrix and change log.
