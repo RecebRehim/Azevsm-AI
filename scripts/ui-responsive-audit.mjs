@@ -24,6 +24,37 @@ const viewports = [
   ["mobile-360x800", 360, 800],
 ];
 
+const breakpointViewports = [
+  ["bp-679x900", 679, 900],
+  ["bp-680x900", 680, 900],
+  ["bp-681x900", 681, 900],
+  ["bp-819x1000", 819, 1000],
+  ["bp-820x1000", 820, 1000],
+  ["bp-821x1000", 821, 1000],
+  ["bp-859x1000", 859, 1000],
+  ["bp-860x1000", 860, 1000],
+  ["bp-861x1000", 861, 1000],
+  ["bp-899x900", 899, 900],
+  ["bp-900x900", 900, 900],
+  ["bp-901x900", 901, 900],
+  ["bp-1024x900", 1024, 900],
+  ["bp-1025x900", 1025, 900],
+  ["bp-1180x900", 1180, 900],
+  ["bp-1181x900", 1181, 900],
+];
+
+const breakpointRoutes = [
+  "/ru",
+  "/en",
+  "/ar",
+  "/ru/platform",
+  "/ru/products",
+  "/ru/how-azevsmai-is-different",
+  "/ru/company",
+  "/ru/legal/privacy",
+  "/studio",
+];
+
 function safeName(route) {
   if (route === "/") return "root";
   return route.replace(/^\//, "").replace(/[^a-zA-Z0-9_-]+/g, "__").slice(0, 180);
@@ -34,7 +65,7 @@ async function ensure(dir) {
 }
 
 async function getRoutes() {
-  const routes = new Set(["/", "/studio", "/admin"]);
+  const routes = new Set(["/", "/studio", "/admin", "/ru/search", "/en/search", "/az/search", "/ar/search", "/zh/search"]);
   const res = await fetch(`${BASE}/sitemap.xml`);
   if (!res.ok) throw new Error(`sitemap HTTP ${res.status}`);
   const xml = await res.text();
@@ -110,6 +141,37 @@ async function inspectPage(page) {
       return { ...label(el), position:getComputedStyle(el).position, top:Math.round(r.top), bottom:Math.round(r.bottom), height:Math.round(r.height) };
     });
 
+    const headerOverlaps = [];
+    const headerControls = [...document.querySelectorAll("header a, header button, header summary")].filter(visible);
+    for (let i = 0; i < headerControls.length; i++) {
+      for (let j = i + 1; j < headerControls.length; j++) {
+        const a = headerControls[i], b = headerControls[j];
+        if (a.contains(b) || b.contains(a)) continue;
+        const ar = a.getBoundingClientRect(), br = b.getBoundingClientRect();
+        const w = Math.max(0, Math.min(ar.right, br.right) - Math.max(ar.left, br.left));
+        const h = Math.max(0, Math.min(ar.bottom, br.bottom) - Math.max(ar.top, br.top));
+        const area = w * h;
+        const minArea = Math.min(ar.width * ar.height, br.width * br.height);
+        if (area > 16 && minArea > 0 && area / minArea > 0.08) {
+          headerOverlaps.push({ a: label(a), b: label(b), area: Math.round(area) });
+          if (headerOverlaps.length >= 20) break;
+        }
+      }
+      if (headerOverlaps.length >= 20) break;
+    }
+
+    const tinyInteractiveText = [];
+    for (const el of document.querySelectorAll("a,button,summary")) {
+      if (!visible(el)) continue;
+      const txt = (el.textContent || "").trim().replace(/\s+/g, " ");
+      if (!txt) continue;
+      const px = parseFloat(getComputedStyle(el).fontSize || "0");
+      if (px > 0 && px < 12) {
+        tinyInteractiveText.push({ ...label(el), fontSize: px });
+        if (tinyInteractiveText.length >= 30) break;
+      }
+    }
+
     return {
       title: document.title,
       lang: document.documentElement.lang,
@@ -125,6 +187,8 @@ async function inspectPage(page) {
       brokenImages,
       smallControls,
       fixed,
+      headerOverlaps,
+      tinyInteractiveText,
     };
   });
 }
@@ -176,7 +240,8 @@ for (const [name, width, height] of viewports) {
         metrics.horizontalOverflow ||
         metrics.overflow.length > 0 ||
         metrics.clippedText.length > 0 ||
-        metrics.brokenImages.length > 0
+        metrics.brokenImages.length > 0 ||
+        metrics.headerOverlaps.length > 0
       ));
 
     const rec = {
@@ -198,6 +263,30 @@ for (const [name, width, height] of viewports) {
       await ensure(d);
       await page.screenshot({ path: path.join(d, `${slug}.png`), fullPage: false }).catch(() => {});
     }
+  }
+  await context.close();
+}
+const breakpointResults = [];
+for (const [name, width, height] of breakpointViewports) {
+  const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1 });
+  await context.addInitScript(() => {
+    try { localStorage.setItem("azevsm-cookie", "acknowledged"); } catch {}
+  });
+  const page = await context.newPage();
+  page.setDefaultTimeout(15000);
+  for (const route of breakpointRoutes) {
+    let status = 0;
+    let navError = "";
+    let metrics = null;
+    try {
+      const response = await page.goto(`${BASE}${route}`, { waitUntil: "domcontentloaded", timeout: 30000 });
+      status = response?.status() || 0;
+      await page.waitForTimeout(40);
+      metrics = await inspectPage(page);
+    } catch (err) {
+      navError = String(err).slice(0,1000);
+    }
+    breakpointResults.push({ route, viewport:name, width, height, status, navError, metrics });
   }
   await context.close();
 }
@@ -227,6 +316,7 @@ const summary = {
 await fs.writeFile(path.join(outDir, "summary.json"), JSON.stringify(summary, null, 2));
 await fs.writeFile(path.join(outDir, "results.json"), JSON.stringify(results, null, 2));
 await fs.writeFile(path.join(outDir, "routes.json"), JSON.stringify(routes, null, 2));
+await fs.writeFile(path.join(outDir, "breakpoints.json"), JSON.stringify(breakpointResults, null, 2));
 
 let md = `# Responsive Audit Raw Matrix\n\nGenerated: ${summary.generatedAt}\n\n- Routes: ${summary.routes}\n- Viewports: ${summary.viewportCount}\n- Combinations: ${summary.combinations}\n- PASS: ${summary.passed}\n- FAIL: ${summary.failed}\n\n| Route | Tested | PASS | FAIL | HTTP statuses |\n|---|---:|---:|---:|---|\n`;
 for (const route of routes) {
