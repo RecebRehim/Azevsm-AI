@@ -58,7 +58,7 @@ export function RuPilotBlocks({
                   Таблица продолжается вправо <span>→</span>
                 </div>
               ) : null}
-              <div className="ru-pilot-table-wrap">
+              <RuPilotTableScroll>
                 <table className="data">
                   {header ? <thead><tr>{header.map((value, cellIndex) => <th key={cellIndex}>{value}</th>)}</tr></thead> : null}
                   <tbody>
@@ -72,7 +72,7 @@ export function RuPilotBlocks({
                     ))}
                   </tbody>
                 </table>
-              </div>
+              </RuPilotTableScroll>
             </div>
           );
         }
