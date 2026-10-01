@@ -6,6 +6,7 @@ const BASE = process.env.AUDIT_BASE_URL || "http://127.0.0.1:3000";
 const outDir = path.resolve("artifacts/ui-audit");
 const failDir = path.join(outDir, "screens", "failures");
 const baselineDir = path.join(outDir, "screens", "baseline");
+const baselineRoutes = new Set(["/ru","/en","/az","/ar","/zh","/ru/platform","/ru/products","/ru/company","/ru/legal/privacy","/ru/products/azevsm-plus/budget-analysis"]);
 
 const viewports = [
   ["desktop-1920x1080", 1920, 1080],
@@ -161,8 +162,7 @@ for (const [name, width, height] of viewports) {
       const response = await page.goto(`${BASE}${route}`, { waitUntil: "domcontentloaded", timeout: 30000 });
       status = response?.status() || 0;
       finalUrl = page.url();
-      await page.waitForLoadState("networkidle", { timeout: 2500 }).catch(() => {});
-      await page.waitForTimeout(120);
+      await page.waitForTimeout(40);
       metrics = await inspectPage(page);
     } catch (err) {
       navError = String(err).slice(0,1000);
@@ -193,7 +193,7 @@ for (const [name, width, height] of viewports) {
       await ensure(d);
       await page.screenshot({ path: path.join(d, `${slug}.png`), fullPage: true }).catch(() => {});
     }
-    if (baselineViewports.has(name)) {
+    if (baselineViewports.has(name) && baselineRoutes.has(route)) {
       const d = path.join(baselineDir, name);
       await ensure(d);
       await page.screenshot({ path: path.join(d, `${slug}.png`), fullPage: false }).catch(() => {});
