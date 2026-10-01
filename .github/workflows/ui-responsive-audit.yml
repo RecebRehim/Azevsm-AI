@@ -1,5 +1,9 @@
 name: UI Responsive Audit
 
+concurrency:
+  group: ui-responsive-audit-website-v7
+  cancel-in-progress: true
+
 on:
   push:
     branches: [website-v7]
