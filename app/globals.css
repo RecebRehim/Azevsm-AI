@@ -11482,3 +11482,33 @@ html[lang="ru"] .ru-legal-stage1.ru-authority-section .ru-legal-note p {
 html[lang="ru"] .ru-legal-stage1.ru-authority-section .ru-legal-section {
   border-color: rgba(213,226,239,.12) !important;
 }
+
+
+/* WEBSITE-V7 FINAL READABILITY/LANGUAGE CLOSURE 2026-10-01 */
+
+/* "Языки" remains visible at every RU header width; legacy mojibake stays suppressed by the later chevron rule. */
+html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more {
+  display: block !important;
+}
+html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  min-height: 36px !important;
+  padding: 0 10px !important;
+  border: 1px solid rgba(223,184,106,.30) !important;
+  border-radius: 9px !important;
+  background: rgba(6,20,34,.34) !important;
+  color: rgba(247,249,251,.92) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+
+/* Trust matrix/card titles are split into <strong> + body inside dark table cells. */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section table.data td strong,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section table.data td strong,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td strong {
+  color: #f4f7fa !important;
+  font-weight: 700 !important;
+}
