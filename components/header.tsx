@@ -184,7 +184,7 @@ const ruDirectLanguages: readonly Locale[] = ["ru", "en", "az"];
 const ruAdditionalLanguages = siteLocales.filter((item) => !ruDirectLanguages.includes(item as Locale));
 
 function RuLanguageAccess({ path, locale, label, compact = false }: { path: string; locale: Locale; label: string; compact?: boolean }) {
-  const moreLabel = compact ? locale.toUpperCase() : locale === "ru" ? "Языки" : locale === "az" ? "Dillər" : "Languages";
+  const moreLabel = locale === "ru" ? "Языки" : locale === "az" ? "Dillər" : "Languages";
   return (
     <div className={`ru-language-access${compact ? " ru-language-access--compact" : ""}`}>
       <nav className="ru-primary-locales" aria-label={label}>
@@ -204,7 +204,14 @@ function RuLanguageAccess({ path, locale, label, compact = false }: { path: stri
         })}
       </nav>
       <details className="ru-language-more">
-        <summary>{moreLabel}</summary>
+        <summary>
+          {compact ? (
+            <>
+              <span className="ru-language-current-code">{locale.toUpperCase()}</span>
+              <span className="ru-language-more-label">{moreLabel}</span>
+            </>
+          ) : moreLabel}
+        </summary>
         <div className="ru-language-panel" aria-label={moreLabel}>
           {ruAdditionalLanguages.map((item) => {
             const meta = localeMeta[item];

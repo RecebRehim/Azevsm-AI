@@ -490,3 +490,68 @@ Acceptance: sitemap URLs must resolve; alternates must not point to deliberate 4
 ## Batch 4 — final regression
 
 Re-run all 160 discovered routes across the 13 required viewports, re-run breakpoint probes, then update final PASS/FAIL matrix and change log.
+
+
+---
+
+## User screenshot evidence — 2026-10-01
+
+Founder review supplied 10 rendered screenshots from the current website. These are direct visual evidence and override any earlier “not reproduced” assumption for the affected surfaces.
+
+### UI-A11Y-002 — dark list/card body text is unreadable
+
+- Affected examples: White Box, Azevsm Index, Azevsm Institutional Index, Index Field / investor ecosystem.
+- Severity: **P1**
+- Classification: **REAL WATCH**
+- Evidence: screenshots 1, 2, 3 and 5.
+- Observed: list-card backgrounds use the dark authority treatment while `li` keeps the earlier light-theme dark ink value.
+- Root cause: later dark-surface rule colors the parent `ul`, but an earlier more-specific `.ru-pilot-blocks > ul li` declaration remains active on the child.
+- Correction: explicit light body color for list items inside dark authority/product/existing-authority sections.
+
+### UI-NAV-002 — RU corporate header hides access to additional languages
+
+- Component: shared RU corporate header.
+- Severity: **P1**
+- Classification: **REAL WATCH**
+- Evidence: screenshot 1.
+- Observed: RU/EN/AZ are visible, but the “Языки” / additional-language control is hidden, so supported AR/ZH and pending-language status are not discoverable from the header.
+- Correction: restore a visible Languages plaque on tablet/desktop; retain compact current-locale control on phone widths.
+
+### UI-HERO-003 — landscape hero lead loses contrast over bright image regions
+
+- Affected example: Result System.
+- Severity: **P2**
+- Classification: **REAL WATCH**
+- Evidence: screenshot 4.
+- Observed: subtitle crosses a bright horizon and loses separation.
+- Correction: stronger lead opacity/text shadow without changing copy or hero geometry.
+
+### UI-A11Y-003 — Insights list surface has insufficient text/background separation
+
+- Route: RU Insights.
+- Severity: **P1**
+- Classification: **REAL WATCH**
+- Evidence: screenshot 6.
+- Observed: the large list panel reads as a washed-out light rectangle and list text is not comfortably readable inside the dark authority composition.
+- Root cause: light-theme Insights list surface survives inside the later dark authority section.
+- Correction: use the existing dark authority glass surface and explicit light list text.
+
+### UI-HERO-004 — thematic hero photo missing on confirmed routes
+
+- Severity: **P2**
+- Classification: **REAL WATCH**
+- Evidence: screenshots 6–10.
+- Confirmed routes/surfaces:
+  - Insights
+  - Terms
+  - Cookies
+  - Security
+  - Validation / reproducibility
+- Existing repository assets are available; no new visual generation is required.
+- Correction mapping uses only existing accepted asset families:
+  - Insights → Technology landscape
+  - Terms / Cookies → Legal landscape
+  - Security → Data-security landscape
+  - Validation → Trust landscape
+
+No product semantics or page copy are changed by this batch.

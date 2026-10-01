@@ -11249,3 +11249,99 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-legal-stage1.ru-authority-secti
     padding: 10px 8px !important;
   }
 }
+
+
+/* WEBSITE-V7 AUDIT BATCH 2 — USER SCREENSHOT VERIFIED VISUAL GAPS 2026-10-01 */
+
+/* Dark authority list cards: child LI had retained the old light-theme ink color. */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-blocks > ul li,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-blocks > ul li,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section .ru-pilot-blocks > ul li {
+  color: rgba(235, 241, 247, .86) !important;
+}
+
+/* Insights uses the same dark authority surface; keep its list readable instead of a light card with washed text. */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-insights-intro {
+  color: rgba(235, 241, 247, .78) !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-insights-list {
+  border: 1px solid rgba(213,226,239,.14) !important;
+  border-left: 2px solid rgba(227,180,94,.52) !important;
+  background: rgba(3,16,30,.26) !important;
+  color: rgba(235,241,247,.86) !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-insights-list li {
+  color: rgba(235,241,247,.86) !important;
+}
+
+/* Landscape hero lead: preserve legibility over bright horizon/light arcs. */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--landscape .ru-pilot-lead {
+  color: rgba(248,251,253,.94) !important;
+  text-shadow:
+    0 2px 18px rgba(0,0,0,.72),
+    0 1px 3px rgba(0,0,0,.82) !important;
+}
+
+/* RU corporate language access: supported/pending languages must remain reachable. */
+html[lang="ru"] .ru-corporate-home-header .ru-language-current-code {
+  display: none;
+}
+html[lang="ru"] .ru-corporate-home-header .ru-language-more-label {
+  display: inline;
+}
+@media (min-width: 681px) {
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more {
+    display: block !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary {
+    min-width: 74px !important;
+    min-height: 36px !important;
+    padding: 0 10px !important;
+    border: 1px solid rgba(223,184,106,.32) !important;
+    border-radius: 9px !important;
+    background: rgba(6,20,34,.34) !important;
+    color: rgba(247,249,251,.9) !important;
+  }
+}
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-corporate-home-header .ru-language-current-code {
+    display: inline !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-more-label {
+    display: none !important;
+  }
+}
+
+/* With the extra language plaque, keep RU compact navigation through the safe measured width. */
+@media (min-width: 1181px) and (max-width: 1240px) {
+  html[lang="ru"] .ru-corporate-home-header {
+    height: 76px !important;
+    min-height: 76px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .header-inner,
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
+    position: relative !important;
+    width: min(calc(100% - 34px), 1120px) !important;
+    height: 76px !important;
+    min-height: 76px !important;
+    display: grid !important;
+    grid-template-columns: auto 1fr auto auto !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .nav-main {
+    display: none !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .menu-toggle {
+    display: inline-flex !important;
+    grid-column: 4 !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open .nav-main {
+    display: flex !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .header-utilities {
+    display: none !important;
+  }
+}
