@@ -17,8 +17,8 @@ export type FounderIconName =
   | "plus-product-rights"
   | "plus-sustainability";
 
-const navy = "#1e4a8a";
-const gold = "#c5a059";
+const navy = "var(--founder-stroke, #1e4a8a)";
+const gold = "var(--founder-accent, #c5a059)";
 
 function FounderGlyph({ name }: { name: FounderIconName }) {
   const common = {

@@ -1,7 +1,6 @@
-import Image from "next/image";
 import { FounderIcon, type FounderIconName } from "@/components/founder-icon";
 import { Logo } from "@/components/logo";
-import { pageHeroPhotos, type PageHeroPhotoKind } from "@/lib/content/page-photos";
+import { pageLandscapeBackgrounds, type PageLandscapeKind } from "@/lib/content/page-photos";
 
 export type RuPilotHeroKind =
   | "platform"
@@ -73,62 +72,61 @@ export function RuPilotHero({
   topics?: string[];
 }) {
   const icon = singleIcon[kind];
-  const photo = kind in pageHeroPhotos ? pageHeroPhotos[kind as PageHeroPhotoKind] : undefined;
+  const landscapeSlug =
+    kind in pageLandscapeBackgrounds
+      ? pageLandscapeBackgrounds[kind as PageLandscapeKind]
+      : undefined;
 
   return (
-    <header className={`ru-pilot-hero ru-pilot-hero--${kind}${photo ? " ru-pilot-hero--photo" : ""}`}>
+    <header
+      className={`ru-pilot-hero ru-pilot-hero--${kind}${landscapeSlug ? " ru-pilot-hero--landscape" : ""}`}
+    >
+      {landscapeSlug ? (
+        <div
+          className={`ru-pilot-hero-landscape ru-pilot-hero-landscape--${landscapeSlug}`}
+          aria-hidden="true"
+        />
+      ) : null}
+
       <div className="wrap ru-pilot-hero-inner">
         <div className="ru-pilot-hero-copy">
           <h1>{renderProtectedTechnologyName(title)}</h1>
           <p className="ru-pilot-lead">{lead}</p>
         </div>
 
-        <div className={`ru-thematic-hero-art${photo ? " ru-thematic-hero-art--photo" : ""}`} aria-hidden="true">
-          {photo ? (
-            <div className="ru-hero-photo-frame">
-              <Image
-                className="ru-hero-photo"
-                src={photo}
-                alt=""
-                fill
-                sizes="(max-width: 900px) 92vw, 42vw"
-                priority={kind === "products" || kind === "technology" || kind === "company"}
-              />
-            </div>
-          ) : (
-            <>
-              <div className="ru-hero-art-core">
-                {kind === "platform" ? (
-                  <FounderIcon name="platform-structure" className="ru-platform-hero-icon" />
-                ) : kind === "company" || kind === "insights" ? (
-                  <div className={kind === "company" ? "ru-company-mark" : "ru-research-mark"}>
-                    <Logo variant="mark" title="" size={128} />
-                  </div>
-                ) : kind === "products" ? (
-                  <div className="ru-products-hero-icons">
-                    <FounderIcon name="azevsm-index" />
-                    <FounderIcon name="azevsm-institutional-index" />
-                    <FounderIcon name="azevsm-plus" />
-                  </div>
-                ) : icon ? (
-                  <FounderIcon name={icon} className="ru-hero-founder-icon" />
-                ) : (
-                  <div className="ru-platform-field" />
-                )}
-              </div>
-              {topics.length ? (
-                <div className="ru-hero-topic-grid">
-                  {topics.slice(0, 3).map((topic, index) => (
-                    <span className="ru-hero-topic" key={topic}>
-                      <b>{String(index + 1).padStart(2, "0")}</b>
-                      <span>{topic}</span>
-                    </span>
-                  ))}
+        {!landscapeSlug ? (
+          <div className="ru-thematic-hero-art" aria-hidden="true">
+            <div className="ru-hero-art-core">
+              {kind === "platform" ? (
+                <FounderIcon name="platform-structure" className="ru-platform-hero-icon" />
+              ) : kind === "company" || kind === "insights" ? (
+                <div className={kind === "company" ? "ru-company-mark" : "ru-research-mark"}>
+                  <Logo variant="mark" title="" size={128} />
                 </div>
-              ) : null}
-            </>
-          )}
-        </div>
+              ) : kind === "products" ? (
+                <div className="ru-products-hero-icons">
+                  <FounderIcon name="azevsm-index" />
+                  <FounderIcon name="azevsm-institutional-index" />
+                  <FounderIcon name="azevsm-plus" />
+                </div>
+              ) : icon ? (
+                <FounderIcon name={icon} className="ru-hero-founder-icon" />
+              ) : (
+                <div className="ru-platform-field" />
+              )}
+            </div>
+            {topics.length ? (
+              <div className="ru-hero-topic-grid">
+                {topics.slice(0, 3).map((topic, index) => (
+                  <span className="ru-hero-topic" key={topic}>
+                    <b>{String(index + 1).padStart(2, "0")}</b>
+                    <span>{topic}</span>
+                  </span>
+                ))}
+              </div>
+            ) : null}
+          </div>
+        ) : null}
       </div>
     </header>
   );

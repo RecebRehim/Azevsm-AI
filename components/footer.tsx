@@ -11,14 +11,12 @@ import { authorityRouteLabels, isAuthorityLocale } from "@/lib/content/authority
 export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?: string }) {
   const path = usePathname() || `/${locale}`;
   const pilotLocale = isPilotLocale(locale);
-  const pathSegments = path.split("/").filter(Boolean);
-  const v5RuHome =
-    locale === "ru" &&
-    (path === "/" || pathSegments[pathSegments.length - 1] === "ru");
+  const v5Footer = locale === "ru";
+  const labels = isAuthorityLocale(locale) ? authorityRouteLabels[locale] : authorityRouteLabels.ru;
   return (
-    <footer className={v5RuHome ? "site-footer site-footer-v5-home" : "site-footer"}>
+    <footer className={v5Footer ? "site-footer site-footer-v5-home" : "site-footer"}>
       <div className="wrap">
-        {v5RuHome ? (
+        {v5Footer ? (
           <>
             <div className="v5-footer-intro">
               <div className="footer-brand">
@@ -39,7 +37,7 @@ export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
                   <li><Link href={localePath(locale, "/technology")}>{copy.nav.technology}</Link></li>
                   <li><Link href={localePath(locale, "/white-box")}>{copy.nav.whitebox}</Link></li>
                   <li><Link href={localePath(locale, "/trust")}>{copy.nav.trust}</Link></li>
-                  <li><Link href={localePath(locale, "/how-azevsmai-is-different")}>{authorityRouteLabels.ru.difference}</Link></li>
+                  <li><Link href={localePath(locale, "/how-azevsmai-is-different")}>{labels.difference}</Link></li>
                 </ul>
               </div>
 
@@ -49,8 +47,8 @@ export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
                   <li><Link href={localePath(locale, "/products/azevsm-index")}>Azevsm Index</Link></li>
                   <li><Link href={localePath(locale, "/products/azevsm-institutional-index")}>Azevsm Institutional Index</Link></li>
                   <li><Link href={localePath(locale, "/products/azevsm-plus")}>Azevsm Plus</Link></li>
-                  <li><Link href={localePath(locale, "/result-system")}>{authorityRouteLabels.ru.resultSystem}</Link></li>
-                  <li><Link href={localePath(locale, "/index-field-investor-ecosystem")}>{authorityRouteLabels.ru.indexField}</Link></li>
+                  <li><Link href={localePath(locale, "/result-system")}>{labels.resultSystem}</Link></li>
+                  <li><Link href={localePath(locale, "/index-field-investor-ecosystem")}>{labels.indexField}</Link></li>
                 </ul>
               </div>
 
@@ -70,9 +68,9 @@ export function Footer({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
                 <ul>
                   <li><Link href={localePath(locale, "/legal/privacy")}>{copy.privacy}</Link></li>
                   <li><Link href={localePath(locale, "/legal/security")}>{copy.security}</Link></li>
-                  <li><Link href={localePath(locale, "/validation-reproducibility")}>{authorityRouteLabels.ru.validation}</Link></li>
-                  <li><Link href={localePath(locale, "/data-security")}>{authorityRouteLabels.ru.dataSecurity}</Link></li>
-                  <li><Link href={localePath(locale, "/legal-compliance")}>{authorityRouteLabels.ru.legalCompliance}</Link></li>
+                  <li><Link href={localePath(locale, "/validation-reproducibility")}>{labels.validation}</Link></li>
+                  <li><Link href={localePath(locale, "/data-security")}>{labels.dataSecurity}</Link></li>
+                  <li><Link href={localePath(locale, "/legal-compliance")}>{labels.legalCompliance}</Link></li>
                 </ul>
               </div>
             </div>

@@ -1314,16 +1314,35 @@ img {
   bottom: 16px;
   z-index: 50;
   width: min(420px, calc(100% - 32px));
-  background: white;
-  border: 1px solid var(--line);
+  color: #f4f7fa;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.02)),
+    rgba(4, 18, 34, .72);
+  border: 1px solid rgba(213, 226, 239, .16);
   border-radius: 14px;
   padding: 16px;
-  box-shadow: none;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 18px 40px rgba(0,0,0,.28);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  backdrop-filter: blur(14px) saturate(120%);
 }
 
 .cookie p {
   margin: 0 0 12px;
   font-size: 15px;
+  color: rgba(229, 236, 243, .78);
+}
+
+.cookie a {
+  color: #e3b45e;
+}
+
+.cookie .btn,
+.cookie .btn-primary {
+  color: #f8f0df !important;
+  border: 1px solid rgba(231, 185, 98, .55) !important;
+  background: rgba(8, 23, 40, .72) !important;
 }
 
 .assistant-launch {
@@ -1628,7 +1647,7 @@ body:has(.cookie) .assistant-panel {
 }
 
 
-/* WEBSITE v3.1 — institutional responsive visual system */
+/* WEBSITE v3.1 Ã¢â¬â institutional responsive visual system */
 :root {
   --sky: #edf4f8;
   --sky-deep: #dce9f0;
@@ -2625,7 +2644,7 @@ html[lang="az"] h2 {
 }
 
 
-/* RU PILOT — isolated visual / UX layer. Other locales intentionally unchanged. */
+/* RU PILOT Ã¢â¬â isolated visual / UX layer. Other locales intentionally unchanged. */
 .ru-mobile-languages { display: none; }
 
 .ru-pilot-hero {
@@ -3587,7 +3606,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .assistant-panel {
 
 
 /* ============================================================
-   RU PILOT — CONSOLIDATED FOUNDER REVIEW REPAIR
+   RU PILOT Ã¢â¬â CONSOLIDATED FOUNDER REVIEW REPAIR
    Scope: RU visual/typography/assets only.
    ============================================================ */
 
@@ -3731,7 +3750,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-lead {
 .ru-products-hero-icons .founder-icon:nth-child(2) { transform: translateY(-20px); }
 .ru-platform-field { display: none; }
 
-/* Distinct thematic page fields — same family, different subject. */
+/* Distinct thematic page fields Ã¢â¬â same family, different subject. */
 .ru-pilot-hero--platform::before {
   background:
     linear-gradient(118deg, transparent 0 61%, rgba(25,68,108,.11) 61.2% 61.7%, transparent 61.9%),
@@ -4183,7 +4202,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .assistant-panel {
 
 
 /* ============================================================
-   RU PILOT — DESKTOP-FIRST FOUNDER QA CONSOLIDATED REPAIR
+   RU PILOT Ã¢â¬â DESKTOP-FIRST FOUNDER QA CONSOLIDATED REPAIR
    Desktop/laptop is the primary visual baseline; mobile remains adapted.
    ============================================================ */
 
@@ -4351,7 +4370,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .band-head .text-li
 }
 
 
-/* RU PILOT — FOUNDER QA LAYOUT RECONCILIATION */
+/* RU PILOT Ã¢â¬â FOUNDER QA LAYOUT RECONCILIATION */
 
 /* The current DOM uses the outer hero as a full-width band and the inner wrapper as the grid.
    Reset the legacy outer-grid/card geometry so it cannot squeeze the current composition. */
@@ -4381,25 +4400,24 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero {
   html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-tech .foundation-row > article:last-child:nth-child(odd) {
     grid-column: 1 / -1;
     width: 100%;
-    max-width: calc((100% - 16px) / 2);
-    justify-self: center;
+    max-width: none;
+    justify-self: stretch;
   }
 }
 
-/* Plus has seven products and the platform scenario set is odd-sized: center the final card,
-   without inventing a filler item or changing source order. */
+/* Plus / scenario / preview odd cards: full-width last row (no half-width orphan). */
 @media (min-width: 681px) {
   html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-grid > .ru-plus-card:last-child:nth-child(odd),
   html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-scenario-grid > .ru-scenario-card:last-child:nth-child(odd) {
     grid-column: 1 / -1;
     width: 100%;
-    max-width: calc((100% - 16px) / 2);
-    justify-self: center;
+    max-width: none;
+    justify-self: stretch;
   }
 }
 
 
-/* RU PILOT — FOUNDER QA FINAL VISUAL REPAIR */
+/* RU PILOT Ã¢â¬â FOUNDER QA FINAL VISUAL REPAIR */
 
 /* Home hero: remove the white plaque and solve readability at the background level. */
 html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-scrim {
@@ -4532,7 +4550,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card h2 {
 }
 
 
-/* RU PILOT — EN-COMPOSITION REFERENCE FOR INTERNAL HEROES */
+/* RU PILOT Ã¢â¬â EN-COMPOSITION REFERENCE FOR INTERNAL HEROES */
 
 /* Keep RU content, but return internal-page composition to the calmer EN baseline. */
 html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero-inner {
@@ -4619,7 +4637,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-research-mark {
 }
 
 
-/* RU PILOT — ONE-PASS FOUNDER QA ACCEPTANCE LAYER
+/* RU PILOT Ã¢â¬â ONE-PASS FOUNDER QA ACCEPTANCE LAYER
    Closes confirmed responsive and icon-rendering blockers without changing content. */
 html:is([lang="ru"], [lang="en"], [lang="az"]) .founder-icon--inline {
   display: inline-grid;
@@ -4795,7 +4813,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-tomorrow {
 }
 
 
-/* RU PILOT — CONTAINER GUTTER ROOT-CAUSE CLOSURE
+/* RU PILOT Ã¢â¬â CONTAINER GUTTER ROOT-CAUSE CLOSURE
    Components that also carry .wrap must not override the wrap gutter with width:100%. */
 html:is([lang="ru"], [lang="en"], [lang="az"]) .wrap.ru-pilot-prose {
   width: min(1120px, calc(100% - 48px));
@@ -4825,7 +4843,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-authority-section .wrap.ru-pi
 }
 
 
-/* RU PILOT — SYSTEMIC INTERNAL SECTION GUTTER ACCEPTANCE
+/* RU PILOT Ã¢â¬â SYSTEMIC INTERNAL SECTION GUTTER ACCEPTANCE
    Every direct .wrap inside section-tight keeps a real viewport gutter,
    regardless of prose / ru-pilot-prose width rules. */
 html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight > .wrap {
@@ -4861,7 +4879,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight.ru-authority-secti
 }
 
 
-/* RU PILOT — DESIGN SPEC v1.0 SOURCE-BOUND ACCEPTANCE
+/* RU PILOT Ã¢â¬â DESIGN SPEC v1.0 SOURCE-BOUND ACCEPTANCE
    Applies only explicit grid/spacing/header requirements from the Founder/Architect brief. */
 @media (min-width: 681px) {
   html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header,
@@ -4907,7 +4925,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .section-tight.ru-authority-secti
 }
 
 
-/* RU PILOT — SYSTEMIC INTERNAL HERO CLOSURE
+/* RU PILOT Ã¢â¬â SYSTEMIC INTERNAL HERO CLOSURE
    Legacy sprite layers are physically removed above. Inline SVG is the only icon renderer. */
 html:is([lang="ru"], [lang="en"], [lang="az"]) .founder-icon,
 html:is([lang="ru"], [lang="en"], [lang="az"]) .founder-icon--inline,
@@ -5077,7 +5095,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card h2 {
 }
 
 
-/* RU HOME — founder correction: right composition position/alignment only. */
+/* RU HOME Ã¢â¬â founder correction: right composition position/alignment only. */
 @media (min-width: 1025px) {
   html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel {
     justify-self: end;
@@ -5111,7 +5129,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card h2 {
 }
 
 
-/* RU HOME — below-hero density/width correction from Founder video review.
+/* RU HOME Ã¢â¬â below-hero density/width correction from Founder video review.
    Keep content unchanged; use more of the approved desktop grid and calm the type scale. */
 @media (min-width: 1025px) {
   html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-home-transfer > .wrap.ru-pilot-prose {
@@ -5161,7 +5179,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card h2 {
 }
 
 
-/* RU MOBILE — Founder QA alignment/typography closure.
+/* RU MOBILE Ã¢â¬â Founder QA alignment/typography closure.
    Desktop is already accepted; this block is mobile-only. */
 @media (max-width: 680px) {
   /* Main hero: protect the first word and keep the right composition on one center axis. */
@@ -5304,7 +5322,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card h2 {
 }
 
 
-/* RU MOBILE — final alignment correction: home hero mark stack + WHY heading. */
+/* RU MOBILE Ã¢â¬â final alignment correction: home hero mark stack + WHY heading. */
 @media (max-width: 680px) {
   html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel {
     justify-self: stretch !important;
@@ -5360,7 +5378,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card h2 {
 }
 
 
-/* RU MOBILE INNER PAGES — FINAL CENTERING REPAIR */
+/* RU MOBILE INNER PAGES Ã¢â¬â FINAL CENTERING REPAIR */
 @media (max-width: 680px) {
   html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-hero {
     overflow: hidden;
@@ -5439,7 +5457,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card h2 {
 }
 
 
-/* RU MOBILE AZEVSM PLUS — CARD WIDTH CLOSURE */
+/* RU MOBILE AZEVSM PLUS Ã¢â¬â CARD WIDTH CLOSURE */
 @media (max-width: 680px) {
   html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-grid {
     width: 100%;
@@ -5489,7 +5507,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-plus-card h2 {
 }
 
 
-/* RU DESKTOP FINAL REPAIR — FOUNDER ACCEPTANCE */
+/* RU DESKTOP FINAL REPAIR Ã¢â¬â FOUNDER ACCEPTANCE */
 /* Platform icon remains visually absent below desktop so this pass cannot alter mobile. */
 html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-hero-icon {
   display: none !important;
@@ -5555,7 +5573,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-hero-icon {
 
 
 
-/* RU HOME HERO — CORRECTED SINGLE AXIS */
+/* RU HOME HERO Ã¢â¬â CORRECTED SINGLE AXIS */
 /* Applies to desktop/tablet layouts only. Mobile <=680px remains untouched. */
 @media (min-width: 681px) {
   html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel {
@@ -5627,7 +5645,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-hero-icon {
 }
 
 
-/* RU MOBILE HOME HERO — WRAPPER REGRESSION REPAIR */
+/* RU MOBILE HOME HERO Ã¢â¬â WRAPPER REGRESSION REPAIR */
 @media (max-width: 680px) {
   html:is([lang="ru"], [lang="en"], [lang="az"]) .hero-panel-axis {
     width: 100%;
@@ -5679,7 +5697,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-hero-icon {
 }
 
 
-/* PILOT MENU — RIGHT DROPDOWN FINAL */
+/* PILOT MENU Ã¢â¬â RIGHT DROPDOWN FINAL */
 @media (max-width: 1180px) {
   html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .header-inner {
     position: relative;
@@ -5778,7 +5796,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-platform-hero-icon {
 }
 
 
-/* WEBSITE V4 — CLARITY + RESULT MATERIALIZATION */
+/* WEBSITE V4 Ã¢â¬â CLARITY + RESULT MATERIALIZATION */
 html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-section-head {
   width: min(100%, 920px);
   margin: 0 auto 26px;
@@ -5826,7 +5844,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card {
   box-shadow: 0 10px 28px rgba(11, 19, 32, .045);
 }
 html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card:not(:last-child)::after {
-  content: "→";
+  content: "Ã¢â â";
   position: absolute;
   inset-inline-end: -15px;
   top: 50%;
@@ -5985,8 +6003,9 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-card {
 }
 html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-card:last-child:nth-child(odd) {
   grid-column: 1 / -1;
-  width: calc(50% - 10px);
-  justify-self: center;
+  width: 100%;
+  max-width: none;
+  justify-self: stretch;
 }
 html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-preview-frame {
   position: relative;
@@ -6070,7 +6089,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-why {
     padding: 22px 20px;
   }
   html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-flow-card:not(:last-child)::after {
-    content: "↓";
+    content: "Ã¢â â";
     top: auto;
     bottom: -15px;
     inset-inline-end: 50%;
@@ -6109,7 +6128,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-why {
 }
 
 
-/* WEBSITE-V4 LOCALE REGISTRY — RESERVED LANGUAGES */
+/* WEBSITE-V4 LOCALE REGISTRY Ã¢â¬â RESERVED LANGUAGES */
 .menu-panel .menu-language-pending {
   display: flex;
   align-items: center;
@@ -6338,7 +6357,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .v4-result-why {
 }
 
 
-/* WEBSITE-V4 RU PILOT VISUAL CONSISTENCY PASS — 2026-09-29 */
+/* WEBSITE-V4 RU PILOT VISUAL CONSISTENCY PASS Ã¢â¬â 2026-09-29 */
 
 /* Homepage desktop/tablet: bring hero copy and brand rail closer onto one axis. */
 @media (min-width: 681px) {
@@ -6451,8 +6470,9 @@ html[lang="ru"] .ru-repro-grid article {
 }
 html[lang="ru"] .ru-repro-grid article:last-child:nth-child(odd) {
   grid-column: 1 / -1;
-  width: calc(50% - 7px);
-  justify-self: center;
+  width: 100%;
+  max-width: none;
+  justify-self: stretch;
 }
 html[lang="ru"] .ru-repro-icon {
   grid-column: 1;
@@ -6567,7 +6587,7 @@ html[lang="ru"] .ru-existing-section--trust .ru-pilot-blocks > p {
 }
 
 
-/* WEBSITE-V4 RU AZEVSM SECURE HOME BLOCK — 2026-09-29 */
+/* WEBSITE-V4 RU AZEVSM SECURE HOME BLOCK Ã¢â¬â 2026-09-29 */
 html[lang="ru"] .ru-home-secure {
   padding: 34px 0 46px;
   background: #f6f8fb;
@@ -6635,7 +6655,7 @@ html[lang="ru"] .ru-home-secure-copy .text-link {
 }
 
 
-/* WEBSITE-V4 RU SCREENSHOT QA PASS — 2026-09-29 */
+/* WEBSITE-V4 RU SCREENSHOT QA PASS Ã¢â¬â 2026-09-29 */
 
 /* Difference page: remove excessive blank space and center the result-logic table heading. */
 @media (min-width: 681px) {
@@ -6726,7 +6746,7 @@ html[lang="ru"] .ru-legal-stage1 {
 }
 
 
-/* WEBSITE-V4 RU AUTHORITY ICON COMPLETION — 2026-09-29 */
+/* WEBSITE-V4 RU AUTHORITY ICON COMPLETION Ã¢â¬â 2026-09-29 */
 html[lang="ru"] .ru-authority-section .ru-pilot-heading-icon {
   margin-top: 34px;
 }
@@ -6771,7 +6791,7 @@ html[lang="ru"] .ru-pilot-note--icon p {
 }
 
 
-/* WEBSITE-V4 RU MOBILE / ICON / TABLE RECONCILIATION — 2026-09-29 */
+/* WEBSITE-V4 RU MOBILE / ICON / TABLE RECONCILIATION Ã¢â¬â 2026-09-29 */
 
 /* Keep semantic section icons attached to the heading, not floating at the page edge. */
 html[lang="ru"] .ru-pilot-blocks > h2.ru-pilot-heading-icon {
@@ -6915,7 +6935,7 @@ html[lang="ru"] .ru-pilot-blocks > h2.ru-pilot-heading-icon > span {
 }
 
 
-/* WEBSITE-V4 SITE SEARCH — 2026-09-29 */
+/* WEBSITE-V4 SITE SEARCH Ã¢â¬â 2026-09-29 */
 .site-search-trigger {
   display: inline-grid;
   place-items: center;
@@ -7069,7 +7089,7 @@ html[lang="ru"] .ru-pilot-blocks > h2.ru-pilot-heading-icon > span {
 }
 
 
-/* WEBSITE-V4 RU MOBILE LONG HEADING FIX — 2026-09-29 */
+/* WEBSITE-V4 RU MOBILE LONG HEADING FIX Ã¢â¬â 2026-09-29 */
 @media (max-width: 680px) {
   html[lang="ru"] .ru-pilot-blocks > h2.ru-pilot-heading-icon {
     display: grid !important;
@@ -7103,7 +7123,7 @@ html[lang="ru"] .ru-pilot-blocks > h2.ru-pilot-heading-icon > span {
 }
 
 
-/* WEBSITE-V4 RU INSTITUTIONAL SECTION ICON SIZE FIX — 2026-09-29 */
+/* WEBSITE-V4 RU INSTITUTIONAL SECTION ICON SIZE FIX Ã¢â¬â 2026-09-29 */
 html[lang="ru"] .ru-product-authority-section--institutional .ru-pilot-blocks > h2.ru-pilot-heading-icon {
   display: flex !important;
   align-items: center !important;
@@ -7140,7 +7160,7 @@ html[lang="ru"] .ru-product-authority-section--institutional .ru-section-heading
 }
 
 
-/* WEBSITE-V4 PILOT HEADER SEARCH ORDER — 2026-09-30 */
+/* WEBSITE-V4 PILOT HEADER SEARCH ORDER Ã¢â¬â 2026-09-30 */
 html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .wordmark {
   order: 1;
 }
@@ -7157,7 +7177,7 @@ html:is([lang="ru"], [lang="en"], [lang="az"]) .ru-pilot-site-header .menu-toggl
 }
 
 
-/* WEBSITE-V5 CORPORATE VISUAL SYSTEM — 2026-09-30 */
+/* WEBSITE-V5 CORPORATE VISUAL SYSTEM Ã¢â¬â 2026-09-30 */
 /* FINAL CONSOLIDATED VISUAL LAYER. CONTENT / SEMANTICS / ROUTES UNCHANGED. */
 
 :root {
@@ -8191,17 +8211,23 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .site-footer a {
     width: min(100%,720px);
     gap: 14px;
   }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-scenario-grid > .ru-scenario-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    max-width: none !important;
+    justify-self: stretch !important;
+  }
   html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-repro-grid {
-    grid-template-columns: repeat(2,minmax(0,1fr));
+    grid-template-columns: 1fr !important;
   }
   html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-repro-grid article + article {
-    border-left: 0;
+    border-left: 0 !important;
   }
   html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-repro-grid article:nth-child(even) {
-    border-left: 1px solid rgba(35,58,82,.11);
+    border-left: 0 !important;
   }
   html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-repro-grid article:nth-child(n+3) {
-    border-top: 1px solid rgba(35,58,82,.11);
+    border-top: 0;
   }
   html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-home-secure-card {
     grid-template-columns: minmax(0,1fr) 280px;
@@ -8495,7 +8521,7 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .site-footer a {
 }
 
 
-/* WEBSITE-V5 HOME HERO MOBILE/TABLET COMPACTNESS + BRAND LEGIBILITY — 2026-09-30 */
+/* WEBSITE-V5 HOME HERO MOBILE/TABLET COMPACTNESS + BRAND LEGIBILITY Ã¢â¬â 2026-09-30 */
 /* Targeted visual repair from physical mobile review. */
 @media (max-width: 820px) {
   html:is([lang="ru"],[lang="en"],[lang="az"]) .hero {
@@ -8578,7 +8604,7 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .site-footer a {
 }
 
 
-/* RU CORPORATE HOME GATEWAY PILOT — 2026-09-30 */
+/* RU CORPORATE HOME GATEWAY PILOT Ã¢â¬â 2026-09-30 */
 html[lang="ru"] .ru-corporate-gateway {
   position: relative;
   isolation: isolate;
@@ -9042,7 +9068,7 @@ html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
 }
 
 
-/* RU CORPORATE HOME — ACCEPTED COMPOSITION CORRECTION 2026-09-30 */
+/* RU CORPORATE HOME Ã¢â¬â ACCEPTED COMPOSITION CORRECTION 2026-09-30 */
 html[lang="ru"] .ru-corporate-gateway {
   min-height: auto !important;
   align-items: flex-start !important;
@@ -9242,7 +9268,7 @@ html[lang="ru"] .ru-corporate-home-header .wordmark-text > span {
 }
 
 
-/* RU V5 ACCEPTED HEADER — 2026-09-30 */
+/* RU V5 ACCEPTED HEADER Ã¢â¬â 2026-09-30 */
 html[lang="ru"] .ru-corporate-home-header {
   min-height: 76px;
   background: rgba(3,15,28,.965) !important;
@@ -9361,7 +9387,7 @@ html[lang="ru"] .ru-corporate-home-header .ru-home-menu-icon {
 }
 
 
-/* RU V5 HEADER TARGETED FIX — DARK MENU + RU/EN/AZ DESKTOP 2026-09-30 */
+/* RU V5 HEADER TARGETED FIX Ã¢â¬â DARK MENU + RU/EN/AZ DESKTOP 2026-09-30 */
 
 /* Desktop: restore the three direct language choices on the V5 home header. */
 @media (min-width: 901px) {
@@ -9485,7 +9511,7 @@ html[lang="ru"] .ru-corporate-home-header .ru-home-menu-icon {
 }
 
 
-/* RU V5 HOME HEADER — ATTACHED ACCEPTED VISUAL REPRODUCTION */
+/* RU V5 HOME HEADER Ã¢â¬â ATTACHED ACCEPTED VISUAL REPRODUCTION */
 html[lang="ru"] .ru-corporate-home-header {
   height: 90px !important;
   min-height: 90px !important;
@@ -9623,7 +9649,7 @@ html[lang="ru"] .ru-corporate-home-header .header-utilities .btn-primary {
     font-size: 13px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary::after {
-    content: "⌄";
+    content: "Ã¢Åâ";
     margin-top: -3px;
     color: rgba(244,247,250,.82);
     font-size: 15px;
@@ -9773,7 +9799,7 @@ html[lang="ru"] .ru-corporate-home-header .header-utilities .btn-primary {
 }
 
 
-/* RU V5 HERO REPAIR — STEP 1 / DESKTOP HEADER GATE */
+/* RU V5 HERO REPAIR Ã¢â¬â STEP 1 / DESKTOP HEADER GATE */
 @media (min-width: 861px) {
   html[lang="ru"] .ru-corporate-home-header {
     height: 82px !important;
@@ -9892,14 +9918,14 @@ html[lang="ru"] .ru-corporate-home-header .header-utilities .btn-primary {
 }
 
 
-/* RU V5 HOME — CLOSED DETAILS MUST NOT RESERVE EMPTY MAIN SPACE */
-html[lang="ru"] .shell:has(.ru-corporate-home-header) > main {
+/* RU V5 HOME Ã¢â¬â CLOSED DETAILS MUST NOT RESERVE EMPTY MAIN SPACE */
+html[lang="ru"] .shell:has(.site-footer-v5-home) > main {
   flex: 0 0 auto;
   background: transparent;
 }
 
 
-/* WEBSITE-V5 RU MOBILE PLATFORM HERO — LONG TITLE WIDTH CLOSURE */
+/* WEBSITE-V5 RU MOBILE PLATFORM HERO Ã¢â¬â LONG TITLE WIDTH CLOSURE */
 @media (max-width: 680px) {
   html[lang="ru"] .ru-pilot-hero--platform .ru-pilot-hero-copy {
     width: 100%;
@@ -9924,7 +9950,7 @@ html[lang="ru"] .shell:has(.ru-corporate-home-header) > main {
 }
 
 
-/* WEBSITE-V5 RU HOME FOOTER — COMPACT LOWER NAV 2026-09-30 */
+/* WEBSITE-V5 RU HOME FOOTER Ã¢â¬â COMPACT LOWER NAV 2026-09-30 */
 .site-footer-v5-home {
   padding: 36px 0 22px !important;
 }
@@ -9963,7 +9989,7 @@ html[lang="ru"] .shell:has(.ru-corporate-home-header) > main {
 }
 
 
-/* WEBSITE-V5 RU HOME FOOTER — CENTERED BRAND + BALANCED 12/12 2026-09-30 */
+/* WEBSITE-V5 RU HOME FOOTER Ã¢â¬â CENTERED BRAND + BALANCED 12/12 2026-09-30 */
 .site-footer-v5-home .v5-footer-intro {
   max-width: 560px;
   margin: 0 auto 34px;
@@ -10024,7 +10050,7 @@ html[lang="ru"] .shell:has(.ru-corporate-home-header) > main {
 }
 
 
-/* WEBSITE-V5 RU HOME FOOTER — FIX HOME DETECTION VISUAL + NO WHITE CANVAS 2026-09-30 */
+/* WEBSITE-V5 RU HOME FOOTER Ã¢â¬â FIX HOME DETECTION VISUAL + NO WHITE CANVAS 2026-09-30 */
 html:has(.site-footer-v5-home),
 body:has(.site-footer-v5-home) {
   background: #081827 !important;
@@ -10105,12 +10131,12 @@ body:has(.site-footer-v5-home) {
 }
 
 
-/* WEBSITE-V5 RU HOME FOOTER — MIRRORED GROUPS + FULL VIEWPORT DARK 2026-09-30 */
-html[lang="ru"] .shell:has(.ru-corporate-home-header) {
+/* WEBSITE-V5 RU HOME FOOTER Ã¢â¬â MIRRORED GROUPS + FULL VIEWPORT DARK 2026-09-30 */
+html[lang="ru"] .shell:has(.site-footer-v5-home) {
   min-height: 100dvh !important;
   background: #081827 !important;
 }
-html[lang="ru"] body:has(.ru-corporate-home-header) {
+html[lang="ru"] body:has(.site-footer-v5-home) {
   min-height: 100dvh !important;
   background: #081827 !important;
 }
@@ -10140,14 +10166,14 @@ html[lang="ru"] body:has(.ru-corporate-home-header) {
 }
 
 
-/* WEBSITE-V5 RU HOME FOOTER — FOUR COLUMNS 6 ROWS + NO POST-FOOTER GAP 2026-09-30 */
-html[lang="ru"] .shell:has(.ru-corporate-home-header) {
+/* WEBSITE-V5 RU HOME FOOTER Ã¢â¬â FOUR COLUMNS 6 ROWS + NO POST-FOOTER GAP 2026-09-30 */
+html[lang="ru"] .shell:has(.site-footer-v5-home) {
   min-height: 100dvh !important;
   background:
     radial-gradient(ellipse at 84% 18%,rgba(77,119,153,.18),transparent 30%),
     linear-gradient(132deg,#071625 0%,#0a1f35 64%,#081827 100%) !important;
 }
-html[lang="ru"] .shell:has(.ru-corporate-home-header) > .site-footer-v5-home {
+html[lang="ru"] .shell:has(.site-footer-v5-home) > .site-footer-v5-home {
   flex: 1 0 auto !important;
 }
 .site-footer-v5-home {
@@ -10225,8 +10251,8 @@ html[lang="ru"] .shell:has(.ru-corporate-home-header) > .site-footer-v5-home {
 }
 
 
-/* WEBSITE-V5 RU HOME FOOTER — REMOVE FORCED EMPTY STRETCH 2026-09-30 */
-html[lang="ru"] .shell:has(.ru-corporate-home-header) > .site-footer-v5-home {
+/* WEBSITE-V5 RU HOME FOOTER Ã¢â¬â REMOVE FORCED EMPTY STRETCH 2026-09-30 */
+html[lang="ru"] .shell:has(.site-footer-v5-home) > .site-footer-v5-home {
   flex: 0 0 auto !important;
   min-height: 0 !important;
 }
@@ -10239,23 +10265,23 @@ html[lang="ru"] .shell:has(.ru-corporate-home-header) > .site-footer-v5-home {
 }
 
 
-/* WEBSITE-V5 RU HOME — COLLAPSE SHELL AFTER FOOTER 2026-09-30 */
-html[lang="ru"] .shell:has(.ru-corporate-home-header) {
+/* WEBSITE-V5 RU HOME Ã¢â¬â COLLAPSE SHELL AFTER FOOTER 2026-09-30 */
+html[lang="ru"] .shell:has(.site-footer-v5-home) {
   min-height: 0 !important;
   height: auto !important;
 }
-html[lang="ru"] body:has(.ru-corporate-home-header) {
+html[lang="ru"] body:has(.site-footer-v5-home) {
   min-height: 0 !important;
   height: auto !important;
 }
-html[lang="ru"] .shell:has(.ru-corporate-home-header) > main {
+html[lang="ru"] .shell:has(.site-footer-v5-home) > main {
   flex: 0 0 auto !important;
 }
-html[lang="ru"] .shell:has(.ru-corporate-home-header) > .site-footer-v5-home {
+html[lang="ru"] .shell:has(.site-footer-v5-home) > .site-footer-v5-home {
   flex: 0 0 auto !important;
 }
 
-/* WEBSITE-V6 � PEXELS CANDIDATE PAGE PHOTOS 2026-09-30 */
+/* WEBSITE-V6 â PEXELS CANDIDATE PAGE PHOTOS 2026-09-30 */
 html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--photo::after {
   display: none;
 }
@@ -10324,5 +10350,745 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .page-photo-band--result {
   html:is([lang="ru"],[lang="en"],[lang="az"]) .page-photo-band--servers .page-photo-band-frame,
   html:is([lang="ru"],[lang="en"],[lang="az"]) .page-photo-band--technology-alt .page-photo-band-frame {
     aspect-ratio: 16 / 9;
+  }
+}
+
+/* WEBSITE-V6 â PAGE HERO LANDSCAPE BACKGROUNDS (HOMEPAGE USAGE PATTERN) 2026-10-01 */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--landscape {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #03111f !important;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--landscape::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  display: block !important;
+  background:
+    radial-gradient(ellipse at 50% 8%, rgba(65,112,160,.18) 0%, rgba(32,78,124,.08) 34%, transparent 61%),
+    linear-gradient(180deg,
+      rgba(5,18,33,.42) 0%,
+      rgba(5,18,33,.18) 34%,
+      rgba(5,18,33,.10) 62%,
+      rgba(5,18,33,.36) 100%) !important;
+  mix-blend-mode: normal;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--landscape::after {
+  content: none !important;
+  display: none !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: brightness(1.06) saturate(1.03);
+  pointer-events: none;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--landscape .ru-pilot-hero-inner {
+  position: relative;
+  z-index: 2;
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) !important;
+  width: min(1200px, calc(100% - 72px)) !important;
+  max-width: 1200px !important;
+  margin-inline: auto !important;
+  min-height: clamp(548px, 48vw, 720px) !important;
+  align-items: start !important;
+  justify-items: center !important;
+  padding-block: clamp(48px, 4.5vw, 64px) clamp(140px, 14vw, 200px) !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--landscape .ru-pilot-hero-copy {
+  width: min(920px, 100%) !important;
+  max-width: min(920px, 100%) !important;
+  justify-self: center !important;
+  margin-inline: auto !important;
+  margin-top: 0 !important;
+  text-align: center !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--landscape .ru-pilot-hero-copy h1 {
+  width: auto !important;
+  max-width: min(38ch, 100%) !important;
+  margin-inline: auto !important;
+  text-align: center !important;
+  text-wrap: balance;
+  text-shadow: 0 2px 28px rgba(2,10,20,.35);
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--landscape .ru-pilot-lead {
+  width: auto !important;
+  max-width: min(62ch, 100%) !important;
+  margin-inline: auto !important;
+  text-align: center !important;
+  text-shadow: 0 1px 18px rgba(2,10,20,.28);
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--landscape .ru-thematic-hero-art {
+  display: none !important;
+}
+
+@media (max-width: 860px) {
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--landscape .ru-pilot-hero-inner {
+    min-height: clamp(420px, 78vw, 560px);
+    width: min(100% - 32px, var(--v5-wide));
+    padding-block: 56px 52px;
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--landscape::before {
+    background:
+      linear-gradient(180deg,
+        rgba(5,18,33,.58) 0%,
+        rgba(5,18,33,.28) 38%,
+        rgba(5,18,33,.16) 68%,
+        rgba(5,18,33,.42) 100%) !important;
+  }
+}
+@media (max-width: 680px) {
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--landscape .ru-pilot-hero-inner {
+    min-height: 380px;
+    padding-block: 48px 44px;
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--landscape .ru-pilot-hero-copy h1 {
+    max-width: 100%;
+  }
+}
+/* WEBSITE-V6 â PAGE LANDSCAPE ASSETS (DESKTOP + MOBILE WEBP) 2026-10-01 */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--platform {
+  background-image: url("/page-bg/platform-desktop.webp");
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--products {
+  background-image: url("/page-bg/products-desktop.webp");
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--technology {
+  background-image: url("/page-bg/technology-desktop.webp");
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--whitebox {
+  background-image: url("/page-bg/whitebox-desktop.webp");
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--trust {
+  background-image: url("/page-bg/trust-desktop.webp");
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--data-security {
+  background-image: url("/page-bg/data-security-desktop.webp");
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--legal {
+  background-image: url("/page-bg/legal-desktop.webp");
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--company {
+  background-image: url("/page-bg/company-desktop.webp");
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--index {
+  background-image: url("/page-bg/index-desktop.webp");
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--institutional {
+  background-image: url("/page-bg/institutional-desktop.webp");
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--plus {
+  background-image: url("/page-bg/plus-desktop.webp");
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--result {
+  background-image: url("/page-bg/result-desktop.webp");
+}
+@media (max-width: 860px) {
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--platform {
+    background-image: url("/page-bg/platform-mobile.webp");
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--products {
+    background-image: url("/page-bg/products-mobile.webp");
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--technology {
+    background-image: url("/page-bg/technology-mobile.webp");
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--whitebox {
+    background-image: url("/page-bg/whitebox-mobile.webp");
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--trust {
+    background-image: url("/page-bg/trust-mobile.webp");
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--data-security {
+    background-image: url("/page-bg/data-security-mobile.webp");
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--legal {
+    background-image: url("/page-bg/legal-mobile.webp");
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--company {
+    background-image: url("/page-bg/company-mobile.webp");
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--index {
+    background-image: url("/page-bg/index-mobile.webp");
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--institutional {
+    background-image: url("/page-bg/institutional-mobile.webp");
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--plus {
+    background-image: url("/page-bg/plus-mobile.webp");
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--result {
+    background-image: url("/page-bg/result-mobile.webp");
+  }
+}
+
+/* ============================================================
+   AUTHORITY PAGES — DARK INSTITUTIONAL GLASS (align with homepage)
+   2026-10-01
+   ============================================================ */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .shell:has(.ru-pilot-hero--landscape) {
+  background: #03111f;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .section-tight:has(> .wrap.ru-pilot-prose) {
+  position: relative;
+  isolation: isolate;
+  padding-block: clamp(36px, 4.5vw, 64px) !important;
+  background:
+    radial-gradient(ellipse at 18% 6%, rgba(54, 112, 168, .18), transparent 42rem),
+    radial-gradient(ellipse at 86% 14%, rgba(214, 168, 78, .10), transparent 36rem),
+    radial-gradient(ellipse at 50% 72%, rgba(28, 78, 128, .12), transparent 40rem),
+    linear-gradient(180deg, #03111f 0%, #06182b 42%, #04131f 100%) !important;
+  border-top: 0 !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section::before,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section::before,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .section-tight:has(> .wrap.ru-pilot-prose)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .032;
+  background-image: radial-gradient(rgba(255, 255, 255, .9) 0.55px, transparent 0.6px);
+  background-size: 3px 3px;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section > .wrap,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section > .wrap,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .section-tight:has(> .wrap.ru-pilot-prose) > .wrap.ru-pilot-prose {
+  position: relative;
+  z-index: 1;
+  padding: clamp(26px, 3.2vw, 44px) !important;
+  border-radius: 16px;
+  border: 1px solid rgba(213, 226, 239, .16);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.02)),
+    rgba(4, 18, 34, .42) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 20px 50px rgba(0,0,0,.22);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  backdrop-filter: blur(14px) saturate(120%);
+  color: #f4f7fa;
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section > .wrap,
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section > .wrap,
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .section-tight:has(> .wrap.ru-pilot-prose) > .wrap.ru-pilot-prose {
+    background: rgba(6, 24, 42, .92) !important;
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section > .wrap,
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section > .wrap,
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .section-tight:has(> .wrap.ru-pilot-prose) > .wrap.ru-pilot-prose {
+    background: rgba(6, 24, 42, .96) !important;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* Typography on glass */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-blocks > h2,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-blocks > h2,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .section-tight:has(> .wrap.ru-pilot-prose) .ru-pilot-blocks > h2,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-scenario-section > h2,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-platform-repro > h2,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-product-card h2,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-plus-card h2 {
+  color: #f4f7fa !important;
+  border-color: rgba(213, 226, 239, .12) !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-blocks > p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-blocks > p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .section-tight:has(> .wrap.ru-pilot-prose) .ru-pilot-blocks > p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-scenario-section > p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-plus-intro,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-platform-repro > p {
+  color: rgba(229, 236, 243, .72) !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-blocks > ul,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-blocks > ul {
+  color: rgba(229, 236, 243, .72);
+  border-color: rgba(213, 226, 239, .14);
+  background: rgba(3, 16, 30, .18);
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .kicker,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .kicker {
+  color: #e3b45e !important;
+}
+
+/* Tier-2 cards */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-scenario-card,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-product-card,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-plus-card,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-note,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .card,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-repro-grid article,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-note,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .card {
+  border-color: rgba(213, 226, 239, .12) !important;
+  border-radius: 14px !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.01)),
+    rgba(3, 16, 30, .16) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.035) !important;
+  color: #f4f7fa;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-scenario-card strong,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-product-card h2,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-plus-card h2,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-repro-grid h3,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-note h3,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .card h3 {
+  color: #f4f7fa !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-scenario-card span,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-product-card p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-plus-card p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-repro-grid p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-note p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .card p {
+  color: rgba(229, 236, 243, .72) !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-scenario-card i,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-product-card > span:last-child,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-repro-index,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-plus-product-name {
+  color: #e3b45e !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-platform-repro {
+  border-color: rgba(213, 226, 239, .12) !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.01)),
+    rgba(3, 16, 30, .14) !important;
+  box-shadow: none !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-table-shell,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-table-wrap,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-table-wrap {
+  border-color: rgba(213, 226, 239, .14);
+  background: rgba(3, 16, 30, .22);
+  border-radius: 14px;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section table.data,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section table.data {
+  color: rgba(229, 236, 243, .82);
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section table.data th,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section table.data th {
+  color: #e3b45e;
+  border-color: rgba(213, 226, 239, .14);
+  background: rgba(3, 16, 30, .35);
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section table.data td,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section table.data td {
+  border-color: rgba(213, 226, 239, .1);
+  color: rgba(229, 236, 243, .72);
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-actions a,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-actions a,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .btn,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .btn {
+  color: #f8f0df !important;
+  border-color: rgba(231, 185, 98, .55) !important;
+  background: rgba(8, 23, 40, .56) !important;
+}
+
+/* Result System page sections */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-result-intro,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-result-previews,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-result-why {
+  background:
+    radial-gradient(ellipse at 18% 6%, rgba(54, 112, 168, .16), transparent 42rem),
+    radial-gradient(ellipse at 86% 14%, rgba(214, 168, 78, .08), transparent 36rem),
+    linear-gradient(180deg, #03111f 0%, #06182b 50%, #04131f 100%) !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-result-intro-copy,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-section-head h2,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-result-card h3,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-preview-card h3,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-system-band h2 {
+  color: #f4f7fa !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-result-intro-copy,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-result-card p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-preview-card p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-system-band p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-preview-copy small {
+  color: rgba(229, 236, 243, .72) !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-result-card,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-preview-card {
+  border-color: rgba(213, 226, 239, .12) !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.01)),
+    rgba(3, 16, 30, .18) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.035) !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-system-band {
+  background: transparent !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-system-band-inner {
+  border-radius: 16px;
+  border: 1px solid rgba(213, 226, 239, .16);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.02)),
+    rgba(4, 18, 34, .42) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 20px 50px rgba(0,0,0,.22);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  backdrop-filter: blur(14px) saturate(120%);
+  padding: clamp(28px, 3.5vw, 44px) !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-preview-frame {
+  background: rgba(3, 16, 30, .45) !important;
+  border-color: rgba(213, 226, 239, .12) !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-section-head .kicker {
+  color: #e3b45e !important;
+}
+
+@media (max-width: 680px) {
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section > .wrap,
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section > .wrap,
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .section-tight:has(> .wrap.ru-pilot-prose) > .wrap.ru-pilot-prose {
+    padding: 22px 18px !important;
+    border-radius: 14px;
+  }
+}
+
+/* ============================================================
+   UX AUDIT FIX — 2026-10-01
+   Platform tablet orphans, repro strip, glass contrast, prose
+   ============================================================ */
+
+/* Dark-glass FounderIcon contrast (keep gold accents) */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .founder-icon,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .founder-icon {
+  --founder-stroke: #d7e4f0;
+  --founder-accent: #e3b45e;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-result-icon svg,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-flow-icon svg {
+  stroke: #d7e4f0 !important;
+}
+
+/* Odd-count cards: full-width last row (not half-width centered orphan) */
+@media (min-width: 681px) {
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-plus-grid > .ru-plus-card:last-child:nth-child(odd),
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-scenario-grid > .ru-scenario-card:last-child:nth-child(odd),
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-preview-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    max-width: none !important;
+    justify-self: stretch !important;
+  }
+}
+
+/* When scenario/plus grids are single-column, last card stays full width */
+@media (min-width: 681px) and (max-width: 1099px) {
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-scenario-grid {
+    grid-template-columns: 1fr !important;
+    width: min(100%, 860px);
+    gap: 14px;
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-scenario-grid > .ru-scenario-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    max-width: none !important;
+    justify-self: stretch !important;
+  }
+}
+
+/* Repro: desktop strip ≥1100; single column below */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-platform-repro {
+  margin-top: 74px;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-platform-repro {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-repro-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 34px;
+  border-top: 1px solid rgba(213, 226, 239, .18);
+  border-bottom: 1px solid rgba(213, 226, 239, .14);
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-repro-grid article,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-repro-grid article {
+  min-height: 200px;
+  display: block;
+  padding: 28px 18px;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-repro-grid article + article {
+  border-left: 1px solid rgba(213, 226, 239, .14) !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-repro-grid article:last-child:nth-child(odd) {
+  grid-column: auto !important;
+  width: auto !important;
+  max-width: none !important;
+  justify-self: stretch !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-repro-icon {
+  display: none !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-repro-index {
+  color: #e3b45e !important;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+@media (max-width: 1099px) {
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-repro-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0;
+    border-top: 1px solid rgba(213, 226, 239, .18);
+    border-bottom: 1px solid rgba(213, 226, 239, .14);
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-repro-grid article,
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-repro-grid article {
+    min-height: 0;
+    display: grid !important;
+    grid-template-columns: 48px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 16px;
+    row-gap: 6px;
+    align-items: start;
+    padding: 22px 4px !important;
+    border-left: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-repro-grid article + article {
+    border-left: 0 !important;
+    border-top: 1px solid rgba(213, 226, 239, .12) !important;
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-repro-grid article:last-child:nth-child(odd) {
+    grid-column: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    justify-self: stretch !important;
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-repro-index {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    align-self: center;
+    padding-top: 2px;
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-repro-grid article h3,
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-repro-grid article p {
+    grid-column: 2;
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-repro-grid article h3 {
+    margin: 0 0 4px;
+  }
+}
+
+@media (max-width: 680px) {
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-repro-grid article,
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-repro-grid article {
+    padding: 18px 2px !important;
+    column-gap: 12px;
+  }
+}
+
+/* Stronger Tier-2 card borders on glass */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-scenario-card,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-product-card,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-plus-card,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-note,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .card,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-result-card,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-preview-card {
+  border-color: rgba(213, 226, 239, .22) !important;
+}
+
+/* Authority long prose: left-align + readable measure */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-blocks > p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-blocks > p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .section-tight:has(> .wrap.ru-pilot-prose) .ru-pilot-blocks > p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-blocks > ul,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section--technology .ru-pilot-blocks > p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section--whiteBox .ru-pilot-blocks > p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section--company .ru-pilot-blocks > p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section--trust .ru-pilot-blocks > p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section--dataSecurity .ru-pilot-blocks > p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-legal-stage1 .ru-pilot-blocks > p {
+  width: min(100%, 68ch) !important;
+  max-width: 68ch;
+  margin-inline: 0 !important;
+  text-align: left !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-blocks > h2,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-blocks > h2,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section .ru-pilot-blocks > h2 {
+  text-align: left !important;
+  margin-inline: 0 !important;
+  max-width: 28ch;
+}
+
+/* Trust pillar headings: ice white for scan */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section--trust .ru-pilot-blocks > h2,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section--trust .ru-pilot-note h3,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section--trust .card h3 {
+  color: #f4f7fa !important;
+}
+
+/* Platform CTA: primary weight on first action */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-actions,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-actions a:first-child,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-actions a:first-child {
+  color: #0a1624 !important;
+  border-color: #e3b45e !important;
+  background: linear-gradient(180deg, #f0d090, #e3b45e) !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-actions a:not(:first-child),
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-actions a:not(:first-child) {
+  color: #f8f0df !important;
+  border-color: rgba(231, 185, 98, .45) !important;
+  background: rgba(8, 23, 40, .45) !important;
+}
+
+/* Result System icons: larger, clearer stroke */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-result-icon {
+  width: 48px !important;
+  height: 48px !important;
+  margin: 0 0 16px !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-result-icon svg {
+  stroke-width: 2.4;
+}
+
+/* ============================================================
+   PRODUCTS PAGE — card/icon anatomy fix
+   Desktop: vertical stack (icon → title → body → arrow)
+   Tablet/mobile: top-aligned horizontal row (no floating icon)
+   ============================================================ */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-products-grid {
+  width: min(100%, 1080px);
+  margin: 0 auto 48px;
+  gap: 16px;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section--products .ru-product-card,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-products-grid .ru-product-card {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  grid-template-rows: auto 1fr auto;
+  align-items: start !important;
+  align-content: stretch !important;
+  gap: 14px !important;
+  min-height: 280px !important;
+  padding: 26px 24px !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section--products .ru-product-card-icon,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-products-grid .ru-product-card-icon {
+  width: 64px !important;
+  height: 64px !important;
+  margin: 0 !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section--products .ru-product-card > div {
+  min-width: 0;
+  display: grid;
+  gap: 10px;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section--products .ru-product-card h2 {
+  margin: 0 !important;
+  color: #f4f7fa !important;
+  font-size: 22px !important;
+  line-height: 1.25 !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section--products .ru-product-card p {
+  margin: 0 !important;
+  color: rgba(229, 236, 243, .72) !important;
+  font-size: 15px !important;
+  line-height: 1.58 !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section--products .ru-product-card > span:last-child {
+  display: inline-flex !important;
+  align-items: center;
+  margin-top: auto;
+  color: #e3b45e !important;
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* Tablet / narrow: one column of horizontal cards, icon top-aligned with title */
+@media (max-width: 1024px) {
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-products-grid {
+    grid-template-columns: 1fr !important;
+    width: min(100%, 860px);
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section--products .ru-product-card,
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-products-grid .ru-product-card {
+    grid-template-columns: 56px minmax(0, 1fr) 24px !important;
+    grid-template-rows: auto !important;
+    align-items: start !important;
+    gap: 16px !important;
+    min-height: 0 !important;
+    padding: 22px 20px !important;
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section--products .ru-product-card-icon,
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-products-grid .ru-product-card-icon {
+    width: 52px !important;
+    height: 52px !important;
+    margin-top: 2px;
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section--products .ru-product-card > span:last-child {
+    display: inline-flex !important;
+    align-self: center !important;
+    margin-top: 0;
+    justify-self: end;
+  }
+}
+
+@media (max-width: 680px) {
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section--products .ru-product-card,
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-products-grid .ru-product-card {
+    grid-template-columns: 46px minmax(0, 1fr) 20px !important;
+    gap: 12px !important;
+    padding: 18px 16px !important;
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section--products .ru-product-card-icon,
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-products-grid .ru-product-card-icon {
+    width: 42px !important;
+    height: 42px !important;
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section--products .ru-product-card h2 {
+    font-size: 19px !important;
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section--products .ru-product-card p {
+    font-size: 14.5px !important;
   }
 }

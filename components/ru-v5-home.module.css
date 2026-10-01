@@ -118,14 +118,33 @@
 .secondaryCard strong { display:block; color:#fff; font-size:16px; line-height:1.25; }
 .secondaryCard small { display:block; margin-top:5px; color:rgba(227,235,242,.62); font-size:12px; line-height:1.36; }
 
-.heroFoot { position:relative; z-index:1; display:flex; align-items:center; justify-content:space-between; gap:28px; margin-top:20px; }
+.heroFoot { position:relative; z-index:1; display:flex; align-items:center; justify-content:space-between; gap:28px; margin-top:24px; }
 .proof { display:flex; flex-wrap:wrap; gap:10px 22px; margin:0; color:rgba(234,240,245,.6); font-size:10.5px; font-weight:700; letter-spacing:.17em; }
 .proof span + span::before { content:"•"; margin-right:18px; color:var(--gold); }
-.heroActions { display:flex; gap:10px; }
+.heroActions { display:flex; flex:0 0 auto; gap:10px; }
 .enter,.more,.outlineButton,.inlineLink,.routePanel a { text-decoration:none; }
 .enter,.more { min-height:46px; display:inline-flex; align-items:center; justify-content:space-between; gap:16px; padding:0 18px; border-radius:10px; }
 .enter { color:#f8f0df; border:1px solid rgba(231,185,98,.66); background:rgba(8,23,40,.56); }
-.more { color:rgba(237,242,247,.72); border:1px solid rgba(255,255,255,.13); background:rgba(255,255,255,.025); }
+.more { display:none; }
+
+.featureBlock h2 {
+  margin: 0 0 16px;
+  color: #fff;
+  font-size: clamp(28px, 2.8vw, 40px);
+  line-height: 1.12;
+  font-weight: 560;
+  letter-spacing: -.03em;
+  text-wrap: balance;
+}
+.featureBlock > p {
+  margin: 0;
+  color: rgba(229, 236, 243, .76);
+  font-size: 15.5px;
+  line-height: 1.72;
+}
+.featureBlock > p + p {
+  margin-top: 14px;
+}
 
 .content { position:relative; }
 .section { padding:clamp(62px,7vw,96px) 0; border-top:1px solid rgba(255,255,255,.065); }
@@ -164,11 +183,12 @@
 .productNumber { margin-bottom:15px; }
 .productAction { margin-top:auto; padding-top:22px; color:#e6bd70; font-size:13px; }
 
-.secureCard { display:grid; grid-template-columns:minmax(360px,.95fr) minmax(0,1.05fr); align-items:center; gap:38px; padding:clamp(30px,4.6vw,54px); border:1px solid var(--line); border-radius:22px; background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.014)); box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 26px 70px rgba(0,0,0,.09); }
-.secureVisual { min-height:330px; display:grid; place-items:center; }
-.secureCopy h2 { margin:0 0 18px; max-width:20ch; }
+.secureCard { display:grid; grid-template-columns:1fr; align-items:start; gap:0; padding:0; border:0; border-radius:0; background:transparent; box-shadow:none; }
+.secureIcon { width:64px; height:64px; margin-bottom:16px; display:grid; place-items:center; }
+.secureCopy h2 { margin:0 0 18px; max-width:28ch; }
 .secureCopy p + p { margin-top:12px; }
 .inlineLink { display:inline-block; margin-top:20px; color:#efc879; }
+.featureCopyWide { max-width:min(72ch, 100%); }
 
 .whyGrid { grid-template-columns:repeat(3,minmax(0,1fr)); }
 .whyCard { min-height:210px; padding:24px 22px; border:1px solid var(--line); border-radius:14px; text-align:center; background:linear-gradient(145deg,rgba(255,255,255,.048),rgba(255,255,255,.012)); }
@@ -195,7 +215,6 @@
   .visualFrame { min-height:300px; }
   .authorityGrid { margin-top:26px; }
   .secureCard { grid-template-columns:1fr; }
-  .secureVisual { min-height:280px; }
 }
 
 @media (max-width:680px) {
@@ -230,8 +249,7 @@
   .authorityGrid { grid-template-columns:1fr; }
   .productCard { min-height:240px; }
   .productVisual { width:68px; height:68px; }
-  .secureCard { padding:20px 17px; gap:8px; }
-  .secureVisual { min-height:210px; }
+  .secureCard { padding:0; gap:0; }
   .secureCopy h2 { max-width:none; }
   .routePanel { grid-template-columns:1fr; }
   .routePanel a + a { border-left:0; border-top:1px solid var(--line); }
@@ -653,22 +671,29 @@
 }
 .secondaryGrid {
   grid-template-columns: repeat(4,minmax(0,1fr));
-  margin-top: 20px;
-  border-top: 1px solid rgba(219,229,238,.18);
-  border-bottom: 1px solid rgba(219,229,238,.14);
-  background: rgba(2,13,24,.14);
+  gap: 14px;
+  margin-top: 14px;
+  border-top: 0;
+  border-bottom: 0;
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.secondaryCard {
+  min-height: 112px;
+  grid-template-columns: 58px minmax(0,1fr) 20px;
+  gap: 14px;
+  padding: 18px 20px;
+  border: 1px solid rgba(218,228,237,.40);
+  border-radius: 10px;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.040),rgba(255,255,255,.008)),
+    rgba(2,13,25,.38);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.035);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
-.secondaryCard {
-  min-height: 106px;
-  grid-template-columns: 58px minmax(0,1fr);
-  gap: 15px;
-  padding: 17px 24px;
-}
-.secondaryCard + .secondaryCard {
-  border-left: 1px solid rgba(219,229,238,.18);
-}
+/* sibling strip rule retired — cards use uniform borders + gap */
 .secondaryIcon {
   width: 54px;
   height: 54px;
@@ -771,12 +796,10 @@
   .secondaryCard {
     min-height: 102px;
   }
-  .secondaryCard:nth-child(3) {
-    border-left: 0;
-    border-top: 1px solid rgba(219,229,238,.18);
-  }
+  .secondaryCard:nth-child(3),
   .secondaryCard:nth-child(4) {
-    border-top: 1px solid rgba(219,229,238,.18);
+    border-left: 1px solid rgba(218,228,237,.40);
+    border-top: 1px solid rgba(218,228,237,.40);
   }
   .heroFoot {
     margin-top: 20px;
@@ -1192,39 +1215,100 @@
 }
 
 
-/* RU V5 DETAILS REPAIR — STEP 8 / COLLAPSED DEFAULT + READABLE EXPANDED CONTENT */
-.more {
-  font: inherit;
-  cursor: pointer;
-}
+/* RU V5 — DARK INSTITUTIONAL GLASS + SCROLL REVEAL */
 .content[hidden] {
   display: none !important;
 }
 .contentOpen {
+  position: relative;
   display: block;
-  padding: 24px 0 54px;
+  padding: 28px 0 64px;
+  isolation: isolate;
   background:
-    radial-gradient(circle at 12% 8%, rgba(41,88,132,.18), transparent 28rem),
-    radial-gradient(circle at 88% 12%, rgba(198,150,66,.10), transparent 24rem),
-    linear-gradient(180deg,#06192c 0%,#08213a 48%,#061727 100%);
+    radial-gradient(ellipse at 18% 6%, rgba(54, 112, 168, .20), transparent 42rem),
+    radial-gradient(ellipse at 86% 14%, rgba(214, 168, 78, .12), transparent 36rem),
+    radial-gradient(ellipse at 50% 72%, rgba(28, 78, 128, .14), transparent 40rem),
+    linear-gradient(180deg, #03111f 0%, #06182b 42%, #04131f 100%);
+}
+.contentOpen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .035;
+  background-image: radial-gradient(rgba(255, 255, 255, .9) 0.55px, transparent 0.6px);
+  background-size: 3px 3px;
+}
+.contentOpen > * {
+  position: relative;
+  z-index: 1;
+}
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.revealVisible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
 }
 .contentOpen .section,
 .contentOpen .companySection {
-  padding: 20px 0;
+  padding: 18px 0;
   border-top: 0;
 }
 .contentOpen .section > .shell,
 .contentOpen .companySection > .shell {
-  width: min(calc(100% - 40px),1180px);
-  padding: clamp(34px,4vw,58px);
-  border-radius: 22px;
-  background: rgba(255,255,255,.98);
-  box-shadow: 0 22px 70px rgba(0,0,0,.14);
+  width: min(calc(100% - 40px), 1180px);
+  padding: clamp(28px, 3.4vw, 44px);
+  border-radius: 16px;
+  border: 1px solid rgba(213, 226, 239, .16);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.02)),
+    rgba(4, 18, 34, .42);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 20px 50px rgba(0,0,0,.22);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  backdrop-filter: blur(14px) saturate(120%);
+  color: #f4f7fa;
+}
+.contentOpen .shellNarrative {
+  padding: clamp(26px, 3.2vw, 40px) clamp(28px, 3.4vw, 44px);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .contentOpen .section > .shell,
+  .contentOpen .companySection > .shell {
+    background: rgba(6, 24, 42, .92);
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .contentOpen .section > .shell,
+  .contentOpen .companySection > .shell {
+    background: rgba(6, 24, 42, .96);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .contentOpen::before {
+    display: none;
+  }
 }
 .contentOpen .sectionHead,
 .contentOpen .featureCopy,
 .contentOpen .companyGrid {
-  color: #172230;
+  color: #f4f7fa;
 }
 .contentOpen .sectionHead h2,
 .contentOpen .companyGrid h2,
@@ -1235,7 +1319,7 @@
 .contentOpen .resultCard h3,
 .contentOpen .productCard h3,
 .contentOpen .whyCard h3 {
-  color: #172230;
+  color: #f4f7fa;
 }
 .contentOpen .sectionHead > p:not(.kicker),
 .contentOpen .featureCopy > p:not(.kicker),
@@ -1246,44 +1330,106 @@
 .contentOpen .whyCard p,
 .contentOpen .secureCopy p,
 .contentOpen .companyGrid p {
-  color: #3f4d5c;
+  color: rgba(229, 236, 243, .72);
 }
 .contentOpen .kicker,
 .contentOpen .index,
 .contentOpen .productNumber,
 .contentOpen .productAction,
-.contentOpen .inlineLink {
-  color: #9a7436;
+.contentOpen .inlineLink,
+.contentOpen .featureIndex {
+  color: #e3b45e;
 }
-.contentOpen .visualFrame,
+.featureBlock {
+  max-width: min(70ch, 100%);
+}
+.featureBlock + .featureBlock,
+.featureBlock + .authorityGrid,
+.featureBlock + .compactGrid {
+  margin-top: 28px;
+}
+.featureHead {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+.featureIndex {
+  flex: 0 0 auto;
+  margin: 0;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  line-height: 1;
+}
+.featureHead .kicker {
+  margin: 0;
+}
+.featureRule {
+  display: block;
+  width: min(220px, 42%);
+  height: 1px;
+  margin: 28px 0;
+  border: 0;
+  background: linear-gradient(90deg, rgba(227, 180, 94, .55), rgba(227, 180, 94, .08), transparent);
+}
+/* Tier-2 inner cards: lighter translucent fill only, no nested blur */
 .contentOpen .compactCard,
 .contentOpen .authorityCard,
 .contentOpen .resultCard,
 .contentOpen .productCard,
-.contentOpen .whyCard,
+.contentOpen .whyCard {
+  border-color: rgba(213, 226, 239, .12);
+  border-radius: 14px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.01)),
+    rgba(3, 16, 30, .16);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.035);
+}
+.contentOpen .productCard:hover,
+.contentOpen .whyCard:hover {
+  border-color: rgba(221, 181, 104, .48);
+}
 .contentOpen .secureCard {
-  border-color: rgba(37,62,88,.14);
-  background: linear-gradient(145deg,rgba(247,249,251,.98),rgba(236,242,246,.86));
+  grid-template-columns: 1fr;
+  gap: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   box-shadow: none;
 }
-.contentOpen .techVisualSvg {
-  border-radius: 18px;
-  background: #0a2138;
+.contentOpen .secureIcon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 16px;
+  display: grid;
+  place-items: center;
+}
+.contentOpen .featureCopy {
+  max-width: 72ch;
+}
+.contentOpen .featureCopyWide {
+  max-width: min(70ch, 100%);
 }
 .contentOpen .outlineButton,
 .contentOpen .enter {
-  color: #17304d;
-  border-color: rgba(167,129,62,.45);
-  background: #fff;
+  color: #f8f0df;
+  border-color: rgba(231, 185, 98, .66);
+  background: rgba(8, 23, 40, .56);
 }
 .contentOpen .routePanel {
-  border-color: rgba(37,62,88,.16);
+  border-color: rgba(213, 226, 239, .16);
+  background: rgba(2, 14, 27, .12);
 }
 .contentOpen .routePanel a {
-  color: #17304d;
+  color: rgba(244, 247, 250, .86);
 }
 .contentOpen .routePanel a + a {
-  border-color: rgba(37,62,88,.14);
+  border-color: rgba(213, 226, 239, .14);
+}
+.contentOpen .routePanel a:hover {
+  color: #fff;
 }
 @media (max-width: 680px) {
   .contentOpen {
@@ -1296,8 +1442,16 @@
   .contentOpen .section > .shell,
   .contentOpen .companySection > .shell {
     width: calc(100% - 18px);
-    padding: 24px 18px;
-    border-radius: 16px;
+    padding: 22px 18px;
+    border-radius: 14px;
+  }
+  .featureRule {
+    margin: 22px 0;
+  }
+  .featureBlock + .featureBlock,
+  .featureBlock + .authorityGrid,
+  .featureBlock + .compactGrid {
+    margin-top: 22px;
   }
   .contentOpen .sectionHead > p:not(.kicker),
   .contentOpen .featureCopy > p:not(.kicker),

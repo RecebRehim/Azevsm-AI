@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef } from "react";
 import type { AuthorityPage } from "@/lib/content/authority-pages-v31";
 import type { SiteCopy } from "@/lib/content/copy";
 import { getProductAuthorityPage } from "@/lib/content/product-authority-pages-v31";
@@ -91,102 +91,6 @@ function V5Icon({ name }: { name: IconName }) {
   );
 }
 
-function TechVisual({ kind }: { kind: "evidence" | "model" | "scale" | "secure" }) {
-  const id = `v5-${kind}`;
-  return (
-    <svg className={styles.techVisualSvg} viewBox="0 0 640 420" aria-hidden="true">
-      <defs>
-        <linearGradient id={`${id}-blue`} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#77baff" stopOpacity=".88" />
-          <stop offset="1" stopColor="#163f83" stopOpacity=".42" />
-        </linearGradient>
-        <linearGradient id={`${id}-gold`} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#ffe3a2" />
-          <stop offset=".52" stopColor="#dfaa4e" />
-          <stop offset="1" stopColor="#7d5417" />
-        </linearGradient>
-        <radialGradient id={`${id}-halo`}>
-          <stop offset="0" stopColor="#e9b858" stopOpacity=".28" />
-          <stop offset="1" stopColor="#e9b858" stopOpacity="0" />
-        </radialGradient>
-        <filter id={`${id}-glow`} x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="5" result="blur" />
-          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-        </filter>
-      </defs>
-      <rect x="0" y="0" width="640" height="420" rx="34" fill="rgba(4,18,34,.22)" />
-      <circle cx="492" cy="116" r="120" fill={`url(#${id}-halo)`} />
-      <g stroke="rgba(118,173,230,.16)" strokeWidth="1">
-        <path d="M32 332h576M62 300h516M92 268h456M122 236h396" />
-        <path d="M128 214 58 350M208 214l-45 136M288 214l-18 136M368 214l11 136M448 214l39 136M528 214l67 136" />
-      </g>
-      {kind === "evidence" ? (
-        <>
-          <g transform="translate(52 86)">
-            {[0,1,2].map((i) => <g key={i} transform={`translate(${i*28} ${i*21})`}>
-              <rect x="0" y="0" width="126" height="154" rx="14" fill="rgba(255,255,255,.035)" stroke={`url(#${id}-blue)`} strokeWidth="2" />
-              <path d="M22 34h78M22 58h66M22 82h82M22 106h48" stroke="rgba(189,218,247,.55)" strokeWidth="3" strokeLinecap="round" />
-              <circle cx="103" cy="124" r="10" fill="none" stroke={`url(#${id}-gold)`} strokeWidth="2.2" />
-            </g>)}
-          </g>
-          <g filter={`url(#${id}-glow)`}>
-            <path d="M238 176h94" stroke={`url(#${id}-gold)`} strokeWidth="3" strokeLinecap="round" />
-            <path d="m317 161 17 15-17 15" fill="none" stroke={`url(#${id}-gold)`} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-          </g>
-          <g transform="translate(360 82)" fill="none" strokeLinejoin="round">
-            <path d="M104 0 208 58 104 116 0 58Z" stroke={`url(#${id}-blue)`} strokeWidth="2.4" fill="rgba(52,112,180,.09)" />
-            <path d="M104 42 208 100 104 158 0 100Z" stroke={`url(#${id}-blue)`} strokeWidth="2.4" />
-            <path d="M104 84 208 142 104 200 0 142Z" stroke={`url(#${id}-gold)`} strokeWidth="2.7" />
-            <circle cx="104" cy="100" r="12" stroke={`url(#${id}-gold)`} strokeWidth="2.4" />
-          </g>
-        </>
-      ) : null}
-      {kind === "model" ? (
-        <>
-          <g transform="translate(72 44)" fill="none" filter={`url(#${id}-glow)`}>
-            <circle cx="190" cy="166" r="118" stroke={`url(#${id}-blue)`} strokeWidth="2" />
-            <ellipse cx="190" cy="166" rx="55" ry="118" stroke={`url(#${id}-gold)`} strokeWidth="1.7" transform="rotate(23 190 166)" />
-            <ellipse cx="190" cy="166" rx="118" ry="43" stroke={`url(#${id}-blue)`} strokeWidth="1.7" transform="rotate(-17 190 166)" />
-            <ellipse cx="190" cy="166" rx="118" ry="43" stroke={`url(#${id}-gold)`} strokeWidth="1.6" transform="rotate(36 190 166)" />
-            {[ [102,105],[155,67],[245,83],[291,152],[235,229],[148,239],[93,183],[190,166] ].map(([x,y],i)=><circle key={i} cx={x} cy={y} r={i===7?7:4} fill={i===7?"#e7b456":"#78b8ff"} />)}
-          </g>
-          <g transform="translate(392 102)">
-            {[0,1,2,3,4].map((i)=>{
-              const x=i*34, h=46+i*34;
-              return <rect key={i} x={x} y={220-h} width="20" height={h} rx="4" fill="rgba(53,113,181,.10)" stroke={i===4?`url(#${id}-gold)`:`url(#${id}-blue)`} strokeWidth="2" />;
-            })}
-            <path d="M-10 224h190" stroke={`url(#${id}-gold)`} strokeWidth="2" />
-          </g>
-        </>
-      ) : null}
-      {kind === "scale" ? (
-        <>
-          <g transform="translate(58 64)" fill="none">
-            {[0,1,2,3].map((i)=><g key={i} transform={`translate(${i*118} ${i%2===0?26:0})`}>
-              <path d="M44 0 88 24 44 48 0 24Z" stroke={i===3?`url(#${id}-gold)`:`url(#${id}-blue)`} strokeWidth="2.2" />
-              <path d="M0 24v62l44 24 44-24V24M44 48v62" stroke="rgba(107,163,218,.46)" strokeWidth="1.8" />
-              <circle cx="44" cy="24" r="6" fill={i===3?"#e4ae50":"#66a8e9"} />
-            </g>)}
-            <path d="M44 148C150 100 283 173 404 112s159-29 184 3" stroke={`url(#${id}-gold)`} strokeWidth="2.2" />
-            <path d="M44 182C155 134 268 214 404 154s160-25 184 7" stroke={`url(#${id}-blue)`} strokeWidth="1.8" opacity=".75" />
-          </g>
-        </>
-      ) : null}
-      {kind === "secure" ? (
-        <>
-          <g transform="translate(110 48)" filter={`url(#${id}-glow)`}>
-            <path d="M210 6 326 50v92c0 82-45 142-116 177-71-35-116-95-116-177V50Z" fill="rgba(15,58,105,.13)" stroke={`url(#${id}-gold)`} strokeWidth="3" />
-            <ellipse cx="210" cy="108" rx="54" ry="20" fill="rgba(226,174,77,.05)" stroke={`url(#${id}-gold)`} strokeWidth="2.5" />
-            <path d="M156 108v91c0 11 24 20 54 20s54-9 54-20v-91M156 138c0 11 24 20 54 20s54-9 54-20M156 168c0 11 24 20 54 20s54-9 54-20" fill="none" stroke={`url(#${id}-gold)`} strokeWidth="2.2" />
-            <circle cx="210" cy="255" r="24" fill="rgba(54,120,190,.08)" stroke={`url(#${id}-blue)`} strokeWidth="2.4" />
-            <path d="m199 255 8 8 16-19" fill="none" stroke={`url(#${id}-gold)`} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-          </g>
-        </>
-      ) : null}
-    </svg>
-  );
-}
-
 function headingIndex(blocks: AuthorityBlock[], text: string) {
   return blocks.findIndex((block) => block.type === "heading" && block.text === text);
 }
@@ -226,11 +130,46 @@ const resultPath = [
 ] as const;
 
 export function RuV5Home({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
-  const [detailsOpen, setDetailsOpen] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
   const platform = getProductAuthorityPage(locale, "platform");
   const moveStart = platform?.blocks.findIndex((block, index) => index > 0 && block.type === "heading") ?? -1;
   const blocks = platform && moveStart >= 0 ? platform.blocks.slice(moveStart) : [];
   const entry = platformEntryUrl();
+
+  useEffect(() => {
+    const root = contentRef.current;
+    if (!root) return;
+
+    const items = Array.from(root.querySelectorAll<HTMLElement>("[data-reveal]"));
+    if (!items.length) return;
+
+    const reveal = (el: HTMLElement) => el.classList.add(styles.revealVisible);
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) {
+      items.forEach(reveal);
+      return;
+    }
+
+    // First shells visible immediately so mid-page never reads as an empty void.
+    items.slice(0, 2).forEach(reveal);
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          reveal(entry.target as HTMLElement);
+          io.unobserve(entry.target);
+        }
+      },
+      { rootMargin: "35% 0px 25% 0px", threshold: 0.02 },
+    );
+
+    for (const el of items) {
+      if (el.classList.contains(styles.revealVisible)) continue;
+      io.observe(el);
+    }
+    return () => io.disconnect();
+  }, []);
 
   const problemI = headingIndex(blocks, "Проблема, которую решает AzevsmAI");
   const whatI = headingIndex(blocks, "Что делает AzevsmAI");
@@ -295,15 +234,14 @@ export function RuV5Home({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
             <p className={styles.proof}>{copy.heroWords.split("\n").map((word) => <span key={word}>{word}</span>)}</p>
             <div className={styles.heroActions}>
               <a className={styles.enter} href={entry ?? localePath(locale, "/enter")}>{copy.enter}<span aria-hidden="true">→</span></a>
-              <button className={styles.more} type="button" aria-expanded={detailsOpen} aria-controls="ru-v5-content" onClick={() => setDetailsOpen((value) => !value)}>{copy.learnMore}<span aria-hidden="true">{detailsOpen ? "↑" : "↓"}</span></button>
             </div>
           </div>
         </div>
       </section>
 
-      <div id="ru-v5-content" className={`${styles.content}${detailsOpen ? ` ${styles.contentOpen}` : ""}`} hidden={!detailsOpen}>
+      <div id="ru-v5-content" ref={contentRef} className={`${styles.content} ${styles.contentOpen}`}>
         {audience.length ? (
-          <section className={styles.section}>
+          <section className={`${styles.section} ${styles.reveal}`} data-reveal>
             <div className={styles.shell}>
               <div className={styles.sectionHead}>
                 <h2>{audienceData.heading}</h2>
@@ -314,47 +252,43 @@ export function RuV5Home({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
           </section>
         ) : null}
 
-        <section className={styles.section}>
-          <div className={styles.shell}>
-            <div className={styles.featureGrid}>
-              <div className={styles.featureCopy}>
+        <section className={`${styles.section} ${styles.reveal}`} data-reveal>
+          <div className={`${styles.shell} ${styles.shellNarrative}`}>
+            <div className={styles.featureBlock}>
+              <div className={styles.featureHead}>
+                <span className={styles.featureIndex} aria-hidden="true">01</span>
                 <p className={styles.kicker}>AzevsmAI</p>
-                <h2>{problemData.heading}</h2>
-                {problemData.paragraphs.map((p,index)=><p key={index}>{p.text}</p>)}
               </div>
-              <div className={styles.visualFrame}><TechVisual kind="evidence" /></div>
+              <h2>{problemData.heading}</h2>
+              {problemData.paragraphs.map((p, index) => <p key={index}>{p.text}</p>)}
             </div>
-          </div>
-        </section>
 
-        <section className={styles.section}>
-          <div className={styles.shell}>
-            <div className={styles.featureGridReverse}>
-              <div className={styles.visualFrame}><TechVisual kind="model" /></div>
-              <div className={styles.featureCopy}>
+            <hr className={styles.featureRule} />
+
+            <div className={styles.featureBlock}>
+              <div className={styles.featureHead}>
+                <span className={styles.featureIndex} aria-hidden="true">02</span>
                 <p className={styles.kicker}>AzevsmAI</p>
-                <h2>{whatData.heading}</h2>
-                {whatData.paragraphs.map((p,index)=><p key={index}>{p.text}</p>)}
               </div>
+              <h2>{whatData.heading}</h2>
+              {whatData.paragraphs.map((p, index) => <p key={index}>{p.text}</p>)}
             </div>
             <TableCards table={whatData.table} />
-          </div>
-        </section>
 
-        <section className={styles.section}>
-          <div className={styles.shell}>
-            <div className={styles.featureGrid}>
-              <div className={styles.featureCopy}>
+            <hr className={styles.featureRule} />
+
+            <div className={styles.featureBlock}>
+              <div className={styles.featureHead}>
+                <span className={styles.featureIndex} aria-hidden="true">03</span>
                 <p className={styles.kicker}>AzevsmAI</p>
-                <h2>{depthData.heading}</h2>
-                {depthData.paragraphs.map((p,index)=><p key={index}>{p.text}</p>)}
               </div>
-              <div className={styles.visualFrame}><TechVisual kind="scale" /></div>
+              <h2>{depthData.heading}</h2>
+              {depthData.paragraphs.map((p, index) => <p key={index}>{p.text}</p>)}
             </div>
           </div>
         </section>
 
-        <section className={styles.section}>
+        <section className={`${styles.section} ${styles.reveal}`} data-reveal>
           <div className={styles.shell}>
             <div className={styles.sectionHead}>
               <p className={styles.kicker}>Путь результата</p>
@@ -376,7 +310,7 @@ export function RuV5Home({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
           </div>
         </section>
 
-        <section className={styles.section}>
+        <section className={`${styles.section} ${styles.reveal}`} data-reveal>
           <div className={styles.shell}>
             <div className={styles.sectionHead}>
               <p className={styles.kicker}>{copy.homeProductsKicker}</p>
@@ -396,11 +330,11 @@ export function RuV5Home({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
           </div>
         </section>
 
-        <section className={styles.section}>
+        <section className={`${styles.section} ${styles.reveal}`} data-reveal>
           <div className={styles.shell}>
             <article className={styles.secureCard}>
-              <div className={styles.secureVisual}><TechVisual kind="secure" /></div>
               <div className={styles.secureCopy}>
+                <span className={styles.secureIcon}><V5Icon name="security" /></span>
                 <p className={styles.kicker}>AZEVSM SECURE</p>
                 <h2>Конфиденциальная обработка без постоянного хранения исходных материалов</h2>
                 <p>AzevsmAI включает режим AZEVSM SECURE для работы с чувствительными и конфиденциальными материалами. Исходные материалы и рабочее содержимое обрабатываются во временном защищённом контуре без постоянного хранения в AzevsmAI.</p>
@@ -411,7 +345,7 @@ export function RuV5Home({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
           </div>
         </section>
 
-        <section className={styles.section}>
+        <section className={`${styles.section} ${styles.reveal}`} data-reveal>
           <div className={styles.shell}>
             <div className={styles.sectionHead}>
               <p className={styles.kicker}>{copy.homeWhyKicker}</p>
@@ -428,7 +362,7 @@ export function RuV5Home({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
           </div>
         </section>
 
-        <section className={styles.section}>
+        <section className={`${styles.section} ${styles.reveal}`} data-reveal>
           <div className={styles.shell}>
             <div className={styles.routePanel}>
               <Link href={localePath(locale, "/platform")}>{copy.explore}</Link>
@@ -438,7 +372,7 @@ export function RuV5Home({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
           </div>
         </section>
 
-        <section className={styles.companySection}>
+        <section className={`${styles.companySection} ${styles.reveal}`} data-reveal>
           <div className={styles.shell}>
             <div className={styles.companyGrid}>
               <div>

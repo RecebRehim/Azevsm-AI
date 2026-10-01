@@ -26,8 +26,20 @@ const scenarioRoutes = [
 ] as const;
 
 const productIcons: FounderIconName[] = ["azevsm-index", "azevsm-institutional-index", "azevsm-plus"];
-const scenarioIcons: FounderIconName[] = ["azevsm-index","azevsm-index","azevsm-plus","azevsm-institutional-index","azevsm-institutional-index"];
-const reproIcons: FounderIconName[] = ["trusted-results","structured-evidence","white-box","platform-structure","structured-evidence"];
+const scenarioIcons: FounderIconName[] = [
+  "azevsm-index",
+  "plus-investment",
+  "azevsm-plus",
+  "azevsm-institutional-index",
+  "platform-structure",
+];
+const reproIcons: FounderIconName[] = [
+  "trusted-results",
+  "structured-evidence",
+  "white-box",
+  "platform-structure",
+  "methodology-ontology",
+];
 const plusIcons: RuPlusServiceIconName[] = [
   "budget",
   "investment",
@@ -65,7 +77,7 @@ export function RuProductAuthorityPage({ locale, pageKey }: { locale: Locale; pa
     return (
       <>
         <RuPilotHero kind="platform" title={page.title} lead={page.lead} topics={heroTopics} />
-        <section className="section-tight">
+        <section className="section-tight ru-authority-section ru-product-authority-section ru-product-authority-section--platform">
           <div className="wrap ru-pilot-prose">
             <section className="ru-scenario-section">
               <h2>{heading?.type === "heading" ? heading.text : "Я представляю"}</h2>
@@ -118,7 +130,7 @@ export function RuProductAuthorityPage({ locale, pageKey }: { locale: Locale; pa
     return (
       <>
         <RuPilotHero kind="products" title={page.title} lead={page.lead} topics={heroTopics} />
-        <section className="section-tight">
+        <section className="section-tight ru-authority-section ru-product-authority-section ru-product-authority-section--products">
           <div className="wrap ru-pilot-prose">
             <div className="ru-products-grid">
               {rows.slice(0, 3).map((item, index) => {
@@ -158,7 +170,7 @@ export function RuProductAuthorityPage({ locale, pageKey }: { locale: Locale; pa
     return (
       <>
         <RuPilotHero kind="plus" title={page.title} lead={page.lead} topics={heroTopics} />
-        <section className="section-tight">
+        <section className="section-tight ru-authority-section ru-product-authority-section ru-product-authority-section--plus">
           <div className="wrap ru-pilot-prose">
             {intro?.type === "p" ? <p className="ru-plus-intro">{intro.text}</p> : null}
             <div className="ru-plus-grid">
@@ -187,7 +199,7 @@ export function RuProductAuthorityPage({ locale, pageKey }: { locale: Locale; pa
   return (
     <>
       <RuPilotHero kind={heroKind[pageKey]} title={page.title} lead={page.lead} topics={heroTopics} />
-      <section className={`section-tight ru-product-authority-section ru-product-authority-section--${pageKey}`}>
+      <section className={`section-tight ru-authority-section ru-product-authority-section ru-product-authority-section--${pageKey}`}>
         <div className="wrap ru-pilot-prose">
           <RuPilotBlocks blocks={page.blocks} />
           <RuPilotActions actions={page.actions} locale={locale} />

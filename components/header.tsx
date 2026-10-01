@@ -65,7 +65,7 @@ function CorporateHomeNavIcon({ href }: { href: string }) {
 export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?: string }) {
   const path = usePathname() || `/${locale}`;
   const pilotLocale = isPilotLocale(locale);
-  const corporateHome = locale === "ru" && path === "/ru";
+  const corporateNav = locale === "ru";
   const [open, setOpen] = useState(false);
   const entry = platformEntryUrl();
   const enterHref = entry ?? localePath(locale, "/enter");
@@ -85,12 +85,12 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
     { href: "/company", label: copy.nav.company },
     { href: "/search", label: locale === "ru" ? "Поиск" : locale === "az" ? "Axtarış" : locale === "en" ? "Search" : locale === "ar" ? "بحث" : "搜索" },
   ];
-  const visibleLinks = corporateHome
+  const visibleLinks = corporateNav
     ? links.filter((item) => ["/platform", "/products", "/technology", "/trust", "/data-security", "/legal-compliance", "/company"].includes(item.href))
     : links;
 
   return (
-    <header className={`site-header${pilotLocale ? " ru-pilot-site-header" : ""}${corporateHome ? " ru-corporate-home-header" : ""}`}>
+    <header className={`site-header${pilotLocale ? " ru-pilot-site-header" : ""}${corporateNav ? " ru-corporate-home-header" : ""}`}>
       <div className={`wrap header-inner${open ? " is-open" : ""}`}>
         <Link className="wordmark" href={localePath(locale)} onClick={close}>
           <Logo variant="mark" title={copy.logoTitle} />
@@ -108,7 +108,7 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
         </Link>
         <button className="menu-toggle" type="button" aria-expanded={open} aria-controls="site-nav" onClick={() => setOpen((value) => !value)}>
-          {corporateHome ? (
+          {corporateNav ? (
             <>
               <span className="sr-only">{open ? copy.close : copy.menu}</span>
               <svg className="ru-home-menu-icon" viewBox="0 0 28 28" aria-hidden="true">
@@ -118,25 +118,25 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
           ) : locale === "az" ? copy.menu : open ? copy.close : copy.menu}
         </button>
         <nav id="site-nav" className="nav-main" aria-label={copy.footerNav}>
-          {!corporateHome ? (
+          {!corporateNav ? (
             <Link href={localePath(locale)} aria-current={path === `/${locale}` ? "page" : undefined} onClick={close}>
               {copy.nav.home}
             </Link>
           ) : null}
           {visibleLinks.map((item) => (
             <Link
-              className={corporateHome ? "ru-home-nav-link" : undefined}
+              className={corporateNav ? "ru-home-nav-link" : undefined}
               key={item.href}
               href={localePath(locale, item.href)}
               aria-current={path === `/${locale}${item.href}` || path.startsWith(`/${locale}${item.href}/`) ? "page" : undefined}
               onClick={close}
             >
-              {corporateHome ? <CorporateHomeNavIcon href={item.href} /> : null}
-              <span className={corporateHome ? "ru-home-nav-label" : undefined}>{item.label}</span>
-              {corporateHome ? <span className="ru-home-nav-chevron" aria-hidden="true">›</span> : null}
+              {corporateNav ? <CorporateHomeNavIcon href={item.href} /> : null}
+              <span className={corporateNav ? "ru-home-nav-label" : undefined}>{item.label}</span>
+              {corporateNav ? <span className="ru-home-nav-chevron" aria-hidden="true">›</span> : null}
             </Link>
           ))}
-          {corporateHome ? (
+          {corporateNav ? (
             <>
               <a className="ru-home-mobile-enter" href={enterHref} onClick={close} {...(entry ? { rel: "noreferrer" } : {})}>
                 <span>{copy.enter}</span><span aria-hidden="true">→</span>
@@ -161,7 +161,7 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
             </>
           ) : null}
         </nav>
-        {pilotLocale ? <RuLanguageAccess path={path} locale={locale} label={copy.language} compact={corporateHome} /> : null}
+        {pilotLocale ? <RuLanguageAccess path={path} locale={locale} label={copy.language} compact={corporateNav} /> : null}
         <div className="header-utilities">
           {!pilotLocale ? <LanguageMenu locale={locale} path={path} label={copy.language} /> : null}
           {!pilotLocale ? (
