@@ -11527,38 +11527,54 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
   }
 }
 
-/* Phone header: direct RU/EN/AZ stay visible, language plaque sits closer to burger. */
+/* Phone header: RU / EN / AZ stay visible without the globe covering RU. */
 @media (max-width: 680px) {
   html[lang="ru"] .ru-corporate-home-header .header-inner,
   html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
-    grid-template-columns: auto 1fr auto auto auto !important;
+    grid-template-columns: auto minmax(0, 1fr) auto auto !important;
     column-gap: 8px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact {
-    grid-column: 3 / span 2 !important;
+    grid-column: 3 !important;
     display: flex !important;
     align-items: center !important;
-    gap: 6px !important;
+    gap: 5px !important;
     padding-left: 0 !important;
     justify-self: end !important;
   }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact::before {
+    position: static !important;
+    left: auto !important;
+    width: 18px !important;
+    height: 18px !important;
+    flex: 0 0 18px !important;
+    background-size: 18px 18px !important;
+  }
   html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-primary-locales {
     display: flex !important;
-    gap: 0 !important;
+    align-items: center !important;
+    gap: 2px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-primary-locales a {
-    min-width: 22px !important;
-    min-height: 34px !important;
-    padding: 0 2px !important;
-    font-size: 10px !important;
+    min-width: 24px !important;
+    min-height: 32px !important;
+    padding: 0 3px !important;
+    border-radius: 5px !important;
+    background: transparent !important;
+    font-size: 10.5px !important;
+    line-height: 1 !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-primary-locales a[aria-current="true"] {
+    color: #f2c66f !important;
+    background: transparent !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary {
-    min-width: 74px !important;
-    min-height: 40px !important;
-    padding: 0 10px !important;
+    min-width: 70px !important;
+    min-height: 38px !important;
+    padding: 0 9px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .menu-toggle {
-    grid-column: 5 !important;
+    grid-column: 4 !important;
   }
 }
 
@@ -11619,7 +11635,7 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
   }
 }
 
-/* Difference page mobile tables: constrain content and make horizontal continuation explicit. */
+/* Difference page mobile tables: readable stacked cards, no horizontal clipping. */
 @media (max-width: 680px) {
   html[lang="ru"] .ru-authority-section--difference,
   html[lang="ru"] .ru-authority-section--difference .wrap,
@@ -11627,22 +11643,91 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
   html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell,
   html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-wrap {
     min-width: 0 !important;
+    width: 100% !important;
     max-width: 100% !important;
   }
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-scroll-hint {
+    display: none !important;
+  }
   html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-wrap {
-    overflow-x: auto !important;
-    overscroll-behavior-x: contain;
-    -webkit-overflow-scrolling: touch;
+    overflow: visible !important;
+    margin: 22px 0 30px !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
   }
   html[lang="ru"] .ru-authority-section--difference table.data {
-    min-width: 720px !important;
-    table-layout: fixed !important;
-  }
-  html[lang="ru"] .ru-authority-section--difference table.data th,
-  html[lang="ru"] .ru-authority-section--difference table.data td {
+    display: block !important;
+    width: 100% !important;
     min-width: 0 !important;
+    max-width: 100% !important;
+    table-layout: auto !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+  }
+  html[lang="ru"] .ru-authority-section--difference table.data thead {
+    display: none !important;
+  }
+  html[lang="ru"] .ru-authority-section--difference table.data tbody {
+    display: grid !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+  html[lang="ru"] .ru-authority-section--difference table.data tr {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 4px 0 !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(213,226,239,.14) !important;
+    border-radius: 14px !important;
+    background: rgba(3,16,30,.30) !important;
+  }
+  html[lang="ru"] .ru-authority-section--difference table.data td {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    padding: 12px 16px !important;
+    border: 0 !important;
+    color: rgba(235,241,247,.84) !important;
+    white-space: normal !important;
+    overflow: visible !important;
     overflow-wrap: break-word !important;
     word-break: normal !important;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+  }
+  html[lang="ru"] .ru-authority-section--difference table.data td:first-child {
+    color: #e3b45e !important;
+    font-weight: 700 !important;
+  }
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell:first-of-type table.data td:nth-child(2)::before {
+    content: "Логика результата";
+    display: block;
+    margin-bottom: 6px;
+    color: #e3b45e;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .04em;
+  }
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell:first-of-type + .ru-pilot-table-shell table.data td:nth-child(2)::before {
+    content: "Сильная сторона категории";
+    display: block;
+    margin-bottom: 6px;
+    color: #e3b45e;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .04em;
+  }
+  html[lang="ru"] .ru-authority-section--difference .ru-pilot-table-shell:first-of-type + .ru-pilot-table-shell table.data td:nth-child(3)::before {
+    content: "Что добавляет AzevsmAI";
+    display: block;
+    margin-bottom: 6px;
+    color: #e3b45e;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .04em;
   }
 }
 
