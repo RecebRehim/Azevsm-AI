@@ -174,7 +174,13 @@ export function V4ResultSystem({ locale, page }: { locale: Locale; page: Authori
     .filter((item): item is { title: string; body: string } => Boolean(item));
   previews.push({ title: copy.cabinetTitle, body: copy.cabinetBody });
 
-  const actions = page.actions.filter((action) => action.href === "/products");
+  const actions = locale === "ru"
+    ? [
+        ...page.actions.filter((action) => action.href === "/products"),
+        { label: "Проверка и воспроизводимость", href: "/validation-reproducibility" },
+        { label: "Связаться с Azevsm Systems", href: "/contact" },
+      ]
+    : page.actions.filter((action) => action.href === "/products");
 
   return (
     <>

@@ -359,7 +359,7 @@ async function inspectPage(page) {
         const el = document.querySelector("header .ru-desktop-more > summary");
         return Boolean(el && visible(el));
       })(),
-      desktopGroupedRouteCount: [...document.querySelectorAll("header .ru-desktop-more-panel a")].filter(visible).length,
+      desktopGroupedRouteCount: document.querySelectorAll("header .ru-desktop-more-panel a").length,
       leadershipBlockVisible: (() => {
         const el = document.querySelector(".ru-company-leadership");
         return Boolean(el && visible(el));

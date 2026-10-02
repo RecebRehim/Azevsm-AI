@@ -25,9 +25,9 @@ export function RuAuthorityDocumentPage({ locale, pageKey }: { locale: Locale; p
   const kind = heroKind[pageKey];
   const topics = page.blocks.flatMap((block) => block.type === "heading" ? [block.text] : []).slice(0, 3);
   const actions =
-    pageKey === "resultSystem"
-      ? page.actions.filter((action) => action.href === "/products")
-      : [];
+    pageKey === "indexField"
+      ? [...page.actions, { label: "Посмотреть систему результата", href: "/result-system" }]
+      : page.actions;
 
   if (pageKey === "resultSystem") {
     return (

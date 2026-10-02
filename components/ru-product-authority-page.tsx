@@ -112,7 +112,12 @@ export function RuProductAuthorityPage({ locale, pageKey }: { locale: Locale; pa
                 ))}
               </div>
             </section>
-            <RuPilotActions actions={page.actions} locale={locale} />
+            <RuPilotActions
+            actions={pageKey === "index"
+              ? [...page.actions, { label: "Индексное поле", href: "/index-field-investor-ecosystem" }]
+              : page.actions}
+            locale={locale}
+          />
           </div>
         </section>
       </>
