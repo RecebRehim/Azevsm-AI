@@ -97,6 +97,7 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
     { href: "/search", label: locale === "ru" ? "Поиск" : locale === "az" ? "Axtarış" : locale === "en" ? "Search" : locale === "ar" ? "بحث" : "搜索" },
   ];
   const extendedCorporateLinks = new Set([
+    "/white-box",
     "/validation-reproducibility",
     "/index-field-investor-ecosystem",
     "/result-system",
@@ -107,6 +108,7 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
         "/platform",
         "/products",
         "/technology",
+        "/white-box",
         "/trust",
         "/data-security",
         "/legal-compliance",

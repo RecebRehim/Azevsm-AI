@@ -20,7 +20,12 @@ export function RuExistingAuthorityPage({ locale, pageKey }: { locale: Locale; p
 
   return (
     <>
-      <RuPilotHero kind={kind[pageKey]} title={page.title} lead={page.lead} topics={topics} />
+      <RuPilotHero
+        kind={kind[pageKey]}
+        title={locale === "ru" && pageKey === "company" ? "Azevsm Systems\nоператор AzevsmAI" : page.title}
+        lead={page.lead}
+        topics={topics}
+      />
       <section className={`section-tight ru-authority-section ru-existing-section ru-existing-section--${pageKey}`}>
         <div className="wrap ru-pilot-prose">
           <RuPilotBlocks blocks={page.blocks} />

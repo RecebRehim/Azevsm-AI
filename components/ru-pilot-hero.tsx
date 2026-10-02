@@ -60,6 +60,17 @@ function renderProtectedTechnologyName(text: string) {
   );
 }
 
+function renderHeroTitle(text: string) {
+  const lines = text.split("\n");
+  if (lines.length === 1) return renderProtectedTechnologyName(text);
+  return lines.map((line, index) => (
+    <span key={`${line}-${index}`}>
+      {index > 0 ? <br /> : null}
+      {renderProtectedTechnologyName(line)}
+    </span>
+  ));
+}
+
 export function RuPilotHero({
   kind,
   title,
@@ -90,7 +101,7 @@ export function RuPilotHero({
 
       <div className="wrap ru-pilot-hero-inner">
         <div className="ru-pilot-hero-copy">
-          <h1>{renderProtectedTechnologyName(title)}</h1>
+          <h1>{renderHeroTitle(title)}</h1>
           <p className="ru-pilot-lead">{lead}</p>
         </div>
 
