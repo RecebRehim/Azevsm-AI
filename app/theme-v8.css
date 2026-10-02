@@ -43,11 +43,37 @@
 html[data-theme="light"] .presentation-theme-icon--sun { display: block; }
 html[data-theme="light"] .presentation-theme-icon--moon { display: none; }
 html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle {
+  width: 58px;
+  min-width: 58px;
+  height: 40px;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 6px;
   border-color: rgba(255,255,255,.14);
   background: rgba(255,255,255,.025);
   color: #f4f7fa;
 }
-html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle:hover,
+html[lang="ru"] .ru-corporate-home-header .presentation-theme-icon--sun,
+html[lang="ru"] .ru-corporate-home-header .presentation-theme-icon--moon {
+  display: block !important;
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  transition: opacity 140ms ease, color 140ms ease;
+}
+html[lang="ru"][data-theme="dark"] .ru-corporate-home-header .presentation-theme-icon--sun,
+html[lang="ru"][data-theme="light"] .ru-corporate-home-header .presentation-theme-icon--moon {
+  opacity: .42;
+  color: #d5dee6;
+}
+html[lang="ru"][data-theme="dark"] .ru-corporate-home-header .presentation-theme-icon--moon,
+html[lang="ru"][data-theme="light"] .ru-corporate-home-header .presentation-theme-icon--sun {
+  opacity: 1;
+  color: #e3b45e;
+}html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle:hover,
 html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle:focus-visible {
   border-color: rgba(227,180,94,.58);
   background: rgba(227,180,94,.08);
@@ -101,15 +127,18 @@ html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle:focus-visib
   }
 }
 
-/* Light presentation starts after hero; hero selectors are intentionally absent. */
-html[data-theme="light"] body {
+/* WEBSITE-V8 — RU LIGHT PRESENTATION / SINGLE AUTHORITATIVE LAYER
+   Hero selectors are intentionally absent: hero presentation remains unchanged. */
+html[lang="ru"][data-theme="light"] body {
   background: var(--v8-light-bg);
   color: var(--v8-light-ink);
 }
-html[data-theme="light"] .shell:has(.ru-pilot-hero--landscape) {
+html[lang="ru"][data-theme="light"] .shell:has(.ru-pilot-hero--landscape) {
   background: var(--v8-light-bg) !important;
 }
-html[data-theme="light"] :is(
+
+/* All inner-page section shells below hero are light and carry no dark decorative layer. */
+html[lang="ru"][data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
   .ru-existing-section,
@@ -119,21 +148,35 @@ html[data-theme="light"] :is(
   position: relative;
   background: var(--v8-light-bg) !important;
   color: var(--v8-light-ink) !important;
-  border-top: 1px solid rgba(154,116,48,.28);
-  box-shadow: inset 0 10px 0 #edf1f4;
+  border-top-color: var(--v8-light-line) !important;
+  box-shadow: none !important;
 }
-html[data-theme="light"] :is(
+html[lang="ru"][data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
   .ru-existing-section,
   .section-tight:has(> .wrap.ru-pilot-prose)
-) .ru-pilot-prose {
+)::before {
+  display: none !important;
+}
+
+/* Main content surface. Extra specificity intentionally outranks the dark institutional-glass layer. */
+html[lang="ru"][data-theme="light"] :is(
+  .ru-authority-section,
+  .ru-product-authority-section,
+  .ru-existing-section,
+  .section-tight:has(> .wrap.ru-pilot-prose)
+) > .wrap.ru-pilot-prose {
   border-color: var(--v8-light-line) !important;
   background: var(--v8-light-surface) !important;
   color: var(--v8-light-ink) !important;
-  box-shadow: 0 18px 46px rgba(20,43,65,.07) !important;
+  box-shadow: 0 14px 36px rgba(20,43,65,.06) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
 }
-html[data-theme="light"] :is(
+
+/* Text hierarchy across direct prose and nested component families. */
+html[lang="ru"][data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
   .ru-existing-section,
@@ -141,7 +184,7 @@ html[data-theme="light"] :is(
 ) :is(h2,h3,strong) {
   color: var(--v8-light-ink) !important;
 }
-html[data-theme="light"] :is(
+html[lang="ru"][data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
   .ru-existing-section,
@@ -149,17 +192,17 @@ html[data-theme="light"] :is(
 ) :is(p,li,td) {
   color: var(--v8-light-copy) !important;
 }
-html[data-theme="light"] :is(
+html[lang="ru"][data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
   .ru-existing-section,
   .section-tight:has(> .wrap.ru-pilot-prose)
-) .ru-pilot-blocks > ul {
-  border-color: var(--v8-light-line) !important;
-  background: var(--v8-light-surface-2) !important;
-  color: var(--v8-light-copy) !important;
+) .kicker {
+  color: var(--v8-light-gold) !important;
 }
-html[data-theme="light"] :is(
+
+/* Cards, callouts, lists, reproduction blocks and table shells use the same light surface family. */
+html[lang="ru"][data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
   .ru-existing-section,
@@ -169,33 +212,72 @@ html[data-theme="light"] :is(
   .ru-scenario-card,
   .ru-product-card,
   .ru-plus-card,
-  .ru-repro-grid article
+  .card,
+  .ru-repro-grid article,
+  .ru-platform-repro,
+  .ru-pilot-blocks > ul,
+  .ru-pilot-table-wrap,
+  .ru-pilot-table-shell
 ) {
   border-color: var(--v8-light-line) !important;
   background: var(--v8-light-surface-2) !important;
   color: var(--v8-light-ink) !important;
   box-shadow: none !important;
 }
-html[data-theme="light"] :is(
+html[lang="ru"][data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
   .ru-existing-section,
   .section-tight:has(> .wrap.ru-pilot-prose)
-) :is(.ru-pilot-table-wrap,.ru-pilot-table-shell) {
-  border-color: var(--v8-light-line) !important;
-  background: var(--v8-light-surface) !important;
-  box-shadow: none !important;
+) :is(
+  .ru-pilot-note,
+  .ru-scenario-card,
+  .ru-product-card,
+  .ru-plus-card,
+  .card,
+  .ru-repro-grid article,
+  .ru-platform-repro
+) :is(h2,h3,strong) {
+  color: var(--v8-light-ink) !important;
 }
-html[data-theme="light"] :is(
+html[lang="ru"][data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
   .ru-existing-section,
   .section-tight:has(> .wrap.ru-pilot-prose)
-) table.data {
-  border-color: var(--v8-light-line) !important;
-  background: var(--v8-light-surface) !important;
+) :is(
+  .ru-pilot-note,
+  .ru-scenario-card,
+  .ru-product-card,
+  .ru-plus-card,
+  .card,
+  .ru-repro-grid article,
+  .ru-platform-repro
+) :is(p,span,li) {
+  color: var(--v8-light-copy) !important;
 }
-html[data-theme="light"] :is(
+
+/* Preserve gold semantic accents without restoring dark text/background behavior. */
+html[lang="ru"][data-theme="light"] :is(
+  .ru-authority-section,
+  .ru-product-authority-section
+) :is(
+  .ru-scenario-card i,
+  .ru-product-card > span:last-child,
+  .ru-repro-index,
+  .ru-plus-product-name
+) {
+  color: var(--v8-light-gold) !important;
+}
+
+/* Tables are fully light, including headers and cells. */
+html[lang="ru"][data-theme="light"] :is(
+  .ru-authority-section,
+  .ru-product-authority-section,
+  .ru-existing-section,
+  .section-tight:has(> .wrap.ru-pilot-prose)
+) table.data,
+html[lang="ru"][data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
   .ru-existing-section,
@@ -204,7 +286,7 @@ html[data-theme="light"] :is(
   border-color: var(--v8-light-line) !important;
   background: var(--v8-light-surface) !important;
 }
-html[data-theme="light"] :is(
+html[lang="ru"][data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
   .ru-existing-section,
@@ -213,69 +295,16 @@ html[data-theme="light"] :is(
   color: var(--v8-light-navy) !important;
   background: #f1f4f6 !important;
 }
-html[data-theme="light"] .ru-existing-section--company .ru-pilot-blocks > p:first-child {
-  border-left-color: rgba(154,116,48,.58);
-  background: #f8f6f1;
-}
 
-/* Search content */
-html[data-theme="light"] .site-search-section :is(.site-search-wrap,.site-search-results,.site-search-result) {
-  color: var(--v8-light-ink);
-}
-html[data-theme="light"] .site-search-section .site-search-field,
-html[data-theme="light"] .site-search-section .site-search-result {
-  border-color: var(--v8-light-line) !important;
-  background: var(--v8-light-surface) !important;
-  box-shadow: none !important;
-}
-html[data-theme="light"] .site-search-section :is(input,p,h2,h3,a) {
-  color: var(--v8-light-ink);
-}
-html[data-theme="light"] .site-search-section .site-search-state,
-html[data-theme="light"] .site-search-section .site-search-result p {
+/* Company intro stays visually distinct but readable. */
+html[lang="ru"][data-theme="light"] .ru-existing-section--company .ru-pilot-blocks > p:first-child {
+  border-left-color: rgba(154,116,48,.58) !important;
+  background: #f8f6f1 !important;
   color: var(--v8-light-copy) !important;
 }
 
-/* Footer structure is untouched; only presentation tokens change. */
-html[data-theme="light"] .site-footer {
-  background: #f5f7f9 !important;
-  color: var(--v8-light-copy) !important;
-  border-top: 1px solid var(--v8-light-line);
-  box-shadow: inset 0 1px 0 rgba(154,116,48,.14);
-}
-html[data-theme="light"] .site-footer::before {
-  display: none !important;
-}
-html[data-theme="light"] .site-footer :is(h2,a,p,.footer-base,.v5-footer-brand-name,.v5-footer-operator) {
-  color: var(--v8-light-copy) !important;
-}
-html[data-theme="light"] .site-footer :is(h2,.v5-footer-brand-name) {
-  color: var(--v8-light-ink) !important;
-}
-html[data-theme="light"] .site-footer a:hover {
-  color: var(--v8-light-navy) !important;
-}
-html[data-theme="light"] .site-footer .footer-base {
-  border-top-color: var(--v8-light-line) !important;
-}
-
-/* WEBSITE-V8 targeted acceptance repair: coherent light component family below hero. */
-html[data-theme="light"] :is(
-  .ru-authority-section,
-  .ru-product-authority-section,
-  .ru-existing-section,
-  .section-tight:has(> .wrap.ru-pilot-prose)
-) :is(
-  .ru-scenario-section,
-  .ru-platform-repro,
-  .ru-scenario-grid,
-  .ru-product-grid,
-  .ru-repro-grid,
-  .next-actions
-) {
-  color: var(--v8-light-ink) !important;
-}
-html[data-theme="light"] :is(
+/* Links/actions keep their existing semantics; only contrast is normalized. */
+html[lang="ru"][data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
   .ru-existing-section,
@@ -283,7 +312,7 @@ html[data-theme="light"] :is(
 ) :is(a,button) {
   color: var(--v8-light-navy);
 }
-html[data-theme="light"] :is(
+html[lang="ru"][data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
   .ru-existing-section,
@@ -291,11 +320,44 @@ html[data-theme="light"] :is(
 ) :is(.btn-primary,.next-actions .btn-primary) {
   color: #ffffff !important;
 }
-@media (max-width: 680px) {
-  html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle {
-    width: 40px;
-    min-width: 40px;
-    height: 40px;
-    min-height: 40px;
-  }
+
+/* Search is already a light component family; keep it explicit for RU light acceptance. */
+html[lang="ru"][data-theme="light"] .site-search-section :is(.site-search-wrap,.site-search-results,.site-search-result) {
+  color: var(--v8-light-ink);
+}
+html[lang="ru"][data-theme="light"] .site-search-section .site-search-field,
+html[lang="ru"][data-theme="light"] .site-search-section .site-search-result {
+  border-color: var(--v8-light-line) !important;
+  background: var(--v8-light-surface) !important;
+  box-shadow: none !important;
+}
+html[lang="ru"][data-theme="light"] .site-search-section :is(input,p,h2,h3,a) {
+  color: var(--v8-light-ink);
+}
+html[lang="ru"][data-theme="light"] .site-search-section .site-search-state,
+html[lang="ru"][data-theme="light"] .site-search-section .site-search-result p {
+  color: var(--v8-light-copy) !important;
+}
+
+/* Footer structure is untouched; presentation only. */
+html[lang="ru"][data-theme="light"] .site-footer {
+  background: #f5f7f9 !important;
+  color: var(--v8-light-copy) !important;
+  border-top: 1px solid var(--v8-light-line);
+  box-shadow: inset 0 1px 0 rgba(154,116,48,.14);
+}
+html[lang="ru"][data-theme="light"] .site-footer::before {
+  display: none !important;
+}
+html[lang="ru"][data-theme="light"] .site-footer :is(h2,a,p,.footer-base,.v5-footer-brand-name,.v5-footer-operator) {
+  color: var(--v8-light-copy) !important;
+}
+html[lang="ru"][data-theme="light"] .site-footer :is(h2,.v5-footer-brand-name) {
+  color: var(--v8-light-ink) !important;
+}
+html[lang="ru"][data-theme="light"] .site-footer a:hover {
+  color: var(--v8-light-navy) !important;
+}
+html[lang="ru"][data-theme="light"] .site-footer .footer-base {
+  border-top-color: var(--v8-light-line) !important;
 }
