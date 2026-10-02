@@ -19,6 +19,10 @@ const acceptanceRoutes = new Set([
   "/ru/legal-compliance",
   "/ru/validation-reproducibility",
   "/ru/search",
+  "/ru/result-system",
+  "/ru/insights",
+  "/ru/legal/terms",
+  "/ru/legal/privacy",
 ]);
 
 const viewports = [
@@ -172,19 +176,69 @@ async function inspectPage(page) {
     }
 
     const lightSurfaceFailures = [];
+    const lightTextFailures = [];
     if (document.documentElement.lang === "ru" && document.documentElement.dataset.theme === "light") {
-      for (const el of document.querySelectorAll(".ru-pilot-prose")) {
-        if (!visible(el)) continue;
-        const style = getComputedStyle(el);
-        const bg = parseRgb(style.backgroundColor);
-        if (!nearWhite(bg) || style.backgroundImage !== "none") {
-          lightSurfaceFailures.push({
-            ...label(el),
-            backgroundColor: style.backgroundColor,
-            backgroundImage: style.backgroundImage,
-          });
-          if (lightSurfaceFailures.length >= 20) break;
+      const requiredLightSurfaceSelectors = [
+        ".ru-pilot-prose",
+        ".v4-result-intro",
+        ".v4-system-band",
+        ".v4-result-previews",
+        ".v4-result-why",
+        ".v4-result-card",
+        ".v4-preview-card",
+        ".v4-system-band-inner",
+        ".v4-preview-frame",
+        ".ru-insights-prose",
+        ".ru-insights-list",
+        ".ru-insights-note",
+        ".ru-insight-card",
+        ".ru-legal-stage1.ru-authority-section",
+        ".ru-legal-stage1-inner",
+        ".ru-legal-note",
+      ];
+      for (const selector of requiredLightSurfaceSelectors) {
+        for (const el of document.querySelectorAll(selector)) {
+          if (!visible(el)) continue;
+          const style = getComputedStyle(el);
+          const bg = parseRgb(style.backgroundColor);
+          if (!nearWhite(bg) || style.backgroundImage !== "none") {
+            lightSurfaceFailures.push({
+              selector,
+              ...label(el),
+              backgroundColor: style.backgroundColor,
+              backgroundImage: style.backgroundImage,
+            });
+            if (lightSurfaceFailures.length >= 20) break;
+          }
         }
+        if (lightSurfaceFailures.length >= 20) break;
+      }
+
+      const lightTextScopes = [
+        ".v4-result-intro",
+        ".v4-system-band",
+        ".v4-result-previews",
+        ".ru-authority-section:has(> .wrap.ru-insights-prose)",
+        ".ru-legal-stage1.ru-authority-section",
+      ];
+      for (const selector of lightTextScopes) {
+        for (const scope of document.querySelectorAll(selector)) {
+          if (!visible(scope)) continue;
+          for (const el of scope.querySelectorAll("h2,h3,p,li,strong,small")) {
+            if (!visible(el) || !(el.textContent || "").trim()) continue;
+            const fg = parseRgb(getComputedStyle(el).color);
+            if (nearWhite(fg)) {
+              lightTextFailures.push({
+                selector,
+                ...label(el),
+                color: getComputedStyle(el).color,
+              });
+              if (lightTextFailures.length >= 20) break;
+            }
+          }
+          if (lightTextFailures.length >= 20) break;
+        }
+        if (lightTextFailures.length >= 20) break;
       }
     }
 
@@ -296,6 +350,7 @@ async function inspectPage(page) {
       contrastFailures,
       darkContentSurfaces,
       lightSurfaceFailures,
+      lightTextFailures,
     };
   });
 }
@@ -419,6 +474,10 @@ const lightRoutes = [
   "/ru/legal-compliance",
   "/ru/validation-reproducibility",
   "/ru/search",
+  "/ru/result-system",
+  "/ru/insights",
+  "/ru/legal/terms",
+  "/ru/legal/privacy",
 ];
 const lightViewports = [
   ["desktop-1920x1080", 1920, 1080],
@@ -478,6 +537,7 @@ for (const [name, width, height] of lightViewports) {
         metrics.contrastFailures.length > 0 ||
         metrics.darkContentSurfaces.length > 0 ||
         metrics.lightSurfaceFailures.length > 0 ||
+        metrics.lightTextFailures.length > 0 ||
         metrics.theme !== "light" ||
         (route.startsWith("/ru") && (!metrics.searchTriggerVisible || !metrics.themeToggleVisible || !metrics.pairedThemeIconsVisible)) ||
         (route === "/ru/company" && metrics.companyCtaCount < 2)
@@ -524,6 +584,7 @@ function failureReasons(row, expectedTheme) {
     if (m.contrastFailures?.length) reasons.push(`contrastFailures:${m.contrastFailures.length}`);
     if (expectedTheme === "light" && m.darkContentSurfaces?.length) reasons.push(`darkContentSurfaces:${m.darkContentSurfaces.length}`);
     if (expectedTheme === "light" && m.lightSurfaceFailures?.length) reasons.push(`lightSurfaceFailures:${m.lightSurfaceFailures.length}`);
+    if (expectedTheme === "light" && m.lightTextFailures?.length) reasons.push(`lightTextFailures:${m.lightTextFailures.length}`);
     if (m.theme !== expectedTheme) reasons.push(`theme:${m.theme}`);
     if (row.route.startsWith("/ru") && !m.searchTriggerVisible) reasons.push("searchHidden");
     if (row.route.startsWith("/ru") && !m.themeToggleVisible) reasons.push("themeToggleHidden");
@@ -556,6 +617,7 @@ const acceptanceFailures = [
     contrast: row.metrics?.contrastFailures?.slice(0, 3) || [],
     darkContentSurfaces: row.metrics?.darkContentSurfaces?.slice(0, 3) || [],
     lightSurfaceFailures: row.metrics?.lightSurfaceFailures?.slice(0, 3) || [],
+    lightTextFailures: row.metrics?.lightTextFailures?.slice(0, 3) || [],
   })),
 ];
 console.log("ACCEPTANCE_FAILURES=" + JSON.stringify(acceptanceFailures));

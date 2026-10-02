@@ -361,3 +361,143 @@ html[lang="ru"][data-theme="light"] .site-footer a:hover {
 html[lang="ru"][data-theme="light"] .site-footer .footer-base {
   border-top-color: var(--v8-light-line) !important;
 }
+
+/* WEBSITE-V8 — RU LIGHT CONFIRMED REMAINING FAMILIES
+   Targeted closure for Result System, Insights/Materials, and shared Terms/Privacy legal surfaces.
+   Hero selectors remain intentionally absent. */
+html[lang="ru"][data-theme="light"] :is(
+  .v4-result-intro,
+  .v4-system-band,
+  .v4-result-previews,
+  .v4-result-why
+) {
+  background: var(--v8-light-bg) !important;
+  color: var(--v8-light-ink) !important;
+  box-shadow: none !important;
+}
+
+html[lang="ru"][data-theme="light"] :is(
+  .v4-result-card,
+  .v4-preview-card,
+  .v4-system-band-inner
+) {
+  border-color: var(--v8-light-line) !important;
+  background: var(--v8-light-surface) !important;
+  color: var(--v8-light-ink) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+html[lang="ru"][data-theme="light"] .v4-preview-frame {
+  border-color: var(--v8-light-line) !important;
+  background: var(--v8-light-surface-2) !important;
+  box-shadow: none !important;
+}
+html[lang="ru"][data-theme="light"] .v4-preview-bar {
+  border-bottom-color: var(--v8-light-line) !important;
+  background: var(--v8-light-surface) !important;
+}
+html[lang="ru"][data-theme="light"] .v4-preview-body span {
+  background: #d9e3e9 !important;
+}
+html[lang="ru"][data-theme="light"] :is(
+  .v4-result-intro,
+  .v4-system-band,
+  .v4-result-previews
+) :is(h2,h3,strong) {
+  color: var(--v8-light-ink) !important;
+}
+html[lang="ru"][data-theme="light"] :is(
+  .v4-result-intro,
+  .v4-system-band,
+  .v4-result-previews
+) :is(p,small) {
+  color: var(--v8-light-copy) !important;
+}
+html[lang="ru"][data-theme="light"] :is(
+  .v4-result-intro,
+  .v4-system-band,
+  .v4-result-previews
+) .kicker {
+  color: var(--v8-light-gold) !important;
+}
+html[lang="ru"][data-theme="light"] .v4-result-icon svg {
+  stroke: var(--v8-light-navy) !important;
+}
+html[lang="ru"][data-theme="light"] .v4-result-icon svg .v4-icon-gold {
+  stroke: var(--v8-light-gold) !important;
+}
+
+/* Insights / Research & Materials: the real wrapper is .ru-insights-prose, not .ru-pilot-prose. */
+html[lang="ru"][data-theme="light"] .ru-authority-section > .wrap.ru-insights-prose {
+  border-color: var(--v8-light-line) !important;
+  background: var(--v8-light-surface) !important;
+  color: var(--v8-light-ink) !important;
+  box-shadow: 0 14px 36px rgba(20,43,65,.06) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+html[lang="ru"][data-theme="light"] .ru-authority-section :is(
+  .ru-insights-list,
+  .ru-insights-note,
+  .ru-insight-card
+) {
+  border-color: var(--v8-light-line) !important;
+  background: var(--v8-light-surface) !important;
+  color: var(--v8-light-ink) !important;
+  box-shadow: none !important;
+}
+html[lang="ru"][data-theme="light"] .ru-authority-section :is(
+  .ru-insights-intro,
+  .ru-insights-list,
+  .ru-insights-list li,
+  .ru-insights-note p,
+  .ru-insight-card p
+) {
+  color: var(--v8-light-copy) !important;
+}
+html[lang="ru"][data-theme="light"] .ru-authority-section :is(
+  .ru-insights-note h2,
+  .ru-insight-card h2
+) {
+  color: var(--v8-light-ink) !important;
+}
+
+/* Terms + Privacy share RuLegalStage1Page and therefore one light rule family. */
+html[lang="ru"][data-theme="light"] .ru-legal-stage1.ru-authority-section {
+  background: var(--v8-light-bg) !important;
+  color: var(--v8-light-ink) !important;
+  box-shadow: none !important;
+}
+html[lang="ru"][data-theme="light"] .ru-legal-stage1.ru-authority-section > .ru-legal-stage1-inner {
+  border: 1px solid var(--v8-light-line) !important;
+  background: var(--v8-light-surface) !important;
+  color: var(--v8-light-ink) !important;
+  box-shadow: 0 14px 36px rgba(20,43,65,.06) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+html[lang="ru"][data-theme="light"] .ru-legal-stage1.ru-authority-section .ru-legal-section {
+  border-color: var(--v8-light-line) !important;
+}
+html[lang="ru"][data-theme="light"] .ru-legal-stage1.ru-authority-section :is(
+  .ru-legal-section h2,
+  .ru-legal-note strong
+) {
+  color: var(--v8-light-ink) !important;
+}
+html[lang="ru"][data-theme="light"] .ru-legal-stage1.ru-authority-section :is(
+  .ru-legal-section p,
+  .ru-legal-section li,
+  .ru-legal-note p
+) {
+  color: var(--v8-light-copy) !important;
+}
+html[lang="ru"][data-theme="light"] .ru-legal-stage1.ru-authority-section .ru-legal-note {
+  border-color: var(--v8-light-line) !important;
+  background: var(--v8-light-surface) !important;
+  color: var(--v8-light-ink) !important;
+  box-shadow: none !important;
+}
+
