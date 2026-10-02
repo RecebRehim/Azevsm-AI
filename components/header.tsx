@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { LanguageMenu } from "@/components/language-menu";
 import { Logo } from "@/components/logo";
+import { ThemeToggle } from "@/components/theme-toggle";
 import type { SiteCopy } from "@/lib/content/copy";
 import { authorityRouteLabels } from "@/lib/content/authority-pages-v31";
 import { isContentLocale, isPilotLocale, localeMeta, localePath, siteLocales, swapLocale, type Locale } from "@/lib/i18n";
@@ -135,6 +136,7 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
         >
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
         </Link>
+        {corporateNav ? <ThemeToggle /> : null}
         <button className="menu-toggle" type="button" aria-expanded={open} aria-controls="site-nav" onClick={() => setOpen((value) => !value)}>
           {corporateNav ? (
             <>
@@ -174,6 +176,7 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
         </nav>
         {pilotLocale ? <RuLanguageAccess key={path} path={path} locale={locale} label={copy.language} compact={corporateNav} onNavigate={close} /> : null}
         <div className="header-utilities">
+          {!corporateNav ? <ThemeToggle /> : null}
           {!pilotLocale ? <LanguageMenu locale={locale} path={path} label={copy.language} /> : null}
           {!pilotLocale ? (
             <Link className="btn btn-ghost btn-compact" href={localePath(locale, "/contact")}>

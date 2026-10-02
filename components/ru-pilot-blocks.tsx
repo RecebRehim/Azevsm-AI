@@ -83,8 +83,8 @@ export function RuPilotBlocks({
   );
 }
 
-export function RuPilotActions({ actions, locale = "ru" }: { actions: AuthorityPage["actions"]; locale?: Locale }) {
-  const visible = actions.filter((action) => action.href !== "/contact");
+export function RuPilotActions({ actions, locale = "ru", includeContact = false }: { actions: AuthorityPage["actions"]; locale?: Locale; includeContact?: boolean }) {
+  const visible = includeContact ? actions : actions.filter((action) => action.href !== "/contact");
   if (!visible.length) return null;
   return (
     <div className="next-actions ru-pilot-actions">

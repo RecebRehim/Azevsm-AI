@@ -15,7 +15,7 @@ export function RuExistingAuthorityPage({ locale, pageKey }: { locale: Locale; p
   const page = getExistingAuthorityPage(locale, pageKey);
   if (!page) notFound();
 
-  const actions: typeof page.actions = [];
+  const actions: typeof page.actions = pageKey === "company" ? page.actions : [];
   const topics = page.blocks.flatMap((block) => block.type === "heading" ? [block.text] : []).slice(0, 3);
 
   return (
@@ -24,7 +24,7 @@ export function RuExistingAuthorityPage({ locale, pageKey }: { locale: Locale; p
       <section className={`section-tight ru-authority-section ru-existing-section ru-existing-section--${pageKey}`}>
         <div className="wrap ru-pilot-prose">
           <RuPilotBlocks blocks={page.blocks} />
-          <RuPilotActions actions={actions} locale={locale} />
+          <RuPilotActions actions={actions} locale={locale} includeContact={pageKey === "company"} />
         </div>
       </section>
     </>

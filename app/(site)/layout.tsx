@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { isLocale, localeMeta } from "@/lib/i18n";
 import { siteUrl } from "@/lib/site";
 import "../globals.css";
+import "../theme-v8.css";
 
 const latin = Manrope({ subsets: ["latin", "latin-ext", "cyrillic"], variable: "--font-latin", display: "swap" });
 const arabic = Noto_Sans_Arabic({ subsets: ["arabic"], variable: "--font-arabic", display: "swap", weight: ["400", "500", "600", "700"] });
@@ -22,7 +23,14 @@ export default async function SiteLayout({ children }: Readonly<{ children: Reac
   const locale = isLocale(requested) ? requested : "en";
   const meta = localeMeta[locale];
   return (
-    <html lang={meta.htmlLang} dir={meta.dir} className={`${latin.variable} ${arabic.variable} ${chinese.variable} ${mono.variable}`}>
+    <html lang={meta.htmlLang} dir={meta.dir} data-theme="dark" className={`${latin.variable} ${arabic.variable} ${chinese.variable} ${mono.variable}`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem("azevsm-theme")==="light"?"light":"dark";document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t}catch(e){document.documentElement.dataset.theme="dark"}`,
+          }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

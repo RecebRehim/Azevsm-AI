@@ -1629,3 +1629,99 @@
     margin-top: 24px !important;
   }
 }
+
+
+/* WEBSITE-V8 — USER-SELECTABLE LIGHT PRESENTATION BELOW THE PRESERVED HERO */
+:global(html[data-theme="light"]) .contentOpen {
+  --line: rgba(27, 55, 82, .14);
+  --line-gold: rgba(157, 118, 45, .42);
+  --text: #10263d;
+  --muted: #526374;
+  --gold: #9a7430;
+  color: var(--text);
+  background: #f6f8fa;
+  border-top: 1px solid rgba(157, 118, 45, .32);
+  box-shadow: inset 0 10px 0 #edf1f4;
+}
+:global(html[data-theme="light"]) .contentOpen::before {
+  display: none;
+}
+:global(html[data-theme="light"]) .contentOpen .section > .shell,
+:global(html[data-theme="light"]) .contentOpen .companySection > .shell {
+  border-color: rgba(27, 55, 82, .12);
+  background: #ffffff;
+  box-shadow: 0 18px 46px rgba(20, 43, 65, .07);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  color: #10263d;
+}
+:global(html[data-theme="light"]) .contentOpen .sectionHead,
+:global(html[data-theme="light"]) .contentOpen .featureCopy,
+:global(html[data-theme="light"]) .contentOpen .companyGrid {
+  color: #10263d;
+}
+:global(html[data-theme="light"]) .contentOpen .sectionHead h2,
+:global(html[data-theme="light"]) .contentOpen .companyGrid h2,
+:global(html[data-theme="light"]) .contentOpen .secureCopy h2,
+:global(html[data-theme="light"]) .contentOpen .featureCopy h2,
+:global(html[data-theme="light"]) .contentOpen .featureBlock h2,
+:global(html[data-theme="light"]) .contentOpen .compactCard h3,
+:global(html[data-theme="light"]) .contentOpen .authorityCard h3,
+:global(html[data-theme="light"]) .contentOpen .resultCard h3,
+:global(html[data-theme="light"]) .contentOpen .productCard h3,
+:global(html[data-theme="light"]) .contentOpen .whyCard h3 {
+  color: #10263d;
+}
+:global(html[data-theme="light"]) .contentOpen .sectionHead > p:not(.kicker),
+:global(html[data-theme="light"]) .contentOpen .featureCopy > p:not(.kicker),
+:global(html[data-theme="light"]) .contentOpen .featureBlock > p,
+:global(html[data-theme="light"]) .contentOpen .compactCard p,
+:global(html[data-theme="light"]) .contentOpen .authorityCard p,
+:global(html[data-theme="light"]) .contentOpen .resultCard p,
+:global(html[data-theme="light"]) .contentOpen .productCard p,
+:global(html[data-theme="light"]) .contentOpen .whyCard p,
+:global(html[data-theme="light"]) .contentOpen .secureCopy p,
+:global(html[data-theme="light"]) .contentOpen .companyGrid p {
+  color: #526374;
+}
+:global(html[data-theme="light"]) .contentOpen .compactCard,
+:global(html[data-theme="light"]) .contentOpen .authorityCard,
+:global(html[data-theme="light"]) .contentOpen .resultCard,
+:global(html[data-theme="light"]) .contentOpen .productCard,
+:global(html[data-theme="light"]) .contentOpen .whyCard {
+  border-color: rgba(27, 55, 82, .12);
+  background: #f8fafb;
+  box-shadow: none;
+}
+:global(html[data-theme="light"]) .contentOpen .productCard {
+  color: #10263d;
+}
+:global(html[data-theme="light"]) .contentOpen .productAction,
+:global(html[data-theme="light"]) .contentOpen .inlineLink,
+:global(html[data-theme="light"]) .contentOpen .kicker,
+:global(html[data-theme="light"]) .contentOpen .index,
+:global(html[data-theme="light"]) .contentOpen .productNumber {
+  color: #8a6728;
+}
+:global(html[data-theme="light"]) .contentOpen .outlineButton,
+:global(html[data-theme="light"]) .contentOpen .enter {
+  color: #17324d;
+  border-color: rgba(157, 118, 45, .48);
+  background: #fff;
+}
+:global(html[data-theme="light"]) .contentOpen .routePanel {
+  border-color: rgba(27, 55, 82, .12);
+  background: #f8fafb;
+}
+:global(html[data-theme="light"]) .contentOpen .routePanel a {
+  color: #17324d;
+}
+:global(html[data-theme="light"]) .contentOpen .routePanel a + a {
+  border-color: rgba(27, 55, 82, .12);
+}
+:global(html[data-theme="light"]) .contentOpen .routePanel a:hover {
+  color: #0a1d31;
+}
+:global(html[data-theme="light"]) .contentOpen .featureRule {
+  border-color: rgba(27, 55, 82, .12);
+}

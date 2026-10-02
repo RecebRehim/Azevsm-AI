@@ -1,0 +1,302 @@
+/* WEBSITE-V8 — CONTROLLED PRESENTATION THEME
+   Dark is the source-preserving default. Light overrides only content below hero,
+   footer, and the new presentation preference control. */
+
+:root {
+  --v8-light-bg: #f6f8fa;
+  --v8-light-surface: #ffffff;
+  --v8-light-surface-2: #f8fafb;
+  --v8-light-ink: #10263d;
+  --v8-light-copy: #526374;
+  --v8-light-line: rgba(27, 55, 82, .13);
+  --v8-light-gold: #9a7430;
+  --v8-light-navy: #17324d;
+}
+
+.presentation-theme-toggle {
+  min-height: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex: 0 0 auto;
+  padding: 0 8px;
+  border: 1px solid rgba(108, 132, 153, .28);
+  border-radius: 9px;
+  background: rgba(255,255,255,.04);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.presentation-theme-option {
+  font-size: 9px;
+  line-height: 1;
+  font-weight: 720;
+  letter-spacing: .06em;
+  opacity: .48;
+}
+.presentation-theme-separator {
+  font-size: 9px;
+  opacity: .34;
+}
+html[data-theme="dark"] .presentation-theme-option--dark,
+html[data-theme="light"] .presentation-theme-option--light {
+  opacity: 1;
+  color: #e3b45e;
+}
+html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle {
+  border-color: rgba(255,255,255,.14);
+  background: rgba(255,255,255,.025);
+  color: #f4f7fa;
+}
+html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle:hover,
+html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle:focus-visible {
+  border-color: rgba(227,180,94,.58);
+  background: rgba(227,180,94,.08);
+}
+
+@media (min-width: 1241px) {
+  html[lang="ru"] .ru-corporate-home-header .wordmark { order: 1 !important; }
+  html[lang="ru"] .ru-corporate-home-header .nav-main { order: 2 !important; }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact { order: 3 !important; }
+  html[lang="ru"] .ru-corporate-home-header .site-search-trigger { order: 4 !important; }
+  html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle { order: 5 !important; }
+  html[lang="ru"] .ru-corporate-home-header .header-utilities { order: 6 !important; }
+}
+@media (min-width: 681px) and (max-width: 1240px) {
+  html[lang="ru"] .ru-corporate-home-header .header-inner,
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
+    grid-template-columns: auto minmax(0,1fr) auto auto auto auto !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark { grid-column: 1 !important; }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact { grid-column: 3 !important; }
+  html[lang="ru"] .ru-corporate-home-header .site-search-trigger { grid-column: 4 !important; }
+  html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle { grid-column: 5 !important; }
+  html[lang="ru"] .ru-corporate-home-header .menu-toggle { grid-column: 6 !important; }
+}
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-corporate-home-header .header-inner,
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
+    grid-template-columns: minmax(0,1fr) auto auto auto auto !important;
+    column-gap: 5px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark { grid-column: 1 !important; }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact { grid-column: 2 !important; }
+  html[lang="ru"] .ru-corporate-home-header .site-search-trigger { grid-column: 3 !important; }
+  html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle {
+    grid-column: 4 !important;
+    width: 32px;
+    min-width: 32px;
+    padding: 0 4px;
+  }
+  html[lang="ru"] .ru-corporate-home-header .menu-toggle { grid-column: 5 !important; }
+  html[lang="ru"] .ru-corporate-home-header .presentation-theme-option {
+    font-size: 0;
+  }
+  html[lang="ru"] .ru-corporate-home-header .presentation-theme-option--dark::after {
+    content: "D";
+    font-size: 9px;
+  }
+  html[lang="ru"] .ru-corporate-home-header .presentation-theme-option--light::after {
+    content: "L";
+    font-size: 9px;
+  }
+  html[lang="ru"] .ru-corporate-home-header .presentation-theme-separator {
+    font-size: 8px;
+  }
+}
+
+/* Corporate/technology/trust long-page rhythm. Content and heading order are unchanged. */
+@media (min-width: 900px) {
+  html[lang="ru"] :is(
+    .ru-existing-section--company,
+    .ru-existing-section--technology,
+    .ru-existing-section--trust
+  ) .ru-pilot-blocks {
+    display: grid !important;
+    grid-template-columns: minmax(220px,.72fr) minmax(0,1.28fr);
+    column-gap: clamp(32px,5vw,72px);
+    row-gap: 26px;
+    align-items: start;
+  }
+  html[lang="ru"] :is(
+    .ru-existing-section--company,
+    .ru-existing-section--technology,
+    .ru-existing-section--trust
+  ) .ru-pilot-blocks > h2 {
+    grid-column: 1;
+    margin: 0 !important;
+    max-width: 22ch !important;
+  }
+  html[lang="ru"] :is(
+    .ru-existing-section--company,
+    .ru-existing-section--technology,
+    .ru-existing-section--trust
+  ) .ru-pilot-blocks > p {
+    grid-column: 2;
+    margin: 0 !important;
+    max-width: 68ch !important;
+  }
+  html[lang="ru"] :is(
+    .ru-existing-section--company,
+    .ru-existing-section--technology,
+    .ru-existing-section--trust
+  ) .ru-pilot-blocks > :is(.ru-pilot-note,.ru-pilot-table-shell,ul) {
+    grid-column: 1 / -1;
+  }
+  html[lang="ru"] .ru-existing-section--company .ru-pilot-blocks > p:first-child {
+    grid-column: 1 / -1;
+    width: min(100%, 78ch);
+    max-width: 78ch !important;
+    padding: 18px 20px;
+    border-left: 2px solid rgba(227,180,94,.72);
+    background: rgba(227,180,94,.055);
+  }
+}
+
+/* Light presentation starts after hero; hero selectors are intentionally absent. */
+html[data-theme="light"] body {
+  background: var(--v8-light-bg);
+  color: var(--v8-light-ink);
+}
+html[data-theme="light"] :is(
+  .ru-authority-section,
+  .ru-product-authority-section,
+  .ru-existing-section,
+  .site-search-section
+) {
+  position: relative;
+  background: var(--v8-light-bg) !important;
+  color: var(--v8-light-ink) !important;
+  border-top: 1px solid rgba(154,116,48,.28);
+  box-shadow: inset 0 10px 0 #edf1f4;
+}
+html[data-theme="light"] :is(
+  .ru-authority-section,
+  .ru-product-authority-section,
+  .ru-existing-section
+) .ru-pilot-prose {
+  border-color: var(--v8-light-line) !important;
+  background: var(--v8-light-surface) !important;
+  color: var(--v8-light-ink) !important;
+  box-shadow: 0 18px 46px rgba(20,43,65,.07) !important;
+}
+html[data-theme="light"] :is(
+  .ru-authority-section,
+  .ru-product-authority-section,
+  .ru-existing-section
+) :is(h2,h3,strong) {
+  color: var(--v8-light-ink) !important;
+}
+html[data-theme="light"] :is(
+  .ru-authority-section,
+  .ru-product-authority-section,
+  .ru-existing-section
+) :is(p,li,td) {
+  color: var(--v8-light-copy) !important;
+}
+html[data-theme="light"] :is(
+  .ru-authority-section,
+  .ru-product-authority-section,
+  .ru-existing-section
+) .ru-pilot-blocks > ul {
+  border-color: var(--v8-light-line) !important;
+  background: var(--v8-light-surface-2) !important;
+  color: var(--v8-light-copy) !important;
+}
+html[data-theme="light"] :is(
+  .ru-authority-section,
+  .ru-product-authority-section,
+  .ru-existing-section
+) :is(
+  .ru-pilot-note,
+  .ru-scenario-card,
+  .ru-product-card,
+  .ru-plus-card,
+  .ru-repro-grid article
+) {
+  border-color: var(--v8-light-line) !important;
+  background: var(--v8-light-surface-2) !important;
+  color: var(--v8-light-ink) !important;
+  box-shadow: none !important;
+}
+html[data-theme="light"] :is(
+  .ru-authority-section,
+  .ru-product-authority-section,
+  .ru-existing-section
+) :is(.ru-pilot-table-wrap,.ru-pilot-table-shell) {
+  border-color: var(--v8-light-line) !important;
+  background: var(--v8-light-surface) !important;
+  box-shadow: none !important;
+}
+html[data-theme="light"] :is(
+  .ru-authority-section,
+  .ru-product-authority-section,
+  .ru-existing-section
+) table.data {
+  border-color: var(--v8-light-line) !important;
+  background: var(--v8-light-surface) !important;
+}
+html[data-theme="light"] :is(
+  .ru-authority-section,
+  .ru-product-authority-section,
+  .ru-existing-section
+) table.data :is(th,td) {
+  border-color: var(--v8-light-line) !important;
+  background: var(--v8-light-surface) !important;
+}
+html[data-theme="light"] :is(
+  .ru-authority-section,
+  .ru-product-authority-section,
+  .ru-existing-section
+) table.data th {
+  color: var(--v8-light-navy) !important;
+  background: #f1f4f6 !important;
+}
+html[data-theme="light"] .ru-existing-section--company .ru-pilot-blocks > p:first-child {
+  border-left-color: rgba(154,116,48,.58);
+  background: #f8f6f1;
+}
+
+/* Search content */
+html[data-theme="light"] .site-search-section :is(.site-search-wrap,.site-search-results,.site-search-result) {
+  color: var(--v8-light-ink);
+}
+html[data-theme="light"] .site-search-section .site-search-field,
+html[data-theme="light"] .site-search-section .site-search-result {
+  border-color: var(--v8-light-line) !important;
+  background: var(--v8-light-surface) !important;
+  box-shadow: none !important;
+}
+html[data-theme="light"] .site-search-section :is(input,p,h2,h3,a) {
+  color: var(--v8-light-ink);
+}
+html[data-theme="light"] .site-search-section .site-search-state,
+html[data-theme="light"] .site-search-section .site-search-result p {
+  color: var(--v8-light-copy) !important;
+}
+
+/* Footer structure is untouched; only presentation tokens change. */
+html[data-theme="light"] .site-footer {
+  background: #f5f7f9 !important;
+  color: var(--v8-light-copy) !important;
+  border-top: 1px solid var(--v8-light-line);
+  box-shadow: inset 0 1px 0 rgba(154,116,48,.14);
+}
+html[data-theme="light"] .site-footer::before {
+  display: none !important;
+}
+html[data-theme="light"] .site-footer :is(h2,a,p,.footer-base,.v5-footer-brand-name,.v5-footer-operator) {
+  color: var(--v8-light-copy) !important;
+}
+html[data-theme="light"] .site-footer :is(h2,.v5-footer-brand-name) {
+  color: var(--v8-light-ink) !important;
+}
+html[data-theme="light"] .site-footer a:hover {
+  color: var(--v8-light-navy) !important;
+}
+html[data-theme="light"] .site-footer .footer-base {
+  border-top-color: var(--v8-light-line) !important;
+}

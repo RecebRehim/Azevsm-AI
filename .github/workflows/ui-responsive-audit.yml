@@ -1,12 +1,12 @@
 name: UI Responsive Audit
 
 concurrency:
-  group: ui-responsive-audit-website-v7
+  group: ui-responsive-audit-website-v8
   cancel-in-progress: true
 
 on:
   push:
-    branches: [website-v7]
+    branches: [website-v8]
     paths:
       - ".github/workflows/ui-responsive-audit.yml"
       - "scripts/ui-responsive-audit.mjs"

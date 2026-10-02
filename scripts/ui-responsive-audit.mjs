@@ -175,6 +175,33 @@ async function inspectPage(page) {
     return {
       title: document.title,
       lang: document.documentElement.lang,
+      theme: document.documentElement.dataset.theme || "",
+      searchTriggerVisible: (() => {
+        const el = document.querySelector("header .site-search-trigger");
+        return Boolean(el && visible(el));
+      })(),
+      themeToggleVisible: (() => {
+        const el = document.querySelector("header .presentation-theme-toggle");
+        return Boolean(el && visible(el));
+      })(),
+      companyCtaCount: [...document.querySelectorAll(".ru-existing-section--company .next-actions a")].filter(visible).length,
+      heroFingerprint: (() => {
+        const hero = document.querySelector("main > .ru-pilot-hero, main > div > section:first-of-type");
+        if (!hero || !visible(hero)) return null;
+        const s = getComputedStyle(hero);
+        const r = hero.getBoundingClientRect();
+        const h1 = hero.querySelector("h1");
+        const hs = h1 ? getComputedStyle(h1) : null;
+        return {
+          backgroundColor: s.backgroundColor,
+          backgroundImage: s.backgroundImage,
+          width: Math.round(r.width),
+          height: Math.round(r.height),
+          h1Color: hs?.color || "",
+          h1FontSize: hs?.fontSize || "",
+          h1LineHeight: hs?.lineHeight || "",
+        };
+      })(),
       dir: document.documentElement.dir || "ltr",
       h1Count: document.querySelectorAll("h1").length,
       headings,
@@ -205,7 +232,7 @@ const baselineViewports = new Set(["desktop-1440x900", "mobile-390x844"]);
 for (const [name, width, height] of viewports) {
   const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1 });
   await context.addInitScript(() => {
-    try { localStorage.setItem("azevsm-cookie", "acknowledged"); } catch {}
+    try { localStorage.setItem("azevsm-cookie", "acknowledged"); localStorage.setItem("azevsm-theme", "dark"); } catch {}
   });
   const page = await context.newPage();
   page.setDefaultTimeout(15000);
@@ -241,7 +268,10 @@ for (const [name, width, height] of viewports) {
         metrics.overflow.length > 0 ||
         metrics.clippedText.length > 0 ||
         metrics.brokenImages.length > 0 ||
-        metrics.headerOverlaps.length > 0
+        metrics.headerOverlaps.length > 0 ||
+        metrics.theme !== "dark" ||
+        (route.startsWith("/ru") && (!metrics.searchTriggerVisible || !metrics.themeToggleVisible)) ||
+        (route === "/ru/company" && metrics.companyCtaCount < 2)
       ));
 
     const rec = {
@@ -270,7 +300,7 @@ const breakpointResults = [];
 for (const [name, width, height] of breakpointViewports) {
   const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1 });
   await context.addInitScript(() => {
-    try { localStorage.setItem("azevsm-cookie", "acknowledged"); } catch {}
+    try { localStorage.setItem("azevsm-cookie", "acknowledged"); localStorage.setItem("azevsm-theme", "dark"); } catch {}
   });
   const page = await context.newPage();
   page.setDefaultTimeout(15000);
@@ -290,6 +320,98 @@ for (const [name, width, height] of breakpointViewports) {
   }
   await context.close();
 }
+
+const lightRoutes = [
+  "/ru",
+  "/ru/company",
+  "/ru/platform",
+  "/ru/products",
+  "/ru/technology",
+  "/ru/trust",
+  "/ru/data-security",
+  "/ru/legal-compliance",
+  "/ru/validation-reproducibility",
+  "/ru/search",
+];
+const lightViewports = [
+  ["desktop-1920x1080", 1920, 1080],
+  ["desktop-1440x900", 1440, 900],
+  ["desktop-1366x768", 1366, 768],
+  ["mobile-390x844", 390, 844],
+  ["mobile-360x800", 360, 800],
+];
+const lightResults = [];
+const lightScreenDir = path.join(outDir, "screens", "light");
+await ensure(lightScreenDir);
+
+for (const [name, width, height] of lightViewports) {
+  const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1 });
+  await context.addInitScript(() => {
+    try {
+      localStorage.setItem("azevsm-cookie", "acknowledged");
+      localStorage.setItem("azevsm-theme", "light");
+    } catch {}
+  });
+  const page = await context.newPage();
+  page.setDefaultTimeout(15000);
+
+  for (const route of lightRoutes) {
+    let status = 0;
+    let navError = "";
+    let metrics = null;
+    let heroDrift = false;
+    try {
+      const response = await page.goto(`${BASE}${route}`, { waitUntil: "domcontentloaded", timeout: 30000 });
+      status = response?.status() || 0;
+      await page.waitForTimeout(40);
+      metrics = await inspectPage(page);
+      const dark = results.find((row) => row.route === route && row.viewport === name);
+      if (dark?.metrics?.heroFingerprint && metrics?.heroFingerprint) {
+        heroDrift = JSON.stringify(dark.metrics.heroFingerprint) !== JSON.stringify(metrics.heroFingerprint);
+      }
+    } catch (err) {
+      navError = String(err).slice(0,1000);
+    }
+
+    const failure =
+      Boolean(navError) ||
+      status >= 400 ||
+      !metrics ||
+      Boolean(metrics && (
+        metrics.horizontalOverflow ||
+        metrics.overflow.length > 0 ||
+        metrics.clippedText.length > 0 ||
+        metrics.brokenImages.length > 0 ||
+        metrics.headerOverlaps.length > 0 ||
+        metrics.theme !== "light" ||
+        !metrics.searchTriggerVisible ||
+        !metrics.themeToggleVisible ||
+        (route === "/ru/company" && metrics.companyCtaCount < 2)
+      )) ||
+      heroDrift;
+
+    lightResults.push({
+      route,
+      viewport: name,
+      width,
+      height,
+      status,
+      navError,
+      metrics,
+      heroDrift,
+      result: failure ? "FAIL" : "PASS",
+    });
+
+    if (name === "desktop-1440x900" || name === "mobile-390x844") {
+      const d = path.join(lightScreenDir, name);
+      await ensure(d);
+      await page.screenshot({ path: path.join(d, `${safeName(route)}.png`), fullPage: false }).catch(() => {});
+    }
+  }
+  await context.close();
+}
+await fs.writeFile(path.join(outDir, "light-results.json"), JSON.stringify(lightResults, null, 2));
+
 await browser.close();
 
 const routeStatus = {};
@@ -311,6 +433,9 @@ const summary = {
   combinations: results.length,
   passed: results.filter(r => r.result === "PASS").length,
   failed: results.filter(r => r.result === "FAIL").length,
+  lightCombinations: lightResults.length,
+  lightPassed: lightResults.filter(r => r.result === "PASS").length,
+  lightFailed: lightResults.filter(r => r.result === "FAIL").length,
   routeStatus,
 };
 await fs.writeFile(path.join(outDir, "summary.json"), JSON.stringify(summary, null, 2));
@@ -318,7 +443,7 @@ await fs.writeFile(path.join(outDir, "results.json"), JSON.stringify(results, nu
 await fs.writeFile(path.join(outDir, "routes.json"), JSON.stringify(routes, null, 2));
 await fs.writeFile(path.join(outDir, "breakpoints.json"), JSON.stringify(breakpointResults, null, 2));
 
-let md = `# Responsive Audit Raw Matrix\n\nGenerated: ${summary.generatedAt}\n\n- Routes: ${summary.routes}\n- Viewports: ${summary.viewportCount}\n- Combinations: ${summary.combinations}\n- PASS: ${summary.passed}\n- FAIL: ${summary.failed}\n\n| Route | Tested | PASS | FAIL | HTTP statuses |\n|---|---:|---:|---:|---|\n`;
+let md = `# Responsive Audit Raw Matrix\n\nGenerated: ${summary.generatedAt}\n\n- Routes: ${summary.routes}\n- Viewports: ${summary.viewportCount}\n- Combinations: ${summary.combinations}\n- PASS: ${summary.passed}\n- FAIL: ${summary.failed}\n- LIGHT combinations: ${summary.lightCombinations}\n- LIGHT PASS: ${summary.lightPassed}\n- LIGHT FAIL: ${summary.lightFailed}\n\n| Route | Tested | PASS | FAIL | HTTP statuses |\n|---|---:|---:|---:|---|\n`;
 for (const route of routes) {
   const s = routeStatus[route];
   md += `| \`${route}\` | ${s.tested} | ${s.pass} | ${s.fail} | ${s.statuses.join(", ")} |\n`;
