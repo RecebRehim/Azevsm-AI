@@ -583,6 +583,9 @@ for (const theme of ["dark", "light"]) {
 
       await page.locator("header .ru-desktop-more > summary").click();
       await page.waitForTimeout(60);
+      controls.groupedLabels = await page.locator("header .ru-desktop-more-panel a").evaluateAll((els) =>
+        els.map((el) => (el.innerText || "").trim())
+      );
       controls.groupedLinksVisible = await page.locator("header .ru-desktop-more-panel a").evaluateAll((els) =>
         els.length === 9 && els.every((el) => {
           const s = getComputedStyle(el);
