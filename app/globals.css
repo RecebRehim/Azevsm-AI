@@ -10929,30 +10929,6 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .v4-preview-card {
   border-color: rgba(213, 226, 239, .22) !important;
 }
 
-/* Authority long prose: left-align + readable measure */
-html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-blocks > p,
-html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-blocks > p,
-html:is([lang="ru"],[lang="en"],[lang="az"]) .section-tight:has(> .wrap.ru-pilot-prose) .ru-pilot-blocks > p,
-html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-blocks > ul,
-html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section--technology .ru-pilot-blocks > p,
-html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section--whiteBox .ru-pilot-blocks > p,
-html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section--company .ru-pilot-blocks > p,
-html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section--trust .ru-pilot-blocks > p,
-html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section--dataSecurity .ru-pilot-blocks > p,
-html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-legal-stage1 .ru-pilot-blocks > p {
-  width: min(100%, 68ch) !important;
-  max-width: 68ch;
-  margin-inline: 0 !important;
-  text-align: left !important;
-}
-html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-blocks > h2,
-html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-blocks > h2,
-html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section .ru-pilot-blocks > h2 {
-  text-align: left !important;
-  margin-inline: 0 !important;
-  max-width: 28ch;
-}
-
 /* Trust pillar headings: ice white for scan */
 html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section--trust .ru-pilot-blocks > h2,
 html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section--trust .ru-pilot-note h3,
