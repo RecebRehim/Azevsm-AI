@@ -97,6 +97,8 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
     { href: "/search", label: locale === "ru" ? "Поиск" : locale === "az" ? "Axtarış" : locale === "en" ? "Search" : locale === "ar" ? "بحث" : "搜索" },
   ];
   const extendedCorporateLinks = new Set([
+    "/trust",
+    "/white-box",
     "/data-security",
     "/legal-compliance",
     "/validation-reproducibility",

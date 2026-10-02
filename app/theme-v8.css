@@ -607,6 +607,7 @@ html[lang="ru"] .ru-corporate-home-header .ru-desktop-more {
     position: relative;
     display: flex;
     flex: 0 0 auto;
+    min-width: 48px;
     align-self: stretch;
     align-items: center;
   }
