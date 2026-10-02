@@ -8,7 +8,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  if (!isLocale(locale) || isPilotLocale(locale)) return {};
+  if (!isLocale(locale) || (isPilotLocale(locale) && locale !== "ru")) return {};
   const page = getContactAuthority(locale);
   const copy = getCopy(locale);
   return page ? pageMetadata(locale, "/contact", page.title, page.lead) : pageMetadata(locale, "/contact", copy.contactTitle, copy.contactLead);
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  if (!isLocale(locale) || isPilotLocale(locale)) notFound();
+  if (!isLocale(locale) || (isPilotLocale(locale) && locale !== "ru")) notFound();
   const authority = getContactAuthority(locale);
   const copy = getCopy(locale);
   if (!authority) return (
@@ -32,7 +32,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           <article>
             <h2>{authority.formTitle}</h2>
             <p>{authority.formText}</p>
-            <p className="note" style={{ marginTop: 12 }}>{authority.warning}</p>
+            {locale === "ru" ? null : <p className="note" style={{ marginTop: 12 }}>{authority.warning}</p>}
           </article>
           <ContactForm locale={locale} copy={copy} />
         </div>

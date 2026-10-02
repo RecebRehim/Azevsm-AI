@@ -23,6 +23,7 @@ const acceptanceRoutes = new Set([
   "/ru/insights",
   "/ru/legal/terms",
   "/ru/legal/privacy",
+  "/ru/contact",
 ]);
 
 const viewports = [
@@ -316,6 +317,32 @@ async function inspectPage(page) {
         return Boolean(sun && moon && visible(sun) && visible(moon));
       })(),
       companyCtaCount: [...document.querySelectorAll(".ru-existing-section--company .next-actions a")].filter(visible).length,
+      whiteBoxMenuPresent: Boolean(document.querySelector('header #site-nav a[href="/ru/white-box"]')),
+      companyContactCtaVisible: (() => {
+        const el = document.querySelector('.ru-existing-section--company .next-actions a[href="/ru/contact"]');
+        return Boolean(el && visible(el));
+      })(),
+      companyNewsCtaVisible: (() => {
+        const el = document.querySelector('.ru-existing-section--company .next-actions a[href="/ru/insights"]');
+        return Boolean(el && visible(el));
+      })(),
+      companyHeroSplit: (() => {
+        const h1 = document.querySelector(".ru-pilot-hero--company h1");
+        return Boolean(
+          h1 &&
+          h1.querySelector("br") &&
+          (h1.textContent || "").includes("Azevsm Systems") &&
+          (h1.textContent || "").includes("оператор AzevsmAI")
+        );
+      })(),
+      companyEvidenceVisible: (() => {
+        return [...document.querySelectorAll(".ru-existing-section--company h2")]
+          .some((el) => (el.textContent || "").trim() === "Подтверждаемая деятельность Azevsm Systems");
+      })(),
+      contactFormVisible: (() => {
+        const el = document.querySelector("form.form");
+        return Boolean(el && visible(el));
+      })(),
       heroFingerprint: (() => {
         const hero = document.querySelector("main > .ru-pilot-hero, main > div > section:first-of-type");
         if (!hero || !visible(hero)) return null;
@@ -407,8 +434,15 @@ for (const [name, width, height] of viewports) {
         metrics.headerOverlaps.length > 0 ||
         metrics.contrastFailures.length > 0 ||
         metrics.theme !== "dark" ||
-        (route.startsWith("/ru") && (!metrics.searchTriggerVisible || !metrics.themeToggleVisible || !metrics.pairedThemeIconsVisible)) ||
-        (route === "/ru/company" && metrics.companyCtaCount < 2)
+        (route.startsWith("/ru") && (!metrics.searchTriggerVisible || !metrics.themeToggleVisible || !metrics.pairedThemeIconsVisible || !metrics.whiteBoxMenuPresent)) ||
+        (route === "/ru/company" && (
+          metrics.companyCtaCount < 2 ||
+          !metrics.companyContactCtaVisible ||
+          !metrics.companyNewsCtaVisible ||
+          !metrics.companyHeroSplit ||
+          !metrics.companyEvidenceVisible
+        )) ||
+        (route === "/ru/contact" && !metrics.contactFormVisible)
       ));
 
     const rec = {
@@ -478,6 +512,7 @@ const lightRoutes = [
   "/ru/insights",
   "/ru/legal/terms",
   "/ru/legal/privacy",
+  "/ru/contact",
 ];
 const lightViewports = [
   ["desktop-1920x1080", 1920, 1080],
@@ -539,8 +574,15 @@ for (const [name, width, height] of lightViewports) {
         metrics.lightSurfaceFailures.length > 0 ||
         metrics.lightTextFailures.length > 0 ||
         metrics.theme !== "light" ||
-        (route.startsWith("/ru") && (!metrics.searchTriggerVisible || !metrics.themeToggleVisible || !metrics.pairedThemeIconsVisible)) ||
-        (route === "/ru/company" && metrics.companyCtaCount < 2)
+        (route.startsWith("/ru") && (!metrics.searchTriggerVisible || !metrics.themeToggleVisible || !metrics.pairedThemeIconsVisible || !metrics.whiteBoxMenuPresent)) ||
+        (route === "/ru/company" && (
+          metrics.companyCtaCount < 2 ||
+          !metrics.companyContactCtaVisible ||
+          !metrics.companyNewsCtaVisible ||
+          !metrics.companyHeroSplit ||
+          !metrics.companyEvidenceVisible
+        )) ||
+        (route === "/ru/contact" && !metrics.contactFormVisible)
       )) ||
       heroDrift;
 
@@ -589,7 +631,13 @@ function failureReasons(row, expectedTheme) {
     if (row.route.startsWith("/ru") && !m.searchTriggerVisible) reasons.push("searchHidden");
     if (row.route.startsWith("/ru") && !m.themeToggleVisible) reasons.push("themeToggleHidden");
     if (row.route.startsWith("/ru") && !m.pairedThemeIconsVisible) reasons.push("pairedThemeIconsHidden");
+    if (row.route.startsWith("/ru") && !m.whiteBoxMenuPresent) reasons.push("whiteBoxMenuMissing");
     if (row.route === "/ru/company" && m.companyCtaCount < 2) reasons.push(`companyCta:${m.companyCtaCount}`);
+    if (row.route === "/ru/company" && !m.companyContactCtaVisible) reasons.push("companyContactCtaMissing");
+    if (row.route === "/ru/company" && !m.companyNewsCtaVisible) reasons.push("companyNewsCtaMissing");
+    if (row.route === "/ru/company" && !m.companyHeroSplit) reasons.push("companyHeroSplitMissing");
+    if (row.route === "/ru/company" && !m.companyEvidenceVisible) reasons.push("companyEvidenceMissing");
+    if (row.route === "/ru/contact" && !m.contactFormVisible) reasons.push("contactFormMissing");
   }
   if (row.heroDrift) reasons.push("heroDrift");
   return reasons;

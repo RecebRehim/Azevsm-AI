@@ -117,7 +117,7 @@ html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle:focus-visib
   ) .ru-pilot-blocks > :is(.ru-pilot-note,.ru-pilot-table-shell,ul) {
     grid-column: 1 / -1;
   }
-  html[lang="ru"] .ru-existing-section--company .ru-pilot-blocks > p:first-child {
+  html[lang="ru"] .ru-existing-section--company .ru-pilot-blocks > :is(p:first-child, h2:first-child + p) {
     grid-column: 1 / -1;
     width: min(100%, 78ch);
     max-width: 78ch !important;
@@ -297,7 +297,7 @@ html[lang="ru"][data-theme="light"] :is(
 }
 
 /* Company intro stays visually distinct but readable. */
-html[lang="ru"][data-theme="light"] .ru-existing-section--company .ru-pilot-blocks > p:first-child {
+html[lang="ru"][data-theme="light"] .ru-existing-section--company .ru-pilot-blocks > :is(p:first-child, h2:first-child + p) {
   border-left-color: rgba(154,116,48,.58) !important;
   background: #f8f6f1 !important;
   color: var(--v8-light-copy) !important;
@@ -501,3 +501,18 @@ html[lang="ru"][data-theme="light"] .ru-legal-stage1.ru-authority-section .ru-le
   box-shadow: none !important;
 }
 
+/* WEBSITE-V8 — RU DARK PRIVACY NOTE CONTRAST CLOSURE
+   Local only: fixes the confirmed privacy legal-note light-surface / light-text collision.
+   RU light legal rules above remain authoritative in light mode. */
+html[lang="ru"][data-theme="dark"] .ru-pilot-hero--privacy + .ru-legal-stage1 .ru-legal-note {
+  border-color: rgba(227,180,94,.28) !important;
+  background: rgba(3,16,30,.48) !important;
+  color: #f4f7fa !important;
+  box-shadow: none !important;
+}
+html[lang="ru"][data-theme="dark"] .ru-pilot-hero--privacy + .ru-legal-stage1 .ru-legal-note strong {
+  color: #e3b45e !important;
+}
+html[lang="ru"][data-theme="dark"] .ru-pilot-hero--privacy + .ru-legal-stage1 .ru-legal-note p {
+  color: rgba(235,241,247,.86) !important;
+}
