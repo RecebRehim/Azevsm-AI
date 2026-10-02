@@ -112,12 +112,7 @@ export function RuProductAuthorityPage({ locale, pageKey }: { locale: Locale; pa
                 ))}
               </div>
             </section>
-            <RuPilotActions
-            actions={pageKey === "index"
-              ? [...page.actions, { label: "Индексное поле", href: "/index-field-investor-ecosystem" }]
-              : page.actions}
-            locale={locale}
-          />
+            <RuPilotActions actions={page.actions} locale={locale} />
           </div>
         </section>
       </>
@@ -207,7 +202,12 @@ export function RuProductAuthorityPage({ locale, pageKey }: { locale: Locale; pa
       <section className={`section-tight ru-authority-section ru-product-authority-section ru-product-authority-section--${pageKey}`}>
         <div className="wrap ru-pilot-prose">
           <RuPilotBlocks blocks={page.blocks} />
-          <RuPilotActions actions={page.actions} locale={locale} />
+          <RuPilotActions
+            actions={pageKey === "index"
+              ? [...page.actions, { label: "Индексное поле", href: "/index-field-investor-ecosystem" }]
+              : page.actions}
+            locale={locale}
+          />
         </div>
       </section>
     </>
