@@ -40,9 +40,13 @@ export function ThemeToggle() {
       aria-pressed={theme === "light"}
       onClick={toggle}
     >
-      <span className="presentation-theme-option presentation-theme-option--dark">DARK</span>
-      <span className="presentation-theme-separator" aria-hidden="true">/</span>
-      <span className="presentation-theme-option presentation-theme-option--light">LIGHT</span>
+      <svg className="presentation-theme-icon presentation-theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 15.2A8.5 8.5 0 0 1 8.8 4a8.5 8.5 0 1 0 11.2 11.2Z" />
+      </svg>
+      <svg className="presentation-theme-icon presentation-theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="3.5" />
+        <path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6" />
+      </svg>
     </button>
   );
 }
