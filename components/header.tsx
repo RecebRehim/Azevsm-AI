@@ -69,12 +69,18 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
   const pilotLocale = isPilotLocale(locale);
   const corporateNav = locale === "ru";
   const [open, setOpen] = useState(false);
+  const desktopMoreRef = useRef<HTMLDetailsElement>(null);
   const entry = platformEntryUrl();
   const enterHref = entry ?? localePath(locale, "/enter");
   const close = () => setOpen(false);
+  const closeDesktopMore = () => {
+    desktopMoreRef.current?.removeAttribute("open");
+    close();
+  };
 
   useEffect(() => {
     setOpen(false);
+    desktopMoreRef.current?.removeAttribute("open");
   }, [path]);
 
   const links = [
@@ -176,7 +182,7 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
             </Link>
           ))}
           {corporateNav ? (
-            <details className="ru-desktop-more">
+            <details className="ru-desktop-more" ref={desktopMoreRef}>
               <summary>
                 <span>Ещё</span>
                 <span className="ru-desktop-more-chevron" aria-hidden="true">⌄</span>
@@ -187,7 +193,7 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
                     key={item.href}
                     href={localePath(locale, item.href)}
                     aria-current={path === `/${locale}${item.href}` || path.startsWith(`/${locale}${item.href}/`) ? "page" : undefined}
-                    onClick={close}
+                    onClick={closeDesktopMore}
                   >
                     {item.label}
                   </Link>
