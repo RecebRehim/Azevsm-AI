@@ -19,8 +19,6 @@ const acceptanceRoutes = new Set([
   "/ru/legal-compliance",
   "/ru/validation-reproducibility",
   "/ru/search",
-  "/en/company",
-  "/az/company",
 ]);
 
 const viewports = [
@@ -398,8 +396,6 @@ const lightRoutes = [
   "/ru/legal-compliance",
   "/ru/validation-reproducibility",
   "/ru/search",
-  "/en/company",
-  "/az/company",
 ];
 const lightViewports = [
   ["desktop-1920x1080", 1920, 1080],
