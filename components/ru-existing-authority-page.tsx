@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { RuPilotActions, RuPilotBlocks } from "@/components/ru-pilot-blocks";
 import { RuPilotHero, type RuPilotHeroKind } from "@/components/ru-pilot-hero";
+import { RuCompanyCorporateSections } from "@/components/ru-company-corporate-sections";
 import { getExistingAuthorityPage, type ExistingAuthorityPageKey } from "@/lib/content/existing-authority-pages-v31";
 import type { Locale } from "@/lib/i18n";
 
@@ -32,6 +33,7 @@ export function RuExistingAuthorityPage({ locale, pageKey }: { locale: Locale; p
       <section className={`section-tight ru-authority-section ru-existing-section ru-existing-section--${pageKey}`}>
         <div className="wrap ru-pilot-prose">
           <RuPilotBlocks blocks={blocks} />
+          {locale === "ru" && pageKey === "company" ? <RuCompanyCorporateSections /> : null}
           <RuPilotActions actions={actions} locale={locale} includeContact={pageKey === "company"} />
         </div>
       </section>

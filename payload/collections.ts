@@ -123,11 +123,50 @@ export const News: CollectionConfig = {
   fields: [localizedText("title"), localizedArea("body"), workflow, ...governance],
 };
 
+export const Media: CollectionConfig = {
+  slug: "media",
+  admin: { useAsTitle: "alt" },
+  access: { read: () => true, create: usersOnly, update: usersOnly, delete: adminsOnly },
+  upload: { mimeTypes: ["image/*"] },
+  fields: [
+    { name: "alt", type: "text", localized: true },
+  ],
+};
+
 export const People: CollectionConfig = {
   slug: "people",
   admin: { useAsTitle: "name" },
   access: { read: publishedOrUser, create: usersOnly, update: usersOnly, delete: adminsOnly },
-  fields: [{ name: "name", type: "text", required: true }, localizedArea("role"), workflow],
+  fields: [
+    { name: "name", type: "text", required: true },
+    localizedArea("role"),
+    localizedArea("profile"),
+    { name: "photo", type: "upload", relationTo: "media" },
+    { name: "publicProfileUrl", type: "text" },
+    {
+      name: "category",
+      type: "select",
+      defaultValue: "leadership",
+      options: [{ label: "Leadership", value: "leadership" }],
+    },
+    { name: "order", type: "number", defaultValue: 100 },
+    workflow,
+  ],
+};
+
+export const Partners: CollectionConfig = {
+  slug: "partners",
+  admin: { useAsTitle: "name" },
+  access: { read: publishedOrUser, create: usersOnly, update: usersOnly, delete: adminsOnly },
+  fields: [
+    { name: "name", type: "text", required: true },
+    { name: "logo", type: "upload", relationTo: "media" },
+    localizedArea("shortDescription"),
+    { name: "publicUrl", type: "text" },
+    { name: "order", type: "number", defaultValue: 100 },
+    workflow,
+    ...governance,
+  ],
 };
 
 export const CompanyInfo: CollectionConfig = {
