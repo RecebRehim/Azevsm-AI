@@ -108,10 +108,29 @@ async function inspectPage(page) {
       cls: typeof el.className === "string" ? el.className.slice(0, 120) : "",
       text: (el.textContent || "").trim().replace(/\s+/g, " ").slice(0, 120),
     });
+    const intentionalA11yHidden = (el) => Boolean(el.closest(".sr-only"));
+    const parseRgb = (value) => {
+      const match = String(value || "").match(/rgba?\((\d+(?:\.\d+)?)[, ]+(\d+(?:\.\d+)?)[, ]+(\d+(?:\.\d+)?)(?:[, /]+(\d*(?:\.\d+)?))?\)/i);
+      if (!match) return null;
+      return { r: Number(match[1]), g: Number(match[2]), b: Number(match[3]), a: match[4] === undefined || match[4] === "" ? 1 : Number(match[4]) };
+    };
+    const nearWhite = (rgb) => Boolean(rgb && rgb.a > .1 && rgb.r >= 235 && rgb.g >= 235 && rgb.b >= 235);
+    const darkColor = (rgb) => Boolean(rgb && rgb.a > .1 && (rgb.r + rgb.g + rgb.b) / 3 < 95);
+    const effectiveBackground = (el) => {
+      let node = el;
+      while (node && node instanceof Element) {
+        const style = getComputedStyle(node);
+        if (style.backgroundImage && style.backgroundImage !== "none") return null;
+        const rgb = parseRgb(style.backgroundColor);
+        if (rgb && rgb.a > .1) return { rgb, value: style.backgroundColor, node };
+        node = node.parentElement;
+      }
+      return null;
+    };
 
     const overflow = [];
     for (const el of document.querySelectorAll("body *")) {
-      if (!visible(el)) continue;
+      if (!visible(el) || intentionalA11yHidden(el)) continue;
       const r = el.getBoundingClientRect();
       const s = getComputedStyle(el);
       if (s.position === "fixed" && (r.left < -2 || r.right > vw + 2)) continue;
@@ -124,10 +143,33 @@ async function inspectPage(page) {
 
     const clippedText = [];
     for (const el of document.querySelectorAll("h1,h2,h3,h4,p,button,a,label,summary,li")) {
-      if (!visible(el)) continue;
+      if (!visible(el) || intentionalA11yHidden(el)) continue;
       if (el.scrollWidth > el.clientWidth + 2 && getComputedStyle(el).whiteSpace !== "normal") {
         clippedText.push({ ...label(el), scrollWidth: el.scrollWidth, clientWidth: el.clientWidth });
         if (clippedText.length >= 20) break;
+      }
+    }
+
+    const contrastFailures = [];
+    for (const el of document.querySelectorAll("h1,h2,h3,p,li,a,button")) {
+      if (!visible(el) || intentionalA11yHidden(el) || !(el.textContent || "").trim()) continue;
+      const fg = parseRgb(getComputedStyle(el).color);
+      const bg = effectiveBackground(el);
+      if (nearWhite(fg) && nearWhite(bg?.rgb)) {
+        contrastFailures.push({ ...label(el), color: getComputedStyle(el).color, backgroundColor: bg.value });
+        if (contrastFailures.length >= 20) break;
+      }
+    }
+
+    const darkContentSurfaces = [];
+    if (document.documentElement.dataset.theme === "light") {
+      for (const el of document.querySelectorAll(".ru-authority-section,.ru-product-authority-section,.ru-existing-section,.site-search-section,.section-tight:has(> .wrap.ru-pilot-prose)")) {
+        if (!visible(el)) continue;
+        const bg = parseRgb(getComputedStyle(el).backgroundColor);
+        if (darkColor(bg)) {
+          darkContentSurfaces.push({ ...label(el), backgroundColor: getComputedStyle(el).backgroundColor });
+          if (darkContentSurfaces.length >= 20) break;
+        }
       }
     }
 
@@ -231,6 +273,8 @@ async function inspectPage(page) {
       fixed,
       headerOverlaps,
       tinyInteractiveText,
+      contrastFailures,
+      darkContentSurfaces,
     };
   });
 }
@@ -285,6 +329,7 @@ for (const [name, width, height] of viewports) {
         metrics.clippedText.length > 0 ||
         metrics.brokenImages.length > 0 ||
         metrics.headerOverlaps.length > 0 ||
+        metrics.contrastFailures.length > 0 ||
         metrics.theme !== "dark" ||
         (route.startsWith("/ru") && (!metrics.searchTriggerVisible || !metrics.themeToggleVisible)) ||
         (route === "/ru/company" && metrics.companyCtaCount < 2)
@@ -358,9 +403,14 @@ const lightRoutes = [
 ];
 const lightViewports = [
   ["desktop-1920x1080", 1920, 1080],
+  ["desktop-1600x900", 1600, 900],
   ["desktop-1440x900", 1440, 900],
   ["desktop-1366x768", 1366, 768],
+  ["tablet-820x1180", 820, 1180],
+  ["tablet-768x1024", 768, 1024],
+  ["mobile-430x932", 430, 932],
   ["mobile-390x844", 390, 844],
+  ["mobile-375x812", 375, 812],
   ["mobile-360x800", 360, 800],
 ];
 const lightResults = [];
@@ -406,6 +456,8 @@ for (const [name, width, height] of lightViewports) {
         metrics.clippedText.length > 0 ||
         metrics.brokenImages.length > 0 ||
         metrics.headerOverlaps.length > 0 ||
+        metrics.contrastFailures.length > 0 ||
+        metrics.darkContentSurfaces.length > 0 ||
         metrics.theme !== "light" ||
         !metrics.searchTriggerVisible ||
         !metrics.themeToggleVisible ||
@@ -450,6 +502,8 @@ function failureReasons(row, expectedTheme) {
     if (m.clippedText?.length) reasons.push(`clippedText:${m.clippedText.length}`);
     if (m.brokenImages?.length) reasons.push(`brokenImages:${m.brokenImages.length}`);
     if (m.headerOverlaps?.length) reasons.push(`headerOverlaps:${m.headerOverlaps.length}`);
+    if (m.contrastFailures?.length) reasons.push(`contrastFailures:${m.contrastFailures.length}`);
+    if (expectedTheme === "light" && m.darkContentSurfaces?.length) reasons.push(`darkContentSurfaces:${m.darkContentSurfaces.length}`);
     if (m.theme !== expectedTheme) reasons.push(`theme:${m.theme}`);
     if (!m.searchTriggerVisible) reasons.push("searchHidden");
     if (!m.themeToggleVisible) reasons.push("themeToggleHidden");
@@ -468,6 +522,7 @@ const acceptanceFailures = [
     overlaps: row.metrics?.headerOverlaps?.slice(0, 3) || [],
     overflow: row.metrics?.overflow?.slice(0, 3) || [],
     clipped: row.metrics?.clippedText?.slice(0, 3) || [],
+    contrast: row.metrics?.contrastFailures?.slice(0, 3) || [],
   })),
   ...lightResults.filter((row) => row.result === "FAIL").map((row) => ({
     mode: "light",
@@ -477,9 +532,12 @@ const acceptanceFailures = [
     overlaps: row.metrics?.headerOverlaps?.slice(0, 3) || [],
     overflow: row.metrics?.overflow?.slice(0, 3) || [],
     clipped: row.metrics?.clippedText?.slice(0, 3) || [],
+    contrast: row.metrics?.contrastFailures?.slice(0, 3) || [],
+    darkContentSurfaces: row.metrics?.darkContentSurfaces?.slice(0, 3) || [],
   })),
 ];
 console.log("ACCEPTANCE_FAILURES=" + JSON.stringify(acceptanceFailures));
+if (acceptanceFailures.length > 0) process.exitCode = 1;
 
 await browser.close();
 
