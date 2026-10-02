@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { ContactForm } from "@/components/contact-form";
 import { PageIntro } from "@/components/page-intro";
+import { RuPilotHero } from "@/components/ru-pilot-hero";
 import { getContactAuthority } from "@/lib/content/news-contact-authority-v31";
 import { getCopy } from "@/lib/content/copy";
 import { isLocale, isPilotLocale } from "@/lib/i18n";
@@ -20,11 +21,11 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
   const authority = getContactAuthority(locale);
   const copy = getCopy(locale);
   if (!authority) return (
-    <><PageIntro title={copy.contactTitle} lead={copy.contactLead} /><section className="section-tight"><div className="wrap"><ContactForm locale={locale} copy={copy} /></div></section></>
+    <>{locale === "ru" ? <RuPilotHero kind="company" title={copy.contactTitle} lead={copy.contactLead} /> : <PageIntro title={copy.contactTitle} lead={copy.contactLead} />}<section className="section-tight"><div className="wrap"><ContactForm locale={locale} copy={copy} /></div></section></>
   );
   const content = (
     <>
-      <PageIntro title={authority.title} lead={authority.lead} />
+      {locale === "ru" ? <RuPilotHero kind="company" title={authority.title} lead={authority.lead} /> : <PageIntro title={authority.title} lead={authority.lead} />}
       <section className="section-tight">
         <div className="wrap prose">
           <p>{authority.intro}</p>
