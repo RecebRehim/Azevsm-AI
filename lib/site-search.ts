@@ -1,10 +1,15 @@
 import { localePath, type Locale } from "@/lib/i18n";
+import { getAuthorityPage, type AuthorityPage } from "@/lib/content/authority-pages-v31";
+import { getExistingAuthorityPage } from "@/lib/content/existing-authority-pages-v31";
+import { getProductAuthorityPage } from "@/lib/content/product-authority-pages-v31";
+import { getContactAuthority, getNewsAuthority } from "@/lib/content/news-contact-authority-v31";
 
 export type SiteSearchDocument = {
   href: string;
   title: string;
   description: string;
   text: string;
+  content: string;
 };
 
 export type SiteSearchResult = SiteSearchDocument & {
@@ -210,24 +215,217 @@ function local(value: Partial<Record<Locale, string>>, locale: Locale) {
   return value[locale] ?? value.en ?? value.ru ?? "";
 }
 
+function flattenAuthorityPage(page: AuthorityPage | null) {
+  if (!page) return "";
+
+  const blockText = page.blocks.flatMap((block) => {
+    if (block.type === "heading" || block.type === "p") return [block.text];
+    if (block.type === "list") return block.items;
+    if (block.type === "note") return [block.title, block.body];
+    if (block.type === "table") return block.rows.flat();
+    return [];
+  });
+
+  return [
+    page.title,
+    page.lead,
+    ...blockText,
+    ...page.actions.map((action) => action.label),
+  ].join(". ");
+}
+
+function publicPageText(locale: Locale, path: string) {
+  switch (path) {
+    case "/platform":
+      return flattenAuthorityPage(getProductAuthorityPage(locale, "platform"));
+    case "/products":
+      return flattenAuthorityPage(getProductAuthorityPage(locale, "products"));
+    case "/products/azevsm-index":
+      return flattenAuthorityPage(getProductAuthorityPage(locale, "index"));
+    case "/products/azevsm-institutional-index":
+      return flattenAuthorityPage(getProductAuthorityPage(locale, "institutional"));
+    case "/products/azevsm-plus":
+      return flattenAuthorityPage(getProductAuthorityPage(locale, "plus"));
+    case "/technology":
+      return flattenAuthorityPage(getExistingAuthorityPage(locale, "technology"));
+    case "/white-box":
+      return flattenAuthorityPage(getExistingAuthorityPage(locale, "whiteBox"));
+    case "/trust":
+      return flattenAuthorityPage(getExistingAuthorityPage(locale, "trust"));
+    case "/company":
+      return flattenAuthorityPage(getExistingAuthorityPage(locale, "company"));
+    case "/result-system":
+      return flattenAuthorityPage(getAuthorityPage(locale, "resultSystem"));
+    case "/how-azevsmai-is-different":
+      return flattenAuthorityPage(getAuthorityPage(locale, "difference"));
+    case "/validation-reproducibility":
+      return flattenAuthorityPage(getAuthorityPage(locale, "validation"));
+    case "/index-field-investor-ecosystem":
+      return flattenAuthorityPage(getAuthorityPage(locale, "indexField"));
+    case "/data-security":
+      return flattenAuthorityPage(getAuthorityPage(locale, "dataSecurity"));
+    case "/legal-compliance":
+      return flattenAuthorityPage(getAuthorityPage(locale, "legalCompliance"));
+    case "/insights": {
+      const page = getNewsAuthority(locale);
+      return page
+        ? [page.title, page.lead, page.intro, ...page.items, page.noteTitle, page.note].join(". ")
+        : "";
+    }
+    case "/contact": {
+      const page = getContactAuthority(locale);
+      return page
+        ? [page.title, page.lead, page.intro, ...page.items, page.formTitle, page.formText, page.warning].join(". ")
+        : "";
+    }
+    default:
+      return "";
+  }
+}
+
 function normalize(value: string) {
   return value
+    .normalize("NFKC")
     .toLocaleLowerCase()
     .replace(/ё/g, "е")
-    .replace(/[\u2010-\u2015]/g, "-")
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+const stopWords = new Set([
+  "the", "and", "for", "with", "from",
+  "для", "или", "как", "это", "что", "при",
+  "və", "ilə", "üçün", "bu",
+]);
+
+function tokenize(value: string) {
+  return [...new Set(
+    normalize(value)
+      .split(" ")
+      .filter((word) => word.length > 1 && !stopWords.has(word))
+  )];
+}
+
+function commonPrefixLength(a: string, b: string) {
+  const length = Math.min(a.length, b.length);
+  let index = 0;
+  while (index < length && a[index] === b[index]) index += 1;
+  return index;
+}
+
+function withinOneEdit(a: string, b: string) {
+  if (a === b) return true;
+  if (Math.abs(a.length - b.length) > 1) return false;
+
+  let left = 0;
+  let right = 0;
+  let edits = 0;
+
+  while (left < a.length && right < b.length) {
+    if (a[left] === b[right]) {
+      left += 1;
+      right += 1;
+      continue;
+    }
+
+    edits += 1;
+    if (edits > 1) return false;
+
+    if (a.length > b.length) left += 1;
+    else if (b.length > a.length) right += 1;
+    else {
+      left += 1;
+      right += 1;
+    }
+  }
+
+  if (left < a.length || right < b.length) edits += 1;
+  return edits <= 1;
+}
+
+function tokenMatchStrength(queryToken: string, candidate: string) {
+  if (queryToken === candidate) return 4;
+
+  if (
+    queryToken.length >= 3 &&
+    candidate.length >= 3 &&
+    (candidate.startsWith(queryToken) || queryToken.startsWith(candidate))
+  ) {
+    return 3;
+  }
+
+  if (queryToken.length >= 6 && candidate.length >= 6) {
+    const prefix = commonPrefixLength(queryToken, candidate);
+    if (prefix >= 6 && prefix / Math.min(queryToken.length, candidate.length) >= 0.72) return 2;
+  }
+
+  if (queryToken.length >= 5 && candidate.length >= 5 && withinOneEdit(queryToken, candidate)) {
+    return 1;
+  }
+
+  return 0;
+}
+
+function bestTokenMatch(queryToken: string, candidates: string[]) {
+  let best = 0;
+  for (const candidate of candidates) {
+    best = Math.max(best, tokenMatchStrength(queryToken, candidate));
+    if (best === 4) break;
+  }
+  return best;
+}
+
+function snippetScore(value: string, query: string, queryTokens: string[]) {
+  const normalized = normalize(value);
+  if (!normalized) return 0;
+
+  let score = normalized.includes(query) ? 24 : 0;
+  const tokens = tokenize(normalized);
+  for (const token of queryTokens) {
+    score += bestTokenMatch(token, tokens) * 3;
+  }
+  return score;
+}
+
+function compactSnippet(value: string, maxLength = 260) {
+  const compact = value.replace(/\s+/g, " ").trim();
+  if (compact.length <= maxLength) return compact;
+  return `${compact.slice(0, maxLength - 1).trimEnd()}…`;
+}
+
+function buildSnippet(doc: SiteSearchDocument, query: string, queryTokens: string[]) {
+  const candidates = (doc.content || doc.description)
+    .split(/(?:[.!?;]\s+|\n+)/)
+    .map((part) => part.trim())
+    .filter((part) => part.length >= 24);
+
+  let best = doc.description;
+  let bestScore = snippetScore(best, query, queryTokens);
+
+  for (const candidate of candidates) {
+    const score = snippetScore(candidate, query, queryTokens);
+    if (score > bestScore) {
+      best = candidate;
+      bestScore = score;
+    }
+  }
+
+  return compactSnippet(best || doc.description);
 }
 
 export function buildSiteSearchIndex(locale: Locale): SiteSearchDocument[] {
   return seeds.map((item) => {
     const title = local(item.title, locale);
     const description = local(item.description, locale);
+    const content = publicPageText(locale, item.path);
+
     return {
       href: localePath(locale, item.path),
       title,
       description,
-      text: [title, description, item.keywords ?? ""].join(" "),
+      content,
+      text: [title, description, content, item.keywords ?? ""].filter(Boolean).join(" "),
     };
   });
 }
@@ -236,32 +434,50 @@ export function searchSite(locale: Locale, rawQuery: string, limit = 20): SiteSe
   const query = normalize(rawQuery);
   if (query.length < 2) return [];
 
-  const words = query.split(" ").filter((word) => word.length > 1);
+  const queryTokens = tokenize(query);
+  if (queryTokens.length === 0) return [];
+
   return buildSiteSearchIndex(locale)
     .map((doc) => {
       const title = normalize(doc.title);
       const description = normalize(doc.description);
       const text = normalize(doc.text);
+      const titleTokens = tokenize(title);
+      const descriptionTokens = tokenize(description);
+      const textTokens = tokenize(text);
       let score = 0;
 
-      if (title === query) score += 100;
-      if (title.includes(query)) score += 50;
-      if (description.includes(query)) score += 24;
-      if (text.includes(query)) score += 12;
+      if (title === query) score += 180;
+      else if (title.includes(query)) score += 110;
 
-      for (const word of words) {
-        if (title.includes(word)) score += 12;
-        if (description.includes(word)) score += 6;
-        if (text.includes(word)) score += 2;
+      if (description.includes(query)) score += 54;
+      if (text.includes(query)) score += 32;
+
+      let matchedTerms = 0;
+      for (const token of queryTokens) {
+        const titleMatch = bestTokenMatch(token, titleTokens);
+        const descriptionMatch = bestTokenMatch(token, descriptionTokens);
+        const textMatch = bestTokenMatch(token, textTokens);
+
+        if (textMatch > 0) matchedTerms += 1;
+        score += titleMatch * 18;
+        score += descriptionMatch * 9;
+        score += textMatch * 3;
       }
+
+      const coverage = matchedTerms / queryTokens.length;
+      if (coverage === 1) score += queryTokens.length > 1 ? 48 : 16;
+      else score += Math.round(coverage * 14);
+
+      if (queryTokens.length > 1 && coverage < 0.5 && !text.includes(query)) score = 0;
 
       return {
         ...doc,
         score,
-        snippet: doc.description,
+        snippet: buildSnippet(doc, query, queryTokens),
       };
     })
     .filter((item) => item.score > 0)
-    .sort((a, b) => b.score - a.score || a.title.localeCompare(b.title))
+    .sort((a, b) => b.score - a.score || a.title.localeCompare(b.title, locale))
     .slice(0, limit);
 }
