@@ -26,7 +26,7 @@ const technicalPartnerPreview = [
 
 export async function RuCompanyCorporateSections() {
   const content = await getRuCorporateContent();
-  const acceptancePreview = process.env.CORPORATE_ACCEPTANCE_PREVIEW === "1" || process.env.VERCEL_ENV === "preview";
+  const acceptancePreview = process.env.CORPORATE_ACCEPTANCE_PREVIEW === "1";
   const leadership = content.leadership.length
     ? content.leadership
     : acceptancePreview ? technicalLeadershipPreview : [];

@@ -602,9 +602,6 @@ html[lang="ru"][data-theme="light"] .ru-home-decision-path a:focus-visible {
 html[lang="ru"] .ru-corporate-home-header .ru-desktop-more {
   display: none;
 }
-html[lang="ru"] .ru-corporate-home-header .ru-desktop-more-label--compact {
-  display: none;
-}
 @media (min-width: 1241px) {
   html[lang="ru"] .ru-corporate-home-header .ru-desktop-more {
     position: relative;
@@ -879,9 +876,6 @@ html[lang="ru"][data-theme="dark"] .ru-contact-v8 .prose > ul,
 html[lang="ru"][data-theme="dark"] .ru-contact-v8 .prose > article {
   color: rgba(235,241,247,.84);
 }
-html[lang="ru"][data-theme="dark"] .ru-contact-v8 .prose > ul li {
-  color: rgba(235,241,247,.84);
-}
 html[lang="ru"][data-theme="dark"] .ru-contact-v8 .prose > ul,
 html[lang="ru"][data-theme="dark"] .ru-contact-v8 .prose > article,
 html[lang="ru"][data-theme="dark"] .ru-contact-v8 .form {
@@ -970,120 +964,5 @@ html[lang="ru"][data-theme="light"] .ru-contact-v8 .field textarea {
 @media (min-width: 1241px) and (max-width: 1600px) {
   html[lang="ru"] .ru-corporate-home-header .nav-main {
     gap: clamp(12px,1.15vw,18px) !important;
-  }
-}
-
-/* WEBSITE-V8 — TARGETED 901–1240 HEADER / GROUPED ACCESS */
-@media (min-width: 901px) and (max-width: 1240px) {
-  html[lang="ru"] .ru-corporate-home-header .header-inner,
-  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
-    grid-template-columns: auto minmax(12px,1fr) auto 40px 58px 58px 44px !important;
-  }
-
-  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact {
-    grid-column: 3 !important;
-    min-width: 0 !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-primary-locales {
-    display: none !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more,
-  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary {
-    display: inline-flex !important;
-  }
-
-  html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
-    grid-column: 4 !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle {
-    grid-column: 5 !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .header-utilities {
-    display: none !important;
-  }
-
-  html[lang="ru"] .ru-corporate-home-header .header-inner:not(.is-open) .nav-main {
-    display: contents !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .header-inner:not(.is-open) .nav-main > .ru-home-nav-link,
-  html[lang="ru"] .ru-corporate-home-header .header-inner:not(.is-open) .nav-main > .ru-home-mobile-enter {
-    display: none !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .header-inner:not(.is-open) .nav-main > .ru-desktop-more {
-    grid-column: 6 !important;
-    grid-row: 1 !important;
-    position: relative !important;
-    display: flex !important;
-    min-width: 58px !important;
-    align-self: stretch !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .header-inner:not(.is-open) .ru-desktop-more > summary {
-    min-height: 44px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 5px !important;
-    padding: 0 4px !important;
-    color: rgba(244,247,250,.86) !important;
-    font-size: 12px !important;
-    white-space: nowrap !important;
-    cursor: pointer !important;
-    list-style: none !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .header-inner:not(.is-open) .ru-desktop-more > summary::-webkit-details-marker {
-    display: none !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .header-inner:not(.is-open) .ru-desktop-more-panel {
-    position: absolute !important;
-    top: calc(100% - 10px) !important;
-    right: 0 !important;
-    z-index: 220 !important;
-    width: min(510px, calc(100vw - 32px)) !important;
-    display: grid !important;
-    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
-    gap: 4px !important;
-    padding: 12px !important;
-    border: 1px solid rgba(223,184,106,.30) !important;
-    border-radius: 12px !important;
-    background: rgba(3,15,28,.99) !important;
-    box-shadow: 0 22px 54px rgba(0,0,0,.42) !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .header-inner:not(.is-open) .ru-desktop-more-label--full {
-    display: none !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .header-inner:not(.is-open) .ru-desktop-more-label--compact {
-    display: inline !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .header-inner:not(.is-open) .ru-desktop-more-panel a {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 44px !important;
-    display: flex !important;
-    align-items: center !important;
-    padding: 10px 12px !important;
-    border-radius: 8px !important;
-    color: rgba(244,247,250,.88) !important;
-    font-size: 13px !important;
-    line-height: 1.35 !important;
-    white-space: normal !important;
-  }
-
-  html[lang="ru"] .ru-corporate-home-header .menu-toggle {
-    grid-column: 7 !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open .nav-main {
-    display: flex !important;
-    right: 52px !important;
-    left: auto !important;
-    transform: none !important;
-    width: min(430px, calc(100vw - 84px)) !important;
-    max-width: calc(100vw - 84px) !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open .nav-main > .ru-desktop-more {
-    display: none !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open .ru-home-mobile-enter {
-    display: flex !important;
   }
 }

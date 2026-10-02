@@ -73,13 +73,6 @@ const breakpointRoutes = [
   "/studio",
 ];
 
-const compactHeaderAcceptanceViewports = [
-  ["compact-901x768", 901, 768],
-  ["compact-1024x768", 1024, 768],
-  ["compact-1180x900", 1180, 900],
-  ["compact-1240x900", 1240, 900],
-];
-
 function safeName(route) {
   if (route === "/") return "root";
   return route.replace(/^\//, "").replace(/[^a-zA-Z0-9_-]+/g, "__").slice(0, 180);
@@ -537,162 +530,6 @@ for (const [name, width, height] of breakpointViewports) {
   await context.close();
 }
 
-const compactHeaderAcceptanceResults = [];
-for (const theme of ["dark", "light"]) {
-  for (const [name, width, height] of compactHeaderAcceptanceViewports) {
-    const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1 });
-    await context.addInitScript((selectedTheme) => {
-      try {
-        localStorage.setItem("azevsm-cookie", "acknowledged");
-        localStorage.setItem("azevsm-theme", selectedTheme);
-      } catch {}
-    }, theme);
-    const page = await context.newPage();
-    page.setDefaultTimeout(15000);
-
-    let status = 0;
-    let navError = "";
-    let metrics = null;
-    let controls = null;
-    try {
-      const response = await page.goto(`${BASE}/ru`, { waitUntil: "domcontentloaded", timeout: 30000 });
-      status = response?.status() || 0;
-      await page.waitForTimeout(80);
-      metrics = await inspectPage(page);
-
-      controls = await page.evaluate(() => {
-        const visible = (el) => {
-          if (!el) return false;
-          const s = getComputedStyle(el);
-          const r = el.getBoundingClientRect();
-          return s.display !== "none" && s.visibility !== "hidden" && Number(s.opacity || 1) > 0 && r.width > 1 && r.height > 1;
-        };
-        const grouped = [...document.querySelectorAll("header .ru-desktop-more-panel a")];
-        return {
-          groupedSummaryVisible: visible(document.querySelector("header .ru-desktop-more > summary")),
-          groupedCount: grouped.length,
-          groupedLabels: grouped.map((el) => (el.innerText || "").trim()),
-          languageSummaryVisible: visible(document.querySelector("header .ru-language-more > summary")),
-          directLocaleVisibleCount: [...document.querySelectorAll("header .ru-primary-locales a")].filter(visible).length,
-          searchVisible: visible(document.querySelector("header .site-search-trigger")),
-          themeVisible: visible(document.querySelector("header .presentation-theme-toggle")),
-          menuVisible: visible(document.querySelector("header .menu-toggle")),
-          directEnterVisible: [...document.querySelectorAll("header .header-utilities .btn-primary")].some(visible),
-        };
-      });
-
-      await page.locator("header .ru-desktop-more > summary").click();
-      await page.waitForTimeout(60);
-      controls.groupedLabels = await page.locator("header .ru-desktop-more-panel a").evaluateAll((els) =>
-        els.map((el) => (el.innerText || "").trim())
-      );
-      controls.groupedLinksVisible = await page.locator("header .ru-desktop-more-panel a").evaluateAll((els) =>
-        els.length === 9 && els.every((el) => {
-          const s = getComputedStyle(el);
-          const r = el.getBoundingClientRect();
-          return s.display !== "none" && s.visibility !== "hidden" && r.width > 1 && r.height > 1;
-        })
-      );
-      await page.locator("header .ru-desktop-more > summary").click();
-
-      await page.locator("header .ru-language-more > summary").click();
-      await page.waitForTimeout(40);
-      controls.languagePanelVisible = await page.locator("header .ru-language-panel").evaluate((el) => {
-        const s = getComputedStyle(el);
-        const r = el.getBoundingClientRect();
-        return s.display !== "none" && s.visibility !== "hidden" && r.width > 1 && r.height > 1;
-      });
-      await page.locator("header .ru-language-more > summary").click();
-
-      await page.locator("header .menu-toggle").click();
-      await page.waitForTimeout(40);
-      controls.menuPanelVisible = await page.locator("header .header-inner.is-open .nav-main").evaluate((el) => {
-        const s = getComputedStyle(el);
-        const r = el.getBoundingClientRect();
-        return s.display !== "none" && s.visibility !== "hidden" && r.width > 1 && r.height > 1;
-      });
-      controls.enterInsideMenuVisible = await page.locator("header .header-inner.is-open .ru-home-mobile-enter").evaluate((el) => {
-        const s = getComputedStyle(el);
-        const r = el.getBoundingClientRect();
-        return s.display !== "none" && s.visibility !== "hidden" && r.width > 1 && r.height > 1;
-      });
-      await page.locator("header .menu-toggle").click();
-
-      const expectedGrouped = [
-        "Доверие",
-        "White Box",
-        "Безопасность данных",
-        "Право и комплаенс",
-        "Проверка и воспроизводимость",
-        "Индексное поле",
-        "Система результата",
-        "Чем отличается AzevsmAI",
-        "Компания",
-      ];
-      const groupedLabelsMatch =
-        controls.groupedLabels.length === expectedGrouped.length &&
-        expectedGrouped.every((label) => controls.groupedLabels.includes(label));
-
-      const failure =
-        status >= 400 ||
-        Boolean(navError) ||
-        !metrics ||
-        Boolean(metrics && (
-          metrics.horizontalOverflow ||
-          metrics.overflow.length > 0 ||
-          metrics.clippedText.length > 0 ||
-          metrics.headerOverlaps.length > 0 ||
-          metrics.theme !== theme
-        )) ||
-        !controls.groupedSummaryVisible ||
-        controls.groupedCount !== 9 ||
-        !groupedLabelsMatch ||
-        !controls.groupedLinksVisible ||
-        !controls.languageSummaryVisible ||
-        controls.directLocaleVisibleCount !== 0 ||
-        !controls.languagePanelVisible ||
-        !controls.searchVisible ||
-        !controls.themeVisible ||
-        !controls.menuVisible ||
-        controls.directEnterVisible ||
-        !controls.menuPanelVisible ||
-        !controls.enterInsideMenuVisible;
-
-      compactHeaderAcceptanceResults.push({
-        route: "/ru",
-        viewport: name,
-        width,
-        height,
-        theme,
-        status,
-        navError,
-        metrics,
-        controls,
-        result: failure ? "FAIL" : "PASS",
-      });
-    } catch (err) {
-      navError = String(err).slice(0,1000);
-      compactHeaderAcceptanceResults.push({
-        route: "/ru",
-        viewport: name,
-        width,
-        height,
-        theme,
-        status,
-        navError,
-        metrics,
-        controls,
-        result: "FAIL",
-      });
-    }
-    await context.close();
-  }
-}
-
-const compactHeaderFailures = compactHeaderAcceptanceResults.filter((row) => row.result === "FAIL");
-console.log("COMPACT_HEADER_ACCEPTANCE=" + JSON.stringify(compactHeaderAcceptanceResults));
-if (compactHeaderFailures.length > 0) process.exitCode = 1;
-
 const lightRoutes = [
   "/ru",
   "/ru/company",
@@ -949,7 +786,6 @@ await fs.writeFile(path.join(outDir, "summary.json"), JSON.stringify(summary, nu
 await fs.writeFile(path.join(outDir, "results.json"), JSON.stringify(results, null, 2));
 await fs.writeFile(path.join(outDir, "routes.json"), JSON.stringify(routes, null, 2));
 await fs.writeFile(path.join(outDir, "breakpoints.json"), JSON.stringify(breakpointResults, null, 2));
-await fs.writeFile(path.join(outDir, "compact-header-acceptance.json"), JSON.stringify(compactHeaderAcceptanceResults, null, 2));
 
 let md = `# Responsive Audit Raw Matrix\n\nGenerated: ${summary.generatedAt}\n\n- Routes: ${summary.routes}\n- Viewports: ${summary.viewportCount}\n- Combinations: ${summary.combinations}\n- PASS: ${summary.passed}\n- FAIL: ${summary.failed}\n- LIGHT combinations: ${summary.lightCombinations}\n- LIGHT PASS: ${summary.lightPassed}\n- LIGHT FAIL: ${summary.lightFailed}\n\n| Route | Tested | PASS | FAIL | HTTP statuses |\n|---|---:|---:|---:|---|\n`;
 for (const route of routes) {
