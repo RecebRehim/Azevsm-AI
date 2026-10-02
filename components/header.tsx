@@ -189,7 +189,12 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
                     aria-current={path === `/${locale}${item.href}` || path.startsWith(`/${locale}${item.href}/`) ? "page" : undefined}
                     onClick={close}
                   >
-                    {item.label}
+                    {item.href === "/index-field-investor-ecosystem" ? (
+                      <>
+                        <span className="ru-desktop-more-label ru-desktop-more-label--full">{item.label}</span>
+                        <span className="ru-desktop-more-label ru-desktop-more-label--compact">Индексное поле</span>
+                      </>
+                    ) : item.label}
                   </Link>
                 ))}
               </div>

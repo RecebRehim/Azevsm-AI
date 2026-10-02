@@ -602,6 +602,9 @@ html[lang="ru"][data-theme="light"] .ru-home-decision-path a:focus-visible {
 html[lang="ru"] .ru-corporate-home-header .ru-desktop-more {
   display: none;
 }
+html[lang="ru"] .ru-corporate-home-header .ru-desktop-more-label--compact {
+  display: none;
+}
 @media (min-width: 1241px) {
   html[lang="ru"] .ru-corporate-home-header .ru-desktop-more {
     position: relative;
@@ -1046,6 +1049,12 @@ html[lang="ru"][data-theme="light"] .ru-contact-v8 .field textarea {
     background: rgba(3,15,28,.99) !important;
     box-shadow: 0 22px 54px rgba(0,0,0,.42) !important;
   }
+  html[lang="ru"] .ru-corporate-home-header .header-inner:not(.is-open) .ru-desktop-more-label--full {
+    display: none !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .header-inner:not(.is-open) .ru-desktop-more-label--compact {
+    display: inline !important;
+  }
   html[lang="ru"] .ru-corporate-home-header .header-inner:not(.is-open) .ru-desktop-more-panel a {
     width: 100% !important;
     height: auto !important;
@@ -1065,6 +1074,11 @@ html[lang="ru"][data-theme="light"] .ru-contact-v8 .field textarea {
   }
   html[lang="ru"] .ru-corporate-home-header .header-inner.is-open .nav-main {
     display: flex !important;
+    right: 52px !important;
+    left: auto !important;
+    transform: none !important;
+    width: min(430px, calc(100vw - 84px)) !important;
+    max-width: calc(100vw - 84px) !important;
   }
   html[lang="ru"] .ru-corporate-home-header .header-inner.is-open .nav-main > .ru-desktop-more {
     display: none !important;

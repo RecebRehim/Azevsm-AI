@@ -571,7 +571,7 @@ for (const theme of ["dark", "light"]) {
         return {
           groupedSummaryVisible: visible(document.querySelector("header .ru-desktop-more > summary")),
           groupedCount: grouped.length,
-          groupedLabels: grouped.map((el) => (el.textContent || "").trim()),
+          groupedLabels: grouped.map((el) => (el.innerText || "").trim()),
           languageSummaryVisible: visible(document.querySelector("header .ru-language-more > summary")),
           directLocaleVisibleCount: [...document.querySelectorAll("header .ru-primary-locales a")].filter(visible).length,
           searchVisible: visible(document.querySelector("header .site-search-trigger")),
