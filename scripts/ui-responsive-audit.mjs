@@ -335,13 +335,17 @@ async function inspectPage(page) {
           (h1.textContent || "").includes("оператор AzevsmAI")
         );
       })(),
-      companyEvidenceVisible: (() => {
-        return [...document.querySelectorAll(".ru-existing-section--company h2")]
+      companyEvidenceAbsent: (() => {
+        return ![...document.querySelectorAll(".ru-existing-section--company h2")]
           .some((el) => (el.textContent || "").trim() === "Подтверждаемая деятельность Azevsm Systems");
       })(),
       contactFormVisible: (() => {
         const el = document.querySelector("form.form");
         return Boolean(el && visible(el));
+      })(),
+      contactWarningVisible: (() => {
+        return [...document.querySelectorAll(".note")]
+          .some((el) => visible(el) && (el.textContent || "").trim() === "Не отправляйте через общую форму конфиденциальные документы, пароли, платежные реквизиты или чувствительные персональные данные. Для рабочих материалов используется отдельный защищенный маршрут.");
       })(),
       heroFingerprint: (() => {
         const hero = document.querySelector("main > .ru-pilot-hero, main > div > section:first-of-type");
@@ -440,9 +444,9 @@ for (const [name, width, height] of viewports) {
           !metrics.companyContactCtaVisible ||
           !metrics.companyNewsCtaVisible ||
           !metrics.companyHeroSplit ||
-          !metrics.companyEvidenceVisible
+          !metrics.companyEvidenceAbsent
         )) ||
-        (route === "/ru/contact" && !metrics.contactFormVisible)
+        (route === "/ru/contact" && (!metrics.contactFormVisible || !metrics.contactWarningVisible))
       ));
 
     const rec = {
@@ -580,9 +584,9 @@ for (const [name, width, height] of lightViewports) {
           !metrics.companyContactCtaVisible ||
           !metrics.companyNewsCtaVisible ||
           !metrics.companyHeroSplit ||
-          !metrics.companyEvidenceVisible
+          !metrics.companyEvidenceAbsent
         )) ||
-        (route === "/ru/contact" && !metrics.contactFormVisible)
+        (route === "/ru/contact" && (!metrics.contactFormVisible || !metrics.contactWarningVisible))
       )) ||
       heroDrift;
 
@@ -636,8 +640,9 @@ function failureReasons(row, expectedTheme) {
     if (row.route === "/ru/company" && !m.companyContactCtaVisible) reasons.push("companyContactCtaMissing");
     if (row.route === "/ru/company" && !m.companyNewsCtaVisible) reasons.push("companyNewsCtaMissing");
     if (row.route === "/ru/company" && !m.companyHeroSplit) reasons.push("companyHeroSplitMissing");
-    if (row.route === "/ru/company" && !m.companyEvidenceVisible) reasons.push("companyEvidenceMissing");
+    if (row.route === "/ru/company" && !m.companyEvidenceAbsent) reasons.push("companyEvidencePresent");
     if (row.route === "/ru/contact" && !m.contactFormVisible) reasons.push("contactFormMissing");
+    if (row.route === "/ru/contact" && !m.contactWarningVisible) reasons.push("contactWarningMissing");
   }
   if (row.heroDrift) reasons.push("heroDrift");
   return reasons;
