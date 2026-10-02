@@ -11857,3 +11857,142 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero-landscape--result {
     padding-right: 20px !important;
   }
 }
+
+/* ============================================================
+   WEBSITE-V7 — HERO/CONTENT GAPS + FIELD TYPOGRAPHY
+   2026-10-02
+   ============================================================ */
+
+/* Landscape heroes: end near the copy, not with a tall empty band */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--landscape .ru-pilot-hero-inner {
+  min-height: 0 !important;
+  padding-block: clamp(52px, 5vw, 72px) clamp(36px, 3.8vw, 52px) !important;
+  align-items: center !important;
+}
+
+/* Authority body: tighter join under hero */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .section-tight:has(> .wrap.ru-pilot-prose) {
+  padding-block: clamp(16px, 2vw, 28px) clamp(40px, 4.5vw, 64px) !important;
+}
+
+/* Section rhythm inside glass: reduce oversized h2 gaps */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-blocks > h2,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-blocks > h2,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section .ru-pilot-blocks > h2,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .section-tight:has(> .wrap.ru-pilot-prose) .ru-pilot-blocks > h2 {
+  margin: 36px 0 12px !important;
+  padding-top: 0 !important;
+  border-top: 0 !important;
+  text-align: left !important;
+  max-width: min(28ch, 100%);
+  margin-inline: 0 !important;
+  font-family: inherit !important;
+  letter-spacing: -.028em !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-blocks > h2:first-child,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-blocks > h2:first-child,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section .ru-pilot-blocks > h2:first-child {
+  margin-top: 0 !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-blocks > p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-blocks > p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section .ru-pilot-blocks > p {
+  margin: 0 0 16px !important;
+  max-width: min(68ch, 100%);
+  font-family: inherit !important;
+}
+
+/* Callout / note fields: same glass system + matching type scale */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-note,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-note,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section .ru-pilot-note,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .section-tight:has(> .wrap.ru-pilot-prose) .ru-pilot-note {
+  width: min(100%, 68ch) !important;
+  margin: 22px 0 28px !important;
+  margin-inline: 0 !important;
+  padding: 22px 24px !important;
+  border: 1px solid rgba(213, 226, 239, .22) !important;
+  border-radius: 14px !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.015)),
+    rgba(3, 16, 30, .22) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04) !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-note h3,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-note h3,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section .ru-pilot-note h3 {
+  margin: 0 0 10px !important;
+  color: #f4f7fa !important;
+  font-family: inherit !important;
+  font-size: var(--v5-card, 20px) !important;
+  font-weight: 650 !important;
+  line-height: 1.28 !important;
+  letter-spacing: -.02em !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-note p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-note p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section .ru-pilot-note p {
+  margin: 0 !important;
+  color: rgba(229, 236, 243, .74) !important;
+  font-family: inherit !important;
+  font-size: var(--v5-body, 17px) !important;
+  line-height: 1.64 !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-note p + p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-note p + p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section .ru-pilot-note p + p {
+  margin-top: 10px !important;
+}
+
+/* Platform scenario / repro intro: tighter join to cards */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-scenario-section > h2,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-platform-repro > h2 {
+  margin: 0 auto 12px !important;
+  padding-top: 0 !important;
+  border-top: 0 !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-scenario-section > p,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-platform-repro > p {
+  margin: 0 auto 20px !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-scenario-grid {
+  margin-top: 0 !important;
+  margin-bottom: 28px !important;
+}
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-platform-repro {
+  margin-top: 40px !important;
+}
+
+/* Nested lists inside glass: match note field chrome */
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-blocks > ul,
+html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-blocks > ul {
+  width: min(100%, 68ch) !important;
+  margin: 16px 0 24px !important;
+  margin-inline: 0 !important;
+  padding: 18px 22px 18px 40px !important;
+  border: 1px solid rgba(213, 226, 239, .18) !important;
+  border-radius: 14px !important;
+  background: rgba(3, 16, 30, .18) !important;
+  font-family: inherit !important;
+  font-size: var(--v5-body, 17px) !important;
+  color: rgba(229, 236, 243, .74) !important;
+}
+
+@media (max-width: 860px) {
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-pilot-hero--landscape .ru-pilot-hero-inner {
+    min-height: 0 !important;
+    padding-block: 48px 36px !important;
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section,
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section,
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .section-tight:has(> .wrap.ru-pilot-prose) {
+    padding-block: 14px 40px !important;
+  }
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-authority-section .ru-pilot-blocks > h2,
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-pilot-blocks > h2,
+  html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section .ru-pilot-blocks > h2 {
+    margin: 28px 0 10px !important;
+  }
+}

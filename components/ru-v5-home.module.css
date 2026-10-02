@@ -914,11 +914,11 @@
 /* RU V5 HERO REPAIR — STEP 2 / DESKTOP COMPOSITION GATE */
 @media (min-width: 861px) {
   .hero {
-    min-height: calc(100svh - 82px);
+    min-height: 0;
     padding: clamp(42px,4.2vw,58px) 0 24px;
   }
   .hero > .shell {
-    min-height: calc(100svh - 148px);
+    min-height: 0;
     display: flex;
     flex-direction: column;
   }
@@ -1178,16 +1178,16 @@
 /* RU V5 HERO REPAIR — STEP 5 / REMOVE TALL-VIEWPORT STRETCH */
 @media (min-width: 861px) {
   .hero {
-    min-height: clamp(600px, 60.8vw, 934px) !important;
+    min-height: 0 !important;
   }
   .hero > .shell {
-    min-height: clamp(518px, 55.5vw, 852px) !important;
+    min-height: 0 !important;
   }
   .heroLandscape {
     background-position: center bottom !important;
   }
   .heroFoot {
-    margin-top: auto !important;
+    margin-top: 28px !important;
   }
 }
 
@@ -1222,7 +1222,7 @@
 .contentOpen {
   position: relative;
   display: block;
-  padding: 28px 0 64px;
+  padding: 8px 0 56px;
   isolation: isolate;
   background:
     radial-gradient(ellipse at 18% 6%, rgba(54, 112, 168, .20), transparent 42rem),
@@ -1266,7 +1266,7 @@
 }
 .contentOpen .section,
 .contentOpen .companySection {
-  padding: 18px 0;
+  padding: 10px 0;
   border-top: 0;
 }
 .contentOpen .section > .shell,
@@ -1581,10 +1581,13 @@
 @media (min-width: 861px) {
   .hero {
     padding-top: 78px !important;
-    padding-bottom: 40px !important;
+    padding-bottom: 24px !important;
+    min-height: 0 !important;
   }
   .hero > .shell {
-    min-height: clamp(548px, 57.5vw, 882px) !important;
+    min-height: 0 !important;
+    display: flex;
+    flex-direction: column;
   }
 }
 @media (max-width: 860px) {
@@ -1613,5 +1616,16 @@
   }
   .contentOpen .companySection {
     padding-bottom: 0 !important;
+  }
+}
+
+/* WEBSITE-V7 — kill remaining tall-hero stretch after composition repairs */
+@media (min-width: 861px) {
+  .hero,
+  .hero > .shell {
+    min-height: 0 !important;
+  }
+  .heroFoot {
+    margin-top: 24px !important;
   }
 }
