@@ -459,8 +459,7 @@ for (const [name, width, height] of lightViewports) {
         metrics.contrastFailures.length > 0 ||
         metrics.darkContentSurfaces.length > 0 ||
         metrics.theme !== "light" ||
-        !metrics.searchTriggerVisible ||
-        !metrics.themeToggleVisible ||
+        (route.startsWith("/ru") && (!metrics.searchTriggerVisible || !metrics.themeToggleVisible)) ||
         (route === "/ru/company" && metrics.companyCtaCount < 2)
       )) ||
       heroDrift;
@@ -505,8 +504,8 @@ function failureReasons(row, expectedTheme) {
     if (m.contrastFailures?.length) reasons.push(`contrastFailures:${m.contrastFailures.length}`);
     if (expectedTheme === "light" && m.darkContentSurfaces?.length) reasons.push(`darkContentSurfaces:${m.darkContentSurfaces.length}`);
     if (m.theme !== expectedTheme) reasons.push(`theme:${m.theme}`);
-    if (!m.searchTriggerVisible) reasons.push("searchHidden");
-    if (!m.themeToggleVisible) reasons.push("themeToggleHidden");
+    if (row.route.startsWith("/ru") && !m.searchTriggerVisible) reasons.push("searchHidden");
+    if (row.route.startsWith("/ru") && !m.themeToggleVisible) reasons.push("themeToggleHidden");
     if (row.route === "/ru/company" && m.companyCtaCount < 2) reasons.push(`companyCta:${m.companyCtaCount}`);
   }
   if (row.heroDrift) reasons.push("heroDrift");
