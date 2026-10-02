@@ -171,6 +171,23 @@ async function inspectPage(page) {
       }
     }
 
+    const lightSurfaceFailures = [];
+    if (document.documentElement.lang === "ru" && document.documentElement.dataset.theme === "light") {
+      for (const el of document.querySelectorAll(".ru-pilot-prose")) {
+        if (!visible(el)) continue;
+        const style = getComputedStyle(el);
+        const bg = parseRgb(style.backgroundColor);
+        if (!nearWhite(bg) || style.backgroundImage !== "none") {
+          lightSurfaceFailures.push({
+            ...label(el),
+            backgroundColor: style.backgroundColor,
+            backgroundImage: style.backgroundImage,
+          });
+          if (lightSurfaceFailures.length >= 20) break;
+        }
+      }
+    }
+
     const brokenImages = [];
     for (const img of document.images) {
       if (!img.complete || img.naturalWidth === 0) brokenImages.push({ src: img.currentSrc || img.src, alt: img.alt });
@@ -239,6 +256,11 @@ async function inspectPage(page) {
         const el = document.querySelector("header .presentation-theme-toggle");
         return Boolean(el && visible(el));
       })(),
+      pairedThemeIconsVisible: (() => {
+        const sun = document.querySelector("header .presentation-theme-icon--sun");
+        const moon = document.querySelector("header .presentation-theme-icon--moon");
+        return Boolean(sun && moon && visible(sun) && visible(moon));
+      })(),
       companyCtaCount: [...document.querySelectorAll(".ru-existing-section--company .next-actions a")].filter(visible).length,
       heroFingerprint: (() => {
         const hero = document.querySelector("main > .ru-pilot-hero, main > div > section:first-of-type");
@@ -273,6 +295,7 @@ async function inspectPage(page) {
       tinyInteractiveText,
       contrastFailures,
       darkContentSurfaces,
+      lightSurfaceFailures,
     };
   });
 }
@@ -329,7 +352,7 @@ for (const [name, width, height] of viewports) {
         metrics.headerOverlaps.length > 0 ||
         metrics.contrastFailures.length > 0 ||
         metrics.theme !== "dark" ||
-        (route.startsWith("/ru") && (!metrics.searchTriggerVisible || !metrics.themeToggleVisible)) ||
+        (route.startsWith("/ru") && (!metrics.searchTriggerVisible || !metrics.themeToggleVisible || !metrics.pairedThemeIconsVisible)) ||
         (route === "/ru/company" && metrics.companyCtaCount < 2)
       ));
 
@@ -454,8 +477,9 @@ for (const [name, width, height] of lightViewports) {
         metrics.headerOverlaps.length > 0 ||
         metrics.contrastFailures.length > 0 ||
         metrics.darkContentSurfaces.length > 0 ||
+        metrics.lightSurfaceFailures.length > 0 ||
         metrics.theme !== "light" ||
-        (route.startsWith("/ru") && (!metrics.searchTriggerVisible || !metrics.themeToggleVisible)) ||
+        (route.startsWith("/ru") && (!metrics.searchTriggerVisible || !metrics.themeToggleVisible || !metrics.pairedThemeIconsVisible)) ||
         (route === "/ru/company" && metrics.companyCtaCount < 2)
       )) ||
       heroDrift;
@@ -499,9 +523,11 @@ function failureReasons(row, expectedTheme) {
     if (m.headerOverlaps?.length) reasons.push(`headerOverlaps:${m.headerOverlaps.length}`);
     if (m.contrastFailures?.length) reasons.push(`contrastFailures:${m.contrastFailures.length}`);
     if (expectedTheme === "light" && m.darkContentSurfaces?.length) reasons.push(`darkContentSurfaces:${m.darkContentSurfaces.length}`);
+    if (expectedTheme === "light" && m.lightSurfaceFailures?.length) reasons.push(`lightSurfaceFailures:${m.lightSurfaceFailures.length}`);
     if (m.theme !== expectedTheme) reasons.push(`theme:${m.theme}`);
     if (row.route.startsWith("/ru") && !m.searchTriggerVisible) reasons.push("searchHidden");
     if (row.route.startsWith("/ru") && !m.themeToggleVisible) reasons.push("themeToggleHidden");
+    if (row.route.startsWith("/ru") && !m.pairedThemeIconsVisible) reasons.push("pairedThemeIconsHidden");
     if (row.route === "/ru/company" && m.companyCtaCount < 2) reasons.push(`companyCta:${m.companyCtaCount}`);
   }
   if (row.heroDrift) reasons.push("heroDrift");
@@ -529,6 +555,7 @@ const acceptanceFailures = [
     clipped: row.metrics?.clippedText?.slice(0, 3) || [],
     contrast: row.metrics?.contrastFailures?.slice(0, 3) || [],
     darkContentSurfaces: row.metrics?.darkContentSurfaces?.slice(0, 3) || [],
+    lightSurfaceFailures: row.metrics?.lightSurfaceFailures?.slice(0, 3) || [],
   })),
 ];
 console.log("ACCEPTANCE_FAILURES=" + JSON.stringify(acceptanceFailures));
