@@ -62,6 +62,34 @@ function localizedArea(name: string): Field {
   return { name, type: "textarea", localized: true };
 }
 
+function localeVisibilityFields(): Field[] {
+  return [
+    { name: "ru", label: "RU", type: "checkbox", defaultValue: false },
+    { name: "en", label: "EN", type: "checkbox", defaultValue: false },
+    { name: "az", label: "AZ", type: "checkbox", defaultValue: false },
+    { name: "ar", label: "AR", type: "checkbox", defaultValue: false },
+    { name: "zh", label: "ZH", type: "checkbox", defaultValue: false },
+  ];
+}
+
+function cardVisibilityFields(): Field[] {
+  return [
+    {
+      name: "enabled",
+      label: "Карточка включена",
+      type: "checkbox",
+      defaultValue: false,
+      admin: { description: "Master switch. OFF hides this card in all public language versions." },
+    },
+    {
+      name: "publicVisibility",
+      label: "Публичная видимость по языкам",
+      type: "group",
+      fields: localeVisibilityFields(),
+    },
+  ];
+}
+
 export const Pages: CollectionConfig = {
   slug: "pages",
   admin: { useAsTitle: "title" },
@@ -150,6 +178,7 @@ export const People: CollectionConfig = {
       options: [{ label: "Leadership", value: "leadership" }],
     },
     { name: "order", type: "number", defaultValue: 100 },
+    ...cardVisibilityFields(),
     workflow,
   ],
 };
@@ -164,6 +193,7 @@ export const Partners: CollectionConfig = {
     localizedArea("shortDescription"),
     { name: "publicUrl", type: "text" },
     { name: "order", type: "number", defaultValue: 100 },
+    ...cardVisibilityFields(),
     workflow,
     ...governance,
   ],

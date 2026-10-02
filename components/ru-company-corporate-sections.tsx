@@ -27,12 +27,14 @@ const technicalPartnerPreview = [
 export async function RuCompanyCorporateSections() {
   const content = await getRuCorporateContent();
   const acceptancePreview = process.env.CORPORATE_ACCEPTANCE_PREVIEW === "1" || process.env.VERCEL_ENV === "preview";
-  const leadership = content.leadership.length
-    ? content.leadership
-    : acceptancePreview ? technicalLeadershipPreview : [];
-  const partners = content.partners.length
-    ? content.partners
-    : acceptancePreview ? technicalPartnerPreview : [];
+  const leadership =
+    content.leadershipEnabled && content.leadership.length
+      ? content.leadership
+      : acceptancePreview ? technicalLeadershipPreview : [];
+  const partners =
+    content.partnersEnabled && content.partners.length
+      ? content.partners
+      : acceptancePreview ? technicalPartnerPreview : [];
 
   if (!leadership.length && !partners.length) return null;
 

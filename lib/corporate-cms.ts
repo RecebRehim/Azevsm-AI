@@ -6,9 +6,29 @@ type MediaAsset = {
   alt?: string | null;
 };
 
+type LocaleVisibility = {
+  ru?: boolean | null;
+  en?: boolean | null;
+  az?: boolean | null;
+  ar?: boolean | null;
+  zh?: boolean | null;
+};
+
+type SectionControl = {
+  enabled?: boolean | null;
+  publicVisibility?: LocaleVisibility | null;
+};
+
+type CompanySectionsSettings = {
+  leadership?: SectionControl | null;
+  partners?: SectionControl | null;
+};
+
 type LeadershipRecord = {
   id: string | number;
   name: string;
+  enabled?: boolean | null;
+  publicVisibility?: LocaleVisibility | null;
   role?: string | null;
   profile?: string | null;
   photo?: string | number | MediaAsset | null;
@@ -18,6 +38,8 @@ type LeadershipRecord = {
 type PartnerRecord = {
   id: string | number;
   name: string;
+  enabled?: boolean | null;
+  publicVisibility?: LocaleVisibility | null;
   shortDescription?: string | null;
   logo?: string | number | MediaAsset | null;
   publicUrl?: string | null;
@@ -47,12 +69,19 @@ function media(value: string | number | MediaAsset | null | undefined) {
 }
 
 export async function getRuCorporateContent(): Promise<{
+  leadershipEnabled: boolean;
+  partnersEnabled: boolean;
   leadership: CorporateLeadershipItem[];
   partners: CorporatePartnerItem[];
 }> {
   try {
     const payload = await getPayload({ config });
-    const [peopleResult, partnersResult] = await Promise.all([
+    const [sectionSettings, peopleResult, partnersResult] = await Promise.all([
+      payload.findGlobal({
+        slug: "company-sections",
+        overrideAccess: false,
+        depth: 0,
+      }),
       payload.find({
         collection: "people",
         locale: "ru",
@@ -80,7 +109,9 @@ export async function getRuCorporateContent(): Promise<{
       }),
     ]);
 
-    const leadership = (peopleResult.docs as LeadershipRecord[]).map((item) => {
+    const leadership = (peopleResult.docs as LeadershipRecord[])
+      .filter((item) => item.enabled === true && item.publicVisibility?.ru === true)
+      .map((item) => {
       const photo = media(item.photo);
       return {
         id: String(item.id),
@@ -93,7 +124,9 @@ export async function getRuCorporateContent(): Promise<{
       };
     });
 
-    const partners = (partnersResult.docs as PartnerRecord[]).map((item) => {
+    const partners = (partnersResult.docs as PartnerRecord[])
+      .filter((item) => item.enabled === true && item.publicVisibility?.ru === true)
+      .map((item) => {
       const logo = media(item.logo);
       return {
         id: String(item.id),
@@ -105,9 +138,22 @@ export async function getRuCorporateContent(): Promise<{
       };
     });
 
-    return { leadership, partners };
+    const settings = sectionSettings as CompanySectionsSettings;
+    const leadershipEnabled =
+      settings.leadership?.enabled === true &&
+      settings.leadership.publicVisibility?.ru === true;
+    const partnersEnabled =
+      settings.partners?.enabled === true &&
+      settings.partners.publicVisibility?.ru === true;
+
+    return { leadershipEnabled, partnersEnabled, leadership, partners };
   } catch (error) {
     console.error("Corporate CMS read failed", error);
-    return { leadership: [], partners: [] };
+    return {
+      leadershipEnabled: false,
+      partnersEnabled: false,
+      leadership: [],
+      partners: [],
+    };
   }
 }

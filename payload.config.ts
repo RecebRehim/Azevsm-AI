@@ -5,6 +5,7 @@ import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
 import { payloadSecret } from "./lib/site";
+import { CompanySections } from "./payload/globals";
 import {
   CallsToAction,
   CompanyInfo,
@@ -36,6 +37,7 @@ export default buildConfig({
     fallback: false,
   },
   collections: [Users, Media, Pages, Products, Services, TechnologyClaims, TrustClaims, Insights, News, People, Partners, CompanyInfo, LegalPages, CallsToAction],
+  globals: [CompanySections],
   editor: lexicalEditor(),
   secret: payloadSecret(),
   typescript: { outputFile: path.resolve(dirname, "payload-types.ts") },
