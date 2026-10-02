@@ -9214,7 +9214,7 @@ html[lang="ru"] .ru-corporate-home-header .wordmark-text > span {
     font-size: 19px !important;
   }
   html[lang="ru"] .ru-gateway-card-copy span {
-    font-size: 10.5px !important;
+    font-size: 12.5px !important;
     line-height: 1.4 !important;
   }
   html[lang="ru"] .ru-gateway-secondary {
@@ -11545,15 +11545,15 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
   }
   html[lang="ru"] .ru-corporate-home-header .wordmark .logo,
   html[lang="ru"] .ru-corporate-home-header .wordmark img {
-    width: 32px !important;
-    height: 32px !important;
-    flex: 0 0 32px !important;
+    width: 36px !important;
+    height: 36px !important;
+    flex: 0 0 36px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .wordmark-text {
     display: flex !important;
     flex-direction: row !important;
     align-items: baseline !important;
-    gap: 3px !important;
+    gap: 4px !important;
     min-width: 0 !important;
     white-space: nowrap !important;
   }
@@ -11561,7 +11561,7 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
   html[lang="ru"] .ru-corporate-home-header .wordmark-text > span {
     display: inline !important;
     color: #f5f7f9 !important;
-    font-size: clamp(10.5px, 2.9vw, 12px) !important;
+    font-size: clamp(13px, 3.55vw, 15px) !important;
     line-height: 1 !important;
     font-weight: 430 !important;
     letter-spacing: -.025em !important;
@@ -11571,19 +11571,19 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
     grid-column: 2 !important;
     display: flex !important;
     align-items: center !important;
-    gap: 2px !important;
+    gap: 4px !important;
     padding-left: 0 !important;
-    margin-left: 0 !important;
+    margin-left: 2px !important;
     justify-self: end !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact::before {
     position: static !important;
     left: auto !important;
-    width: 15px !important;
-    height: 15px !important;
-    flex: 0 0 15px !important;
-    margin-right: 1px !important;
-    background-size: 15px 15px !important;
+    width: 17px !important;
+    height: 17px !important;
+    flex: 0 0 17px !important;
+    margin-right: 2px !important;
+    background-size: 17px 17px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-primary-locales {
     display: flex !important;
@@ -11591,12 +11591,12 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
     gap: 1px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-primary-locales a {
-    min-width: 18px !important;
-    min-height: 28px !important;
-    padding: 0 1px !important;
+    min-width: 20px !important;
+    min-height: 30px !important;
+    padding: 0 2px !important;
     border-radius: 4px !important;
     background: transparent !important;
-    font-size: 9px !important;
+    font-size: 9.5px !important;
     line-height: 1 !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-primary-locales a[aria-current="true"] {
@@ -11604,17 +11604,17 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
     background: transparent !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary {
-    min-width: 52px !important;
-    min-height: 34px !important;
-    padding: 0 6px !important;
-    font-size: 10.5px !important;
+    min-width: 58px !important;
+    min-height: 36px !important;
+    padding: 0 7px !important;
+    font-size: 11px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .menu-toggle {
     grid-column: 3 !important;
-    width: 34px !important;
-    min-width: 34px !important;
-    height: 34px !important;
-    min-height: 34px !important;
+    width: 36px !important;
+    min-width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
     padding: 3px !important;
   }
 }
@@ -11626,9 +11626,9 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
   }
   html[lang="ru"] .ru-corporate-home-header .wordmark .logo,
   html[lang="ru"] .ru-corporate-home-header .wordmark img {
-    width: 30px !important;
-    height: 30px !important;
-    flex-basis: 30px !important;
+    width: 33px !important;
+    height: 33px !important;
+    flex-basis: 33px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .wordmark strong,
   html[lang="ru"] .ru-corporate-home-header .wordmark-text > span {
@@ -11636,20 +11636,20 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-existing-section table.data td 
     font-size: 12.5px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact::before {
-    width: 14px !important;
-    height: 14px !important;
-    flex-basis: 14px !important;
-    background-size: 14px 14px !important;
+    width: 15px !important;
+    height: 15px !important;
+    flex-basis: 15px !important;
+    background-size: 15px 15px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-primary-locales a {
-    min-width: 17px !important;
-    padding-inline: 0 !important;
-    font-size: 8.5px !important;
+    min-width: 18px !important;
+    padding-inline: 1px !important;
+    font-size: 9px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary {
-    min-width: 48px !important;
-    padding-inline: 5px !important;
-    font-size: 10px !important;
+    min-width: 54px !important;
+    padding-inline: 6px !important;
+    font-size: 10.5px !important;
   }
 }
 
@@ -12049,9 +12049,6 @@ html[lang="ru"] .ru-corporate-home-header .site-search-trigger:focus-visible {
   }
   html[lang="ru"] .ru-corporate-home-header .wordmark {
     grid-column: 1 !important;
-    width: 122px !important;
-    max-width: 122px !important;
-    min-width: 122px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact {
     grid-column: 3 !important;
@@ -12068,7 +12065,7 @@ html[lang="ru"] .ru-corporate-home-header .site-search-trigger:focus-visible {
 @media (max-width: 680px) {
   html[lang="ru"] .ru-corporate-home-header .header-inner,
   html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
-    grid-template-columns: 122px minmax(0, auto) 30px 34px !important;
+    grid-template-columns: minmax(0,1fr) auto auto auto !important;
     column-gap: 6px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .wordmark {
@@ -12080,10 +12077,10 @@ html[lang="ru"] .ru-corporate-home-header .site-search-trigger:focus-visible {
   html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
     grid-column: 3 !important;
     justify-self: end !important;
-    width: 30px !important;
-    height: 30px !important;
-    min-width: 30px !important;
-    flex-basis: 30px !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    flex-basis: 32px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .site-search-trigger svg {
     width: 17px !important;
@@ -12097,19 +12094,7 @@ html[lang="ru"] .ru-corporate-home-header .site-search-trigger:focus-visible {
 @media (max-width: 380px) {
   html[lang="ru"] .ru-corporate-home-header .header-inner,
   html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
-    grid-template-columns: 110px minmax(0, auto) 28px 32px !important;
     column-gap: 4px !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .wordmark {
-    width: 110px !important;
-    max-width: 110px !important;
-    min-width: 110px !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .menu-toggle {
-    width: 32px !important;
-    min-width: 32px !important;
-    height: 32px !important;
-    min-height: 32px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
     width: 28px !important;
@@ -12121,5 +12106,190 @@ html[lang="ru"] .ru-corporate-home-header .site-search-trigger:focus-visible {
   html[lang="ru"] .ru-corporate-home-header .site-search-trigger svg {
     width: 15px !important;
     height: 15px !important;
+  }
+}
+
+
+/* WEBSITE-V8 — MOBILE HEADER COLLISION REPAIR 2026-10-02
+   Real gap: full company name + direct locales + language drawer + search + menu
+   do not fit safely in one phone row. Use two controlled rows instead of compressing/overlapping. */
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-corporate-home-header {
+    height: 92px !important;
+    min-height: 92px !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .header-inner,
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
+    width: calc(100% - 24px) !important;
+    height: 92px !important;
+    min-height: 92px !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 34px 38px !important;
+    grid-template-rows: 48px 36px !important;
+    column-gap: 8px !important;
+    row-gap: 4px !important;
+    align-items: center !important;
+    padding: 2px 0 !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .wordmark {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+    align-self: center !important;
+    min-width: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+    gap: 7px !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .wordmark .logo,
+  html[lang="ru"] .ru-corporate-home-header .wordmark img {
+    width: 32px !important;
+    height: 32px !important;
+    flex: 0 0 32px !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .wordmark-text {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 4px !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .wordmark strong,
+  html[lang="ru"] .ru-corporate-home-header .wordmark-text > span {
+    display: inline !important;
+    color: #f5f7f9 !important;
+    font-size: 13px !important;
+    line-height: 1 !important;
+    font-weight: 430 !important;
+    letter-spacing: -.02em !important;
+    text-transform: none !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    flex-basis: 32px !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .menu-toggle {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    width: 36px !important;
+    min-width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 3px !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact {
+    grid-column: 1 / 4 !important;
+    grid-row: 2 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact::before {
+    position: static !important;
+    left: auto !important;
+    width: 17px !important;
+    height: 17px !important;
+    flex: 0 0 17px !important;
+    margin-right: 2px !important;
+    background-size: 17px 17px !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-primary-locales {
+    display: flex !important;
+    align-items: center !important;
+    gap: 2px !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .ru-primary-locales a {
+    min-width: 24px !important;
+    min-height: 30px !important;
+    padding: 0 3px !important;
+    font-size: 11px !important;
+    line-height: 1 !important;
+    background: transparent !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary {
+    min-width: 64px !important;
+    min-height: 34px !important;
+    padding: 0 9px !important;
+    font-size: 11px !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .ru-language-panel {
+    top: 94px !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open .nav-main {
+    top: calc(100% + 1px) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  html[lang="ru"] .ru-corporate-home-header .header-inner,
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
+    width: calc(100% - 16px) !important;
+    grid-template-columns: minmax(0, 1fr) 32px 34px !important;
+    column-gap: 6px !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .wordmark .logo,
+  html[lang="ru"] .ru-corporate-home-header .wordmark img {
+    width: 30px !important;
+    height: 30px !important;
+    flex-basis: 30px !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .wordmark strong,
+  html[lang="ru"] .ru-corporate-home-header .wordmark-text > span {
+    font-size: 12px !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    flex-basis: 30px !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .menu-toggle {
+    width: 34px !important;
+    min-width: 34px !important;
+    height: 34px !important;
+    min-height: 34px !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .ru-primary-locales a {
+    min-width: 22px !important;
+    padding-inline: 2px !important;
+    font-size: 10.5px !important;
+  }
+
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary {
+    min-width: 58px !important;
+    padding-inline: 7px !important;
+    font-size: 10.5px !important;
   }
 }
