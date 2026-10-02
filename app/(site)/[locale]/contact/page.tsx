@@ -22,7 +22,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
   if (!authority) return (
     <><PageIntro title={copy.contactTitle} lead={copy.contactLead} /><section className="section-tight"><div className="wrap"><ContactForm locale={locale} copy={copy} /></div></section></>
   );
-  return (
+  const content = (
     <>
       <PageIntro title={authority.title} lead={authority.lead} />
       <section className="section-tight">
@@ -39,4 +39,5 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
       </section>
     </>
   );
+  return locale === "ru" ? <div className="ru-contact-v8">{content}</div> : content;
 }

@@ -347,6 +347,31 @@ async function inspectPage(page) {
         return [...document.querySelectorAll(".note")]
           .some((el) => visible(el) && (el.textContent || "").trim() === "Не отправляйте через общую форму конфиденциальные документы, пароли, платежные реквизиты или чувствительные персональные данные. Для рабочих материалов используется отдельный защищенный маршрут.");
       })(),
+      homeBridgeVisible: (() => {
+        const el = document.querySelector(".ru-home-bridge-copy p");
+        return Boolean(el && visible(el) && (el.textContent || "").includes("структурированный аналитический результат"));
+      })(),
+      homeScenarioLinkVisible: (() => {
+        const el = document.querySelector('.ru-home-scenario-link[href="/ru/platform#ru-scenarios"]');
+        return Boolean(el && visible(el));
+      })(),
+      desktopMoreVisible: (() => {
+        const el = document.querySelector("header .ru-desktop-more > summary");
+        return Boolean(el && visible(el));
+      })(),
+      desktopGroupedRouteCount: [...document.querySelectorAll("header .ru-desktop-more-panel a")].filter(visible).length,
+      leadershipBlockVisible: (() => {
+        const el = document.querySelector(".ru-company-leadership");
+        return Boolean(el && visible(el));
+      })(),
+      partnersBlockVisible: (() => {
+        const el = document.querySelector(".ru-company-partners");
+        return Boolean(el && visible(el));
+      })(),
+      previewLabelsTechnical: (() => {
+        const labels = [...document.querySelectorAll(".ru-company-preview-label")].filter(visible);
+        return labels.length === 0 || labels.every((el) => (el.textContent || "").includes("не публичный факт"));
+      })(),
       heroFingerprint: (() => {
         const hero = document.querySelector("main > .ru-pilot-hero, main > div > section:first-of-type");
         if (!hero || !visible(hero)) return null;
@@ -446,7 +471,9 @@ for (const [name, width, height] of viewports) {
           !metrics.companyHeroSplit ||
           !metrics.companyEvidenceAbsent
         )) ||
-        (route === "/ru/contact" && (!metrics.contactFormVisible || !metrics.contactWarningVisible))
+        (route === "/ru/contact" && (!metrics.contactFormVisible || !metrics.contactWarningVisible)) ||
+        (route === "/ru" && (!metrics.homeBridgeVisible || !metrics.homeScenarioLinkVisible || (width >= 1241 && (!metrics.desktopMoreVisible || metrics.desktopGroupedRouteCount < 6)))) ||
+        (route === "/ru/company" && (!metrics.leadershipBlockVisible || !metrics.partnersBlockVisible || !metrics.previewLabelsTechnical))
       ));
 
     const rec = {
@@ -586,7 +613,9 @@ for (const [name, width, height] of lightViewports) {
           !metrics.companyHeroSplit ||
           !metrics.companyEvidenceAbsent
         )) ||
-        (route === "/ru/contact" && (!metrics.contactFormVisible || !metrics.contactWarningVisible))
+        (route === "/ru/contact" && (!metrics.contactFormVisible || !metrics.contactWarningVisible)) ||
+        (route === "/ru" && (!metrics.homeBridgeVisible || !metrics.homeScenarioLinkVisible || (width >= 1241 && (!metrics.desktopMoreVisible || metrics.desktopGroupedRouteCount < 6)))) ||
+        (route === "/ru/company" && (!metrics.leadershipBlockVisible || !metrics.partnersBlockVisible || !metrics.previewLabelsTechnical))
       )) ||
       heroDrift;
 
@@ -643,6 +672,13 @@ function failureReasons(row, expectedTheme) {
     if (row.route === "/ru/company" && !m.companyEvidenceAbsent) reasons.push("companyEvidencePresent");
     if (row.route === "/ru/contact" && !m.contactFormVisible) reasons.push("contactFormMissing");
     if (row.route === "/ru/contact" && !m.contactWarningVisible) reasons.push("contactWarningMissing");
+    if (row.route === "/ru" && !m.homeBridgeVisible) reasons.push("homeBridgeMissing");
+    if (row.route === "/ru" && !m.homeScenarioLinkVisible) reasons.push("homeScenarioLinkMissing");
+    if (row.route === "/ru" && row.width >= 1241 && !m.desktopMoreVisible) reasons.push("desktopMoreMissing");
+    if (row.route === "/ru" && row.width >= 1241 && m.desktopGroupedRouteCount < 6) reasons.push(`desktopGroupedRoutes:${m.desktopGroupedRouteCount}`);
+    if (row.route === "/ru/company" && !m.leadershipBlockVisible) reasons.push("leadershipBlockMissing");
+    if (row.route === "/ru/company" && !m.partnersBlockVisible) reasons.push("partnersBlockMissing");
+    if (row.route === "/ru/company" && !m.previewLabelsTechnical) reasons.push("previewLabelUnsafe");
   }
   if (row.heroDrift) reasons.push("heroDrift");
   return reasons;
@@ -675,6 +711,48 @@ const acceptanceFailures = [
 ];
 console.log("ACCEPTANCE_FAILURES=" + JSON.stringify(acceptanceFailures));
 if (acceptanceFailures.length > 0) process.exitCode = 1;
+
+
+const requiredScreenDir = path.join(outDir, "screens", "required");
+await ensure(requiredScreenDir);
+async function requiredShot(name, route, theme, width, height, prepare) {
+  const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1 });
+  await context.addInitScript((selectedTheme) => {
+    try {
+      localStorage.setItem("azevsm-cookie", "acknowledged");
+      localStorage.setItem("azevsm-theme", selectedTheme);
+    } catch {}
+  }, theme);
+  const page = await context.newPage();
+  await page.goto(`${BASE}${route}`, { waitUntil: "domcontentloaded", timeout: 30000 });
+  await page.waitForTimeout(80);
+  if (prepare) await prepare(page);
+  await page.screenshot({ path: path.join(requiredScreenDir, `${name}.png`), fullPage: false });
+  await context.close();
+}
+
+await requiredShot("01-ru-home-desktop-dark", "/ru", "dark", 1440, 900);
+await requiredShot("02-ru-home-desktop-light", "/ru", "light", 1440, 900);
+await requiredShot("03-ru-home-mobile-dark", "/ru", "dark", 390, 844);
+await requiredShot("04-desktop-grouped-navigation-open", "/ru", "dark", 1440, 900, async (page) => {
+  await page.locator("header .ru-desktop-more > summary").click();
+  await page.waitForTimeout(80);
+});
+await requiredShot("05-platform", "/ru/platform", "dark", 1440, 900);
+await requiredShot("06-products", "/ru/products", "dark", 1440, 900);
+await requiredShot("07-result-system", "/ru/result-system", "dark", 1440, 900);
+await requiredShot("08-trust", "/ru/trust", "dark", 1440, 900);
+await requiredShot("09-company", "/ru/company", "dark", 1440, 900);
+await requiredShot("10-company-leadership", "/ru/company", "dark", 1440, 900, async (page) => {
+  await page.locator(".ru-company-leadership").scrollIntoViewIfNeeded();
+  await page.waitForTimeout(80);
+});
+await requiredShot("11-company-partners", "/ru/company", "dark", 1440, 900, async (page) => {
+  await page.locator(".ru-company-partners").scrollIntoViewIfNeeded();
+  await page.waitForTimeout(80);
+});
+await requiredShot("12-contact-dark", "/ru/contact", "dark", 1440, 900);
+await requiredShot("13-contact-light", "/ru/contact", "light", 1440, 900);
 
 await browser.close();
 

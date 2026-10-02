@@ -28,6 +28,7 @@ jobs:
       PAYLOAD_SECRET: ui-audit-nonproduction-secret
       DATABASE_URL: file:./data/ui-audit.db
       AUDIT_BASE_URL: http://127.0.0.1:3000
+      CORPORATE_ACCEPTANCE_PREVIEW: "1"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -78,4 +79,5 @@ jobs:
             artifacts/ui-audit/breakpoints.json
             artifacts/ui-audit/screens/acceptance-dark/**
             artifacts/ui-audit/screens/light/**
+            artifacts/ui-audit/screens/required/**
           retention-days: 14
