@@ -79,7 +79,7 @@ export function RuProductAuthorityPage({ locale, pageKey }: { locale: Locale; pa
         <RuPilotHero kind="platform" title={page.title} lead={page.lead} topics={heroTopics} />
         <section className="section-tight ru-authority-section ru-product-authority-section ru-product-authority-section--platform">
           <div className="wrap ru-pilot-prose">
-            <section className="ru-scenario-section">
+            <section className="ru-scenario-section" id="ru-scenarios">
               <h2>{heading?.type === "heading" ? heading.text : "Я представляю"}</h2>
               {intro?.type === "p" ? <p>{intro.text}</p> : null}
               <div className="ru-scenario-grid">

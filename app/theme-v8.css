@@ -516,3 +516,175 @@ html[lang="ru"][data-theme="dark"] .ru-pilot-hero--privacy + .ru-legal-stage1 .r
 html[lang="ru"][data-theme="dark"] .ru-pilot-hero--privacy + .ru-legal-stage1 .ru-legal-note p {
   color: rgba(235,241,247,.86) !important;
 }
+
+
+/* WEBSITE-V8 — RU CORPORATE INFORMATION ACCESS / FIRST-VISIT CLARITY */
+html[lang="ru"] .ru-home-bridge {
+  border-top: 1px solid rgba(227,180,94,.14);
+  border-bottom: 1px solid rgba(213,226,239,.10);
+  background: #06182b;
+  color: #f4f7fa;
+}
+html[lang="ru"] .ru-home-bridge-inner {
+  display: grid;
+  grid-template-columns: minmax(0,1.15fr) minmax(0,.85fr);
+  gap: clamp(22px,4vw,54px);
+  align-items: center;
+  padding-block: clamp(24px,3vw,36px);
+}
+html[lang="ru"] .ru-home-bridge-copy p {
+  margin: 0;
+  max-width: 68ch;
+  color: rgba(241,246,250,.90);
+  font-size: clamp(16px,1.25vw,18px);
+  line-height: 1.65;
+}
+html[lang="ru"] .ru-home-scenario-link {
+  display: inline-flex;
+  margin-top: 12px;
+  color: #e3b45e;
+  font-weight: 650;
+  text-decoration: none;
+}
+html[lang="ru"] .ru-home-scenario-link:hover,
+html[lang="ru"] .ru-home-scenario-link:focus-visible {
+  color: #f1ca7f;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+html[lang="ru"] .ru-home-decision-path {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 8px;
+}
+html[lang="ru"] .ru-home-decision-path a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid rgba(213,226,239,.14);
+  border-radius: 9px;
+  background: rgba(255,255,255,.035);
+  color: rgba(244,247,250,.88);
+  font-size: 13px;
+  line-height: 1.35;
+  text-decoration: none;
+}
+html[lang="ru"] .ru-home-decision-path a:hover,
+html[lang="ru"] .ru-home-decision-path a:focus-visible {
+  border-color: rgba(227,180,94,.48);
+  background: rgba(227,180,94,.075);
+  color: #ffffff;
+}
+html[lang="ru"][data-theme="light"] .ru-home-bridge {
+  border-color: var(--v8-light-line);
+  background: var(--v8-light-bg);
+  color: var(--v8-light-ink);
+}
+html[lang="ru"][data-theme="light"] .ru-home-bridge-copy p {
+  color: var(--v8-light-copy);
+}
+html[lang="ru"][data-theme="light"] .ru-home-scenario-link {
+  color: var(--v8-light-gold);
+}
+html[lang="ru"][data-theme="light"] .ru-home-decision-path a {
+  border-color: var(--v8-light-line);
+  background: var(--v8-light-surface);
+  color: var(--v8-light-navy);
+}
+html[lang="ru"][data-theme="light"] .ru-home-decision-path a:hover,
+html[lang="ru"][data-theme="light"] .ru-home-decision-path a:focus-visible {
+  border-color: rgba(154,116,48,.42);
+  background: #f8f6f1;
+  color: var(--v8-light-ink);
+}
+
+html[lang="ru"] .ru-corporate-home-header .ru-desktop-more {
+  display: none;
+}
+@media (min-width: 1241px) {
+  html[lang="ru"] .ru-corporate-home-header .ru-desktop-more {
+    position: relative;
+    display: flex;
+    align-self: stretch;
+    align-items: center;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-desktop-more > summary {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 2px;
+    color: rgba(244,247,250,.82);
+    font-size: clamp(11px,.92vw,13px);
+    white-space: nowrap;
+    cursor: pointer;
+    list-style: none;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-desktop-more > summary::-webkit-details-marker {
+    display: none;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-desktop-more > summary:hover,
+  html[lang="ru"] .ru-corporate-home-header .ru-desktop-more > summary:focus-visible {
+    color: #ffffff;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-desktop-more-chevron {
+    color: #e3b45e;
+    font-size: 14px;
+    transform-origin: center;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-desktop-more[open] .ru-desktop-more-chevron {
+    transform: rotate(180deg);
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-desktop-more-panel {
+    position: absolute;
+    top: calc(100% - 10px);
+    right: 0;
+    z-index: 220;
+    width: min(510px, calc(100vw - 36px));
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 4px;
+    padding: 12px;
+    border: 1px solid rgba(223,184,106,.30);
+    border-radius: 12px;
+    background: rgba(3,15,28,.99);
+    box-shadow: 0 22px 54px rgba(0,0,0,.42);
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-desktop-more-panel a {
+    width: 100%;
+    height: auto !important;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 10px 12px !important;
+    border-radius: 8px;
+    color: rgba(244,247,250,.88) !important;
+    font-size: 13px !important;
+    line-height: 1.35;
+    white-space: normal !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-desktop-more-panel a:hover,
+  html[lang="ru"] .ru-corporate-home-header .ru-desktop-more-panel a:focus-visible {
+    background: rgba(255,255,255,.055) !important;
+    color: #ffffff !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-desktop-more-panel a[aria-current="page"] {
+    color: #e3b45e !important;
+  }
+}
+@media (max-width: 1240px) {
+  html[lang="ru"] .ru-corporate-home-header .ru-desktop-more {
+    display: none !important;
+  }
+}
+@media (max-width: 760px) {
+  html[lang="ru"] .ru-home-bridge-inner {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding-block: 24px 28px;
+  }
+  html[lang="ru"] .ru-home-decision-path {
+    grid-template-columns: 1fr;
+  }
+}

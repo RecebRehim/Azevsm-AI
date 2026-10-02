@@ -97,7 +97,8 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
     { href: "/search", label: locale === "ru" ? "Поиск" : locale === "az" ? "Axtarış" : locale === "en" ? "Search" : locale === "ar" ? "بحث" : "搜索" },
   ];
   const extendedCorporateLinks = new Set([
-    "/white-box",
+    "/data-security",
+    "/legal-compliance",
     "/validation-reproducibility",
     "/index-field-investor-ecosystem",
     "/result-system",
@@ -119,6 +120,9 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
         "/company",
       ].includes(item.href))
     : links;
+  const desktopGroupedLinks = corporateNav
+    ? visibleLinks.filter((item) => extendedCorporateLinks.has(item.href))
+    : [];
 
   return (
     <header className={`site-header${pilotLocale ? " ru-pilot-site-header" : ""}${corporateNav ? " ru-corporate-home-header" : ""}`}>
@@ -168,6 +172,26 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
               {corporateNav ? <span className="ru-home-nav-chevron" aria-hidden="true">›</span> : null}
             </Link>
           ))}
+          {corporateNav ? (
+            <details className="ru-desktop-more">
+              <summary>
+                <span>Ещё</span>
+                <span className="ru-desktop-more-chevron" aria-hidden="true">⌄</span>
+              </summary>
+              <div className="ru-desktop-more-panel" aria-label="Дополнительные разделы">
+                {desktopGroupedLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={localePath(locale, item.href)}
+                    aria-current={path === `/${locale}${item.href}` || path.startsWith(`/${locale}${item.href}/`) ? "page" : undefined}
+                    onClick={close}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </details>
+          ) : null}
           {corporateNav ? (
             <>
               <a className="ru-home-mobile-enter" href={enterHref} onClick={close} {...(entry ? { rel: "noreferrer" } : {})}>
