@@ -32,7 +32,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           <article>
             <h2>{authority.formTitle}</h2>
             <p>{authority.formText}</p>
-            {locale === "ru" ? null : <p className="note" style={{ marginTop: 12 }}>{authority.warning}</p>}
+            <p className="note" style={{ marginTop: 12 }}>{authority.warning}</p>
           </article>
           <ContactForm locale={locale} copy={copy} />
         </div>
