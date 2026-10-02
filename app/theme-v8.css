@@ -300,3 +300,42 @@ html[data-theme="light"] .site-footer a:hover {
 html[data-theme="light"] .site-footer .footer-base {
   border-top-color: var(--v8-light-line) !important;
 }
+
+
+/* WEBSITE-V8 — ACCEPTANCE REPAIR: keep the theme control inside existing header capacity. */
+html:not([lang="ru"]) .presentation-theme-toggle {
+  width: 34px;
+  min-width: 34px;
+  max-width: 34px;
+  padding-inline: 4px;
+}
+html:not([lang="ru"]) .presentation-theme-toggle .presentation-theme-option {
+  font-size: 0;
+}
+html:not([lang="ru"]) .presentation-theme-toggle .presentation-theme-option--dark::after {
+  content: "D";
+  font-size: 9px;
+}
+html:not([lang="ru"]) .presentation-theme-toggle .presentation-theme-option--light::after {
+  content: "L";
+  font-size: 9px;
+}
+@media (max-width: 1240px) {
+  html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle {
+    width: 32px;
+    min-width: 32px;
+    max-width: 32px;
+    padding-inline: 4px;
+  }
+  html[lang="ru"] .ru-corporate-home-header .presentation-theme-option {
+    font-size: 0;
+  }
+  html[lang="ru"] .ru-corporate-home-header .presentation-theme-option--dark::after {
+    content: "D";
+    font-size: 9px;
+  }
+  html[lang="ru"] .ru-corporate-home-header .presentation-theme-option--light::after {
+    content: "L";
+    font-size: 9px;
+  }
+}

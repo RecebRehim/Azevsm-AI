@@ -6,7 +6,22 @@ const BASE = process.env.AUDIT_BASE_URL || "http://127.0.0.1:3000";
 const outDir = path.resolve("artifacts/ui-audit");
 const failDir = path.join(outDir, "screens", "failures");
 const baselineDir = path.join(outDir, "screens", "baseline");
+const acceptanceDarkDir = path.join(outDir, "screens", "acceptance-dark");
 const baselineRoutes = new Set(["/ru","/en","/az","/ar","/zh","/ru/platform","/ru/products","/ru/company","/ru/legal/privacy","/ru/products/azevsm-plus/budget-analysis"]);
+const acceptanceRoutes = new Set([
+  "/ru",
+  "/ru/company",
+  "/ru/platform",
+  "/ru/products",
+  "/ru/technology",
+  "/ru/trust",
+  "/ru/data-security",
+  "/ru/legal-compliance",
+  "/ru/validation-reproducibility",
+  "/ru/search",
+  "/en/company",
+  "/az/company",
+]);
 
 const viewports = [
   ["desktop-1920x1080", 1920, 1080],
@@ -223,6 +238,7 @@ async function inspectPage(page) {
 await ensure(outDir);
 await ensure(failDir);
 await ensure(baselineDir);
+await ensure(acceptanceDarkDir);
 
 const routes = await getRoutes();
 const browser = await chromium.launch({ headless: true });
@@ -293,6 +309,11 @@ for (const [name, width, height] of viewports) {
       await ensure(d);
       await page.screenshot({ path: path.join(d, `${slug}.png`), fullPage: false }).catch(() => {});
     }
+    if (baselineViewports.has(name) && acceptanceRoutes.has(route)) {
+      const d = path.join(acceptanceDarkDir, name);
+      await ensure(d);
+      await page.screenshot({ path: path.join(d, `${slug}.png`), fullPage: false }).catch(() => {});
+    }
   }
   await context.close();
 }
@@ -332,6 +353,8 @@ const lightRoutes = [
   "/ru/legal-compliance",
   "/ru/validation-reproducibility",
   "/ru/search",
+  "/en/company",
+  "/az/company",
 ];
 const lightViewports = [
   ["desktop-1920x1080", 1920, 1080],
@@ -411,6 +434,52 @@ for (const [name, width, height] of lightViewports) {
   await context.close();
 }
 await fs.writeFile(path.join(outDir, "light-results.json"), JSON.stringify(lightResults, null, 2));
+
+const acceptanceDarkResults = results.filter((row) => acceptanceRoutes.has(row.route));
+await fs.writeFile(path.join(outDir, "acceptance-results.json"), JSON.stringify(acceptanceDarkResults, null, 2));
+
+function failureReasons(row, expectedTheme) {
+  const m = row.metrics;
+  const reasons = [];
+  if (row.navError) reasons.push("navError");
+  if (row.status >= 400) reasons.push(`http:${row.status}`);
+  if (!m) reasons.push("noMetrics");
+  if (m) {
+    if (m.horizontalOverflow) reasons.push("horizontalOverflow");
+    if (m.overflow?.length) reasons.push(`overflow:${m.overflow.length}`);
+    if (m.clippedText?.length) reasons.push(`clippedText:${m.clippedText.length}`);
+    if (m.brokenImages?.length) reasons.push(`brokenImages:${m.brokenImages.length}`);
+    if (m.headerOverlaps?.length) reasons.push(`headerOverlaps:${m.headerOverlaps.length}`);
+    if (m.theme !== expectedTheme) reasons.push(`theme:${m.theme}`);
+    if (!m.searchTriggerVisible) reasons.push("searchHidden");
+    if (!m.themeToggleVisible) reasons.push("themeToggleHidden");
+    if (row.route === "/ru/company" && m.companyCtaCount < 2) reasons.push(`companyCta:${m.companyCtaCount}`);
+  }
+  if (row.heroDrift) reasons.push("heroDrift");
+  return reasons;
+}
+
+const acceptanceFailures = [
+  ...acceptanceDarkResults.filter((row) => row.result === "FAIL").map((row) => ({
+    mode: "dark",
+    route: row.route,
+    viewport: row.viewport,
+    reasons: failureReasons(row, "dark"),
+    overlaps: row.metrics?.headerOverlaps?.slice(0, 3) || [],
+    overflow: row.metrics?.overflow?.slice(0, 3) || [],
+    clipped: row.metrics?.clippedText?.slice(0, 3) || [],
+  })),
+  ...lightResults.filter((row) => row.result === "FAIL").map((row) => ({
+    mode: "light",
+    route: row.route,
+    viewport: row.viewport,
+    reasons: failureReasons(row, "light"),
+    overlaps: row.metrics?.headerOverlaps?.slice(0, 3) || [],
+    overflow: row.metrics?.overflow?.slice(0, 3) || [],
+    clipped: row.metrics?.clippedText?.slice(0, 3) || [],
+  })),
+];
+console.log("ACCEPTANCE_FAILURES=" + JSON.stringify(acceptanceFailures));
 
 await browser.close();
 

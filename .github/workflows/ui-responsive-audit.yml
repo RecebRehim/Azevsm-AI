@@ -71,5 +71,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ui-responsive-audit
-          path: artifacts/ui-audit
+          path: |
+            artifacts/ui-audit/summary.json
+            artifacts/ui-audit/matrix.md
+            artifacts/ui-audit/acceptance-results.json
+            artifacts/ui-audit/light-results.json
+            artifacts/ui-audit/breakpoints.json
+            artifacts/ui-audit/screens/acceptance-dark/**
+            artifacts/ui-audit/screens/light/**
           retention-days: 14
