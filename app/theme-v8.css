@@ -606,6 +606,7 @@ html[lang="ru"] .ru-corporate-home-header .ru-desktop-more {
   html[lang="ru"] .ru-corporate-home-header .ru-desktop-more {
     position: relative;
     display: flex;
+    flex: 0 0 auto;
     align-self: stretch;
     align-items: center;
   }
@@ -956,5 +957,11 @@ html[lang="ru"][data-theme="light"] .ru-contact-v8 .field textarea {
 @media (max-width: 680px) {
   html[lang="ru"] .ru-contact-v8 .prose {
     padding: 20px;
+  }
+}
+
+@media (min-width: 1241px) and (max-width: 1600px) {
+  html[lang="ru"] .ru-corporate-home-header .nav-main {
+    gap: clamp(12px,1.15vw,18px) !important;
   }
 }

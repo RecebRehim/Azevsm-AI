@@ -101,6 +101,8 @@ async function inspectPage(page) {
     const doc = document.documentElement;
     const body = document.body;
     const visible = (el) => {
+      const closedDetails = el.closest("details:not([open])");
+      if (closedDetails && !el.closest("summary")) return false;
       const s = getComputedStyle(el);
       const r = el.getBoundingClientRect();
       return s.display !== "none" && s.visibility !== "hidden" && Number(s.opacity || 1) !== 0 && r.width > 0 && r.height > 0;

@@ -103,6 +103,7 @@ export function Header({ locale, copy }: { locale: Locale; copy: SiteCopy; path?
     "/index-field-investor-ecosystem",
     "/result-system",
     "/how-azevsmai-is-different",
+    "/company",
   ]);
   const visibleLinks = corporateNav
     ? links.filter((item) => [

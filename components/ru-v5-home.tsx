@@ -239,6 +239,21 @@ export function RuV5Home({ locale, copy }: { locale: Locale; copy: SiteCopy }) {
         </div>
       </section>
 
+      <section className="ru-home-bridge" aria-label="Кратко об AzevsmAI">
+        <div className="wrap ru-home-bridge-inner">
+          <div className="ru-home-bridge-copy">
+            <p>AzevsmAI превращает документы, данные и подтверждённые факты в структурированный аналитический результат, который можно проверить и использовать при принятии решений.</p>
+            <Link className="ru-home-scenario-link" href={localePath(locale, "/platform#ru-scenarios")}>Найти свой сценарий</Link>
+          </div>
+          <nav className="ru-home-decision-path" aria-label="Путь по AzevsmAI">
+            <Link href={localePath(locale, "/platform")}>Что делает система</Link>
+            <Link href={localePath(locale, "/products")}>Выбрать продукт</Link>
+            <Link href={localePath(locale, "/result-system")}>Что получает клиент</Link>
+            <Link href={localePath(locale, "/trust")}>Почему можно доверять</Link>
+          </nav>
+        </div>
+      </section>
+
       <div id="ru-v5-content" ref={contentRef} className={`${styles.content} ${styles.contentOpen}`}>
         {audience.length ? (
           <section className={`${styles.section} ${styles.reveal}`} data-reveal>
