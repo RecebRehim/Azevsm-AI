@@ -40,7 +40,6 @@ jobs:
         run: npm run check:content
       - name: Lint
         run: npm run lint
-        continue-on-error: true
       - name: Production build
         run: npm run build
       - name: Prepare audit database path
