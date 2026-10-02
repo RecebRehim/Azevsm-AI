@@ -12118,7 +12118,7 @@ html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
 }
 
 /* DESKTOP: full navigation only where capacity is sufficient. */
-@media (min-width: 1601px) {
+@media (min-width: 1241px) {
   html[lang="ru"] .ru-corporate-home-header .header-inner,
   html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
     width: min(calc(100% - 48px), 1840px) !important;
@@ -12151,7 +12151,7 @@ html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
 }
 
 /* COMPACT DESKTOP / TABLET: preserve controls and move navigation into the existing menu. */
-@media (min-width: 681px) and (max-width: 1600px) {
+@media (min-width: 681px) and (max-width: 1240px) {
   html[lang="ru"] .ru-corporate-home-header .header-inner,
   html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
     width: min(calc(100% - 32px), 1540px) !important;
