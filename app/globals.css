@@ -12158,7 +12158,7 @@ html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
     height: 76px !important;
     min-height: 76px !important;
     display: grid !important;
-    grid-template-columns: auto minmax(12px,1fr) auto 40px 40px auto 44px !important;
+    grid-template-columns: auto minmax(12px,1fr) auto 40px 58px auto 44px !important;
     gap: 8px !important;
     align-items: center !important;
     padding: 0 !important;
@@ -12205,7 +12205,7 @@ html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
 @media (min-width: 681px) and (max-width: 900px) {
   html[lang="ru"] .ru-corporate-home-header .header-inner,
   html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
-    grid-template-columns: auto minmax(12px,1fr) auto 40px 40px 44px !important;
+    grid-template-columns: auto minmax(12px,1fr) auto 40px 58px 44px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .header-utilities { display: none !important; }
   html[lang="ru"] .ru-corporate-home-header .menu-toggle { grid-column: 6 !important; }
@@ -12223,7 +12223,7 @@ html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
     height: 72px !important;
     min-height: 72px !important;
     display: grid !important;
-    grid-template-columns: minmax(112px, 1fr) auto 34px 40px 40px !important;
+    grid-template-columns: minmax(116px, 1fr) auto 34px 58px 40px !important;
     grid-template-rows: 1fr !important;
     column-gap: 4px !important;
     align-items: center !important;
@@ -12280,20 +12280,17 @@ html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
     background-size: 14px 14px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-primary-locales {
-    display: flex !important;
-    gap: 0 !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .ru-primary-locales a {
-    min-width: 18px !important;
-    min-height: 32px !important;
-    padding: 0 1px !important;
-    font-size: 9px !important;
-    line-height: 1 !important;
-    border: 0 !important;
-    background: transparent !important;
+    display: none !important;
   }
   html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more {
-    display: none !important;
+    display: block !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary {
+    min-width: 48px !important;
+    min-height: 36px !important;
+    padding: 0 4px !important;
+    font-size: 10px !important;
+    white-space: nowrap !important;
   }
   html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
     grid-column: 3 !important;
@@ -12330,7 +12327,7 @@ html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
   html[lang="ru"] .ru-corporate-home-header .header-inner,
   html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
     width: calc(100% - 8px) !important;
-    grid-template-columns: minmax(108px, 1fr) auto 32px 38px 38px !important;
+    grid-template-columns: minmax(112px, 1fr) auto 32px 54px 38px !important;
     column-gap: 3px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .wordmark {
@@ -12344,9 +12341,9 @@ html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
   html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact {
     padding-left: 16px !important;
   }
-  html[lang="ru"] .ru-corporate-home-header .ru-primary-locales a {
-    min-width: 17px !important;
-    font-size: 8.7px !important;
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact .ru-language-more summary {
+    min-width: 44px !important;
+    font-size: 9.5px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
     width: 32px !important;
@@ -12354,10 +12351,12 @@ html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
     min-width: 32px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle {
-    width: 38px !important;
-    min-width: 38px !important;
+    width: 54px !important;
+    min-width: 54px !important;
     height: 38px !important;
     min-height: 38px !important;
+    padding-inline: 4px !important;
+    gap: 4px !important;
   }
   html[lang="ru"] .ru-corporate-home-header .menu-toggle {
     width: 38px !important;
