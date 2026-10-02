@@ -11996,3 +11996,115 @@ html:is([lang="ru"],[lang="en"],[lang="az"]) .ru-product-authority-section .ru-p
     margin: 28px 0 10px !important;
   }
 }
+
+
+/* WEBSITE-V7 SEARCH RESTORE — DESKTOP + MOBILE 2026-10-02 */
+html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
+  display: inline-grid !important;
+  place-items: center !important;
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  flex: 0 0 34px !important;
+  margin: 0 !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  border-radius: 9px !important;
+  background: rgba(255,255,255,.025) !important;
+  color: #f4f7fa !important;
+}
+html[lang="ru"] .ru-corporate-home-header .site-search-trigger svg {
+  width: 18px !important;
+  height: 18px !important;
+  stroke: currentColor !important;
+}
+html[lang="ru"] .ru-corporate-home-header .site-search-trigger:hover,
+html[lang="ru"] .ru-corporate-home-header .site-search-trigger:focus-visible {
+  border-color: rgba(227,180,94,.58) !important;
+  background: rgba(227,180,94,.08) !important;
+  color: #f4ca79 !important;
+}
+
+@media (min-width: 1241px) {
+  html[lang="ru"] .ru-corporate-home-header .wordmark {
+    order: 1 !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .nav-main {
+    order: 2 !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact {
+    order: 3 !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
+    order: 4 !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .header-utilities {
+    order: 5 !important;
+  }
+}
+
+@media (min-width: 681px) and (max-width: 1240px) {
+  html[lang="ru"] .ru-corporate-home-header .header-inner,
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
+    grid-template-columns: auto minmax(0,1fr) auto auto auto !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark {
+    grid-column: 1 !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact {
+    grid-column: 3 !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
+    grid-column: 4 !important;
+    justify-self: end !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .menu-toggle {
+    grid-column: 5 !important;
+  }
+}
+
+@media (max-width: 680px) {
+  html[lang="ru"] .ru-corporate-home-header .header-inner,
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
+    grid-template-columns: minmax(0,1fr) auto auto auto !important;
+    column-gap: 6px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .wordmark {
+    grid-column: 1 !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact {
+    grid-column: 2 !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
+    grid-column: 3 !important;
+    justify-self: end !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    flex-basis: 32px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .site-search-trigger svg {
+    width: 17px !important;
+    height: 17px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .menu-toggle {
+    grid-column: 4 !important;
+  }
+}
+
+@media (max-width: 380px) {
+  html[lang="ru"] .ru-corporate-home-header .header-inner,
+  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
+    column-gap: 4px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .site-search-trigger {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    flex-basis: 28px !important;
+    border-radius: 7px !important;
+  }
+  html[lang="ru"] .ru-corporate-home-header .site-search-trigger svg {
+    width: 15px !important;
+    height: 15px !important;
+  }
+}
