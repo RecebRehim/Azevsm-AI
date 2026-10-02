@@ -14,38 +14,34 @@
 }
 
 .presentation-theme-toggle {
-  min-height: 34px;
-  height: 34px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  flex: 0 0 auto;
-  padding: 0 8px;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  min-height: 40px;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 40px;
+  padding: 0;
   border: 1px solid rgba(108, 132, 153, .28);
   border-radius: 9px;
   background: rgba(255,255,255,.04);
   color: inherit;
   font: inherit;
   cursor: pointer;
-  white-space: nowrap;
 }
-.presentation-theme-option {
-  font-size: 9px;
-  line-height: 1;
-  font-weight: 720;
-  letter-spacing: .06em;
-  opacity: .48;
+.presentation-theme-icon {
+  width: 19px;
+  height: 19px;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
-.presentation-theme-separator {
-  font-size: 9px;
-  opacity: .34;
-}
-html[data-theme="dark"] .presentation-theme-option--dark,
-html[data-theme="light"] .presentation-theme-option--light {
-  opacity: 1;
-  color: #e3b45e;
-}
+.presentation-theme-icon--sun { display: none; }
+html[data-theme="light"] .presentation-theme-icon--sun { display: block; }
+html[data-theme="light"] .presentation-theme-icon--moon { display: none; }
 html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle {
   border-color: rgba(255,255,255,.14);
   background: rgba(255,255,255,.025);
@@ -55,57 +51,6 @@ html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle:hover,
 html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle:focus-visible {
   border-color: rgba(227,180,94,.58);
   background: rgba(227,180,94,.08);
-}
-
-@media (min-width: 1241px) {
-  html[lang="ru"] .ru-corporate-home-header .wordmark { order: 1 !important; }
-  html[lang="ru"] .ru-corporate-home-header .nav-main { order: 2 !important; }
-  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact { order: 3 !important; }
-  html[lang="ru"] .ru-corporate-home-header .site-search-trigger { order: 4 !important; }
-  html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle { order: 5 !important; }
-  html[lang="ru"] .ru-corporate-home-header .header-utilities { order: 6 !important; }
-}
-@media (min-width: 681px) and (max-width: 1240px) {
-  html[lang="ru"] .ru-corporate-home-header .header-inner,
-  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
-    grid-template-columns: auto minmax(0,1fr) auto auto auto auto !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .wordmark { grid-column: 1 !important; }
-  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact { grid-column: 3 !important; }
-  html[lang="ru"] .ru-corporate-home-header .site-search-trigger { grid-column: 4 !important; }
-  html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle { grid-column: 5 !important; }
-  html[lang="ru"] .ru-corporate-home-header .menu-toggle { grid-column: 6 !important; }
-}
-@media (max-width: 680px) {
-  html[lang="ru"] .ru-corporate-home-header .header-inner,
-  html[lang="ru"] .ru-corporate-home-header .header-inner.is-open {
-    grid-template-columns: minmax(0,1fr) auto auto auto auto !important;
-    column-gap: 5px !important;
-  }
-  html[lang="ru"] .ru-corporate-home-header .wordmark { grid-column: 1 !important; }
-  html[lang="ru"] .ru-corporate-home-header .ru-language-access--compact { grid-column: 2 !important; }
-  html[lang="ru"] .ru-corporate-home-header .site-search-trigger { grid-column: 3 !important; }
-  html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle {
-    grid-column: 4 !important;
-    width: 32px;
-    min-width: 32px;
-    padding: 0 4px;
-  }
-  html[lang="ru"] .ru-corporate-home-header .menu-toggle { grid-column: 5 !important; }
-  html[lang="ru"] .ru-corporate-home-header .presentation-theme-option {
-    font-size: 0;
-  }
-  html[lang="ru"] .ru-corporate-home-header .presentation-theme-option--dark::after {
-    content: "D";
-    font-size: 9px;
-  }
-  html[lang="ru"] .ru-corporate-home-header .presentation-theme-option--light::after {
-    content: "L";
-    font-size: 9px;
-  }
-  html[lang="ru"] .ru-corporate-home-header .presentation-theme-separator {
-    font-size: 8px;
-  }
 }
 
 /* Corporate/technology/trust long-page rhythm. Content and heading order are unchanged. */
@@ -161,10 +106,14 @@ html[data-theme="light"] body {
   background: var(--v8-light-bg);
   color: var(--v8-light-ink);
 }
+html[data-theme="light"] .shell:has(.ru-pilot-hero--landscape) {
+  background: var(--v8-light-bg) !important;
+}
 html[data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
   .ru-existing-section,
+  .section-tight:has(> .wrap.ru-pilot-prose),
   .site-search-section
 ) {
   position: relative;
@@ -176,7 +125,8 @@ html[data-theme="light"] :is(
 html[data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
-  .ru-existing-section
+  .ru-existing-section,
+  .section-tight:has(> .wrap.ru-pilot-prose)
 ) .ru-pilot-prose {
   border-color: var(--v8-light-line) !important;
   background: var(--v8-light-surface) !important;
@@ -186,21 +136,24 @@ html[data-theme="light"] :is(
 html[data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
-  .ru-existing-section
+  .ru-existing-section,
+  .section-tight:has(> .wrap.ru-pilot-prose)
 ) :is(h2,h3,strong) {
   color: var(--v8-light-ink) !important;
 }
 html[data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
-  .ru-existing-section
+  .ru-existing-section,
+  .section-tight:has(> .wrap.ru-pilot-prose)
 ) :is(p,li,td) {
   color: var(--v8-light-copy) !important;
 }
 html[data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
-  .ru-existing-section
+  .ru-existing-section,
+  .section-tight:has(> .wrap.ru-pilot-prose)
 ) .ru-pilot-blocks > ul {
   border-color: var(--v8-light-line) !important;
   background: var(--v8-light-surface-2) !important;
@@ -209,7 +162,8 @@ html[data-theme="light"] :is(
 html[data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
-  .ru-existing-section
+  .ru-existing-section,
+  .section-tight:has(> .wrap.ru-pilot-prose)
 ) :is(
   .ru-pilot-note,
   .ru-scenario-card,
@@ -225,7 +179,8 @@ html[data-theme="light"] :is(
 html[data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
-  .ru-existing-section
+  .ru-existing-section,
+  .section-tight:has(> .wrap.ru-pilot-prose)
 ) :is(.ru-pilot-table-wrap,.ru-pilot-table-shell) {
   border-color: var(--v8-light-line) !important;
   background: var(--v8-light-surface) !important;
@@ -234,7 +189,8 @@ html[data-theme="light"] :is(
 html[data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
-  .ru-existing-section
+  .ru-existing-section,
+  .section-tight:has(> .wrap.ru-pilot-prose)
 ) table.data {
   border-color: var(--v8-light-line) !important;
   background: var(--v8-light-surface) !important;
@@ -242,7 +198,8 @@ html[data-theme="light"] :is(
 html[data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
-  .ru-existing-section
+  .ru-existing-section,
+  .section-tight:has(> .wrap.ru-pilot-prose)
 ) table.data :is(th,td) {
   border-color: var(--v8-light-line) !important;
   background: var(--v8-light-surface) !important;
@@ -250,7 +207,8 @@ html[data-theme="light"] :is(
 html[data-theme="light"] :is(
   .ru-authority-section,
   .ru-product-authority-section,
-  .ru-existing-section
+  .ru-existing-section,
+  .section-tight:has(> .wrap.ru-pilot-prose)
 ) table.data th {
   color: var(--v8-light-navy) !important;
   background: #f1f4f6 !important;
@@ -301,41 +259,43 @@ html[data-theme="light"] .site-footer .footer-base {
   border-top-color: var(--v8-light-line) !important;
 }
 
-
-/* WEBSITE-V8 — ACCEPTANCE REPAIR: keep the theme control inside existing header capacity. */
-html:not([lang="ru"]) .presentation-theme-toggle {
-  width: 34px;
-  min-width: 34px;
-  max-width: 34px;
-  padding-inline: 4px;
+/* WEBSITE-V8 targeted acceptance repair: coherent light component family below hero. */
+html[data-theme="light"] :is(
+  .ru-authority-section,
+  .ru-product-authority-section,
+  .ru-existing-section,
+  .section-tight:has(> .wrap.ru-pilot-prose)
+) :is(
+  .ru-scenario-section,
+  .ru-platform-repro,
+  .ru-scenario-grid,
+  .ru-product-grid,
+  .ru-repro-grid,
+  .next-actions
+) {
+  color: var(--v8-light-ink) !important;
 }
-html:not([lang="ru"]) .presentation-theme-toggle .presentation-theme-option {
-  font-size: 0;
+html[data-theme="light"] :is(
+  .ru-authority-section,
+  .ru-product-authority-section,
+  .ru-existing-section,
+  .section-tight:has(> .wrap.ru-pilot-prose)
+) :is(a,button) {
+  color: var(--v8-light-navy);
 }
-html:not([lang="ru"]) .presentation-theme-toggle .presentation-theme-option--dark::after {
-  content: "D";
-  font-size: 9px;
+html[data-theme="light"] :is(
+  .ru-authority-section,
+  .ru-product-authority-section,
+  .ru-existing-section,
+  .section-tight:has(> .wrap.ru-pilot-prose)
+) :is(.btn-primary,.next-actions .btn-primary) {
+  color: #ffffff !important;
 }
-html:not([lang="ru"]) .presentation-theme-toggle .presentation-theme-option--light::after {
-  content: "L";
-  font-size: 9px;
-}
-@media (max-width: 1240px) {
+@media (max-width: 680px) {
   html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle {
-    width: 32px;
-    min-width: 32px;
-    max-width: 32px;
-    padding-inline: 4px;
-  }
-  html[lang="ru"] .ru-corporate-home-header .presentation-theme-option {
-    font-size: 0;
-  }
-  html[lang="ru"] .ru-corporate-home-header .presentation-theme-option--dark::after {
-    content: "D";
-    font-size: 9px;
-  }
-  html[lang="ru"] .ru-corporate-home-header .presentation-theme-option--light::after {
-    content: "L";
-    font-size: 9px;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    min-height: 40px;
   }
 }
