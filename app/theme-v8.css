@@ -79,53 +79,6 @@ html[lang="ru"] .ru-corporate-home-header .presentation-theme-toggle:focus-visib
   background: rgba(227,180,94,.08);
 }
 
-/* Corporate/technology/trust long-page rhythm. Content and heading order are unchanged. */
-@media (min-width: 900px) {
-  html[lang="ru"] :is(
-    .ru-existing-section--company,
-    .ru-existing-section--technology,
-    .ru-existing-section--trust
-  ) .ru-pilot-blocks {
-    display: grid !important;
-    grid-template-columns: minmax(220px,.72fr) minmax(0,1.28fr);
-    column-gap: clamp(32px,5vw,72px);
-    row-gap: 26px;
-    align-items: start;
-  }
-  html[lang="ru"] :is(
-    .ru-existing-section--company,
-    .ru-existing-section--technology,
-    .ru-existing-section--trust
-  ) .ru-pilot-blocks > h2 {
-    grid-column: 1;
-    margin: 0 !important;
-    max-width: 22ch !important;
-  }
-  html[lang="ru"] :is(
-    .ru-existing-section--company,
-    .ru-existing-section--technology,
-    .ru-existing-section--trust
-  ) .ru-pilot-blocks > p {
-    grid-column: 2;
-    margin: 0 !important;
-    max-width: 68ch !important;
-  }
-  html[lang="ru"] :is(
-    .ru-existing-section--company,
-    .ru-existing-section--technology,
-    .ru-existing-section--trust
-  ) .ru-pilot-blocks > :is(.ru-pilot-note,.ru-pilot-table-shell,ul) {
-    grid-column: 1 / -1;
-  }
-  html[lang="ru"] .ru-existing-section--company .ru-pilot-blocks > :is(p:first-child, h2:first-child + p) {
-    grid-column: 1 / -1;
-    width: min(100%, 78ch);
-    max-width: 78ch !important;
-    padding: 18px 20px;
-    border-left: 2px solid rgba(227,180,94,.72);
-    background: rgba(227,180,94,.055);
-  }
-}
 
 /* WEBSITE-V8 — RU LIGHT PRESENTATION / SINGLE AUTHORITATIVE LAYER
    Hero selectors are intentionally absent: hero presentation remains unchanged. */
